@@ -4,7 +4,7 @@ all: clean hgt scripts
 
 hgt: strsep.cpp hgt.cpp fonctions.cpp utils_tree.cpp structures.h bioling.cpp
 	@echo  "\n=> Building newhgt.cpp -> hgt"
-	g++ newhgt.cpp -o hgt
+	g++ hgt.cpp -o hgt
 
 scripts: 
 	cp hgt $(EXECDIR)
