@@ -37,6 +37,7 @@ struct Parameters{
   bool verbose_to_screen;
   double avgdiffblock;
   double avgdiff;
+  char translationsfile[200];
   double c1;
   double c2;
 };

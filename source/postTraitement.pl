@@ -12,11 +12,7 @@ use constant DEBUG => 0; # 0,1,2
 
 no warnings 'experimental::smartmatch';
 
-my $f_langues = "langues.new";
-my $f_mot     = "mot.new";
-my $input_langues = new Bio::TreeIO(-file   => "$f_langues", -format => "newick");
-my $input_mot     = new Bio::TreeIO(-file   => "$f_mot", -format => "newick");
-my $input_date    = new Bio::TreeIO(-file   => "gray-atkinson_num4.new", -format => "newick");
+my $tmp_input = new Bio::TreeIO(-file   => $ARGV[0], -format => "newick");
 my $MIN_INTERNAL_NODES = 3;
 my $MIN_EXTERNAL_NODES = 2;
 
@@ -34,18 +30,11 @@ my %tabGroup = ("01"=>'1',"02"=>'1',"03"=>'1',"04"=>'1',"05"=>'1',"06"=>'1',"07"
 		"71"=>'12',"72"=>'12'
 		);
     
-my $tree_langue = $input_langues->next_tree;
-my $tree_mot    = $input_mot->next_tree;
-my $tree_date   = $input_date->next_tree; 
+my $tree_langue = $tmp_input->next_tree;
+my $tree_mot    = $tmp_input->next_tree;
 
 $tree_langue->reroot(trouverRacine("Root",$tree_langue));
 $tree_mot->reroot(trouverRacine("Root",$tree_mot));
-$tree_date->reroot(trouverRacine("Hittite",$tree_date));
-
-#print STDOUT $tree_date->as_text("newick");
-
-#print STDOUT $tree_langue->get_root_node()->internal_id;
-#print STDOUT "\n" . $tree_date->get_root_node()->internal_id . " : " .  join(",",getFeuilles($tree_date->get_root_node()));
 
 
 my @results = ();
@@ -600,12 +589,12 @@ sub lcaDateTree{
   my @ids_parent = @_;
   my @ids = ();
   foreach my $id (@ids_parent){
-    my @nodes = $tree_date->find_node(-id => "$id");
+    my @nodes = $tree_langue->find_node(-id => "$id");
 		push(@ids,$nodes[0]);
   }
   my $langue_parent = $ids[0];
   my $id_output = $langue_parent->id_output;
-  $langue_parent = $tree_date->get_lca(@ids) if ( scalar (@ids) > 1);
+  $langue_parent = $tree_langue->get_lca(@ids) if ( scalar (@ids) > 1);
   $langue_parent = $langue_parent->ancestor if ((scalar (@ids) == 1) and ( $id_output ~~ ["69","70"]));
   #print STDOUT "\n$id_output,nbElt=" . scalar(@ids);
   #print STDOUT "\nYES" if ( $id_output ~~ ["69","70"]);

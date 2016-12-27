@@ -363,10 +363,9 @@ int main(int nargc,char **argv){
   FILE * transFp ;
 	char * langNum;
 	char * langTrans;
-	char * langNom = (char *)malloc(100);
 	
-  if((transFp = fopen("translations.txt","r"))==NULL){
-		printf("\nError : Can't open translations.txt");
+  if((transFp = fopen(param.translationsfile,"r"))==NULL){
+		printf("\nError : Cannot open %s", param.translationsfile);
 		exit(0);
 	}
   
@@ -379,11 +378,10 @@ int main(int nargc,char **argv){
 	langTrans = (char *)malloc(100);
 	
   for(i=1;i<=SpeciesTree.size-1;i++){
-		fscanf(transFp,"%s %s %s",langNum,langNom,langTrans);
-		printf("\n%s - %s - %s",langNum,langNom,langTrans);
+		fscanf(transFp,"%s %s",langNum,langTrans);
+		printf("\n%s - %s",langNum,langTrans);
 		for(j=1;j<=SpeciesTree.size-1;j++){
 			if(strcmp(langNum,SpeciesTree.SpeciesName[j]) == 0){
-		    //printf("\n(%d)%s - %s - %s",j,langNum,langNom,langTrans);
         trans[j].langNum = (char *)malloc(10);
         strcpy(trans[j].langNum,langNum);
 				trans[j].langTrans = (char *)malloc(100);

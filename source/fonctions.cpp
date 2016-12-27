@@ -4064,6 +4064,10 @@ int readParameters(struct Parameters * param, char **argv, int nargc){
 			else if(strcmp("outputfile",champs) == 0){
 				strcpy(output,contenu);
 			}
+			//============ translations file ===============
+			else if(strcmp("translationsfile",champs) == 0){
+				strcpy((*param).translationsfile,contenu);
+			}
 			//============ output file ===============
 			else if(strcmp("hgtresultfile",champs) == 0){
 				strcpy(hgtResultFile,contenu);

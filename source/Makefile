@@ -6,7 +6,8 @@ hgt: strsep.cpp hgt.cpp fonctions.cpp utils_tree.cpp structures.h bioling.cpp
 	@echo  "\n=> Building newhgt.cpp -> hgt"
 	g++ hgt.cpp -o hgt
 
-scripts: 
+scripts:
+	-mkdir $(EXECDIR)
 	cp hgt $(EXECDIR)
 	cp ageWBE.pl $(EXECDIR)
 	cp run_wbe.pl $(EXECDIR)
