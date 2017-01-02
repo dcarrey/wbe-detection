@@ -160,7 +160,7 @@ int main(int nargc,char **argv){
 	if(readInput(SPECIE,param.input,&SpeciesTree) == -1){ printf("\nError in species tree\n"); exit(-1);}
 	if(readInput(GENE,param.input,&GeneTree) == -1){ printf("\nError in gene tree\n"); getchar(); exit(-1);}
 
-	TrierMatrices(GeneTree.Input,GeneTree.SpeciesName,SpeciesTree.SpeciesName,SpeciesTree.size);
+	sortMatrices(GeneTree.Input,GeneTree.SpeciesName,SpeciesTree.SpeciesName,SpeciesTree.size);
 /*
 	for(i=1;i<=SpeciesTree.size;i++){
 			printf("\n%s\t",SpeciesTree.SpeciesName[i]);

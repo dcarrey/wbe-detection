@@ -3,12 +3,24 @@
 use strict;
 use File::Copy qw/ copy /;
 
+my $header = <<'END_HEADER';
+===============================================
+= WBE-Detection
+= Authors : Alix Boc and Vladimir Makarenkov
+= Version : 1.0
+= Date : January 2017
+===============================================
+END_HEADER
 
 #======================================================
 #= VERIFICATION DES ARGUMENTS DE LA LIGNE DE COMMANDE
 #======================================================
-if( scalar @ARGV < 0){
-    print "\nErreur\nusage : $0";
+if( scalar @ARGV < 1){
+    print "\nErreur\noptions :";
+    print STDOUT "\n-languesfile\t  : langues input file in Newick format";
+    print STDOUT "\n-wordsfile\t  : words input file in Newick format";
+    print STDOUT "\n-translationsfile : translations input file (see README for details";
+    print STDOUT "\n\n";
     exit 0;
 }
 
@@ -40,78 +52,59 @@ my $reset="false";
 my $languesFile="langues.new";
 my $wordsFile="words.new";
 my $translationsFile="translations.txt";
+my $outputFile="output.txt";
+my $minInternalNodes=3;
+my $minExternalNodes=2;
 
 foreach my $elt (@ARGV){
-  $cmd .= $elt . " ";
-  if($elt =~ "bootstrap"){
-    @tmp_tab = split("=",$elt);
-    $bootstrap = $tmp_tab[1];
-    chomp($bootstrap);
-    #print STDOUT "$bootstrap";
-  }
   if($elt =~ "languesfile"){
     @tmp_tab = split("=",$elt);
     $languesFile = $tmp_tab[1];
   }
-  
   if($elt =~ "wordsfile"){
     @tmp_tab = split("=",$elt);
     $wordsFile = $tmp_tab[1];
   }
-
   if($elt =~ "translationsfile"){
     @tmp_tab = split("=",$elt);
     $translationsFile = $tmp_tab[1];
   }
-
+  if($elt =~ "minexternalnodes"){
+    @tmp_tab = split("=",$elt);
+    $minExternalNodes = $tmp_tab[1];
+  }
+  if($elt =~ "mininternalnodes"){
+    @tmp_tab = split("=",$elt);
+    $minInternalNodes = $tmp_tab[1];
+  }
   if($elt =~ "path"){
     @tmp_tab = split("=",$elt);
     $path = $tmp_tab[1];
   }
-  if($elt =~ "viewtree"){
-    @tmp_tab = split("=",$elt);
-    $viewtree = $tmp_tab[1];
-  }
 }
 
-die("Cannot open $languesFile") if ( !-f $languesFile );
-die("Cannot open $wordsFile") if ( !-f $wordsFile );
-die("Cannot open $translationsFile") if ( !-f $translationsFile );
+die("Cannot open $languesFile") if ( !-f $path.$languesFile );
+die("Cannot open $wordsFile") if ( !-f $path.$wordsFile );
+die("Cannot open $translationsFile") if ( !-f $path.$translationsFile );
 
 $inputfile    = "$path" . "$inputfile";
-#$cmd          = "usagers/" . $cmd;
 my $results   = "$path" . "results.txt";
 my $hgtplus   = "$path" . "hgtplus.txt";
 my $all_hgt   = "$path" . "all_hgt.txt";
 my $tmp_input = "$path" . "tmp_input.txt";
 my $input_no_space    = "$path" . "input_no_space.txt";
 my $return_file = "$path" . "return.txt";
-my $output;
-my $output_tmp;
-my $outputWeb = "$path" . "outputWeb.txt";
-my $RF;
-my $BD;
-my $LS;
 
-my $data_path = "data";
-my $currentCpt;
-my $currentInputFile;
-my $currentOutputFile;
-my $currentTransFile;
-my $currentMotFile;
-my $nbLtrans;
+rmdir($path.$outputFile);
 
-mkdir($data_path);
-printToFile("",$all_hgt,">");
-
-my $languesTree = get_content_file($languesFile);
-my $wordsTree = get_content_file($wordsFile);
+my $languesTree = get_content_file($path.$languesFile);
+my $wordsTree = get_content_file($path.$wordsFile);
 
 my $posLtrans = 1;
 #===========================================================================
 #======================== EXECUTION DU PROGRAMME ===========================
 #=========================================================================== 
-$cmd .= "-inputfile=$tmp_input -translationsfile=$translationsFile";
+$cmd .= "-inputfile=$tmp_input -translationsfile=$path$translationsFile";
   
 #== Fichier input
 open(OUT,">$tmp_input") or  die ("Cannot open $tmp_input");
@@ -123,10 +116,10 @@ unlink("hgtplus.txt");
     
 print STDERR "\nPERL : $cmd";
 execute_hgt($cmd);
-`perl postTraitement.pl $tmp_input`;
+`perl postTraitement.pl $tmp_input $minInternalNodes $minExternalNodes $results`;
 filtrerResultats($results, $hgtplus, $all_hgt);
 
-system("rm speciesRoot.txt input_.txt geneRoot.txt");    
+system("rm speciesRoot.txt input_.txt geneRoot.txt $tmp_input");    
 exit_program($val_retour,$return_file,"PERL : fin normale du programme");
               
 #===============================================================================
@@ -153,7 +146,7 @@ sub execute_hgt{
     my ($cmd) = @_;
     my $retour = 0;
     print STDOUT system($cmd);
-    print STDOUT "============== $retour ================";
+    #print STDOUT "============== $retour ================";
 }
 
 #
@@ -166,7 +159,7 @@ sub filtrerResultats {
 
   return if((! -f $results) or (! -f $hgtplus));
  
-  printToFile("1 cognat\n", $all_hgt, ">>");
+  printToFile($header, $outputFile, ">");
 
   open(IN, $results) or die($!);
   my $temoin=0;
@@ -177,7 +170,7 @@ sub filtrerResultats {
   open (IN,$hgtplus) or die($!);
   while( my $ligne =<IN>) {
     chomp($ligne);
-    printToFile("$ligne\n", $all_hgt, ">>") if ($ligne !~ /^$/);
+    printToFile("$ligne\n", $outputFile, ">>") if ($ligne !~ /^$/);
   }  
   close (IN);
 }

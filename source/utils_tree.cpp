@@ -2603,7 +2603,7 @@ void ajouterMatriceGene(double **mat,const char *outfile,int taille,char **noms)
 * NomsDISS: tableau des noms des especes de la matrice de gene
 * NomsADD: tableau contenant le noms des especes de la matrice d'especes 
 *************************************************************************/
-void TrierMatrices(double **DISS,char **NomsDISS,char **NomsADD,int n)
+void sortMatrices(double **DISS,char **NomsDISS,char **NomsADD,int n)
 {
 	int ligne,colonne,i,j;
 	double ** DISS_;

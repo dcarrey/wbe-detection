@@ -13,8 +13,8 @@ use constant DEBUG => 0; # 0,1,2
 no warnings 'experimental::smartmatch';
 
 my $tmp_input = new Bio::TreeIO(-file   => $ARGV[0], -format => "newick");
-my $MIN_INTERNAL_NODES = 3;
-my $MIN_EXTERNAL_NODES = 2;
+my $MIN_INTERNAL_NODES = $ARGV[1];
+my $MIN_EXTERNAL_NODES = $ARGV[2];
 
 my %tabGroup = ("01"=>'1',"02"=>'1',"03"=>'1',"04"=>'1',"05"=>'1',"06"=>'1',"07"=>'1',
 		"08"=>'2',"09"=>'2',"10"=>'2',"11"=>'2',"17"=>'2',"18"=>'2',"19"=>'2',
@@ -33,13 +33,13 @@ my %tabGroup = ("01"=>'1',"02"=>'1',"03"=>'1',"04"=>'1',"05"=>'1',"06"=>'1',"07"
 my $tree_langue = $tmp_input->next_tree;
 my $tree_mot    = $tmp_input->next_tree;
 
-$tree_langue->reroot(trouverRacine("Root",$tree_langue));
-$tree_mot->reroot(trouverRacine("Root",$tree_mot));
+#$tree_langue->reroot(trouverRacine("Root",$tree_langue));
+#$tree_mot->reroot(trouverRacine("Root",$tree_mot));
 
 
 my @results = ();
 
-@results = lectureTransfertsOriginaux("results.txt");
+@results = lectureTransfertsOriginaux($ARGV[3]);
 
 @results = rechercheTransfertsSupplementaires($tree_mot);
 
@@ -66,11 +66,7 @@ foreach my $item (@results){
 
 close(OUT);
 
-
 print STDOUT "\n\nFin normale de $0\n\n" if( DEBUG > 0 );
-
-
-
 
 
 ################################################################################
@@ -147,28 +143,7 @@ sub ajustementTransfertsDates{
       $isOlder = subtreeIsOlder(join(" ",@ids_fils1),join(" ",@ids_fils2)) if(($status eq "plus"));
       #print STDERR "\n" . join(" ",@ids_fils1) . " -> " . join(" ",@ids_fils2) . ":" . $isOlder if (DEBUG);
 
-      if ( (scalar( @ids_fils1 ) == 1) and (scalar( @ids_fils2 ) == 1) and ( ( $ids_fils1[0] ~~ ["69-","70-"] ) or ( $ids_fils2[0] ~~ ["69-","70-"] ) )) {
-        if( (( $ids_fils1[0] ~~ ["69-","70-"] ) and ( $node2->height > DATE_GREEK)) or
-          (( $ids_fils2[0] ~~ ["69-","70-"] ) and ( $node1->height < DATE_GREEK)) 
-        ){
-          $fact = "1.0" if($status eq "plus");
-          push @results2 , {source => \@ids_fils2, destination => \@ids_fils1, fact=>$fact, status=>$status};
-
-        }
-        elsif( (( $ids_fils1[0] ~~ ["69-","70-"] ) and ( $node2->height < DATE_GREEK)) or
-          (( $ids_fils2[0] ~~ ["69-","70-"] ) and ( $node1->height > DATE_GREEK)) 
-        ){
-          $fact = "1.0" if($status eq "plus");
-          push @results2 , {source => \@ids_fils1, destination => \@ids_fils2, fact =>$fact, status=>$status};
-
-        }
-        else{
-          $fact = "0.5" if($status eq "plus");
-          push @results2 , {source => \@ids_fils2, destination => \@ids_fils1, fact =>$fact, status=>$status};
-          push @results2 , {source => \@ids_fils1, destination => \@ids_fils2, fact =>"0.5", status=>$status} if($status eq "plus"); 
-        }
-      }
-      elsif( $isOlder == 1 ){
+      if( $isOlder == 1 ){
         $fact = "1.0" if($status eq "plus");
         push @results2 , {source => \@ids_fils1, destination => \@ids_fils2, fact =>$fact, status=>$status};   
         #print STDERR "\n2:" . join(" ", @ids_fils1) if (DEBUG);
@@ -294,28 +269,10 @@ sub rechercheTransfertsSupplementaires{
 
           my $isOlder =  1;
           $isOlder = subtreeIsOlder(join(" ",@ids_fils1),join(" ",@ids_fils2));
-          #print STDERR "\n" . join(" ",@ids_fils1) . " -> " . join(" ",@ids_fils2) . ":" . $isOlder if (DEBUG);
 
-          if ( (scalar( @ids_fils1 ) == 1) and (scalar( @ids_fils2 ) == 1) and ( ($ids_fils1[0] ~~ ["69-","70-"]) or ($ids_fils2[0] ~~ ["69-","70-"]) )) {
-            if( (( $ids_fils1[0] ~~ ["69-","70-"]) and ( $node2->height > DATE_GREEK)) or
-              (( $ids_fils1[0] ~~ ["69-","70-"]) and ( $node1->height < DATE_GREEK)) 
-            ){
-              push @results , {source => \@ids_fils2, destination => \@ids_fils1, status=>"plus"};
-            }
-            elsif( (( $ids_fils1[0] ~~ ["69-","70-"]) and ( $node2->height < DATE_GREEK)) or
-              (( $ids_fils1[0] ~~ ["69-","70-"]) and ( $node1->height > DATE_GREEK)) 
-            ){
-              push @results , {source => \@ids_fils1, destination => \@ids_fils2, status=>"plus"};
-            }
-            else{
-              push @results , {source => \@ids_fils2, destination => \@ids_fils1, status=>"plus"};
-            }
-          }
-#        elsif( $node1->height >  $node2->height ){
-          elsif( $isOlder == 1 ){
+          if( $isOlder == 1 ){
             push @results , {source => \@ids_fils1, destination => \@ids_fils2, status=>"plus"};
           }
-#        elsif(  $node1->height <  $node2->height  ){
           elsif( $isOlder == -1 ){
             push @results , {source => \@ids_fils2, destination => \@ids_fils1, status=>"plus"};
           }
@@ -595,9 +552,6 @@ sub lcaDateTree{
   my $langue_parent = $ids[0];
   my $id_output = $langue_parent->id_output;
   $langue_parent = $tree_langue->get_lca(@ids) if ( scalar (@ids) > 1);
-  $langue_parent = $langue_parent->ancestor if ((scalar (@ids) == 1) and ( $id_output ~~ ["69","70"]));
-  #print STDOUT "\n$id_output,nbElt=" . scalar(@ids);
-  #print STDOUT "\nYES" if ( $id_output ~~ ["69","70"]);
   return $langue_parent;
 }
 
@@ -670,12 +624,6 @@ sub subtreeIsOlder{
 
   my $height1 = $node1->height;
   my $height2 = $node2->height;
-
-  my @val69_1 = grep { $_ eq  "69" } @feuilles1;
-  my @val69_2 = grep { $_ eq  "69" } @feuilles2;
-  
-  $height1 = 2400 if( ("69" ~~ @feuilles1) and ($height1<2400));
-  $height2 = 2400 if( ("69" ~~ @feuilles2) and ($height2<2400));
 
   print STDERR "\nsubtreeIsOlder : [" . $height1 . "," . $height2 . "]"  if (DEBUG > 1);
   return 1 if($height1 > $height2);
