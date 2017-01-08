@@ -1,4 +1,4 @@
-package postTraitement;
+package PostTraitement;
 
 use Bio::TreeIO;
 use Array::Utils qw(:all);
@@ -11,10 +11,6 @@ use constant DATE_GREEK  => 2400;
 use constant DEBUG => 0; # 0,1,2
 
 no warnings 'experimental::smartmatch';
-
-my $tmp_input = new Bio::TreeIO(-file   => $ARGV[0], -format => "newick");
-my $MIN_INTERNAL_NODES = $ARGV[1];
-my $MIN_EXTERNAL_NODES = $ARGV[2];
 
 my %tabGroup = ("01"=>'1',"02"=>'1',"03"=>'1',"04"=>'1',"05"=>'1',"06"=>'1',"07"=>'1',
 		"08"=>'2',"09"=>'2',"10"=>'2',"11"=>'2',"17"=>'2',"18"=>'2',"19"=>'2',
@@ -30,50 +26,49 @@ my %tabGroup = ("01"=>'1',"02"=>'1',"03"=>'1',"04"=>'1',"05"=>'1',"06"=>'1',"07"
 		"71"=>'12',"72"=>'12'
 		);
     
-my $tree_langue = $tmp_input->next_tree;
-my $tree_mot    = $tmp_input->next_tree;
+my $tree_langue; #= $tmp_input->next_tree;
+my $tree_mot; #   = $tmp_input->next_tree;
 
-#$tree_langue->reroot(trouverRacine("Root",$tree_langue));
-#$tree_mot->reroot(trouverRacine("Root",$tree_mot));
-
-
-my @results = ();
-
-@results = lectureTransfertsOriginaux($ARGV[3]);
-
-@results = rechercheTransfertsSupplementaires($tree_mot);
-
-@results = ajustementTransfertsDates(@results);
-
-@results = ajustementTransferts2(@results);
-
-@results = ajustementTransferts(@results);
-
-@results = ajustementTransfertsDatesEtape2(@results);
-
-@results = ajustementTransferts05(@results);
-
-#
-# IMPRESSION DES RESULTATS
-#
-open (OUT, ">hgtplus.txt") or die($!);
-foreach my $item (@results){
-  if ($item->{status} ne "del"){
-    print OUT "\n" . join(" ", @{$item->{source}}) . " -> " . join(" ",@{$item->{destination}});
-    print OUT " -> " . $item->{fact} if($item->{fact} ne "0");
-  }
+#= Constructor
+sub new {
+  my $class = shift;
+  my $self = {
+                TREES => new Bio::TreeIO(-file   => shift, -format => "newick"),
+                MIN_INTERNAL_NODES => shift,
+                MIN_EXTERNAL_NODES => shift,
+                RESULTS_FILE => shift,
+                wbePlusFile => shift
+             };
+  return bless $self, $class;
 }
 
-close(OUT);
+sub findAdditionnalsWBE{
+  my $self = shift;
+  $tree_langue = $self->{TREES}->next_tree;
+  $tree_mot    = $self->{TREES}->next_tree;
 
-print STDOUT "\n\nFin normale de $0\n\n" if( DEBUG > 0 );
+  my @results = ();
+  @results = lectureTransfertsOriginaux($self->{RESULTS_FILE});
+  @results = rechercheTransfertsSupplementaires($tree_mot,$self->{MIN_EXTERNAL_NODES},@results);
+  @results = ajustementTransfertsDates(@results);
+  @results = ajustementTransferts2(@results);
+  @results = ajustementTransferts(@results);
+  @results = ajustementTransfertsDatesEtape2(@results);
+  @results = ajustementTransferts05(@results);
+  saveAdditionnalsWBE($self->{wbePlusFile},@results);
+ }
 
-
-################################################################################
-#                                                                              #
-#                                SOUS PROGRAMMES                               #
-#                                                                              #
-################################################################################
+sub saveAdditionnalsWBE{
+  my ($filename,@results) = @_;
+  open (OUT, ">$filename") or die($!);
+  foreach my $item (@results){
+    if ($item->{status} ne "del"){
+      print OUT "\n" . join(" ", @{$item->{source}}) . " -> " . join(" ",@{$item->{destination}});
+      print OUT " -> " . $item->{fact} if($item->{fact} ne "0");
+    }
+  }
+  close(OUT);
+}
 
 sub printTransferts{
   my ($title,@results) = @_;
@@ -133,11 +128,11 @@ sub ajustementTransfertsDates{
     my $fact = "0";
 
     if( (scalar(@ids_fils1) > 0) and (scalar(@ids_fils2) >0 ) ){
-      my @feuilles1 = map { my $v=$_; $v =~ s/-[0-9]+//g; $v } @ids_fils1;
-      my @feuilles2 = map { my $v=$_; $v =~ s/-[0-9]+//g; $v } @ids_fils2;
+      #my @feuilles1 = map { my $v=$_; $v =~ s/-[0-9]+//g; $v } @ids_fils1;
+      #my @feuilles2 = map { my $v=$_; $v =~ s/-[0-9]+//g; $v } @ids_fils2;
 
-      my $node1 = lcaDateTree(@feuilles1);
-      my $node2 = lcaDateTree(@feuilles2);
+      my $node1 = lcaDateTree(@ids_fils1);
+      my $node2 = lcaDateTree(@ids_fils2);
 
       my $isOlder =  1;
       $isOlder = subtreeIsOlder(join(" ",@ids_fils1),join(" ",@ids_fils2)) if(($status eq "plus"));
@@ -207,7 +202,7 @@ sub ajustementTransfertsDatesEtape2{
 #
 sub rechercheTransfertsSupplementaires{ 
   
-  my $tree_mot = $_[0];
+  my ($tree_mot,$MIN_EXTERNAL_NODES,@results) = @_;
   my @mot_feuilles = getFeuilles($tree_mot->get_root_node());
   #
   # RECHERCHE DES TRANSFERTS SUPPLEMENTAIRES
@@ -252,13 +247,13 @@ sub rechercheTransfertsSupplementaires{
         }
       }
 
-      my $sontDansLeMemeGroupe = &memeGroupe(\@ids_fils1,\@ids_fils2);
+      #my $sontDansLeMemeGroupe = &memeGroupe(\@ids_fils1,\@ids_fils2);
 
-      if (
-        ( ( $sontDansLeMemeGroupe == FALSE ) and  (($nbNoeud1 + $nbNoeud2) >= $MIN_EXTERNAL_NODES ) ) or 
-        ( ( $sontDansLeMemeGroupe == TRUE  ) and  (($nbNoeud1 + $nbNoeud2) >= $MIN_INTERNAL_NODES ) ) 
-      ){
-
+      #if (
+      #  ( ( $sontDansLeMemeGroupe == FALSE ) and  (($nbNoeud1 + $nbNoeud2) >= $MIN_EXTERNAL_NODES ) ) or 
+      #  ( ( $sontDansLeMemeGroupe == TRUE  ) and  (($nbNoeud1 + $nbNoeud2) >= $MIN_INTERNAL_NODES ) ) 
+      #){
+      if(($nbNoeud1 + $nbNoeud2) >= $MIN_EXTERNAL_NODES ){
         if( (scalar(@ids_fils1) > 0) and (scalar(@ids_fils2) > 0 ) ){
 
           my @feuilles1 =  do { my %seen; grep { !$seen{$_}++ }  getFeuillesUnique($fils1)};
@@ -463,40 +458,9 @@ sub ajustementTransferts05{
 }
 
 
-sub memeGroupe(\@\@){
-  
-  my ($tab1,$tab2) = @_;
-  foreach my $elt1 (@$tab1){
-    my $e1 = $elt1;
-    $e1 =~ s/-[0-9]+//g;
-    foreach my $elt2 (@$tab2){
-      my $e2 = $elt2;
-      $e2 =~ s/-[0-9]+//g;
-      if (  $tabGroup{$e1} ne  $tabGroup{$e2}  ){
-        return FALSE;
-      }
-    }
-  }
-  return TRUE;
-}
-
-sub groupe{
-  my @feuilles = @_;
-  
-  foreach my $f  (@feuilles){
-    #my $f = $feuilles[0];
-    #print "\n" . $f;
-    $f =~ s/-[0-9]+//g;
-    return $tabGroup{$f};
-    #print STDOUT $tabGroup{$f} ." ";
-  }
-  return -1;
-}
-
 sub nbNoeudIntermediaire{
 
   my ( $parent , $fils) = @_;
-  
   my $tmp = $parent;
   my $cpt=0;
 
@@ -579,13 +543,13 @@ sub getFeuillesUnique{
   my $id = -1;
   if( $node->is_Leaf){
     $id = $node->id_output;
-    $id =~ s/-[0-9]+//g;
+    #$id =~ s/-[0-9]+//g;
     push(@ids,$id);
   }
   foreach my $descendant ( $node->get_all_Descendents){
       if( $descendant->is_Leaf){
         $id = $descendant->id_output;
-        $id =~ s/-[0-9]+//g;
+        #$id =~ s/-[0-9]+//g;
         push(@ids,$id);
       }  
     }
@@ -614,8 +578,8 @@ sub getFils{
 sub subtreeIsOlder{
   my($subtree1,$subtree2) = @_;
   
-  my @feuilles1 = map { my $v=$_; $v =~ s/-[0-9]+//g; $v } split(" ",$subtree1);
-  my @feuilles2 = map { my $v=$_; $v =~ s/-[0-9]+//g; $v } split(" ",$subtree2);          
+  my @feuilles1 = split(" ",$subtree1);
+  my @feuilles2 = split(" ",$subtree2);          
   
   my $node1 = lcaDateTree(@feuilles1);
   my $node2 = lcaDateTree(@feuilles2);

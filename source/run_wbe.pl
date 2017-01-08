@@ -2,6 +2,7 @@
 
 use strict;
 use File::Copy qw/ copy /;
+use PostTraitement;
 
 my $header = <<'END_HEADER';
 ===============================================
@@ -20,6 +21,8 @@ if( scalar @ARGV < 1){
     print STDOUT "\n-languesfile\t  : langues input file in Newick format";
     print STDOUT "\n-wordsfile\t  : words input file in Newick format";
     print STDOUT "\n-translationsfile : translations input file (see README for details";
+    print STDOUT "\n-mininternalnodes : minimum internal nodes (see README for details";
+    print STDOUT "\n-minexternalnodes : minimum external nodes (see README for details";
     print STDOUT "\n\n";
     exit 0;
 }
@@ -116,7 +119,8 @@ unlink("hgtplus.txt");
     
 print STDERR "\nPERL : $cmd";
 execute_hgt($cmd);
-`perl postTraitement.pl $tmp_input $minInternalNodes $minExternalNodes $results`;
+my $postTraitement = new PostTraitement($tmp_input,$minInternalNodes,$minExternalNodes,$results,$hgtplus);
+$postTraitement->findAdditionnalsWBE();
 filtrerResultats($results, $hgtplus, $all_hgt);
 
 system("rm speciesRoot.txt input_.txt geneRoot.txt $tmp_input");    

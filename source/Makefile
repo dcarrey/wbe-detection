@@ -11,7 +11,7 @@ scripts:
 	cp hgt $(EXECDIR)
 	cp ageWBE.pl $(EXECDIR)
 	cp run_wbe.pl $(EXECDIR)
-	cp postTraitement.pl $(EXECDIR)
+	cp PostTraitement.pm $(EXECDIR)
 
 clean:
 	@echo  "\n=> Cleaning executable and object files"

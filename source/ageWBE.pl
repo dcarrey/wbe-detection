@@ -49,8 +49,4 @@ $s_node = $tree->get_lca(@ids) if ( scalar (@ids) > 1);
 
 my $a_node = $tree->get_lca(@ida);
 
-#print STDOUT "\n" . join(",",@ids_source) . ":" . $s_node->height;
-#print STDOUT "\n" . join(",",@ids_dest)   . ":" . $d_node->height;
-#print STDOUT "\nall:" . $a_node->height;
-
 print STDOUT ($a_node->height- $s_node->height + $a_node->height-$d_node->height);
