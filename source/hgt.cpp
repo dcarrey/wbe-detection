@@ -225,57 +225,15 @@ int main(int nargc,char **argv){
 //============================ GESTION DES RACINES =============================
 //==============================================================================
   //== selection de la racine
-	if(strcmp(param.load,"yes") == 0 ){
-		//printf("On charge les fichiers");
-
-		chargerFichier(&SpeciesTree,param.speciesTree,param.speciesRootfile);
-		//addRoot(&GeneTree,NULL,GeneBranch,param.generoot,param.geneRootfile,NULL);
-		chargerFichier(&GeneTree,param.geneTree,param.geneRootfile);
+  if(SpeciesTree.Root == -1) {
+	  printf("\nWBE-DETECTION : add root to languages tree");
+		addRoot(&SpeciesTree,NULL,SpeciesBranch,param.speciesroot,param.speciesRootfile,NULL);
 	}
-	else{		
-		if((strcmp(param.version,"web")==0) && (strcmp(param.printWeb,"yes")==0)){
-		    char s[2] = "";
-		    saveTree(param.speciesTreeWeb,SpeciesTree,bestHGT,0,cpt_hgt,s,param.scenario,NULL);
-		    saveTree(param.geneTreeWeb,GeneTree,bestHGT,0,cpt_hgt,s,param.scenario,NULL);
-	   }
-
-		if(first == 1){
-			FILE *froot;
-			int nbBranche,leave;			
-		}
-		if(speciesLeaves == NULL){
-			speciesLeaves = (int*) malloc((SpeciesTree.size+1)*sizeof(int));
-			speciesLeaves[0] = -1;
-		}
+	if(GeneTree.Root == -1) {
+	  printf("\nWBE-DETECTION : add root to words tree");
+	  addRoot(&GeneTree,NULL,GeneBranch,param.generoot,param.geneRootfile,NULL); //bestbipartition
+	}
 		
-		if(SpeciesTree.Root == -1) {
-		    printf("\nHGT-DETECTION : addRoot SpeciesTree");
-			addRoot(&SpeciesTree,NULL,SpeciesBranch,param.speciesroot,param.speciesRootfile,speciesLeaves);
-		}
-		if(GeneTree.Root == -1) {
-		    printf("\nHGT-DETECTION : addRoot GeneTree");
-		    addRoot(&GeneTree,NULL,GeneBranch,param.generoot,param.geneRootfile,speciesLeaves); //bestbipartition
-		}
-		
-		if(strcmp(param.viewtree,"yes")==0)
-			exit(0);
-	}		
-  printf("\nHGT-DETECTION : SAVEAS");
- 
-  SAVEASNewick(SpeciesTree.LONGUEUR, SpeciesTree.ARETE, SpeciesTree.SpeciesName, SpeciesTree.size, SpeciesTree.kt, "mot.new") ;
- printf("\nHGT-DETECTION : FIN SAVEAS");
-
-	//exit(0);
-    //== print the tree in web version
-//	if(strcmp(param.version,"web") == 0){
-//		saveTree(param.speciesTreeWeb,SpeciesTree,bestHGT,0,cpt_hgt,"",param.scenario,NULL);
-//		saveTree(param.geneTreeWeb,GeneTree,bestHGT,0,cpt_hgt,"",param.scenario,NULL);
-//	}
-
-//printf("\n\n");	
-//for(i=1;i<=2*SpeciesTree.size-3-SpeciesTree.kt;i++)
-//	printf("\n%d--%d : %lf",SpeciesTree.ARETE[2*i-1],SpeciesTree.ARETE[2*i-2],SpeciesTree.LONGUEUR[i-1]);
-	
 	nbTree++;
 	
 	if(first ==1){
@@ -293,7 +251,8 @@ int main(int nargc,char **argv){
 
 	InitCriteria(&aCrit,SpeciesTree.size);
 	computeCriteria(SpeciesTree.ADD,GeneTree.ADD,SpeciesTree.size,&aCrit,SpeciesTree.LONGUEUR,SpeciesTree.ARETE,GeneTree.LONGUEUR,GeneTree.ARETE);
-
+	printf("\nWBE-DETECTION : rf=%d n=%d rf/(2n-6)=%lf\n",aCrit.RF,SpeciesTree.size,(double)aCrit.RF/(2*(double)SpeciesTree.size-6));
+	
 	if(SpeciesTree.size > GeneTree.size) max_hgt = 4*GeneTree.size * GeneTree.size;
 	else max_hgt = 4*SpeciesTree.size * SpeciesTree.size;
 
@@ -422,7 +381,7 @@ int main(int nargc,char **argv){
 			for(k=j+1;k<=DTSpecies[i].nbSommet;k++){
         //printf("->(%d) ",DTSpecies[i].Tableau[k]);	
 				nbLang++;
-        printf(" %s - %s", trans[DTSpecies[i].Tableau[j]].langTrans,trans[DTSpecies[i].Tableau[k]].langTrans);
+        //printf(" %s - %s", trans[DTSpecies[i].Tableau[j]].langTrans,trans[DTSpecies[i].Tableau[k]].langTrans);
 				distMots1 = levenshtein_distance(trans[DTSpecies[i].Tableau[j]].langTrans,trans[DTSpecies[i].Tableau[k]].langTrans);
 				nbD1 = delDoublons(trans[DTSpecies[i].Tableau[j]].langTrans,chaine_res1,tabDoublon1);
 				nbD2 = delDoublons(trans[DTSpecies[i].Tableau[k]].langTrans,chaine_res2,tabDoublon2);
@@ -445,14 +404,14 @@ int main(int nargc,char **argv){
 				//printf(" [%s-%s] = %3.1lf\n",trans[DTSpecies[i].Tableau[j]].langTrans,trans[DTSpecies[i].Tableau[k]].langTrans,(distMots1<distMots2)?distMots1:distMots2);
 			}
 		}
-    printf("\n\nAverage wordsdist/lang: %lf/%d = %lf\n\n",totalDistMots,nbLang,totalDistMots/nbLang);
+    //printf("\n\nAverage wordsdist/lang: %lf/%d = %lf\n\n",totalDistMots,nbLang,totalDistMots/nbLang);
 		
 		if((totalDistMots/nbLang) <= param.avgdiffblock){ //1.5
 			groupesBloques[nbGroupesBloques][0] = DTSpecies[i].nbSommet;
-      printf("\n%lf=>%d", (totalDistMots/nbLang),  DTSpecies[i].nbSommet);
+     // printf("\n%lf=>%d", (totalDistMots/nbLang),  DTSpecies[i].nbSommet);
 			for(j=1;j<=DTSpecies[i].nbSommet;j++){
 				groupesBloques[nbGroupesBloques][j] = DTSpecies[i].Tableau[j];
-        printf(" %d", DTSpecies[i].Tableau[j]);
+     //   printf(" %d", DTSpecies[i].Tableau[j]);
 			}
 			nbGroupesBloques++;
 		}
@@ -483,7 +442,7 @@ int main(int nargc,char **argv){
 		printf("\nNE PAS FAIRE LA CONTRAINTE 1 (%d)",param.constraints);
 	}
 	
-	
+			
 		printf("\nPre-traitement .......");
 		//== date : 26 janvier 2008
 		//== l'appel a cette fonction permet de recreer le meme sous arbre dans l'arbre de gene et l'arbre d'especes
@@ -590,14 +549,14 @@ int main(int nargc,char **argv){
 		AdjustBranchLength(&SpeciesTree,GeneTree,binaireSpecies,1);
 		
 		
-		printf("\n\nSpecies Tree : ");
+		printf("\n\nLangue Tree : ");
 		for(i=1;i<=SpeciesTree.size;i++){
 			printf("\n%s\t",SpeciesTree.SpeciesName[i]);
 			for(j=1;j<=SpeciesTree.size;j++){
 				printf("%lf ",SpeciesTree.ADD[i][j]);
 			}
 		}
-		printf("\n\nGene Tree : ");
+		printf("\n\nWord Tree : ");
 		for(i=1;i<=GeneTree.size;i++){
 			printf("\n%s\t",GeneTree.SpeciesName[i]);
 			for(j=1;j<=GeneTree.size;j++){
@@ -614,7 +573,7 @@ int main(int nargc,char **argv){
 		
 		InitCriteria(&aCrit,SpeciesTree.size);
 		computeCriteria(SpeciesTree.ADD,GeneTree.ADD,SpeciesTree.size,&aCrit,SpeciesTree.LONGUEUR,SpeciesTree.ARETE,GeneTree.LONGUEUR,GeneTree.ARETE);
-		printf("\nHGT-DETECTION : %d %d %lf\n",aCrit.RF,SpeciesTree.size,(double)aCrit.RF/(2*(double)SpeciesTree.size-6));
+		printf("\nWBE-DETECTION : rf=%d n=%d rf/(2n-6)=%lf\n",aCrit.RF,SpeciesTree.size,(double)aCrit.RF/(2*(double)SpeciesTree.size-6));
 		
 		
 		
@@ -623,7 +582,7 @@ int main(int nargc,char **argv){
 	tmp = 0;
 
 	int * listRef = (int *)malloc(2*SpeciesTree.size*sizeof(int));
-	int * listJ = (int *)malloc(2*SpeciesTree.size*sizeof(int));
+	int * listJ   = (int *)malloc(2*SpeciesTree.size*sizeof(int));
 	
 	listRef[0] = listJ[0] = 0;
 	//=============================== DETECTION DES TRANSFERTS ====================================
@@ -702,13 +661,13 @@ int main(int nargc,char **argv){
 					char cmd[1000];
           char buffer[100];
 
-          sprintf(cmd,"perl ageWBE.pl ");
+          sprintf(cmd,"perl ageWBE.pl %s _src_ ", param.inputfile);
           for(int m=1;m<=bestHGT[cpt_hgt].listSource[0];m++){
 						printf("%s ",SpeciesTree.SpeciesName[bestHGT[cpt_hgt].listSource[m]]);
 						sprintf(cmd + strlen(cmd), "%s ",SpeciesTree.SpeciesName[bestHGT[cpt_hgt].listSource[m]]);
 					}
 					printf("==> ");
-					sprintf(cmd + strlen(cmd), "- ");
+					sprintf(cmd + strlen(cmd), "_dest_ ");
 					for(int m=1;m<=bestHGT[cpt_hgt].listDestination[0];m++){
 						printf("%s ",SpeciesTree.SpeciesName[bestHGT[cpt_hgt].listDestination[m]]);
 						sprintf(cmd + strlen(cmd),"%s ",SpeciesTree.SpeciesName[bestHGT[cpt_hgt].listDestination[m]]);
@@ -1083,31 +1042,6 @@ int main(int nargc,char **argv){
 	if((strcmp(param.version,"web")==0) && (strcmp(param.printWeb,"yes")==0)){
 		saveTree(param.outputWeb,FirstTree,outHGT,1,nbHGT,param.subtree,param.scenario,NULL);
 	}
-	/*else{
-		printLeaves(param.hgtResultFile,cpt_hgt,bestHGT,nbTree,FirstTree.SpeciesName);
-	}*/
-	
-  bool ajoutTransfertRacine = true;
-  
-  if( ajoutTransfertRacine ){
-    char cmd[10000];
-    sprintf(cmd,"perl postTraitement.pl ");
-    i=1;
-    for(int j=1;j<=multicheckTab[0].m;j++){
-      if(multicheckTab[j].nbHgtFound == 0) continue;
-      for(int k=1;k<=multicheckTab[j].nbHgtFound;k++){
-        for(int m=1;m<=outHGT[i].listDestination[0];m++)
-				  sprintf(cmd + strlen(cmd),"%s ",SpeciesTree.SpeciesName[outHGT[i].listDestination[m]]);
-        i++;
-      }
-    }
-    printf("%s",cmd);
-    //system(cmd);
-    
-    
-  
-  }
-
 
 //==============================================================================
 //============================ LIBERATION DE LA MEMOIRE ========================

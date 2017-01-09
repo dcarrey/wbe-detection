@@ -2029,7 +2029,7 @@ void readMatrix(FILE *in,struct InputTree *aTree){
 //===================================================================================================================
 //
 //===================================================================================================================
-int readInputFile(FILE *in, const char *tmpFile/*, struct InputTree *speciesTree, struct InputTree *geneTree*/){
+int readInputFile(FILE *in, const char *tmpFile){
 	
 	char *newick;
 	struct InputTree speciesTree_t;
@@ -2059,6 +2059,7 @@ int readInputFile(FILE *in, const char *tmpFile/*, struct InputTree *speciesTree
 		return -1;
 	else if(ret==1){
 		newick = readNewick(in);
+    //printf("newick=%s",newick);
 		newickToMatrix(newick,&geneTree_t);
 		free(newick);
 	}

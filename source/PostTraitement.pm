@@ -85,7 +85,7 @@ sub lectureTransfertsOriginaux{
   my $filename = $_[0];
   my @results = ();
   
-  open(IN, $filename) or die($!);
+  open(IN, $filename) or die($! . "($filename)");
   my $temoin=0;
   my $source = "";
   my $dest = "";
