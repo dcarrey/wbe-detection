@@ -2,6 +2,7 @@ package PostTraitement;
 
 use Bio::TreeIO;
 use Array::Utils qw(:all);
+use Data::Dumper;
 use strict;
 use warnings;
 
@@ -90,6 +91,7 @@ sub lectureTransfertsOriginaux{
   my @results = ();
   
   open(IN, $filename) or die($! . "($filename)");
+  <IN>;<IN>;
   my $temoin=0;
   my $source = "";
   my $dest = "";
@@ -97,20 +99,21 @@ sub lectureTransfertsOriginaux{
 
   while (my $ligne = <IN>){
     chomp($ligne);
-
-    if( $ligne =~ /^[0-9]+-[0-9]+/){
-      if ($temoin == 0){
-        $source = $ligne;
-      }
-      else{
-        $dest = $ligne;
+    if($ligne =~ /^\d+$/){ 
+      my $nbWbe = $ligne;
+      for(my $i=0;$i<$nbWbe;$i++){
+        <IN>;
+        $source = <IN>;
+        $dest = <IN>;
+        chomp($source);
+        chomp($dest);
+        <IN>;<IN>;
         my @ids_fils1 = split(" ", $source);
         my @ids_fils2 = split(" ", $dest);
         push @results , {source => \@ids_fils1, destination => \@ids_fils2, fact=>"1.0", status=>"init"};
-        $source = $dest = "";
       }
-      $temoin = ($temoin+1) % 2;
     }
+    <IN>;
   }
   close(IN);
   printTransferts("\n\nLecture des transferts initiaux",@results) if (DEBUG > 0);
@@ -214,7 +217,8 @@ sub rechercheTransfertsSupplementaires{
   #
   foreach my $parent ( $tree_mot->get_nodes()){
 
-    print "\ncurrent node=" .  $parent->id_output ;
+    #print "\ncurrent node=" .  $parent->id_output ;
+    #print Dumper($parent);
 
     if( !defined ($parent->id_output) ){
 
@@ -505,7 +509,7 @@ sub trouverNoeudCorrespondant{
 		push(@ids,$nodes[0]);
   }
   my $langue_parent = $ids[0];
-  print STDOUT  "\n nb nodes = " . scalar (@ids);
+  #print STDOUT  "\n nb nodes = " . scalar (@ids);
   
   $langue_parent = $tree_langue->get_lca(@ids) if ( scalar (@ids) > 1);
 

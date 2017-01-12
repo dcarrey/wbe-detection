@@ -92,21 +92,27 @@ save_to_file(get_content_file("TRANSLATIONS", $path.$inputFile),$path.$translati
 #===========================================================================
 #======================== EXECUTION DU PROGRAMME ===========================
 #=========================================================================== 
-$cmd .= "-inputfile=$tmp_input -translationsfile=$path$translationsFile";
+$cmd .= "-inputfile=$tmp_input -translationsfile=$path$translationsFile > $logFile";
     
-print STDERR "\nPERL : $cmd";
+#print STDERR "\nPERL : $cmd";
 execute_hgt($cmd);
 my $postTraitement = new PostTraitement($tmp_input,$filteredTree,$minInternalNodes,$minExternalNodes,$results,$hgtplus);
 $postTraitement->findAdditionnalsWBE();
-filtrerResultats($results, $hgtplus, $all_hgt);
+saveResultats($hgtplus, $outputFile);
 
-system("rm speciesRoot.txt input_.txt geneRoot.txt");    
-exit_program($val_retour,$returnFile,"PERL : fin normale du programme");
-              
+deleteTempFiles(qw/speciresRoot.txt input_.txt geneRoot.txt/);
+exit_program($val_retour,$returnFile,"");
+             
 #===============================================================================
 #=============================== FUNCTIONS =====================================
 #===============================================================================
 sub par_num {return $a <=> $b}
+
+sub deleteTempFiles{
+  foreach my $file (@_){
+    unlink($file);
+  }
+}
 
 sub read_line{
   my ($line) = @_;
@@ -119,35 +125,22 @@ sub exit_program{
   open(RET,">$file") || die "Cannot open $file";
   print RET $val;
   close(RET);
-  print STDOUT "\nexit=>$message";
-  exit;
 }
 
 sub execute_hgt{
     my ($cmd) = @_;
     my $retour = 0;
-    print STDOUT system($cmd);
-    #print STDOUT "============== $retour ================";
+    system($cmd);
 }
 
 #
 # Apres une exécution de hgt-detection, on filtre les résultats
 # en considérant les tranferts ajoutés au niveau des noeuds internes
 #
-sub filtrerResultats {
-
-  my ($results, $hgtplus, $all_hgt) = @_; 
-
-  return if((! -f $results) or (! -f $hgtplus));
- 
+sub saveResultats {
+  my ($hgtplus,$outputFile) = @_; 
+  return if(! -f $hgtplus);
   printToFile($header, $outputFile, ">");
-
-  open(IN, $results) or die($! . "($results)");
-  my $temoin=0;
-  my $source = "";
-  my $dest = "";
-  my $br = "";
-
   open (IN,$hgtplus) or die($! . "($hgtplus)");
   while( my $ligne =<IN>) {
     chomp($ligne);
@@ -156,84 +149,12 @@ sub filtrerResultats {
   close (IN);
 }
 
-
-sub findElements{
-  
-  my( $hgtplus, $source, $dest ) = @_;
- 
-
-#  print STDERR "\n$source -> $dest";
-  open(IN2, $hgtplus) or die($!);
-
-  my $delElt = 0;
-  
-  while( my $ligne = <IN2>){
-    chomp($ligne);
-    if($ligne !~ /^$/){
-      my ($source2, $dest2, $facteur) = split("->", $ligne);
-      # print STDERR "\n$source2 -> $dest2";
-
-       my $nb_source=0;
-       my $nb_dest=0;
-      
-      #= Tous les elements sources doivent être retrouves
-      foreach my $elt ( split(" ", $source)){
-        chomp($elt);
-        if($source2 =~ /$elt/){
-          $nb_source++;
-        }
-      }
-      foreach my $elt ( split(" ", $dest)){
-        chomp($elt);
-        if($dest2 =~ /$elt/){
-          $nb_dest++;
-        }
-      }
-      #     print STDERR "\n1)nb_source=$nb_source nb_dest=$nb_dest";
-      if($nb_source == scalar( split(" ",$source) ) and $nb_dest == scalar( split(" ",$dest) )  ){
-        close(IN2);
-        return 1;
-      }
-
-      $nb_source=0;
-      $nb_dest=0;
-
-      #= Tous les elements sources doivent être retrouves
-      foreach my $elt ( split(" ", $source)){
-        chomp($elt);
-        #print STDERR "\n\t$source2 <> $elt";
-        if($dest2 =~ /$elt/){
-          $nb_source++;
-        }
-      }
-      foreach my $elt ( split(" ", $dest)){
-        chomp($elt);
-        if($source2 =~ /$elt/){
-          $nb_dest++;
-        }
-      }
-      # print STDERR "\n2)nb_source=$nb_source nb_dest=$nb_dest";
-      if($nb_source == scalar( split(" ",$source) ) and $nb_dest == scalar( split(" ",$dest) )  ){
-        close(IN2);
-        return 1;
-      } 
-
-    }
-  }
-
-  close(IN2);
-  
-  return 0;
-}
-
-
 sub printToFile{
   my ($content, $file, $mode) = @_;
   open(OUT, "$mode$file") or die($! . "($results)");
   print OUT $content;
   close(OUT);
 }
-
 
 sub get_content_file{
   my ($type,$file) = @_;
