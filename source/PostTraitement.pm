@@ -34,6 +34,7 @@ sub new {
   my $class = shift;
   my $self = {
                 TREES => new Bio::TreeIO(-file   => shift, -format => "newick"),
+                FILTERED_TREE => new Bio::TreeIO(-file   => shift, -format => "newick"),
                 MIN_INTERNAL_NODES => shift,
                 MIN_EXTERNAL_NODES => shift,
                 RESULTS_FILE => shift,
@@ -45,7 +46,10 @@ sub new {
 sub findAdditionnalsWBE{
   my $self = shift;
   $tree_langue = $self->{TREES}->next_tree;
-  $tree_mot    = $self->{TREES}->next_tree;
+  $tree_mot    = $self->{FILTERED_TREE}->next_tree;
+  
+  $tree_langue->reroot(trouverRacine("root",$tree_langue));
+  $tree_mot->reroot(trouverRacine("root",$tree_mot));
 
   my @results = ();
   @results = lectureTransfertsOriginaux($self->{RESULTS_FILE});
@@ -204,12 +208,13 @@ sub rechercheTransfertsSupplementaires{
   
   my ($tree_mot,$MIN_EXTERNAL_NODES,@results) = @_;
   my @mot_feuilles = getFeuilles($tree_mot->get_root_node());
+
   #
   # RECHERCHE DES TRANSFERTS SUPPLEMENTAIRES
   #
   foreach my $parent ( $tree_mot->get_nodes()){
 
-    #print "\n" .  $parent->id_output ;
+    print "\ncurrent node=" .  $parent->id_output ;
 
     if( !defined ($parent->id_output) ){
 
@@ -500,6 +505,8 @@ sub trouverNoeudCorrespondant{
 		push(@ids,$nodes[0]);
   }
   my $langue_parent = $ids[0];
+  print STDOUT  "\n nb nodes = " . scalar (@ids);
+  
   $langue_parent = $tree_langue->get_lca(@ids) if ( scalar (@ids) > 1);
 
   return $langue_parent;

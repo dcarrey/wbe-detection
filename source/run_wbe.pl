@@ -80,6 +80,8 @@ my $all_hgt    = "$path" . "all_hgt.txt";
 my $tmp_input  = "$path" . "tmp_input.txt";
 my $returnFile = "$path" . "return.txt";
 my $logFile    = "$path" . "wbe.log";
+my $filteredTree = "$path" . "_filteredLangueTree.new";
+
 
 unlink($path.$outputFile);
 unlink($hgtplus);	
@@ -94,7 +96,7 @@ $cmd .= "-inputfile=$tmp_input -translationsfile=$path$translationsFile";
     
 print STDERR "\nPERL : $cmd";
 execute_hgt($cmd);
-my $postTraitement = new PostTraitement($tmp_input,$minInternalNodes,$minExternalNodes,$results,$hgtplus);
+my $postTraitement = new PostTraitement($tmp_input,$filteredTree,$minInternalNodes,$minExternalNodes,$results,$hgtplus);
 $postTraitement->findAdditionnalsWBE();
 filtrerResultats($results, $hgtplus, $all_hgt);
 

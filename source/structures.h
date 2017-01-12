@@ -38,6 +38,7 @@ struct Parameters{
   double avgdiffblock;
   double avgdiff;
   char translationsfile[200];
+  char filteredLanguageTree[200];
   double c1;
   double c2;
 };

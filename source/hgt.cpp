@@ -225,15 +225,28 @@ int main(int nargc,char **argv){
 //============================ GESTION DES RACINES =============================
 //==============================================================================
   //== selection de la racine
+  for(int i=1;i<=SpeciesTree.size;i++){
+    printf("\n%d : %s", i,SpeciesTree.SpeciesName[i]);
+    if(strcmp(SpeciesTree.SpeciesName[i],"root") == 0)
+       SpeciesTree.Root=i;   
+  }
   if(SpeciesTree.Root == -1) {
 	  printf("\nWBE-DETECTION : add root to languages tree");
 		addRoot(&SpeciesTree,NULL,SpeciesBranch,param.speciesroot,param.speciesRootfile,NULL);
 	}
-	if(GeneTree.Root == -1) {
+  for(int i=1;i<=SpeciesTree.size;i++){
+    printf("\n%d : %s", i,SpeciesTree.SpeciesName[i]);
+    if(strcmp(GeneTree.SpeciesName[i],"root") == 0)
+       GeneTree.Root=i;   
+  }
+
+  if(GeneTree.Root == -1) {
 	  printf("\nWBE-DETECTION : add root to words tree");
 	  addRoot(&GeneTree,NULL,GeneBranch,param.generoot,param.geneRootfile,NULL); //bestbipartition
 	}
-		
+  
+  SAVEASNewick(SpeciesTree.LONGUEUR, SpeciesTree.ARETE, SpeciesTree.SpeciesName, SpeciesTree.size, SpeciesTree.kt, param.filteredLanguageTree) ;
+
 	nbTree++;
 	
 	if(first ==1){
@@ -428,7 +441,7 @@ int main(int nargc,char **argv){
 		}
 	}
 	
-//	printf("\n\nNombre de groupes a ne pas briser : %d\n",nbGroupesBloques);
+  //printf("\n\nNombre de groupes a ne pas briser : %d\n",nbGroupesBloques);
 	for(i=0;i<nbGroupesBloques;i++){
 	//	printf("\n(%d) - ",groupesBloques[i][0]);
 		for(j=1;j<=groupesBloques[i][0];j++){

@@ -8,6 +8,8 @@ my $fichier_langue 	= $ARGV[0];
 my $input           = new Bio::TreeIO(-file   => "$fichier_langue", -format => "newick");
 my $tree            = $input->next_tree;
 
+$tree->reroot(trouverRacine("root",$tree));
+
 my @ids_dest = ();
 my @ids_source = ();
 my $flag = "";

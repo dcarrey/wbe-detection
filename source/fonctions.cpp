@@ -4034,7 +4034,7 @@ int readParameters(struct Parameters * param, char **argv, int nargc){
 	sprintf((*param).scenario,"unique");
 	sprintf((*param).subtree,"yes");
 	sprintf((*param).bootstrap,"no");
-	(*param).constraints = 0;	//= 0 : pas de contraintes	
+  (*param).constraints = 0;	//= 0 : pas de contraintes	
 	(*param).nbhgt = 50;
 	(*param).bootmin = 0;
   (*param).verbose_to_screen=false;
@@ -4194,10 +4194,9 @@ int readParameters(struct Parameters * param, char **argv, int nargc){
 	sprintf((*param).geneRootfile,"%s/geneRoot.txt",(*param).path);
 	sprintf((*param).speciesTreeWeb,"%s/speciesTreeWeb.txt",(*param).path);
 	sprintf((*param).geneTreeWeb,"%s/geneTreeWeb.txt",(*param).path);
-	sprintf((*param).outputWeb,"%s/outputWeb.txt",(*param).path);
-	
+	sprintf((*param).outputWeb,"%s/outputWeb.txt",(*param).path);	
+  sprintf((*param).filteredLanguageTree,"%s/_filteredLangueTree.new",(*param).path);
 
-	
 	return 0;
 }
 
