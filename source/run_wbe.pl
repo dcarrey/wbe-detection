@@ -2,6 +2,7 @@
 
 use strict;
 use File::Copy qw/ copy /;
+use Bio::TreeIO;
 use PostTraitement;
 
 my $header = <<'END_HEADER';
@@ -86,21 +87,28 @@ my $filteredTree = "$path" . "_filteredLangueTree.new";
 unlink($path.$outputFile);
 unlink($hgtplus);	
 
-save_to_file(get_content_file("TREES", $path.$inputFile),$tmp_input);
-save_to_file(get_content_file("TRANSLATIONS", $path.$inputFile),$path.$translationsFile);
+my($initial_langue_tree,$initial_word_tree) = getTrees($path.$inputFile);
+my($filtered_langue_tree,$filtered_word_tree) = filterTrees($initial_langue_tree,$initial_word_tree);
+my $content = $filtered_langue_tree->as_text('newick') ."\n".$filtered_word_tree->as_text('newick') ;
+save_to_file($content, $tmp_input);
+
+#print STDOUT $initial_langue_tree->as_text('newick') . "\n" . $initial_word_tree->as_text('newick');
+#print STDOUT "\n\n" . $filtered_langue_tree->as_text('newick') . "\n" . $filtered_word_tree->as_text('newick');
+
+save_to_file(getTranslations($path.$inputFile),$path.$translationsFile);
 
 #===========================================================================
 #======================== EXECUTION DU PROGRAMME ===========================
 #=========================================================================== 
-$cmd .= "-inputfile=$tmp_input -translationsfile=$path$translationsFile > $logFile";
+$cmd .= "-inputfile=$tmp_input -translationsfile=$path$translationsFile"; # > $logFile";
     
 #print STDERR "\nPERL : $cmd";
 execute_hgt($cmd);
-my $postTraitement = new PostTraitement($tmp_input,$filteredTree,$minInternalNodes,$minExternalNodes,$results,$hgtplus);
+my $postTraitement = new PostTraitement($initial_langue_tree,$filtered_langue_tree,$minInternalNodes,$minExternalNodes,$results,$hgtplus);
 $postTraitement->findAdditionnalsWBE();
 saveResultats($hgtplus, $outputFile);
 
-deleteTempFiles(qw/speciresRoot.txt input_.txt geneRoot.txt/);
+deleteTempFiles(qw/speciesRoot.txt input_.txt geneRoot.txt/);
 exit_program($val_retour,$returnFile,"");
              
 #===============================================================================
@@ -156,24 +164,54 @@ sub printToFile{
   close(OUT);
 }
 
-sub get_content_file{
-  my ($type,$file) = @_;
-  my $content  = "";
-  open(IN,$file) or die("Cannot open $file");
-  my $content = <IN>;
-  $content .= <IN>;
-  if( $type eq "TRANSLATIONS"){
-    $content = "";
-    while(my $line =<IN>){
-      $content .= $line;  
+sub getTrees{
+  my $file = $_[0];
+  open(my $io,$file) or die("Cannot open $file");
+  my $treeio = Bio::TreeIO->new(-format => 'newick', -fh => $io);
+  my $tree1 = $treeio->next_tree;
+  my $tree2 = $treeio->next_tree;
+  close($io);
+  return ($tree1,$tree2);
+}
+
+sub filterTrees{
+  my ($t1,$t2) = @_;
+
+  my $tree1 = $t1->clone();
+  my $tree2 = $t2->clone();
+  
+  my @nodes = ();
+  foreach my $node ($tree1->get_nodes()){
+    if($node->is_Leaf){
+      if($tree2->findnode_by_id($node->id()) eq ""){
+        push @nodes, $node;  
+      }
     }
   }
-  elsif($type eq "TREES"){
+  foreach my $node (@nodes){
+    $tree1->remove_Node($node);
+    $tree1->contract_linear_paths();
   }
-  else{
-    $content = "";
+  return ($tree1,$tree2);
+}
+
+
+sub getTranslations{
+  my ($file) = @_;
+  my $content  = "";
+  open(IN,$file) or die("Cannot open $file");
+  <IN>;
+  <IN>;
+  while(my $line =<IN>){
+    chomp($line);
+    my @tmp = split(" ",$line);
+    if( scalar @tmp == 3){
+      $content .= $tmp[1] . " " . $tmp[2] . "\n";
+    }
+    if( scalar @tmp == 2){
+      $content .= $tmp[0] . " " . $tmp[1] . "\n";
+    }
   }
-  close(IN);
   return $content;
 }
 

@@ -34,8 +34,8 @@ my $tree_mot; #   = $tmp_input->next_tree;
 sub new {
   my $class = shift;
   my $self = {
-                TREES => new Bio::TreeIO(-file   => shift, -format => "newick"),
-                FILTERED_TREE => new Bio::TreeIO(-file   => shift, -format => "newick"),
+                LANGUE_TREE => shift,
+                FILTERED_TREE => shift,
                 MIN_INTERNAL_NODES => shift,
                 MIN_EXTERNAL_NODES => shift,
                 RESULTS_FILE => shift,
@@ -46,8 +46,10 @@ sub new {
 
 sub findAdditionnalsWBE{
   my $self = shift;
-  $tree_langue = $self->{TREES}->next_tree;
-  $tree_mot    = $self->{FILTERED_TREE}->next_tree;
+  $tree_langue = $self->{LANGUE_TREE};
+  $tree_mot    = $self->{FILTERED_TREE};
+  
+  print STDOUT $tree_mot->as_text('newick');
   
   $tree_langue->reroot(trouverRacine("root",$tree_langue));
   $tree_mot->reroot(trouverRacine("root",$tree_mot));
@@ -217,7 +219,7 @@ sub rechercheTransfertsSupplementaires{
   #
   foreach my $parent ( $tree_mot->get_nodes()){
 
-    #print "\ncurrent node=" .  $parent->id_output ;
+    print "\ncurrent node=" .  $parent->id_output ;
     #print Dumper($parent);
 
     if( !defined ($parent->id_output) ){
@@ -226,11 +228,13 @@ sub rechercheTransfertsSupplementaires{
       my @ids_parent = getFeuilles($parent);
       my ($fils1,$fils2) = getFils($parent);
       my @ids_fils1 = getFeuilles($fils1);
+      print STDOUT "\n" . $fils1 . "--" . $fils2;
       my @ids_fils2 = getFeuilles($fils2);
-      #print "\n=========================================";
-      #print  "\nParent  (" . $parent->internal_id . ") : " . join(",",@ids_parent);   
-      #print  "\n\tFils 1  (" . $fils1->internal_id . ") : " . join(",",@ids_fils1);   
-      #print  "\n\tFils 2  (" . $fils2->internal_id . ") : " . join(",",@ids_fils2);   
+      print STDOUT "ALLO";
+      print "\n=========================================";
+      print  "\nParent  (" . $parent->internal_id . ") : " . join(",",@ids_parent);   
+      print  "\n\tFils 1  (" . $fils1->internal_id . ") : " . join(",",@ids_fils1);   
+      print  "\n\tFils 2  (" . $fils2->internal_id . ") : " . join(",",@ids_fils2);   
 
       #== Recherche dans l'arbre de langues 
       my $langue_parent = trouverNoeudCorrespondant( @ids_parent); 

@@ -12,6 +12,7 @@ scripts:
 	cp ageWBE.pl $(EXECDIR)
 	cp run_wbe.pl $(EXECDIR)
 	cp PostTraitement.pm $(EXECDIR)
+	cp ../examples/example2.txt $(EXECDIR)
 
 clean:
 	@echo  "\n=> Cleaning executable and object files"
