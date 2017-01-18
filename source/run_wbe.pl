@@ -4,6 +4,7 @@ use strict;
 use File::Copy qw/ copy /;
 use Bio::TreeIO;
 use PostTraitement;
+use Data::Dumper;
 
 my $header = <<'END_HEADER';
 ===============================================
@@ -88,23 +89,26 @@ unlink($path.$outputFile);
 unlink($hgtplus);	
 
 my($initial_langue_tree,$initial_word_tree) = getTrees($path.$inputFile);
+#print STDOUT $initial_langue_tree->as_text('newick') . "\n" . $initial_word_tree->as_text('newick');
+
 my($filtered_langue_tree,$filtered_word_tree) = filterTrees($initial_langue_tree,$initial_word_tree);
+#print STDOUT "\n\n" . $filtered_langue_tree->as_text('newick') . "\n" . $filtered_word_tree->as_text('newick');
+
 my $content = $filtered_langue_tree->as_text('newick') ."\n".$filtered_word_tree->as_text('newick') ;
 save_to_file($content, $tmp_input);
 
-#print STDOUT $initial_langue_tree->as_text('newick') . "\n" . $initial_word_tree->as_text('newick');
-#print STDOUT "\n\n" . $filtered_langue_tree->as_text('newick') . "\n" . $filtered_word_tree->as_text('newick');
+my ($translations,%groups) = getTranslations($path.$inputFile);
 
-save_to_file(getTranslations($path.$inputFile),$path.$translationsFile);
+save_to_file($translations,$path.$translationsFile);
 
 #===========================================================================
 #======================== EXECUTION DU PROGRAMME ===========================
 #=========================================================================== 
-$cmd .= "-inputfile=$tmp_input -translationsfile=$path$translationsFile"; # > $logFile";
+$cmd .= "-inputfile=$tmp_input -translationsfile=$path$translationsFile > $logFile";
     
 #print STDERR "\nPERL : $cmd";
 execute_hgt($cmd);
-my $postTraitement = new PostTraitement($initial_langue_tree,$filtered_langue_tree,$minInternalNodes,$minExternalNodes,$results,$hgtplus);
+my $postTraitement = new PostTraitement($initial_langue_tree,$filtered_langue_tree,\%groups,$minInternalNodes,$minExternalNodes,$results,$hgtplus);
 $postTraitement->findAdditionnalsWBE();
 saveResultats($hgtplus, $outputFile);
 
@@ -199,6 +203,7 @@ sub filterTrees{
 sub getTranslations{
   my ($file) = @_;
   my $content  = "";
+  my %groups = ();
   open(IN,$file) or die("Cannot open $file");
   <IN>;
   <IN>;
@@ -207,12 +212,16 @@ sub getTranslations{
     my @tmp = split(" ",$line);
     if( scalar @tmp == 3){
       $content .= $tmp[1] . " " . $tmp[2] . "\n";
+      my $key = $tmp[0];
+      $key =~ s/\[//g; 
+      $key =~ s/\]//g;
+      $groups{$tmp[1]} = $key;
     }
     if( scalar @tmp == 2){
       $content .= $tmp[0] . " " . $tmp[1] . "\n";
     }
   }
-  return $content;
+  return $content,%groups;
 }
 
 sub save_to_file{

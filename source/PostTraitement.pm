@@ -13,22 +13,9 @@ use constant DEBUG => 0; # 0,1,2
 
 no warnings 'experimental::smartmatch';
 
-my %tabGroup = ("01"=>'1',"02"=>'1',"03"=>'1',"04"=>'1',"05"=>'1',"06"=>'1',"07"=>'1',
-		"08"=>'2',"09"=>'2',"10"=>'2',"11"=>'2',"17"=>'2',"18"=>'2',"19"=>'2',
-		"12"=>'3',"13"=>'3',"14"=>'3',"15"=>'3',"16"=>'3',"20"=>'3',"21"=>'3',"22"=>'3',"23"=>'3',
-		"24"=>'4',"25"=>'4',"26"=>'4',"27"=>'4',"28"=>'4',"29"=>'4',"37"=>'4',"38"=>'4',
-		"30"=>'5',"31"=>'5',"32"=>'5',"33"=>'5',"34"=>'5',"35"=>'5',"36"=>'5',
-		"39"=>'6',"40"=>'6',"41"=>'6',
-		"42"=>'7',"43"=>'7',"44"=>'7',"45"=>'7',"46"=>'7',"47"=>'7',"48"=>'7',"49"=>'7',"50"=>'7',"51"=>'7',"52"=>'7',"53"=>'7',"54"=>'7',
-		"55"=>'8',"56"=>'8',"57"=>'8',"58"=>'8',"59"=>'8',"60"=>'8',"61"=>'8',"62"=>'8',"63"=>'8',"64"=>'8',"65"=>'8',
-		"73"=>'9',"74"=>'9',"75"=>'9',"76"=>'9',"77"=>'9',"78"=>'9',"79"=>'9',
-		"80"=>'10',"81"=>'10',"82"=>'10',"83"=>'10',"84"=>'10',
-		"66"=>'11',"67"=>'11',"68"=>'11',"69"=>'11',"70"=>'11',
-		"71"=>'12',"72"=>'12'
-		);
-    
-my $tree_langue; #= $tmp_input->next_tree;
-my $tree_mot; #   = $tmp_input->next_tree;
+my %tabGroup = ();
+my $tree_langue;
+my $tree_mot;
 
 #= Constructor
 sub new {
@@ -36,6 +23,7 @@ sub new {
   my $self = {
                 LANGUE_TREE => shift,
                 FILTERED_TREE => shift,
+                TAB_GROUP => shift,
                 MIN_INTERNAL_NODES => shift,
                 MIN_EXTERNAL_NODES => shift,
                 RESULTS_FILE => shift,
@@ -48,15 +36,14 @@ sub findAdditionnalsWBE{
   my $self = shift;
   $tree_langue = $self->{LANGUE_TREE};
   $tree_mot    = $self->{FILTERED_TREE};
-  
-  print STDOUT $tree_mot->as_text('newick');
-  
+  %tabGroup    = %{$self->{TAB_GROUP}};
+   
   $tree_langue->reroot(trouverRacine("root",$tree_langue));
   $tree_mot->reroot(trouverRacine("root",$tree_mot));
 
   my @results = ();
   @results = lectureTransfertsOriginaux($self->{RESULTS_FILE});
-  @results = rechercheTransfertsSupplementaires($tree_mot,$self->{MIN_EXTERNAL_NODES},@results);
+  @results = rechercheTransfertsSupplementaires($tree_mot,$self->{MIN_EXTERNAL_NODES},$self->{MIN_INTERNAL_NODES},@results);
   @results = ajustementTransfertsDates(@results);
   @results = ajustementTransferts2(@results);
   @results = ajustementTransferts(@results);
@@ -184,8 +171,8 @@ sub ajustementTransfertsDatesEtape2{
     my $fact = $item->{fact};
 
     if( (scalar(@ids_fils1) > 0) and (scalar(@ids_fils2) >0 ) ){
-      my @feuilles1 = map { my $v=$_; $v =~ s/-[0-9]+//g; $v } @ids_fils1;
-      my @feuilles2 = map { my $v=$_; $v =~ s/-[0-9]+//g; $v } @ids_fils2;
+      my @feuilles1 = @ids_fils1;
+      my @feuilles2 = @ids_fils2;
 
       my $node1 = lcaDateTree(@feuilles1);
       my $node2 = lcaDateTree(@feuilles2);
@@ -211,30 +198,24 @@ sub ajustementTransfertsDatesEtape2{
 #
 sub rechercheTransfertsSupplementaires{ 
   
-  my ($tree_mot,$MIN_EXTERNAL_NODES,@results) = @_;
+  my ($tree_mot,$MIN_EXTERNAL_NODES,$MIN_INTERNAL_NODES,@results) = @_;
   my @mot_feuilles = getFeuilles($tree_mot->get_root_node());
-
   #
   # RECHERCHE DES TRANSFERTS SUPPLEMENTAIRES
   #
+ 
   foreach my $parent ( $tree_mot->get_nodes()){
 
-    print "\ncurrent node=" .  $parent->id_output ;
-    #print Dumper($parent);
-
-    if( !defined ($parent->id_output) ){
-
+    if( is_internal_node($parent) ){
       #== Recherche dans l'arbre du mot
       my @ids_parent = getFeuilles($parent);
       my ($fils1,$fils2) = getFils($parent);
       my @ids_fils1 = getFeuilles($fils1);
-      print STDOUT "\n" . $fils1 . "--" . $fils2;
       my @ids_fils2 = getFeuilles($fils2);
-      print STDOUT "ALLO";
-      print "\n=========================================";
-      print  "\nParent  (" . $parent->internal_id . ") : " . join(",",@ids_parent);   
-      print  "\n\tFils 1  (" . $fils1->internal_id . ") : " . join(",",@ids_fils1);   
-      print  "\n\tFils 2  (" . $fils2->internal_id . ") : " . join(",",@ids_fils2);   
+      #print "\n=========================================";
+      #print  "\nParent  (" . $parent->internal_id . ") : " . join(",",@ids_parent);   
+      #print  "\n\tFils 1  (" . $fils1->internal_id . ") : " . join(",",@ids_fils1);   
+      #print  "\n\tFils 2  (" . $fils2->internal_id . ") : " . join(",",@ids_fils2);   
 
       #== Recherche dans l'arbre de langues 
       my $langue_parent = trouverNoeudCorrespondant( @ids_parent); 
@@ -260,13 +241,13 @@ sub rechercheTransfertsSupplementaires{
         }
       }
 
-      #my $sontDansLeMemeGroupe = &memeGroupe(\@ids_fils1,\@ids_fils2);
+      my $sontDansLeMemeGroupe = &memeGroupe(\@ids_fils1,\@ids_fils2);
 
-      #if (
-      #  ( ( $sontDansLeMemeGroupe == FALSE ) and  (($nbNoeud1 + $nbNoeud2) >= $MIN_EXTERNAL_NODES ) ) or 
-      #  ( ( $sontDansLeMemeGroupe == TRUE  ) and  (($nbNoeud1 + $nbNoeud2) >= $MIN_INTERNAL_NODES ) ) 
-      #){
-      if(($nbNoeud1 + $nbNoeud2) >= $MIN_EXTERNAL_NODES ){
+      if (
+        ( ( $sontDansLeMemeGroupe == FALSE ) and  (($nbNoeud1 + $nbNoeud2) >= $MIN_EXTERNAL_NODES ) ) or 
+        ( ( $sontDansLeMemeGroupe == TRUE  ) and  (($nbNoeud1 + $nbNoeud2) >= $MIN_INTERNAL_NODES ) ) 
+      ){
+        #if(($nbNoeud1 + $nbNoeud2) >= $MIN_EXTERNAL_NODES ){
         if( (scalar(@ids_fils1) > 0) and (scalar(@ids_fils2) > 0 ) ){
 
           my @feuilles1 =  do { my %seen; grep { !$seen{$_}++ }  getFeuillesUnique($fils1)};
@@ -497,10 +478,8 @@ sub nbNoeudIntermediaire{
 }
 
 sub trouverRacine{
-  
   my ($racine,$tree) = @_;
   my @nodes = $tree->find_node(-id => "$racine");
-  # print "\nTrouve : " . $nodes[0]->id_output;
   return $nodes[0];
 }
 
@@ -576,9 +555,7 @@ sub getFils{
   my $node = $_[0];
   my $fils1 = "";
   my $fils2 = "";
-  # print "\nParent" . $node->internal_id;
   foreach my $descendant ($node->each_Descendent){
-    # print " " . $descendant->internal_id;
     if( $fils1 eq ""){
       $fils1 = $descendant;
     }
@@ -608,6 +585,32 @@ sub subtreeIsOlder{
   return 1 if($height1 > $height2);
   return 0 if($height1 == $height2);
   return -1 if($height1 < $height2);
+}
+
+sub is_internal_node{
+
+  my $node = $_[0];
+  return 1 if (!$node->is_Leaf and (scalar($node->each_Descendent) > 1));
+  return 0;
+}
+
+sub memeGroupe(\@\@){
+  
+  my ($tab1,$tab2) = @_;
+  foreach my $elt1 (@$tab1){
+    my $e1 = $elt1;
+    foreach my $elt2 (@$tab2){
+      my $e2 = $elt2;
+      my $groupe_e1 = 0;
+      $groupe_e1 = $tabGroup{$e1} if( exists $tabGroup{$e1} );
+      my $groupe_e2 = 0;
+      $groupe_e2 = $tabGroup{$e2} if( exists $tabGroup{$e2} );
+      if (  $groupe_e1 ne  $groupe_e2  ){
+        return FALSE;
+      }
+    }
+  }
+  return TRUE;
 }
 
 1;
