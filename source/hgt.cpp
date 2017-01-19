@@ -158,9 +158,9 @@ int main(int nargc,char **argv){
 
 	//== lecture des matrices ou chaines newick en entree
 	if(readInput(SPECIE,param.input,&SpeciesTree) == -1){ printf("\nError in species tree\n"); exit(-1);}
-	if(readInput(GENE,param.input,&GeneTree) == -1){ printf("\nError in gene tree\n"); getchar(); exit(-1);}
+	if(readInput(GENE,param.input,&GeneTree) == -1){ printf("\nError in gene tree\n"); exit(-1);}
 
-	sortMatrices(GeneTree.Input,GeneTree.SpeciesName,SpeciesTree.SpeciesName,SpeciesTree.size);
+//	sortMatrices(GeneTree.Input,GeneTree.SpeciesName,SpeciesTree.SpeciesName,SpeciesTree.size);
 /*
 	for(i=1;i<=SpeciesTree.size;i++){
 			printf("\n%s\t",SpeciesTree.SpeciesName[i]);
@@ -209,9 +209,9 @@ int main(int nargc,char **argv){
 	CreateSubStructures(&SpeciesTree,1,binaireSpecies);
 	CreateSubStructures(&GeneTree,1,binaireGene);
 	//copyInputTree(&tmpGeneTree,GeneTree,1,1);
-	for(i=1;i<=2*SpeciesTree.size-3-SpeciesTree.kt;i++){
-		printf("\n%d -> %ld--%ld : %lf",i,SpeciesTree.ARETE[2*i-2],SpeciesTree.ARETE[2*i-1],SpeciesTree.LONGUEUR[i-1]);
-	}
+	//for(i=1;i<=2*SpeciesTree.size-3-SpeciesTree.kt;i++){
+	//	printf("\n%d -> %ld--%ld : %lf",i,SpeciesTree.ARETE[2*i-2],SpeciesTree.ARETE[2*i-1],SpeciesTree.LONGUEUR[i-1]);
+	//}
 	
 /*
   printf("\nAffichage du groupe par numero de langue :");
@@ -234,18 +234,18 @@ int main(int nargc,char **argv){
 	  printf("\nWBE-DETECTION : add root to languages tree");
 		addRoot(&SpeciesTree,NULL,SpeciesBranch,param.speciesroot,param.speciesRootfile,NULL);
 	}
-  for(int i=1;i<=SpeciesTree.size;i++){
-    printf("\n%d : %s", i,SpeciesTree.SpeciesName[i]);
+  /*for(int i=1;i<=GeneTree.size;i++){
+    printf("\n%d : %s", i,GeneTree.SpeciesName[i]);
     if(strcmp(GeneTree.SpeciesName[i],"root") == 0)
        GeneTree.Root=i;   
   }
-
+*/
   if(GeneTree.Root == -1) {
 	  printf("\nWBE-DETECTION : add root to words tree");
 	  addRoot(&GeneTree,NULL,GeneBranch,param.generoot,param.geneRootfile,NULL); //bestbipartition
 	}
   
-  SAVEASNewick(SpeciesTree.LONGUEUR, SpeciesTree.ARETE, SpeciesTree.SpeciesName, SpeciesTree.size, SpeciesTree.kt, param.filteredLanguageTree) ;
+  //SAVEASNewick(SpeciesTree.LONGUEUR, SpeciesTree.ARETE, SpeciesTree.SpeciesName, SpeciesTree.size, SpeciesTree.kt, param.filteredLanguageTree) ;
 
 	nbTree++;
 	
@@ -264,7 +264,7 @@ int main(int nargc,char **argv){
 
 	InitCriteria(&aCrit,SpeciesTree.size);
 	computeCriteria(SpeciesTree.ADD,GeneTree.ADD,SpeciesTree.size,&aCrit,SpeciesTree.LONGUEUR,SpeciesTree.ARETE,GeneTree.LONGUEUR,GeneTree.ARETE);
-	printf("\nWBE-DETECTION : rf=%d n=%d rf/(2n-6)=%lf\n",aCrit.RF,SpeciesTree.size,(double)aCrit.RF/(2*(double)SpeciesTree.size-6));
+	//printf("\nWBE-DETECTION : rf=%d n=%d rf/(2n-6)=%lf\n",aCrit.RF,SpeciesTree.size,(double)aCrit.RF/(2*(double)SpeciesTree.size-6));
 	
 	if(SpeciesTree.size > GeneTree.size) max_hgt = 4*GeneTree.size * GeneTree.size;
 	else max_hgt = 4*SpeciesTree.size * SpeciesTree.size;
@@ -365,11 +365,12 @@ int main(int nargc,char **argv){
   free(langTrans);
 	
 
-	for(i=1;i<=SpeciesTree.size-1;i++){
+/*	for(i=1;i<=SpeciesTree.size-1;i++){
 	  printf("\n%d : %s -> %s -> %s",i,trans[i].langNum,trans[i].langTrans,SpeciesTree.SpeciesName[i]);
 	}
-
-  printf("\navgdiffblock = %lf", param.avgdiffblock);
+*/
+  
+  //printf("\navgdiffblock = %lf", param.avgdiffblock);
 	double distMots1,distMots2;
 	double totalDistMots;
 	int nbLang;
@@ -561,7 +562,7 @@ int main(int nargc,char **argv){
 		//CreateSubStructures(&GeneTree,1,binaireGene);
 		AdjustBranchLength(&SpeciesTree,GeneTree,binaireSpecies,1);
 		
-		
+		/*
 		printf("\n\nLangue Tree : ");
 		for(i=1;i<=SpeciesTree.size;i++){
 			printf("\n%s\t",SpeciesTree.SpeciesName[i]);
@@ -576,7 +577,7 @@ int main(int nargc,char **argv){
 				printf("%lf ",GeneTree.ADD[i][j]);
 			}
 		}
-		
+		*/
 		
 		DTGene = (struct DescTree*)malloc(3*(2*GeneTree.size-2-GeneTree.kt+1)*sizeof(struct DescTree));
 		RechercherBipartitionSansRacine(GeneTree.ARETE,GeneTree.ADD,GeneTree.Adjacence,DTGene,GeneTree.size,GeneTree.kt);	

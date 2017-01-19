@@ -372,7 +372,7 @@ void addLeafAndUpdate(struct InputTree *aTree, int choix){
 	Floyd(aTree->Adjacence,aTree->ADD,aTree->Input,n+1,aTree->kt);//5eme fois
 //  global_cpt5++;
 
-	strcpy(aTree->SpeciesName[aTree->size],"Root");
+	strcpy(aTree->SpeciesName[aTree->size],"root");
 
 }
 
@@ -2075,7 +2075,7 @@ int readInputFile(FILE *in, const char *tmpFile){
 	printf("\n");printf("\n");
 
 	printf("\n");printf("\n");*/
-	filtrerMatrice(speciesTree_t.Input,geneTree_t.Input,speciesTree_t.SpeciesName,geneTree_t.SpeciesName,speciesTree_t.size,geneTree_t.size);
+	//filtrerMatrice(speciesTree_t.Input,geneTree_t.Input,speciesTree_t.SpeciesName,geneTree_t.SpeciesName,speciesTree_t.size,geneTree_t.size);
 	//printf("%d--%d",speciesTree_t.size,geneTree_t.size);
 	if(ecrireMatrice(speciesTree_t.Input,tmpFile,speciesTree_t.size,speciesTree_t.SpeciesName) == -1)
 		return -2;
@@ -3914,7 +3914,7 @@ int readInput(int Type, const char *file,struct InputTree * aTree){
 		}	
 	}
 
-	strcpy(aTree->SpeciesName[size+1],"Root");
+	strcpy(aTree->SpeciesName[size+1],"root");
 	
 	fclose(in);
 
