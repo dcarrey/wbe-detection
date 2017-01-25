@@ -160,7 +160,7 @@ int main(int nargc,char **argv){
 	if(readInput(SPECIE,param.input,&SpeciesTree) == -1){ printf("\nError in species tree\n"); exit(-1);}
 	if(readInput(GENE,param.input,&GeneTree) == -1){ printf("\nError in gene tree\n"); exit(-1);}
 
-//	sortMatrices(GeneTree.Input,GeneTree.SpeciesName,SpeciesTree.SpeciesName,SpeciesTree.size);
+  sortMatrices(GeneTree.Input,GeneTree.SpeciesName,SpeciesTree.SpeciesName,SpeciesTree.size);
 /*
 	for(i=1;i<=SpeciesTree.size;i++){
 			printf("\n%s\t",SpeciesTree.SpeciesName[i]);
@@ -230,16 +230,16 @@ int main(int nargc,char **argv){
     if(strcmp(SpeciesTree.SpeciesName[i],"root") == 0)
        SpeciesTree.Root=i;   
   }
+ 
   if(SpeciesTree.Root == -1) {
 	  printf("\nWBE-DETECTION : add root to languages tree");
 		addRoot(&SpeciesTree,NULL,SpeciesBranch,param.speciesroot,param.speciesRootfile,NULL);
 	}
-  /*for(int i=1;i<=GeneTree.size;i++){
+  for(int i=1;i<=GeneTree.size;i++){
     printf("\n%d : %s", i,GeneTree.SpeciesName[i]);
     if(strcmp(GeneTree.SpeciesName[i],"root") == 0)
        GeneTree.Root=i;   
   }
-*/
   if(GeneTree.Root == -1) {
 	  printf("\nWBE-DETECTION : add root to words tree");
 	  addRoot(&GeneTree,NULL,GeneBranch,param.generoot,param.geneRootfile,NULL); //bestbipartition
@@ -442,17 +442,17 @@ int main(int nargc,char **argv){
 		}
 	}
 	
-  //printf("\n\nNombre de groupes a ne pas briser : %d\n",nbGroupesBloques);
+  printf("\n\nNombre de groupes a ne pas briser : %d\n",nbGroupesBloques);
 	for(i=0;i<nbGroupesBloques;i++){
-	//	printf("\n(%d) - ",groupesBloques[i][0]);
+		printf("\n(%d) - ",groupesBloques[i][0]);
 		for(j=1;j<=groupesBloques[i][0];j++){
-		//	printf("%d ",groupesBloques[i][j]);
+			printf("%d ",groupesBloques[i][j]);
 		}
-	//	printf("\n - %d",tabGroupeA[i]);
+		printf(" - (%d)",tabGroupeA[i]);
 	}
 	
 	if((param.constraints == 0) || (param.constraints == 2)){
-		nbGroupesBloques=0;
+		//nbGroupesBloques=0;
 		printf("\nNE PAS FAIRE LA CONTRAINTE 1 (%d)",param.constraints);
 	}
 	
@@ -677,13 +677,13 @@ int main(int nargc,char **argv){
 
           sprintf(cmd,"perl ageWBE.pl %s _src_ ", param.inputfile);
           for(int m=1;m<=bestHGT[cpt_hgt].listSource[0];m++){
-						printf("%s ",SpeciesTree.SpeciesName[bestHGT[cpt_hgt].listSource[m]]);
+						//printf("%s ",SpeciesTree.SpeciesName[bestHGT[cpt_hgt].listSource[m]]);
 						sprintf(cmd + strlen(cmd), "%s ",SpeciesTree.SpeciesName[bestHGT[cpt_hgt].listSource[m]]);
 					}
-					printf("==> ");
+					//printf("==> ");
 					sprintf(cmd + strlen(cmd), "_dest_ ");
 					for(int m=1;m<=bestHGT[cpt_hgt].listDestination[0];m++){
-						printf("%s ",SpeciesTree.SpeciesName[bestHGT[cpt_hgt].listDestination[m]]);
+						//printf("%s ",SpeciesTree.SpeciesName[bestHGT[cpt_hgt].listDestination[m]]);
 						sprintf(cmd + strlen(cmd),"%s ",SpeciesTree.SpeciesName[bestHGT[cpt_hgt].listDestination[m]]);
 					}
           
@@ -691,7 +691,7 @@ int main(int nargc,char **argv){
           FILE* file = popen(cmd, "r");
           fgets(buffer, 100, file);
           
-          printf("\ncmd= %s , age=%s", cmd, buffer);
+          //printf("\ncmd= %s , age=%s", cmd, buffer);
 
           //double new_avg = param.avgdiffblock - param.avgdiff * log( atof(buffer) );
           
@@ -719,14 +719,14 @@ int main(int nargc,char **argv){
           
 
           if(( p < 0.5) && ((param.constraints == 3) || (param.constraints == 2))){ //0.35
-            printf("\nCONTRAINTE 2 APLLIQUEE");
+            //printf("\nCONTRAINTE 2 APLLIQUEE");
 						bestHGT[cpt_hgt].valide = 0; 
 						continue; 
           }
           
 					if((temoin_zero != -1)&&(i!=temoin_zero)){
 						bestHGT[cpt_hgt].valide = 0; 
-						printf("\ndans temoin_zero");
+						//printf("\ndans temoin_zero");
 						continue;  
 					}
           	  
@@ -756,7 +756,7 @@ int main(int nargc,char **argv){
 					for(int m=1;m<=bestHGT[cpt_hgt].listDestination[0];m++)
 						printf("%d ",bestHGT[cpt_hgt].listDestination[m]);
 						
-					printf("\n=====> ");
+					printf("\n=====> nbGroupesBloques=%d",nbGroupesBloques);
 					int temoinZ = 0;  //= 1 - On ne casse pas le groupe
 					int temoinY = 0;  //= 
 					int nbSimilaire = 0;
@@ -775,6 +775,7 @@ int main(int nargc,char **argv){
 								}
 							}
 						}
+            printf("nbSimilaire = %d",nbSimilaire);
 						if((nbSimilaire < groupesBloques[n][0]) && (nbSimilaire > 0))
 							temoinZ = 1;
 						if((nbSimilaire > 0) &&(nbSimilaire1 > 0))

@@ -89,10 +89,11 @@ unlink($path.$outputFile);
 unlink($hgtplus);	
 
 my($initial_langue_tree,$initial_word_tree) = getTrees($path.$inputFile);
+
 die("There is no 'root' leaf in the language tree !!") if( scalar($initial_langue_tree->find_node(-id => 'root')) == 0 );
+die("There is no 'root' leaf in the word tree !!") if( scalar($initial_word_tree->find_node(-id => 'root')) == 0 );
 
 my($filtered_langue_tree,$filtered_word_tree) = filterTrees($initial_langue_tree,$initial_word_tree);
-#print STDOUT "\n\n" . $filtered_langue_tree->as_text('newick') . "\n" . $filtered_word_tree->as_text('newick');
 
 my $content = $filtered_langue_tree->as_text('newick') ."\n".$filtered_word_tree->as_text('newick') ;
 save_to_file($content, $tmp_input);
@@ -104,7 +105,7 @@ save_to_file($translations,$path.$translationsFile);
 #===========================================================================
 #======================== EXECUTION DU PROGRAMME ===========================
 #=========================================================================== 
-$cmd .= "-inputfile=$tmp_input -translationsfile=$path$translationsFile"; # > $logFile";
+$cmd .= "-inputfile=$tmp_input -translationsfile=$path$translationsFile > $logFile";
     
 #print STDERR "\nPERL : $cmd";
 execute_hgt($cmd);
@@ -153,6 +154,7 @@ sub saveResultats {
   my ($hgtplus,$outputFile) = @_; 
   return if(! -f $hgtplus);
   printToFile($header, $outputFile, ">");
+  printToFile("\nList of word borrowing events found :\n\n", $outputFile, ">>");
   open (IN,$hgtplus) or die($! . "($hgtplus)");
   while( my $ligne =<IN>) {
     chomp($ligne);
@@ -187,7 +189,7 @@ sub filterTrees{
   my @nodes = ();
   foreach my $node ($tree1->get_nodes()){
     if($node->is_Leaf){
-      if(($tree2->findnode_by_id($node->id()) eq "") and ($node->id() ne "root") ){
+      if($tree2->findnode_by_id($node->id()) eq ""){
         push @nodes, $node;  
       }
     }
@@ -206,22 +208,36 @@ sub getTranslations{
   my %groups = ();
   my $nbLeaves = scalar ( $tree->get_leaf_nodes());
   my $cpt=0;
+  my @leaves = ();
   open(IN,$file) or die("Cannot open $file");
-  <IN>;
-  <IN>;
   while(my $line =<IN>){
-    $cpt++;
     chomp($line);
-    my @tmp = split(" ",$line);
-    if( scalar @tmp == 3){
-      $content .= $tmp[1] . " " . $tmp[2] . "\n" if( $cpt <= $nbLeaves );
-      my $key = $tmp[0];
-      $key =~ s/\[//g; 
-      $key =~ s/\]//g;
-      $groups{$tmp[1]} = $key;
+    if($line !~ /^\(/ and $line !~ /^\#/ and $line !~ /^$/){
+      my @tmp = split(":",$line);
+      my $groupId = $tmp[0];
+      chomp($groupId);
+      for my $elt (split(",",$tmp[1])){
+        my ($key,$translate) = ($elt =~ m/([^\[]*)\[([^\]]*)\]/);
+        if(length $translate){
+          $content .= $key . " " . $translate . "\n";
+          $groups{$key} = $groupId;
+          push @leaves, $key;
+        }
+        else{
+          $groups{$elt} = $groupId;
+        }
+      }
     }
-    if( scalar @tmp == 2){
-      $content .= $tmp[0] . " " . $tmp[1] . "\n" if( $cpt <= $nbLeaves );
+  }
+  for my $node ($tree->get_leaf_nodes()){
+    my $trouve = 0;
+    for my $leaf (@leaves){
+      if($leaf eq $node->id_output){
+        $trouve=1;
+      }
+    }
+    if ( $trouve == 0 and $node->id_output ne "root"){
+      die("Error : No translation for word leaf " . $node->id_output . "\n");
     }
   }
   return $content,%groups;
