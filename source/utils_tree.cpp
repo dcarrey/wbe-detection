@@ -1580,9 +1580,9 @@ void RechercherBipartition(long int *ARETE,double ** DIST,int P,double ** Adjace
 
 	arbre = CreerSousArbre(ARETE,&i,Adjacence,P,n);
 
-//	printf("\n-------------------------------\n");
-//	AfficherArbre(arbre,0);
-//	printf("\n-------------------------------");
+  //printf("\n-------------------------------\n");
+  //AfficherArbre(arbre,0);
+	//printf("\n-------------------------------");
 
 
 	ParcoursArbre(arbre,DT);
@@ -1614,7 +1614,7 @@ void RechercherBipartition(long int *ARETE,double ** DIST,int P,double ** Adjace
             }
 
             DT[i].Matrice[taille+1][taille+1] = 0.0;
-          /*  if(taille == 3){
+         /*   if(taille == 3){
                 for(l=1;l<=taille;l++){
                     DT[i].Matrice[taille+1][l] = DT[i].Matrice[l][taille+1] = DIST[n][DT[i].Tableau[l]];
                 }

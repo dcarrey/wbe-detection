@@ -9,7 +9,7 @@ use warnings;
 use constant FALSE => 0;
 use constant TRUE  => 1;
 use constant DATE_GREEK  => 2400;
-use constant DEBUG => 0; # 0,1,2
+use constant DEBUG => 2; # 0,1,2
 
 no warnings 'experimental::smartmatch';
 
@@ -37,9 +37,9 @@ sub findAdditionnalsWBE{
   $tree_langue = $self->{LANGUE_TREE};
   $tree_mot    = $self->{FILTERED_TREE};
   %tabGroup    = %{$self->{TAB_GROUP}};
-   
-  $tree_langue->reroot(trouverRacine("root",$tree_langue));
-  $tree_mot->reroot(trouverRacine("root",$tree_mot));
+
+  $tree_langue->reroot(trouverRacine("Root",$tree_langue));
+  $tree_mot->reroot(trouverRacine("Root",$tree_mot));
 
   my @results = ();
   @results = lectureTransfertsOriginaux($self->{RESULTS_FILE});
@@ -78,7 +78,7 @@ sub printTransferts{
 sub lectureTransfertsOriginaux{
   my $filename = $_[0];
   my @results = ();
-  
+
   open(IN, $filename) or die($! . "($filename)");
   <IN>;<IN>;
   my $temoin=0;
@@ -88,7 +88,7 @@ sub lectureTransfertsOriginaux{
 
   while (my $ligne = <IN>){
     chomp($ligne);
-    if($ligne =~ /^\d+$/){ 
+    if($ligne =~ /^\d+$/){
       my $nbWbe = $ligne;
       for(my $i=0;$i<$nbWbe;$i++){
         <IN>;
@@ -97,8 +97,8 @@ sub lectureTransfertsOriginaux{
         chomp($source);
         chomp($dest);
         <IN>;<IN>;
-        my @ids_fils1 = split(" ", $source);
-        my @ids_fils2 = split(" ", $dest);
+        my @ids_fils1 = sort(split(" ", $source));
+        my @ids_fils2 = sort(split(" ", $dest));
         push @results , {source => \@ids_fils1, destination => \@ids_fils2, fact=>"1.0", status=>"init"};
       }
     }
@@ -132,11 +132,11 @@ sub ajustementTransfertsDates{
 
       my $isOlder =  1;
       $isOlder = subtreeIsOlder(join(" ",@ids_fils1),join(" ",@ids_fils2)) if(($status eq "plus"));
-      #print STDERR "\n" . join(" ",@ids_fils1) . " -> " . join(" ",@ids_fils2) . ":" . $isOlder if (DEBUG);
+      print STDERR "\n" . join(" ",@ids_fils1) . " -> " . join(" ",@ids_fils2) . ":" . $isOlder if (DEBUG > 1);
 
       if( $isOlder == 1 ){
         $fact = "1.0" if($status eq "plus");
-        push @results2 , {source => \@ids_fils1, destination => \@ids_fils2, fact =>$fact, status=>$status};   
+        push @results2 , {source => \@ids_fils1, destination => \@ids_fils2, fact =>$fact, status=>$status};
         #print STDERR "\n2:" . join(" ", @ids_fils1) if (DEBUG);
       }
       elsif( $isOlder == -1  ){
@@ -147,7 +147,7 @@ sub ajustementTransfertsDates{
       else{
         $fact = "0.5" if($status eq "plus");
         push @results2 , {source => \@ids_fils2, destination => \@ids_fils1, fact =>$fact, status=>$status};
-        push @results2 , {source => \@ids_fils1, destination => \@ids_fils2, fact =>"0.5", status=>$status} if($status eq "plus"); 
+        push @results2 , {source => \@ids_fils1, destination => \@ids_fils2, fact =>"0.5", status=>$status} if($status eq "plus");
         #print STDERR "\n3:" . join(" ", @ids_fils1) if (DEBUG);
       }
     }
@@ -196,14 +196,14 @@ sub ajustementTransfertsDatesEtape2{
 #
 #
 #
-sub rechercheTransfertsSupplementaires{ 
-  
+sub rechercheTransfertsSupplementaires{
+
   my ($tree_mot,$MIN_EXTERNAL_NODES,$MIN_INTERNAL_NODES,@results) = @_;
   my @mot_feuilles = getFeuilles($tree_mot->get_root_node());
   #
   # RECHERCHE DES TRANSFERTS SUPPLEMENTAIRES
   #
- 
+
   foreach my $parent ( $tree_mot->get_nodes()){
 
     if( is_internal_node($parent) ){
@@ -213,16 +213,16 @@ sub rechercheTransfertsSupplementaires{
       my @ids_fils1 = getFeuilles($fils1);
       my @ids_fils2 = getFeuilles($fils2);
       #print "\n=========================================";
-      #print  "\nParent  (" . $parent->internal_id . ") : " . join(",",@ids_parent);   
-      #print  "\n\tFils 1  (" . $fils1->internal_id . ") : " . join(",",@ids_fils1);   
-      #print  "\n\tFils 2  (" . $fils2->internal_id . ") : " . join(",",@ids_fils2);   
+      #print  "\nParent  (" . $parent->internal_id . ") : " . join(",",@ids_parent);
+      #print  "\n\tFils 1  (" . $fils1->internal_id . ") : " . join(",",@ids_fils1);
+      #print  "\n\tFils 2  (" . $fils2->internal_id . ") : " . join(",",@ids_fils2);
 
-      #== Recherche dans l'arbre de langues 
-      my $langue_parent = trouverNoeudCorrespondant( @ids_parent); 
+      #== Recherche dans l'arbre de langues
+      my $langue_parent = trouverNoeudCorrespondant( @ids_parent);
       #print "\n\nParent (Langue) = " . $langue_parent->internal_id . "->" .  join(",",getFeuilles($langue_parent));
-      my $langue_fils1 = trouverNoeudCorrespondant( @ids_fils1); 
+      my $langue_fils1 = trouverNoeudCorrespondant( @ids_fils1);
       #print "\nFils (Langue) = " . $langue_fils1->internal_id . "->" .  join(",",getFeuilles($langue_fils1));
-      my $langue_fils2 = trouverNoeudCorrespondant( @ids_fils2); 
+      my $langue_fils2 = trouverNoeudCorrespondant( @ids_fils2);
       #print "\nFils (Langue) = " . $langue_fils2->internal_id . "->" .  join(",",getFeuilles($langue_fils2));
 
       my $nbNoeud1 = nbNoeudIntermediaire($langue_parent,$langue_fils1);
@@ -234,18 +234,18 @@ sub rechercheTransfertsSupplementaires{
       foreach my $f (@mot_feuilles){
 
         foreach my $f1 (getFeuilles($langue_fils1)){
-          push ( @feuilles_fils1, $f1)  if ($f eq $f1);  
+          push ( @feuilles_fils1, $f1)  if ($f eq $f1);
         }
         foreach my $f2 (getFeuilles($langue_fils2)){
-          push ( @feuilles_fils2, $f2)  if ($f eq $f2);  
+          push ( @feuilles_fils2, $f2)  if ($f eq $f2);
         }
       }
 
       my $sontDansLeMemeGroupe = &memeGroupe(\@ids_fils1,\@ids_fils2);
 
       if (
-        ( ( $sontDansLeMemeGroupe == FALSE ) and  (($nbNoeud1 + $nbNoeud2) >= $MIN_EXTERNAL_NODES ) ) or 
-        ( ( $sontDansLeMemeGroupe == TRUE  ) and  (($nbNoeud1 + $nbNoeud2) >= $MIN_INTERNAL_NODES ) ) 
+        ( ( $sontDansLeMemeGroupe == FALSE ) and  (($nbNoeud1 + $nbNoeud2) >= $MIN_EXTERNAL_NODES ) ) or
+        ( ( $sontDansLeMemeGroupe == TRUE  ) and  (($nbNoeud1 + $nbNoeud2) >= $MIN_INTERNAL_NODES ) )
       ){
         #if(($nbNoeud1 + $nbNoeud2) >= $MIN_EXTERNAL_NODES ){
         if( (scalar(@ids_fils1) > 0) and (scalar(@ids_fils2) > 0 ) ){
@@ -279,11 +279,11 @@ sub rechercheTransfertsSupplementaires{
 sub ajustementTransferts{
   my @results = @_;
   #
-  # Suppression des sous transferts : 
+  # Suppression des sous transferts :
   # if (currentSource,currentDest) is included into anotherSource then
   #   remove currentDest from anotherSource
   # end if
-  # 
+  #
   my $event = 1;
   while( $event == 1 ){
     $event = 0;
@@ -293,8 +293,8 @@ sub ajustementTransferts{
 
         foreach my $toCompare (@results) {
           #= (source + dest) est un sous-groupe d'une (source) ?
-          if ( ($toFind->{fact} ne "0.5") && ($toCompare->{fact} ne "0.5") ) {             
-           
+          if ( ($toFind->{fact} ne "0.5") && ($toCompare->{fact} ne "0.5") ) {
+
             my @minus = array_minus(@tabToFind,@{$toCompare->{source}});
             if ( @minus == 0){
               my @newSource =  array_minus(@{$toCompare->{source}},@{$toFind->{destination}});
@@ -325,7 +325,7 @@ sub ajustementTransferts{
           }
         } #end - foreach
       } #end - foreach
-    } 
+    }
   }
   printTransferts("\n\nAjustement 1",@results) if (DEBUG > 0);
   return @results;
@@ -335,11 +335,11 @@ sub ajustementTransferts{
 sub ajustementTransferts2{
   my @results = @_;
   #
-  # Suppression des sous transferts : 
+  # Suppression des sous transferts :
   # if (currentSource,currentDest) is included into anotherSource then
   #   remove currentDest from anotherSource
   # end if
-  # 
+  #
   my $event = 1;
   while( $event == 1 ){
     $event = 0;
@@ -350,7 +350,7 @@ sub ajustementTransferts2{
         foreach my $toCompare (@results) {
           next if($toCompare->{status} eq "del");
 
-          if ( ($toFind->{status} eq "init") and ($toCompare->{status} eq "plus") and ($toCompare->{fact} ne "0.5") ){             
+          if ( ($toFind->{status} eq "init") and ($toCompare->{status} eq "plus") and ($toCompare->{fact} ne "0.5") ){
             my @minus_source = array_minus(@{$toFind->{source}},@{$toCompare->{source}});
             my @minus_destination = array_minus(@{$toFind->{destination}},@{$toCompare->{destination}});
             my @minus_destination_inverse = array_minus(@{$toCompare->{destination}},@{$toFind->{destination}});
@@ -363,8 +363,8 @@ sub ajustementTransferts2{
               }
               my @newDest = array_minus(@{$toCompare->{destination}},@{$toFind->{destination}});
               #print STDERR "\n>> nouvelle destination : " . join(" ", @newDest);
-              if(@newDest == 0){ 
-                $toCompare->{status} = "del" 
+              if(@newDest == 0){
+                $toCompare->{status} = "del"
               }
               else{
                 $toCompare->{destination} = \@newDest;
@@ -387,12 +387,12 @@ sub ajustementTransferts2{
                   print STDERR "\n2>>Nouvelle source : " . join(" ", @newSource);
                 }
                 #if ( (@{$toFind->{source}} == 1) and (@{$toFind->{destination}} == 1)) {
-                my $tmp =  $toFind->{source}; 
+                my $tmp =  $toFind->{source};
                 $toFind->{source} =  $toFind->{destination} ;
                 $toFind->{destination} = $tmp;
                 #}
-                if(@newSource == 0){ 
-                  $toCompare->{status} = "del" 
+                if(@newSource == 0){
+                  $toCompare->{status} = "del"
                 }
                 else{
                   $toCompare->{destination} = \@newSource;
@@ -405,7 +405,7 @@ sub ajustementTransferts2{
           }
         }
       }
-    } 
+    }
   }
   printTransferts("\n\nAjustement 2",@results) if (DEBUG > 0);
   return @results;
@@ -414,11 +414,11 @@ sub ajustementTransferts2{
 sub ajustementTransferts05{
   my @results = @_;
   #
-  # Suppression des sous transferts : 
+  # Suppression des sous transferts :
   # if (currentSource,currentDest) is included into anotherSource then
   #   remove currentDest from anotherSource
   # end if
-  # 
+  #
   my $event = 1;
   while( $event == 1 ){
     $event = 0;
@@ -429,7 +429,7 @@ sub ajustementTransferts05{
         foreach my $toCompare (@results) {
           next if($toCompare->{status} eq "del");
 
-          if ( ($toFind->{fact} eq "0.5") and ($toCompare->{fact} ne "0.5") ){             
+          if ( ($toFind->{fact} eq "0.5") and ($toCompare->{fact} ne "0.5") ){
             if (DEBUG > 1){
               print STDERR "\n>>" . join(" ",@{$toFind->{destination}}) . " ? " . join(" ", @{$toCompare->{destination}});
             }
@@ -445,7 +445,7 @@ sub ajustementTransferts05{
           }
         }
       }
-    } 
+    }
   }
   printTransferts("\n\nAjustement 0.5",@results) if (DEBUG > 0);
   return @results;
@@ -493,7 +493,7 @@ sub trouverNoeudCorrespondant{
   }
   my $langue_parent = $ids[0];
   #print STDOUT  "\n nb nodes = " . scalar (@ids);
-  
+
   $langue_parent = $tree_langue->get_lca(@ids) if ( scalar (@ids) > 1);
 
   return $langue_parent;
@@ -515,23 +515,23 @@ sub lcaDateTree{
 
 
 sub getFeuilles{
-  
+
   my $node = $_[0];
   my @ids = ();
-  
+
   if( $node->is_Leaf){
     push(@ids,$node->id_output);
   }
   foreach my $descendant ( $node->get_all_Descendents){
       if( $descendant->is_Leaf){
         push(@ids,$descendant->id_output);
-      }  
+      }
     }
-  return @ids;
+  return sort(@ids);
 }
 
 sub getFeuillesUnique{
-  
+
   my $node = $_[0];
   my @ids = ();
   my $id = -1;
@@ -545,9 +545,9 @@ sub getFeuillesUnique{
         $id = $descendant->id_output;
         #$id =~ s/-[0-9]+//g;
         push(@ids,$id);
-      }  
+      }
     }
-  return @ids;
+  return sort(@ids);
 }
 
 sub getFils{
@@ -569,13 +569,13 @@ sub getFils{
 
 sub subtreeIsOlder{
   my($subtree1,$subtree2) = @_;
-  
+
   my @feuilles1 = split(" ",$subtree1);
-  my @feuilles2 = split(" ",$subtree2);          
-  
+  my @feuilles2 = split(" ",$subtree2);
+
   my $node1 = lcaDateTree(@feuilles1);
   my $node2 = lcaDateTree(@feuilles2);
-  
+
   print STDERR "\n" . join(" ",@feuilles1) . " -> " . join(" ",@feuilles2)  if (DEBUG > 1);
 
   my $height1 = $node1->height;
@@ -595,7 +595,7 @@ sub is_internal_node{
 }
 
 sub memeGroupe(\@\@){
-  
+
   my ($tab1,$tab2) = @_;
   foreach my $elt1 (@$tab1){
     my $e1 = $elt1;

@@ -15,7 +15,7 @@ void printHGTandGroups(struct HGT *aHGT, struct InputTree SpeciesTree){
 
 
 int estUnSousGroupe(int * tab1,int * tab2){
-	
+
 	int temoin=1;
 	int trouve;
 	for(int i=1;i<=tab1[0];i++){
@@ -23,7 +23,7 @@ int estUnSousGroupe(int * tab1,int * tab2){
 		for(int j=1;j<=tab2[0];j++){
 			if(tab1[i] == tab2[j]){
 				trouve=1;
-			} 
+			}
 		}
 		if(trouve==0){
 			temoin = 0;
@@ -67,9 +67,9 @@ int delDoublons(const char * chaine, char * chaine_res,char *tabDoublons)
 			}
 		}
 	}
-	chaine_res[j] = '\0'; 
+	chaine_res[j] = '\0';
 	tabDoublons[nbDoublons] = '\0';
-	
+
 	return (nbDoublons);
 }
 
@@ -79,19 +79,19 @@ double levenshtein_distance(char *s,char*t)
   //Step 1
   int k,i,j,n,m;
   double cost,*d,distance=0;
-  n=strlen(s); 
+  n=strlen(s);
   m=strlen(t);
   if(n!=0&&m!=0)
   {
     d=(double*)malloc((sizeof(double))*(m+1)*(n+1));
     m++;
     n++;
-    //Step 2	
+    //Step 2
     for(k=0;k<n;k++)
 	d[k]=k;
     for(k=0;k<m;k++)
       d[k*n]=k;
-    //Step 3 and 4	
+    //Step 3 and 4
     for(i=1;i<n;i++)
       for(j=1;j<m;j++)
 	{
@@ -112,7 +112,7 @@ double levenshtein_distance(char *s,char*t)
 				}
 				if(((s[i-1] == 'W') && (t[j-1] == 'B')) || ((s[i-1] == 'B') && (t[j-1] == 'W'))){
 					cost = 0.800;
-				}				
+				}
 				//CT, QC,KQ, KG, IW, WJ, OU, UW, VW 0.600
 				if(((s[i-1] == 'C') && (t[j-1] == 'T')) || ((s[i-1] == 'T') && (t[j-1] == 'C'))){
 					cost = 0.600;
@@ -144,7 +144,7 @@ double levenshtein_distance(char *s,char*t)
 				if(((s[i-1] == 'V') && (t[j-1] == 'W')) || ((s[i-1] == 'W') && (t[j-1] == 'U'))){
 					cost = 0.600;
 				}
-				//NM, TD, IJ, VB 0.400		
+				//NM, TD, IJ, VB 0.400
 				if(((s[i-1] == 'N') && (t[j-1] == 'M')) || ((s[i-1] == 'M') && (t[j-1] == 'N'))){
 					cost = 0.400;
 				}
@@ -177,11 +177,11 @@ double levenshtein_distance(char *s,char*t)
 				if(((s[i-1] == '-') && (t[j-1] != '-')) || ((s[i-1] != '-') && (t[j-1] == '-'))){
 					cost = 0.100;
 				}
-				
-			
+
+
 			}
         //Step 6
-			
+
 
 			// # Cell d[j*n-i] equals the minimum of:
             //
@@ -193,28 +193,28 @@ double levenshtein_distance(char *s,char*t)
             // # substitute an existing char (with an associated cost)
             // #
 			// # Handle the case with H and dash (-)
-			
+
 			double cost_i=1.0;
 			double cost_j=1.0;
-			
+
 			d[j*n+i]=minimum(d[(j-1)*n+i]+cost_j,d[j*n+i-1]+cost_i,d[(j-1)*n+i-1]+cost);
-								
+
 			if (d[j*n+i]==(d[j*n+i-1]+cost_i)&&(s[i-1] == 'H')) {
 				 cost_i=0.2;
-			}				
+			}
 			if (d[j*n+i]==(d[(j-1)*n+i]+cost_j)&&(t[j-1] == 'H')) {
 				 cost_j=0.2;
-			}	
+			}
 			if (cost_i != 1.0 || cost_j != 1) {
 				 d[j*n+i] = minimum(d[(j-1)*n+i]+cost_j,d[j*n+i-1]+cost_i,d[(j-1)*n+i-1]+cost);
 			}
-		
+
       }
        distance=d[n*m-1];
     free(d);
     return distance;
   }
-  else 
+  else
     return -1; //a negative return value means that one or both strings are empty.
 }
 
@@ -224,19 +224,19 @@ double levenshtein_distance_old(char *s,char*t)
   //Step 1
   int k,i,j,n,m;
   double cost,*d,distance;
-  n=strlen(s); 
+  n=strlen(s);
   m=strlen(t);
   if(n!=0&&m!=0)
   {
     d=(double*)malloc((sizeof(double))*(m+1)*(n+1));
     m++;
     n++;
-    //Step 2	
+    //Step 2
     for(k=0;k<n;k++)
 	d[k]=k;
     for(k=0;k<m;k++)
       d[k*n]=k;
-    //Step 3 and 4	
+    //Step 3 and 4
     for(i=1;i<n;i++)
       for(j=1;j<m;j++)
 	{
@@ -273,14 +273,14 @@ double levenshtein_distance_old(char *s,char*t)
 					cost = 0.25;
 				}
 			}
-        //Step 6			 
+        //Step 6
         d[j*n+i]=minimum(d[(j-1)*n+i]+1,d[j*n+i-1]+1,d[(j-1)*n+i-1]+cost);
       }
     distance=d[n*m-1];
     free(d);
     return distance;
   }
-  else 
+  else
     return -1; //a negative return value means that one or both strings are empty.
 }
 double levenshtein_distance1(char *s,char*t)
@@ -289,19 +289,19 @@ double levenshtein_distance1(char *s,char*t)
   //Step 1
    int k,i,j,n,m;
   double cost,*d,distance;
-  n=strlen(s); 
+  n=strlen(s);
   m=strlen(t);
   if(n!=0&&m!=0)
   {
     d=(double*)malloc((sizeof(double))*(m+1)*(n+1));
     m++;
     n++;
-    //Step 2	
+    //Step 2
     for(k=0;k<n;k++)
 	d[k]=k;
     for(k=0;k<m;k++)
       d[k*n]=k;
-    //Step 3 and 4	
+    //Step 3 and 4
     for(i=1;i<n;i++)
       for(j=1;j<m;j++)
 	{
@@ -310,27 +310,27 @@ double levenshtein_distance1(char *s,char*t)
           cost=0;
         else
           cost=1;
-        //Step 6			 
+        //Step 6
         d[j*n+i]=minimum(d[(j-1)*n+i]+1,d[j*n+i-1]+1,d[(j-1)*n+i-1]+cost);
       }
     distance=d[n*m-1];
     free(d);
     return distance;
   }
-  else 
+  else
     return -1; //a negative return value means that one or both strings are empty.
 }
 
 
 void deleteFiles(){
-	
+
 }
 
 //=================================================================
-//== 
+//==
 //=================================================================
 void addLeafAndUpdate(struct InputTree *aTree, int choix){
-	
+
 	int n = aTree->size;
 	int i,j;
 
@@ -342,7 +342,7 @@ void addLeafAndUpdate(struct InputTree *aTree, int choix){
 		if(aTree->ARETE[2*i-1] > n) aTree->ARETE[2*i-1] += 1 ;
 		if(aTree->ARETE[2*i-2] > n) aTree->ARETE[2*i-2] += 1 ;
 	}
-	
+
 
 	//= ajout des 2 nouvelles branches
 	aTree->ARETE[2*(2*n-2-aTree->kt)-1] = aTree->ARETE[2*choix-1];
@@ -352,10 +352,10 @@ void addLeafAndUpdate(struct InputTree *aTree, int choix){
 	aTree->ARETE[2*(2*n-1-aTree->kt)-1] = aTree->ARETE[2*choix-2];
 	aTree->ARETE[2*(2*n-1-aTree->kt)-2] = 2*n-aTree->kt;
 	aTree->LONGUEUR[(2*n-1-aTree->kt)-1] = ((aTree->LONGUEUR[choix-1]/2.0)>5*epsilon)?(aTree->LONGUEUR[choix-1]/2.0):5*epsilon;
-	
+
 	aTree->ARETE[2*choix-1] = n+1;
 	aTree->ARETE[2*choix-2] = 2*n-aTree->kt;
-	aTree->LONGUEUR[choix-1]= 5*epsilon;  
+	aTree->LONGUEUR[choix-1]= 5*epsilon;
 
 	aTree->size = aTree->size+1;
 
@@ -372,7 +372,7 @@ void addLeafAndUpdate(struct InputTree *aTree, int choix){
 	Floyd(aTree->Adjacence,aTree->ADD,aTree->Input,n+1,aTree->kt);//5eme fois
 //  global_cpt5++;
 
-	strcpy(aTree->SpeciesName[aTree->size],"root");
+	strcpy(aTree->SpeciesName[aTree->size],"Root");
 
 }
 
@@ -392,11 +392,11 @@ int findRoot(int * tab, int size){
 }
 
 void ListeSommets_taille_0(double ** matrix,int * tab_sommet,int size){
-	
+
 	int cpt=1;
 	int cpt_init;
 	int nouveau_cas=0;
-	
+
 	//== recherche du premier element admissible
 	while(cpt <= size){
 		if(tab_sommet[cpt] == 0)
@@ -404,7 +404,7 @@ void ListeSommets_taille_0(double ** matrix,int * tab_sommet,int size){
 		else
 			cpt++;
 	}
-	
+
 	if(cpt < size){
 		//== recherche des distances nulles
 		cpt_init = cpt++;
@@ -412,7 +412,7 @@ void ListeSommets_taille_0(double ** matrix,int * tab_sommet,int size){
 			if(matrix[cpt_init][cpt] < 100*epsilon ){
 				tab_sommet[cpt] = 1;
 				nouveau_cas = 1;
-			}		
+			}
 			cpt++;
 		}
 		if(nouveau_cas == 1){
@@ -426,9 +426,9 @@ void ListeSommets_taille_0(double ** matrix,int * tab_sommet,int size){
 }
 
 int Est_un_sous_ensemble_exact(int * sous_ensemble,int * ensemble){
-	
+
 	int temoin;
-	
+
 	if(sous_ensemble[0] > ensemble[0]){
 		return 0;
 	}
@@ -447,77 +447,77 @@ int Est_un_sous_ensemble_exact(int * sous_ensemble,int * ensemble){
 }
 
 void ListesBranchesPourHGT(int *tab_sommets,long int * ARETE, int taille,struct DescTree *DT,int *tab_branches,int *nb_branches){
-	
+
 	(*nb_branches) = 0;
 	for(int i=1;i<=2*taille-3;i++){
 		DT[ARETE[2*i-1]].Tableau[0] = DT[ARETE[2*i-1]].nbSommet;
 		DT[ARETE[2*i-2]].Tableau[0] = DT[ARETE[2*i-2]].nbSommet;
-		
+
 		if( ((Est_un_sous_ensemble_exact(DT[ARETE[2*i-1]].Tableau,tab_sommets)==1) || (Est_un_sous_ensemble_exact(DT[ARETE[2*i-2]].Tableau,tab_sommets)==1)) ||
 		    ((Est_un_sous_ensemble_exact(DT[ARETE[2*i-2]].Tableau,tab_sommets)==1) || (Est_un_sous_ensemble_exact(DT[ARETE[2*i-1]].Tableau,tab_sommets)==1)) ){
 			(*nb_branches) ++;
-			
+
 			tab_branches[(*nb_branches)] = i;
-					
-		}	
-	}	
+
+		}
+	}
 }
 
 void ListesBranchesPourHGTSansRacine(int *tab_sommets,long int * ARETE, int taille,struct DescTree *DT,int *tab_branches,int *nb_branches){
-	
+
 	(*nb_branches) = 0;
 	int A,B;
 	for(int i=taille+1;i<=2*taille-3;i++){
 		A = ARETE[2*i-1];
 		B = ARETE[2*i-2];
-		
+
 		if((Est_un_sous_ensemble_exact(DT[A].Tableau,tab_sommets)==1) || (Est_un_sous_ensemble_exact(DT[B].Tableau,tab_sommets)==1)){
 			(*nb_branches) ++;
-			
+
 			tab_branches[(*nb_branches)] = i;
-					
-		}	
-	}	
+
+		}
+	}
 }
 
 
-void SAVEASNewick(double *LONGUEUR, long int *ARETE,int nn,const char* t) 
+void SAVEASNewick(double *LONGUEUR, long int *ARETE,int nn,const char* t)
 {
 	int n,root,a;
 	int Ns;
 	int i, j, sd, sf, *Suc, *Fre, *Tree, *degre, *Mark;
 	double *Long;
-	int *boot; 
+	int *boot;
   printf("\nOn et vraiment au debut !!");
-	char *string = (char*)malloc(10000);	
+	char *string = (char*)malloc(10000);
 	n = nn;
 	Ns=2*n-3;
-	
+
 	double * bootStrap= NULL;
-	
+
 	Suc =(int*) malloc((2*n) * sizeof(int));
 	Fre =(int*) malloc((2*n) * sizeof(int));
 	degre =(int*) malloc((2*n) * sizeof(int));
-	Long = (double*) malloc((2*n) * sizeof(double));	
+	Long = (double*) malloc((2*n) * sizeof(double));
 	boot = (int*) malloc((2*n) * sizeof(int));
 	Tree = (int*) malloc((2*n) * sizeof(int));
 	Mark =(int*) malloc((2*n) * sizeof(int));
-	
+
   printf("\nOn et ici au debut !!");
-	if ((degre==NULL)||(Mark==NULL)||(string==NULL)||(Suc==NULL)||(Fre==NULL)||(Long==NULL)||(Tree==NULL)||(ARETE==NULL)||(LONGUEUR==NULL))	
-		{ printf("Tree is too large to be saved"); return;} 
-	
+	if ((degre==NULL)||(Mark==NULL)||(string==NULL)||(Suc==NULL)||(Fre==NULL)||(Long==NULL)||(Tree==NULL)||(ARETE==NULL)||(LONGUEUR==NULL))
+		{ printf("Tree is too large to be saved"); return;}
+
 	for (i=1;i<=2*n-3;i++)
-	{ 
-		
+	{
+
 		if (i<=n) degre[i]=1;
 		else degre[i]=3;
 	} degre[2*n-2]=3;
-	
+
 	root=Ns+1;
-	
+
 	int cpt=0;
-	
+
 	for (;;)
 	{
 		cpt++;
@@ -525,22 +525,22 @@ void SAVEASNewick(double *LONGUEUR, long int *ARETE,int nn,const char* t)
 		a=0; a++;
 		for (j=1;j<=2*n-2;j++)
 			Mark[j]=0;
-		
+
 		for (i=1;i<=2*n-3;i++)
-		{ 	  									
+		{
 			if ((degre[ARETE[2*i-2]]==1)&&(degre[ARETE[2*i-1]]>1)&&(Mark[ARETE[2*i-1]]==0)&&(Mark[ARETE[2*i-2]]==0))
 			{
 				Tree[ARETE[2*i-2]]=ARETE[2*i-1]; degre[ARETE[2*i-1]]--; degre[ARETE[2*i-2]]--; Mark[ARETE[2*i-1]]=1; Mark[ARETE[2*i-2]]=1;
 				Long[ARETE[2*i-2]]=LONGUEUR[i-1];
 				if(bootStrap != NULL) boot[ARETE[2*i-2]] = (int) bootStrap[i-1];
-				
+
 			}
 			else if ((degre[ARETE[2*i-1]]==1)&&(degre[ARETE[2*i-2]]>1)&&(Mark[ARETE[2*i-1]]==0)&&(Mark[ARETE[2*i-2]]==0))
 			{
 				Tree[ARETE[2*i-1]]=ARETE[2*i-2]; degre[ARETE[2*i-1]]--; degre[ARETE[2*i-2]]--; Mark[ARETE[2*i-1]]=1; Mark[ARETE[2*i-2]]=1;
 				Long[ARETE[2*i-1]]=LONGUEUR[i-1];
 				if(bootStrap != NULL) boot[ARETE[2*i-1]] = (int) bootStrap[i-1];
-				
+
 			}
 			else if ((degre[ARETE[2*i-2]]==1)&&(degre[ARETE[2*i-1]]==1)&&(Mark[ARETE[2*i-2]]==0)&&(Mark[ARETE[2*i-1]]==0))
 			{
@@ -552,36 +552,36 @@ void SAVEASNewick(double *LONGUEUR, long int *ARETE,int nn,const char* t)
 		}
 		if (a==-1) break;
 	}
-	
-	
+
+
 	/*  On decale et on complete la structure d'arbre avec Successeurs et Freres  */
 	for (i=Ns+1;i>0;i--)
 	{ 	Fre[i]=0; Suc[i]=0;
 		//Tree[i]=Tree[i-1]+1; Long[i]=Long[i-1];
 	}	Tree[root]=0;/*Tree[Ns+1]=0;*/
-	
+
 	for (i=1;i<=Ns+1/*Ns*/;i++)
-	{	
-		if (i!=root) 
+	{
+		if (i!=root)
 		{
 			sd=i; sf=Tree[i];
 			if (Suc[sf]==0) Suc[sf]=sd;
-			else {	
+			else {
 				sf=Suc[sf];
 				while (Fre[sf]>0) sf=Fre[sf];
 				Fre[sf]=sd;
-			}		 
+			}
 		}
 	}
-	
-	
+
+
 	/* On compose la chaine parenthesee */
 	string[0]=0; i=root;/*i=Ns+1;*/
 	cpt=0;
 	for (;;)
-	{	
+	{
 		if(cpt > 1000000) exit(1);
-		
+
 		if (Suc[i]>0)
 		{	sprintf(string,"%s(",string);
 		Suc[i]=-Suc[i]; i=-Suc[i]; }
@@ -604,13 +604,13 @@ void SAVEASNewick(double *LONGUEUR, long int *ARETE,int nn,const char* t)
 			}
 		i=Tree[i]; }
 		else break;
-	}	
+	}
 	strcat(string,";");
-	
+
 	FILE *pt_t = fopen(t,"w+");
 	fprintf(pt_t,"%s",string);
 	fclose(pt_t);
-	
+
   printf("\nOn et ici a la fin !!");
 	free(Suc); free(Fre); free(Tree); free(Long); free(degre); free(Mark);	free(string);
 }
@@ -652,7 +652,7 @@ void PrintHeader(FILE *out,Parameters param){
 }
 
 //=================================================================
-//== 
+//==
 //=================================================================
 void initInputTree(struct InputTree *aTree){
 	aTree->Adjacence = NULL;
@@ -670,9 +670,9 @@ void initInputTree(struct InputTree *aTree){
 //=
 //============================================
 void printRoot(char *fichier, int R1, int R2){
-	
+
 	FILE *out;
-	
+
 	if((out=fopen(fichier,"w+"))==NULL){
 		printf("\nCan't open root file (%s)",fichier);
 		exit(-1);
@@ -685,11 +685,11 @@ void printRoot(char *fichier, int R1, int R2){
 //
 //=====================================================
 void allocMemmory(struct InputTree *aTree, int n){
-	
+
 	int i;
 
 	if(aTree->ARETE == NULL){
-		
+
 		aTree->degre = (int*)malloc(2*n*sizeof(int));
 		aTree->ADD = (double**)malloc(2*n*sizeof(double*));
 		aTree->Adjacence = (double**)malloc(2*n*sizeof(double*));
@@ -707,7 +707,7 @@ void allocMemmory(struct InputTree *aTree, int n){
 		aTree->ARETE    =(long int*)malloc(4*(2*(n))*sizeof(long int));
 		aTree->LONGUEUR	=(double*)malloc((4*(n))*sizeof(double));
 		aTree->SpeciesName = (char**)malloc(2*n*sizeof(char*));
-		
+
 		for(i=0;i<=n;i++)
 			aTree->SpeciesName[i] = (char*)malloc(50);
 	}
@@ -716,7 +716,7 @@ void allocMemmory(struct InputTree *aTree, int n){
 
 void freeReducedTree(struct InputTree *aTree,int n){
 	int i,j;
-	
+
 	for(i=0;i<2*n;i++){
 		free(aTree->ADD[i]);
 		free(aTree->Adjacence[i]);
@@ -749,17 +749,17 @@ int TestSubTreeConstraint(struct InputTree aTree,int source, int dest,struct Des
 
 	int * PLACEk1=(int *) malloc((2*n-2)*sizeof(int));
 	int * PLACEk2=(int *) malloc((2*n-2)*sizeof(int));
-	
+
 	int ** Bk1=(int **) malloc((2*n-2)*sizeof(int*));
 	int ** Bk2=(int **) malloc((2*n-2)*sizeof(int*));
 
 	for (i=0;i<2*n-2;i++)
 	{
 		Bk1[i]=(int *) malloc((n)*sizeof(int));
-		Bk2[i]=(int *) malloc((n)*sizeof(int));     
-		DISTemp[i]=(double *)malloc((2*n+1)*sizeof(double));  
+		Bk2[i]=(int *) malloc((n)*sizeof(int));
+		DISTemp[i]=(double *)malloc((2*n+1)*sizeof(double));
 	}
-	
+
 	//== find the node inf for the source branch
 	if(aTree.ADD[aTree.ARETE[2*source-1]][aTree.Root] <  aTree.ADD[aTree.ARETE[2*source-2]][aTree.Root])
 		basSource = aTree.ARETE[2*source-2];
@@ -777,7 +777,7 @@ int TestSubTreeConstraint(struct InputTree aTree,int source, int dest,struct Des
 		etape1=1;
 	else{
 		for(pv=3*(n-1+1)-2;pv<=3*(2*(n-1)-2);pv++){
-			if(vecteursEgaux(DTSpecies[basSource],DTGene[pv]) == 1){	
+			if(vecteursEgaux(DTSpecies[basSource],DTGene[pv]) == 1){
 				/*if(DTSpecies[basSource].nbSommet == 3)
 					etape1= 0;
 				else*/{
@@ -807,13 +807,13 @@ int TestSubTreeConstraint(struct InputTree aTree,int source, int dest,struct Des
 							etape2 = 1;
 					}
 					pv = (int)INFINI;
-				}				
-			}	
+				}
+			}
 		}
 	}
 
 	if(etape1==1 && etape2==1){
-		
+
 		nbSom = DTemp.nbSommet = DTSpecies[basDest].nbSommet + DTSpecies[basSource].nbSommet;
 
 		DTemp.Tableau = (int*)malloc((DTemp.nbSommet+1)*sizeof(int));
@@ -825,7 +825,7 @@ int TestSubTreeConstraint(struct InputTree aTree,int source, int dest,struct Des
 			DTemp.Tableau[z+y] = DTSpecies[basSource].Tableau[z];
 
 		TrierTableau(DTemp.Tableau,DTemp.nbSommet);
-		
+
 		for(pv=3*(n-1+1)-2;pv<=3*(2*(n-1)-2);pv++){
 			if(vecteursEgaux(DTemp,DTGene[pv])){
 				//printf("[(etape2) basSource=%d,pv = %d] ",basSource,pv);
@@ -843,7 +843,7 @@ int TestSubTreeConstraint(struct InputTree aTree,int source, int dest,struct Des
 					LGTpossible = 1;
 			}
 		}
-		free(DTemp.Tableau);	
+		free(DTemp.Tableau);
 	}
 
 	free(PLACEk1);
@@ -855,13 +855,13 @@ int TestSubTreeConstraint(struct InputTree aTree,int source, int dest,struct Des
 		free(Bk2[i]);
 		free(DISTemp[i]);
 	}
-	free(DISTemp);	
+	free(DISTemp);
 	free(Bk1);
 	free(Bk2);
-	
+
 	//printf("\nLGTpossible=%d",LGTpossible);
 	return LGTpossible;
-		
+
 }
 
 //=================================================================
@@ -884,11 +884,11 @@ void computeCriteria(double ** Matrix1, double ** Matrix2, int taille,struct CRI
 	int mI,m,i,j,RF,QD;
 	double LS,BD=0;
 	int size = taille-1;
-	
+
 	//= robinson and foulds
 	m=Bipartition_Table(Matrix1,aCrit->B,aCrit->PLACE,size);
 	mI=Bipartition_Table(Matrix2,aCrit->BI,aCrit->PLACEI,size);
-	RF = Table_Comparaison(aCrit->B,aCrit->BI,aCrit->PLACE,aCrit->PLACEI,m,mI,size); 
+	RF = Table_Comparaison(aCrit->B,aCrit->BI,aCrit->PLACE,aCrit->PLACEI,m,mI,size);
 
 	//= least-squares
 	LS = 0.0;
@@ -906,7 +906,7 @@ void computeCriteria(double ** Matrix1, double ** Matrix2, int taille,struct CRI
 
 	//= Bipartition Distance
 	BD = BipartitionDistance(aCrit->B,aCrit->BI,size);
-	
+
 	//= Quartet Distance
 	//= le calcul de QD necessite la creation de 2 fichiers d'arbres t1 et t2
 	//= sinon la distance sera de -1 (distance non calculee)
@@ -926,7 +926,7 @@ void computeCriteria(double ** Matrix1, double ** Matrix2, int taille,struct CRI
 	else{
 		QD = (int)INFINI;
 	}
-*/	
+*/
 	aCrit->LS = LS;
 	aCrit->BD = BD;
 	aCrit->RF = RF;
@@ -943,7 +943,7 @@ double MIN2 (double A,double B){
 //==
 //=================================================================
 void applyHGT(double**ref,struct InputTree * aTree,int i,int j){
-	
+
 	int nodeToDel,otherNode,neighbor1=0,neighbor2=0,p,q,branch1=0,branch2=0,newNode;
 	int nouveauNoeud;
 	double tailleBrancheSource,tailleTransfert;
@@ -957,10 +957,10 @@ void applyHGT(double**ref,struct InputTree * aTree,int i,int j){
 		DIST[p] = (double *)malloc(2*aTree->size*(sizeof(double)));
 
   //= copie du contenue de ADD dans DIST
-	for(p=1;p<=2*aTree->size-2-kt;p++)	
+	for(p=1;p<=2*aTree->size-2-kt;p++)
 		for(q=1;q<=2*aTree->size-2-kt;q++)
 			DIST[p][q] = aTree->ADD[p][q];
-	
+
 	//= recherche des sommets superieurs et inferieurs sources
 	tailleBrancheSource = aTree->LONGUEUR[i];
 	if ( aTree->ADD[aTree->ARETE[2*i-1]][aTree->Root] < aTree->ADD[aTree->ARETE[2*i-2]][aTree->Root]){
@@ -971,15 +971,15 @@ void applyHGT(double**ref,struct InputTree * aTree,int i,int j){
 			Ssup = aTree->ARETE[2*i-2];
 			Sinf = aTree->ARETE[2*i-1];
 	}
-	
+
 	//= recherche des sommets superieurs et inferieurs destinations
 	if(aTree->ADD[aTree->ARETE[2*j-1]][aTree->Root] < aTree->ADD[aTree->ARETE[2*j-2]][aTree->Root])
 	{nodeToDel = aTree->ARETE[2*j-1]; otherNode = Sdestination = aTree->ARETE[2*j-2];}
 	else
 	{nodeToDel = aTree->ARETE[2*j-2]; otherNode = Sdestination = aTree->ARETE[2*j-1];}
-	
-	
-	
+
+
+
 	//= cas d'un noeud binaire, on va deplacer le noeud superieur (nodeToDel)
 	if(aTree->degre[nodeToDel] == 3){
 		//== 1. recherche des voisins du noeud a supprimer
@@ -987,11 +987,11 @@ void applyHGT(double**ref,struct InputTree * aTree,int i,int j){
 			if(aTree->ARETE[2*p-1] == nodeToDel && aTree->ARETE[2*p-2] != otherNode){
 				if(neighbor1==0){neighbor1 = aTree->ARETE[2*p-2]; branch1=p;}
 				else {neighbor2 = aTree->ARETE[2*p-2]; branch2=p;}
-			} 
+			}
 			if(aTree->ARETE[2*p-2] == nodeToDel && aTree->ARETE[2*p-1] != otherNode){
 				if(neighbor1==0){neighbor1 = aTree->ARETE[2*p-1]; branch1=p;}
 				else {neighbor2 = aTree->ARETE[2*p-1]; branch2=p;}
-			} 
+			}
 		}
 		if(aTree->LONGUEUR[i-1] <= 2*5*epsilon){
 		//printf("icit");
@@ -1000,7 +1000,7 @@ void applyHGT(double**ref,struct InputTree * aTree,int i,int j){
 					if((fabs(DIST[p][q] - DIST[p][aTree->ARETE[2*i-1]] - aTree->LONGUEUR[i-1] - DIST[aTree->ARETE[2*i-2]][q]) < 2*epsilon) ||
 					   (fabs(DIST[p][q] - DIST[p][aTree->ARETE[2*i-2]] - aTree->LONGUEUR[i-1] - DIST[aTree->ARETE[2*i-1]][q]) < 2*epsilon) )
 					{
-					  if((DIST[p][aTree->ARETE[2*i-1]]+DIST[aTree->ARETE[2*i-2]][q]) <(DIST[p][aTree->ARETE[2*i-2]]+DIST[aTree->ARETE[2*i-1]][q])){ 
+					  if((DIST[p][aTree->ARETE[2*i-1]]+DIST[aTree->ARETE[2*i-2]][q]) <(DIST[p][aTree->ARETE[2*i-2]]+DIST[aTree->ARETE[2*i-1]][q])){
 						  aTree->ADD[p][q] = aTree->ADD[q][p] = DIST[p][q] = DIST[q][p] = DIST[p][aTree->ARETE[2*i-1]]+DIST[aTree->ARETE[2*i-2]][q] + 2*5*epsilon;
 						}
 						else{
@@ -1009,7 +1009,7 @@ void applyHGT(double**ref,struct InputTree * aTree,int i,int j){
 					}
 				}
 		}
-		
+
 		//== 3. branch1 is used to connect the two neighbors
 		aTree->ARETE[2*branch1-1] = neighbor1;
 		aTree->ARETE[2*branch1-2] = neighbor2;
@@ -1027,7 +1027,7 @@ void applyHGT(double**ref,struct InputTree * aTree,int i,int j){
 		nouveauNoeud = nodeToDel;
 
 		for(p=1;p<=2*aTree->size-2-aTree->kt;p++){
-			
+
 			if (fabs(DIST[p][aTree->Root] - DIST[p][Sdestination] - DIST[Sdestination][aTree->Root]) < 3*epsilon	){
 			 //printf("\n==%d,%d,%d",p,Sdestination,nodeToDel);
       	aTree->ADD[nodeToDel][p] = aTree->ADD[p][nodeToDel] = 1.0 + DIST[Sdestination][p];
@@ -1041,10 +1041,10 @@ void applyHGT(double**ref,struct InputTree * aTree,int i,int j){
         }
 			}
 		}
-		
+
 		aTree->ADD[nodeToDel][nodeToDel] = 0.0;
 		tailleBrancheSource = aTree->LONGUEUR[i-1];
-		tailleTransfert = 1.0; 
+		tailleTransfert = 1.0;
 		aTree->LONGUEUR[j-1]=1.0;
 		nouveauNoeud=nodeToDel;
 	}
@@ -1065,7 +1065,7 @@ void applyHGT(double**ref,struct InputTree * aTree,int i,int j){
 					}
 				}
 		}
-		
+
 		//== 2. Ajouter un nouveau noeud sur la branche i (ajout d'une nouvelle arete)
 		newNode = nouveauNoeud = 2*aTree->size-2-aTree->kt+1;
 
@@ -1087,7 +1087,7 @@ void applyHGT(double**ref,struct InputTree * aTree,int i,int j){
 		aTree->degre[newNode] = 3;
 		aTree->degre[nodeToDel]--;
 		aTree->kt--;
-		
+
 		for(p=1;p<=newNode;p++){
 			if (fabs(DIST[p][aTree->Root] - DIST[p][Sdestination] - DIST[Sdestination][aTree->Root]) < 3*epsilon	){
 				aTree->ADD[newNode][p] = aTree->ADD[p][newNode] = 1.0 + DIST[Sdestination][p];
@@ -1100,23 +1100,23 @@ void applyHGT(double**ref,struct InputTree * aTree,int i,int j){
           aTree->ADD[newNode][p] = aTree->ADD[p][newNode] = DIST[p][Sinf] + lt;
         }
 			}
-		}	
-	
-		
-		
+		}
+
+
+
 		aTree->ADD[newNode][newNode] = 0.0;
 		tailleBrancheSource = lt;
 		tailleTransfert=1.0;
 	}
-	
+
 	//== Mise a jour des distances
 	int tab_noeud1[2*aTree->size];
 	int nbNoeud1=0;
 	int tab_noeud2[2*aTree->size];
 	int nbNoeud2=0;
-	
+
   //== liste des noeuds sous sDestination
-  
+
 	for(int i=1;i<2*aTree->size-2-aTree->kt;i++){
       if( fabs(DIST[i][aTree->size]-DIST[i][Sdestination] - DIST[Sdestination][aTree->size]) < 5*epsilon ){
         tab_noeud1[nbNoeud1++] = i;
@@ -1126,19 +1126,19 @@ void applyHGT(double**ref,struct InputTree * aTree,int i,int j){
         tab_noeud2[nbNoeud2++] = i;
        // printf("\n2--%d",i);
       }
-  }  
+  }
     //== mise a jour des distances
   	for(int i=0;i<nbNoeud1;i++){
       for(int j=0;j<nbNoeud2;j++){
         aTree->ADD[tab_noeud1[i]][tab_noeud2[j]] =  aTree->ADD[tab_noeud2[j]][tab_noeud1[i]] = aTree->ADD[tab_noeud2[j]][nouveauNoeud] + tailleTransfert + aTree->ADD[Sdestination ][tab_noeud1[i]];
       }
     }
-  	
-	
+
+
 	//printf("\ndemi-branche = %lf",tailleBrancheSource);
 	kt = aTree->kt;
 	//printf("\navant load");
-	
+
   //ComputeNewDistances(DIST,aTree->ADD,aTree->size,aTree->kt,nouveauNoeud,tailleBrancheSource,tailleTransfert,Ssup,Sinf,Sdestination);
   //approx_arb(ref,aTree->ADD,aTree->ADD,aTree->W,&iternumber,aTree->ARETE,aTree->LONGUEUR,1,&kt,0,aTree->size);
 	loadAdjacenceMatrix(aTree->Adjacence,aTree->ARETE, aTree->LONGUEUR,aTree->size, aTree->kt);
@@ -1158,7 +1158,7 @@ printf("\n\nFin de ApplyHGT : %d,kt=%d\n",aTree->size,aTree->kt);
 	}*/
 	//printf("\nfin apply");
 
-  
+
   //== Liste des noeuds sous
 
 
@@ -1174,7 +1174,7 @@ printf("\n\nFin de ApplyHGT : %d,kt=%d\n",aTree->size,aTree->kt);
 //==
 //=================================================================
 void applyHGT2(double**ref,struct InputTree * aTree,int i,int j){
-	
+
 	int nodeToDel,otherNode,neighbor1=0,neighbor2=0,p,q,branch1=0,branch2=0,newNode;
 	int nouveauNoeud;
 	double tailleBrancheSource,tailleTransfert;
@@ -1188,10 +1188,10 @@ void applyHGT2(double**ref,struct InputTree * aTree,int i,int j){
 		DIST[p] = (double *)malloc(2*aTree->size*(sizeof(double)));
 
   //= copie du contenue de ADD dans DIST
-	for(p=1;p<=2*aTree->size-2-kt;p++)	
+	for(p=1;p<=2*aTree->size-2-kt;p++)
 		for(q=1;q<=2*aTree->size-2-kt;q++)
 			DIST[p][q] = aTree->ADD[p][q];
-	
+
 	//= recherche des sommets superieurs et inferieurs sources
 	tailleBrancheSource = aTree->LONGUEUR[i];
 	if ( aTree->ADD[aTree->ARETE[2*i-1]][aTree->Root] < aTree->ADD[aTree->ARETE[2*i-2]][aTree->Root]){
@@ -1202,7 +1202,7 @@ void applyHGT2(double**ref,struct InputTree * aTree,int i,int j){
 			Ssup = aTree->ARETE[2*i-2];
 			Sinf = aTree->ARETE[2*i-1];
 	}
-	
+
 	//= recherche des sommets superieurs et inferieurs destinations
 	if(aTree->ADD[aTree->ARETE[2*j-1]][aTree->Root] < aTree->ADD[aTree->ARETE[2*j-2]][aTree->Root])
 	{nodeToDel = aTree->ARETE[2*j-1]; otherNode = Sdestination = aTree->ARETE[2*j-2];}
@@ -1216,11 +1216,11 @@ void applyHGT2(double**ref,struct InputTree * aTree,int i,int j){
 			if(aTree->ARETE[2*p-1] == nodeToDel && aTree->ARETE[2*p-2] != otherNode){
 				if(neighbor1==0){neighbor1 = aTree->ARETE[2*p-2]; branch1=p;}
 				else {neighbor2 = aTree->ARETE[2*p-2]; branch2=p;}
-			} 
+			}
 			if(aTree->ARETE[2*p-2] == nodeToDel && aTree->ARETE[2*p-1] != otherNode){
 				if(neighbor1==0){neighbor1 = aTree->ARETE[2*p-1]; branch1=p;}
 				else {neighbor2 = aTree->ARETE[2*p-1]; branch2=p;}
-			} 
+			}
 		}
 		if(aTree->LONGUEUR[i-1] <= 2*5*epsilon){
 		printf("icit");
@@ -1229,7 +1229,7 @@ void applyHGT2(double**ref,struct InputTree * aTree,int i,int j){
 					if((fabs(DIST[p][q] - DIST[p][aTree->ARETE[2*i-1]] - aTree->LONGUEUR[i-1] - DIST[aTree->ARETE[2*i-2]][q]) < 2*epsilon) ||
 					   (fabs(DIST[p][q] - DIST[p][aTree->ARETE[2*i-2]] - aTree->LONGUEUR[i-1] - DIST[aTree->ARETE[2*i-1]][q]) < 2*epsilon) )
 					{
-					  if((DIST[p][aTree->ARETE[2*i-1]]+DIST[aTree->ARETE[2*i-2]][q]) <(DIST[p][aTree->ARETE[2*i-2]]+DIST[aTree->ARETE[2*i-1]][q])){ 
+					  if((DIST[p][aTree->ARETE[2*i-1]]+DIST[aTree->ARETE[2*i-2]][q]) <(DIST[p][aTree->ARETE[2*i-2]]+DIST[aTree->ARETE[2*i-1]][q])){
 						  aTree->ADD[p][q] = aTree->ADD[q][p] = DIST[p][q] = DIST[q][p] = DIST[p][aTree->ARETE[2*i-1]]+DIST[aTree->ARETE[2*i-2]][q] + 2*5*epsilon;
 						}
 						else{
@@ -1238,7 +1238,7 @@ void applyHGT2(double**ref,struct InputTree * aTree,int i,int j){
 					}
 				}
 		}
-		
+
 		//== 3. branch1 is used to connect the two neighbors
 		aTree->ARETE[2*branch1-1] = neighbor1;
 		aTree->ARETE[2*branch1-2] = neighbor2;
@@ -1256,7 +1256,7 @@ void applyHGT2(double**ref,struct InputTree * aTree,int i,int j){
 		nouveauNoeud = nodeToDel;
 
 		for(p=1;p<=2*aTree->size-2-aTree->kt;p++){
-			
+
 			if (fabs(DIST[p][aTree->Root] - DIST[p][Sdestination] - DIST[Sdestination][aTree->Root]) < 3*epsilon	){
 			 //printf("\n==%d,%d,%d",p,Sdestination,nodeToDel);
       	aTree->ADD[nodeToDel][p] = aTree->ADD[p][nodeToDel] = 1.0 + DIST[Sdestination][p];
@@ -1270,10 +1270,10 @@ void applyHGT2(double**ref,struct InputTree * aTree,int i,int j){
         }
 			}
 		}
-		
+
 		aTree->ADD[nodeToDel][nodeToDel] = 0.0;
 		tailleBrancheSource = aTree->LONGUEUR[i-1];
-		tailleTransfert = 1.0; 
+		tailleTransfert = 1.0;
 		aTree->LONGUEUR[j-1]=1.0;
 		nouveauNoeud=nodeToDel;
 	}
@@ -1294,7 +1294,7 @@ void applyHGT2(double**ref,struct InputTree * aTree,int i,int j){
 					}
 				}
 		}
-		
+
 		//== 2. Ajouter un nouveau noeud sur la branche i (ajout d'une nouvelle arete)
 		newNode = nouveauNoeud = 2*aTree->size-2-aTree->kt+1;
 
@@ -1316,7 +1316,7 @@ void applyHGT2(double**ref,struct InputTree * aTree,int i,int j){
 		aTree->degre[newNode] = 3;
 		aTree->degre[nodeToDel]--;
 		aTree->kt--;
-		
+
 		for(p=1;p<=newNode;p++){
 			if (fabs(DIST[p][aTree->Root] - DIST[p][Sdestination] - DIST[Sdestination][aTree->Root]) < 3*epsilon	){
 				aTree->ADD[newNode][p] = aTree->ADD[p][newNode] = 1.0 + DIST[Sdestination][p];
@@ -1329,21 +1329,21 @@ void applyHGT2(double**ref,struct InputTree * aTree,int i,int j){
           aTree->ADD[newNode][p] = aTree->ADD[p][newNode] = DIST[p][Sinf] + lt;
         }
 			}
-		}	
-		
+		}
+
 		aTree->ADD[newNode][newNode] = 0.0;
 		tailleBrancheSource = lt;
 		tailleTransfert=1.0;
 	}
-	
+
 	//== Mise a jour des distances
 	int tab_noeud1[2*aTree->size];
 	int nbNoeud1=0;
 	int tab_noeud2[2*aTree->size];
 	int nbNoeud2=0;
-	
+
   //== liste des noeuds sous sDestination
-  
+
 	for(int i=1;i<2*aTree->size-2-aTree->kt;i++){
       if( fabs(DIST[i][aTree->size]-DIST[i][Sdestination] - DIST[Sdestination][aTree->size]) < 5*epsilon ){
         tab_noeud1[nbNoeud1++] = i;
@@ -1353,19 +1353,19 @@ void applyHGT2(double**ref,struct InputTree * aTree,int i,int j){
         tab_noeud2[nbNoeud2++] = i;
        // printf("\n2--%d",i);
       }
-  }  
+  }
     //== mise a jour des distances
   	for(int i=0;i<nbNoeud1;i++){
       for(int j=0;j<nbNoeud2;j++){
         aTree->ADD[tab_noeud1[i]][tab_noeud2[j]] =  aTree->ADD[tab_noeud2[j]][tab_noeud1[i]] = aTree->ADD[tab_noeud2[j]][nouveauNoeud] + tailleTransfert + aTree->ADD[Sdestination ][tab_noeud1[i]];
       }
     }
-  	
-	
+
+
 	//printf("\ndemi-branche = %lf",tailleBrancheSource);
 	kt = aTree->kt;
 	//printf("\navant load");
-	
+
   //ComputeNewDistances(DIST,aTree->ADD,aTree->size,aTree->kt,nouveauNoeud,tailleBrancheSource,tailleTransfert,Ssup,Sinf,Sdestination);
   approx_arb(ref,aTree->ADD,aTree->ADD,aTree->W,&iternumber,aTree->ARETE,aTree->LONGUEUR,1,&kt,0,aTree->size);
   loadAdjacenceMatrix(aTree->Adjacence,aTree->ARETE, aTree->LONGUEUR,aTree->size, aTree->kt);
@@ -1386,7 +1386,7 @@ printf("\n\nFin de ApplyHGT : %d,kt=%d\n",aTree->size,aTree->kt);
 	}*/
 	//printf("\nfin apply");
 
-  
+
   //== Liste des noeuds sous
 
 
@@ -1417,7 +1417,7 @@ void findListSpecies(struct HGT *bestHGT, struct DescTree *DTSpecies,struct Inpu
 		dest = aTree.ARETE[2*(bestHGT->destination)-2];
 	else
 		dest = aTree.ARETE[2*(bestHGT->destination)-1];
-	
+
 	if(bestHGT->listSource != NULL)
 		free(bestHGT->listSource);
 	bestHGT->listSource = (int *)malloc((DTSpecies[source].nbSommet+1)*sizeof(int));
@@ -1440,11 +1440,11 @@ int TestCriterionAndUpdate(int *first,const char *CRITERION, struct CRITERIA aCr
 
 	if (strcmp(CRITERION,"rf")==0){
 		if (aHGT->crit.RF > aCrit.RF) {
-			best = 1;			
+			best = 1;
 			(*first)=0;
 		}
 		if (aHGT->crit.RF == aCrit.RF && aHGT->crit.LS > aCrit.LS && (*first) == 0)
-			best = 1; 
+			best = 1;
 	}
 	else if (strcmp(CRITERION,"ls")==0){
 		if (aHGT->crit.LS > aCrit.LS) best = 1;
@@ -1455,7 +1455,7 @@ int TestCriterionAndUpdate(int *first,const char *CRITERION, struct CRITERIA aCr
         printf("LALA");
         best=1;
     }
-		
+
 	}
 	else if (strcmp(CRITERION,"qd")==0){
 		if (aHGT->crit.QD > aCrit.QD) best = 1;
@@ -1474,7 +1474,7 @@ int TestCriterionAndUpdate(int *first,const char *CRITERION, struct CRITERIA aCr
 		aHGT->crit.RF = aCrit.RF;
 		aHGT->crit.QD = aCrit.QD;
 	}
-  
+
 	return best;
 }
 
@@ -1495,23 +1495,23 @@ void UpdateCriterion(int *first,const char *CRITERION, struct CRITERIA aCrit, st
 //==
 //=================================================================
 int isAValidHGT(struct InputTree SpeciesTree,int i, int j){
-	
+
 	int d1,d2,d3,d4,root;
 
 	/*if(SpeciesTree.ARETE[2*i-1]==2 && SpeciesTree.ARETE[2*i-2] ==12 && SpeciesTree.ARETE[2*j-1] == 11 && SpeciesTree.ARETE[2*j-2] == 13)
-	{	
-		printEdges(0,SpeciesTree.ARETE,SpeciesTree.LONGUEUR,SpeciesTree.SpeciesName,SpeciesTree.size);		
+	{
+		printEdges(0,SpeciesTree.ARETE,SpeciesTree.LONGUEUR,SpeciesTree.SpeciesName,SpeciesTree.size);
 		printMatrix(SpeciesTree.SpeciesName,SpeciesTree.Matrix,2*SpeciesTree.size-2);
 	}*/
 	//== if is the root branch
-	if(SpeciesTree.ARETE[2*i-1] == SpeciesTree.Root || SpeciesTree.ARETE[2*i-2] == SpeciesTree.Root || 
+	if(SpeciesTree.ARETE[2*i-1] == SpeciesTree.Root || SpeciesTree.ARETE[2*i-2] == SpeciesTree.Root ||
 	   SpeciesTree.ARETE[2*j-1] == SpeciesTree.Root || SpeciesTree.ARETE[2*j-2] == SpeciesTree.Root )
 		return 0;
 
 	//== if there is a direct common ancestor
-	if(((SpeciesTree.ARETE[2*i-1] == SpeciesTree.ARETE[2*j-1])&&(SpeciesTree.degre[SpeciesTree.ARETE[2*i-1]]==3)) || 
+	if(((SpeciesTree.ARETE[2*i-1] == SpeciesTree.ARETE[2*j-1])&&(SpeciesTree.degre[SpeciesTree.ARETE[2*i-1]]==3)) ||
 	   ((SpeciesTree.ARETE[2*i-1] == SpeciesTree.ARETE[2*j-2])&&(SpeciesTree.degre[SpeciesTree.ARETE[2*i-1]]==3)) ||
-       ((SpeciesTree.ARETE[2*i-2] == SpeciesTree.ARETE[2*j-1])&&(SpeciesTree.degre[SpeciesTree.ARETE[2*i-2]]==3)) || 
+       ((SpeciesTree.ARETE[2*i-2] == SpeciesTree.ARETE[2*j-1])&&(SpeciesTree.degre[SpeciesTree.ARETE[2*i-2]]==3)) ||
 	   ((SpeciesTree.ARETE[2*i-2] == SpeciesTree.ARETE[2*j-2])&&(SpeciesTree.degre[SpeciesTree.ARETE[2*i-2]]==3)) )
 		return 0;
 
@@ -1555,7 +1555,7 @@ int isAValidHGT(struct InputTree SpeciesTree,int i, int j){
 //==
 //=================================================================
 void copyInputTree(struct InputTree *tmpTree, struct InputTree aTree,int all,int allW){
-	
+
 	int n= aTree.size;
 	int i,j;
 
@@ -1594,12 +1594,12 @@ void copyInputTree(struct InputTree *tmpTree, struct InputTree aTree,int all,int
 				tmpTree->Input[i][j] = aTree.Input[i][j];
 		  }
 	   }
-	   
-    for(i=1;i<=n;i++){	
+
+    for(i=1;i<=n;i++){
 			strcpy(tmpTree->SpeciesName[i],(const char*)aTree.SpeciesName[i]);
 		}
 	}
-	
+
 	if(allW==1){
     for(i=1;i<=n;i++){
 		  for(j=1;j<=n;j++){
@@ -1612,7 +1612,7 @@ void copyInputTree(struct InputTree *tmpTree, struct InputTree aTree,int all,int
 		tmpTree->ARETE[2*i-2]  = aTree.ARETE[2*i-2];
 		tmpTree->LONGUEUR[i-1] = aTree.LONGUEUR[i-1];
 	}
-	
+
 	tmpTree->Root = aTree.Root;
 	tmpTree->size = aTree.size;
 	tmpTree->kt = aTree.kt;
@@ -1637,7 +1637,7 @@ void printLeaves(char *fichier,int nbHGT,struct HGT *outHGT,int noTree,char **No
 	}
 	fprintf(out,"\n");*/
 	for(i=1;i<=nbHGT;i++){
-		
+
 		if(outHGT[i].valide == 1) {
 			fprintf(out,"\ndetection %d : ",noTree);
 			//fprintf(out,"\n%d ",outHGT[i].listSource[0]);
@@ -1663,7 +1663,7 @@ int sameHGT(struct HGT HGT1, struct HGT HGT2){
 	int i;
 
 	if(HGT1.listSource[0] == HGT2.listSource[0] && HGT1.listDestination[0] == HGT2.listDestination[0]){
-		
+
 		for(i=1;i<=HGT1.listSource[0];i++){
 			if(HGT1.listSource[i] != HGT2.listSource[i])
 				return 0;
@@ -1681,7 +1681,7 @@ int sameHGT(struct HGT HGT1, struct HGT HGT2){
 int sameHGT2(struct HGT HGT1, struct HGT HGT2){
 	int i,h1=0,h2=0;
 
-	if(HGT1.listSource[0] == HGT2.listSource[0]){ 
+	if(HGT1.listSource[0] == HGT2.listSource[0]){
 		h1 = 1;
 		for(i=1;i<=HGT1.listSource[0];i++){
 			if(HGT1.listSource[i] != HGT2.listSource[i])
@@ -1700,7 +1700,7 @@ int sameHGT2(struct HGT HGT1, struct HGT HGT2){
 	if(h2 == 1 && h1 == 1) return 1;
 
 
-	if(HGT1.listSource[0] == HGT2.listDestination[0]){ 
+	if(HGT1.listSource[0] == HGT2.listDestination[0]){
 		h1=1;
 		for(i=1;i<=HGT1.listSource[0];i++){
 			if(HGT1.listSource[i] != HGT2.listDestination[i])
@@ -1717,7 +1717,7 @@ int sameHGT2(struct HGT HGT1, struct HGT HGT2){
 	}
 
 	if(h2 == 1 && h1 == 1) return 1;
-	
+
 	return 0;
 }
 
@@ -1749,7 +1749,7 @@ void copyHGT(struct HGT source,struct HGT *dest){
 //
 //=============================================================================================================
 void updateBootHGT(int first,struct HGT *bestHGT,int cpt_hgt,struct HGT *bootHGT, int *nbHGT_boot, double *tabBoot){
-	
+
 	int i,cpt=0,j;
 
 	if(first==1){
@@ -1771,7 +1771,7 @@ void updateBootHGT(int first,struct HGT *bestHGT,int cpt_hgt,struct HGT *bootHGT
 			}
 		}
 	}
-	
+
 
 
 }
@@ -1779,7 +1779,7 @@ void updateBootHGT(int first,struct HGT *bestHGT,int cpt_hgt,struct HGT *bootHGT
 //
 //=====================================================
 void sortHGT(struct HGT *tabHGT,int nbHGT,struct Parameters param){
-	
+
 	int i,j;
 	int criterion;
 	int a,b,c,d,rf,qd;
@@ -1832,12 +1832,12 @@ void sortHGT(struct HGT *tabHGT,int nbHGT,struct Parameters param){
 //
 //=========================================================
 void FreeMemory_InputTreeReduced(struct InputTree *aTree,int size){
-	
+
 	int i;
 	int n=size;
-	
+
 	if(aTree->ADD != NULL){
-	
+
 		free(aTree->LONGUEUR);
 		free(aTree->ARETE);
 
@@ -1856,7 +1856,7 @@ void FreeMemory_InputTreeReduced(struct InputTree *aTree,int size){
 			}
 			free(aTree->SpeciesName);
 		}
-		
+
 		free(aTree->ADD);
 		free(aTree->Adjacence);
 		//free(aTree->Input);
@@ -1869,12 +1869,12 @@ void FreeMemory_InputTreeReduced(struct InputTree *aTree,int size){
 //
 //=========================================================
 void FreeMemory_InputTree(struct InputTree *aTree,int size){
-	
+
 	int i;
 	int n=size;
-	
+
 	if(aTree->ADD != NULL){
-	
+
 		free(aTree->LONGUEUR);
 		free(aTree->ARETE);
 
@@ -1884,7 +1884,7 @@ void FreeMemory_InputTree(struct InputTree *aTree,int size){
 			if(i<=n)
 				free(aTree->W[i]);
 		}
-		for(i=0;i<2*n;i++){		
+		for(i=0;i<2*n;i++){
 			free(aTree->Adjacence[i]);
 		}
 
@@ -1894,7 +1894,7 @@ void FreeMemory_InputTree(struct InputTree *aTree,int size){
 			}
 			free(aTree->SpeciesName);
 		}
-		
+
 		free(aTree->ADD);
 		free(aTree->Adjacence);
 		free(aTree->Input);
@@ -1907,7 +1907,7 @@ void FreeMemory_InputTree(struct InputTree *aTree,int size){
 //
 //==============================
 int nextTreeIsNewick(FILE *in){
-	
+
 	char c;
 
 	while(fscanf(in,"%c",&c)!= EOF){
@@ -1917,7 +1917,7 @@ int nextTreeIsNewick(FILE *in){
 			return 0;
 		}
 	}
-	
+
 	return -1;
 }
 
@@ -1925,7 +1925,7 @@ int nextTreeIsNewick(FILE *in){
 //
 //==============================
 char * readNewick(FILE *in){
-	
+
 	int cpt=0;
 	char c;
 	char * newick = (char*)malloc(100000);
@@ -1935,7 +1935,7 @@ char * readNewick(FILE *in){
 		newick[cpt] = c;
 		cpt++;
 	}while(c!=';');
-	
+
 	newick[cpt] = '\0';
 
 	return newick;
@@ -1948,7 +1948,7 @@ int nbSpeciesNewick(const char * newick){
 	int i=0;
 	int n = 0;
 	char symbol,parent=' ';
-	char symbolOld =' ';  	
+	char symbolOld =' ';
 	int temoin =0;
 
 	do{
@@ -1970,7 +1970,7 @@ int nbSpeciesNewick(const char * newick){
 //
 //==================================================================
 void newickToMatrix(const char *newick,struct InputTree *aTree){
-	
+
 	int i,j;
 	int pasBinaire=0;
 	int pos_racine=-1;
@@ -1984,8 +1984,8 @@ void newickToMatrix(const char *newick,struct InputTree *aTree){
 	/*for(i=1;i<=2*aTree->size-3-aTree->kt;i++){
 		printf("\n%d -> %d--%d : %lf",i,aTree->ARETE[2*i-2],aTree->ARETE[2*i-1],aTree->LONGUEUR[i-1]);
 	}*/
-	
-	
+
+
  /* if(pos_racine != -1){
     addLeafAndUpdate(aTree,pos_racine);
 	  aTree->Root = aTree->size;
@@ -2008,7 +2008,7 @@ void newickToMatrix(const char *newick,struct InputTree *aTree){
 //
 //===============================================
 void readMatrix(FILE *in,struct InputTree *aTree){
-	
+
 	int n,i,j;
 	char name[50];
 	double value;
@@ -2030,7 +2030,7 @@ void readMatrix(FILE *in,struct InputTree *aTree){
 //
 //===================================================================================================================
 int readInputFile(FILE *in, const char *tmpFile){
-	
+
 	char *newick;
 	struct InputTree speciesTree_t;
 	struct InputTree geneTree_t;
@@ -2052,7 +2052,7 @@ int readInputFile(FILE *in, const char *tmpFile){
 	}
 	else
 		readMatrix(in,&speciesTree_t);
-	
+
 	//== read the gene tree
 	ret = nextTreeIsNewick(in);
 	if(ret==-1)
@@ -2075,14 +2075,14 @@ int readInputFile(FILE *in, const char *tmpFile){
 	printf("\n");printf("\n");
 
 	printf("\n");printf("\n");*/
-	//filtrerMatrice(speciesTree_t.Input,geneTree_t.Input,speciesTree_t.SpeciesName,geneTree_t.SpeciesName,speciesTree_t.size,geneTree_t.size);
+	filtrerMatrice(speciesTree_t.Input,geneTree_t.Input,speciesTree_t.SpeciesName,geneTree_t.SpeciesName,speciesTree_t.size,geneTree_t.size);
 	//printf("%d--%d",speciesTree_t.size,geneTree_t.size);
 	if(ecrireMatrice(speciesTree_t.Input,tmpFile,speciesTree_t.size,speciesTree_t.SpeciesName) == -1)
 		return -2;
 	ajouterMatriceGene(geneTree_t.Input,tmpFile,geneTree_t.size,geneTree_t.SpeciesName);
 	/*
 	TrierMatrices(geneTree_t.Input,geneTree_t.SpeciesName,speciesTree_t.SpeciesName,speciesTree_t.size);
-	
+
   (*speciesTree) = speciesTree_t;
   (*geneTree)    = geneTree_t;
   */
@@ -2131,10 +2131,10 @@ int midPoint(long int *ARETE,double **DIST,int n,int kt){
 		        printf("\nDIST[%d][%ld] = %lf",j1,ARETE[2*i-1],DIST[j1][ARETE[2*i-1]]);
 */
 
-			if( ( ((DIST[i1][ARETE[2*i-1]]>(max/2.0)) || (fabs(DIST[i1][ARETE[2*i-1]]-(max/2.0))<0.00001)) && 
+			if( ( ((DIST[i1][ARETE[2*i-1]]>(max/2.0)) || (fabs(DIST[i1][ARETE[2*i-1]]-(max/2.0))<0.00001)) &&
 				  ((DIST[j1][ARETE[2*i-2]]>(max/2.0)) || (fabs(DIST[j1][ARETE[2*i-2]]-(max/2.0))<0.00001))) ||
-		        ( ((DIST[i1][ARETE[2*i-2]]>(max/2.0)) || (fabs(DIST[i1][ARETE[2*i-2]]-(max/2.0))<0.00001)) && 
-				  ((DIST[j1][ARETE[2*i-1]]>(max/2.0)) || (fabs(DIST[j1][ARETE[2*i-1]]-(max/2.0))<0.00001))) 
+		        ( ((DIST[i1][ARETE[2*i-2]]>(max/2.0)) || (fabs(DIST[i1][ARETE[2*i-2]]-(max/2.0))<0.00001)) &&
+				  ((DIST[j1][ARETE[2*i-1]]>(max/2.0)) || (fabs(DIST[j1][ARETE[2*i-1]]-(max/2.0))<0.00001)))
 		     ){
 					P = i;
 				//	printf("la meme ");
@@ -2151,13 +2151,13 @@ int midPoint(long int *ARETE,double **DIST,int n,int kt){
 }
 
 //=================================================================
-//== 
+//==
 //=================================================================
 void AdjustBranchLength(struct InputTree *aTree1, struct InputTree aTree2,int binaire,int useFloyd){
 
 	int i,j,iternumber=100;
 	int kt = aTree1->kt;
-	
+
 	approx_arb(aTree2.ADD,aTree1->ADD,aTree1->ADD,aTree1->W,&iternumber,aTree1->ARETE,aTree1->LONGUEUR,1,&kt,binaire,aTree1->size);
   loadAdjacenceMatrix(aTree1->Adjacence,aTree1->ARETE, aTree1->LONGUEUR,aTree1->size,aTree1->kt);
 
@@ -2165,7 +2165,7 @@ void AdjustBranchLength(struct InputTree *aTree1, struct InputTree aTree2,int bi
 		Floyd(aTree1->Adjacence,aTree1->ADD,aTree1->size,aTree1->kt); // 3eme fois
 	//	global_cpt3 ++;
   }
-   
+
 }
 
 //=================================================================
@@ -2197,7 +2197,7 @@ void FreeCriteria(struct CRITERIA * Crit,int size){
 
 	free(Crit->PLACE);
 	free(Crit->PLACEI);
-	
+
 	for(i=0;i<=2*size-3;i++){
 		free(Crit->B[i]);
 		free(Crit->BI[i]);
@@ -2214,12 +2214,12 @@ void FreeCriteria(struct CRITERIA * Crit,int size){
 //=
 //================================================================================================================
 int findAllMinimalScenario(struct InputTree SpeciesTree , struct InputTree GeneTree,int binaireSpecies,int binaireGene){
-/*	
+/*
 	int encore=1;
 	struct TreeHGT *aTree = (struct TreeHGT*)malloc(sizeof(struct TreeHGT));  //= sommet de l'arbre
-	struct TreeHGT *courant;												  //= pointeur utilisé pour parcourrir l'arbre
+	struct TreeHGT *courant;												  //= pointeur utilisï¿½ pour parcourrir l'arbre
 	aTree->parent = NULL;													  //= le sommet n'a pas de parent
-		
+
 	struct DescTree * DTGene = (struct DescTree*)malloc((2*GeneTree.size-2-GeneTree.kt+1)*sizeof(struct DescTree));
 	struct DescTree * DTSpecies = (struct DescTree*)malloc((2*SpeciesTree.size-2-SpeciesTree.kt+1)*sizeof(struct DescTree));
 	struct ReduceTrace aMap;					//== mapping structure between species tree and recuded species tree
@@ -2229,10 +2229,10 @@ int findAllMinimalScenario(struct InputTree SpeciesTree , struct InputTree GeneT
 	initInputTree(&SpeciesTreeRed);
 	initInputTree(&GeneTreeRed);
 
-	RechercherBipartition(GeneTree.ARETE,GeneTree.ADD,GeneTree.Root,GeneTree.Adjacence,DTGene,GeneTree.size,GeneTree.kt);	
+	RechercherBipartition(GeneTree.ARETE,GeneTree.ADD,GeneTree.Root,GeneTree.Adjacence,DTGene,GeneTree.size,GeneTree.kt);
 	RechercherBipartition(SpeciesTree.ARETE,SpeciesTree.ADD,SpeciesTree.Root,SpeciesTree.Adjacence,DTSpecies,SpeciesTree.size,SpeciesTree.kt);
 	ReduceTree(SpeciesTree,GeneTree,&SpeciesTreeRed,&GeneTreeRed,&aMap,DTSpecies,DTGene,binaireSpecies,binaireGene);
-	
+
 	do{
 		findBestHGTtab(SpeciesTreeRed,GeneTreeRed,param,bestHGTRed,&nbHgtFound);
 		for(int i=0;i<nbHgtFound;i++){
@@ -2250,8 +2250,8 @@ int findAllMinimalScenario(struct InputTree SpeciesTree , struct InputTree GeneT
 //=
 //================================================================================================================
 int findAllHGT_no_criterion(struct InputTree SpeciesTree, struct InputTree GeneTree,struct Parameters param,struct HGT *tabHGT){
-	
-	int nbHGT=0;	
+
+	int nbHGT=0;
 	struct InputTree tmpTree;
 	int i,j,ktSpecies;
 	int size = SpeciesTree.size;
@@ -2268,10 +2268,10 @@ int findAllHGT_no_criterion(struct InputTree SpeciesTree, struct InputTree GeneT
 
 	for(i=1;i<2*size-3-SpeciesTree.kt;i++)
 		for(j=i+1;j<2*size-3-SpeciesTree.kt;j++){
-		
+
 			//== is it a valid hgt ?
 			if(isAValidHGT(SpeciesTree,i,j)==1){
-				
+
 				nbHGT++;
 				tabHGT[nbHGT].source = i;
 				tabHGT[nbHGT].destination = j;
@@ -2279,13 +2279,13 @@ int findAllHGT_no_criterion(struct InputTree SpeciesTree, struct InputTree GeneT
 
 			}
 		}
-	
+
 	FreeCriteria(&aCrit,size);
 
 	for(i=1;i<=nbHGT;i++)
 		findListSpecies(&tabHGT[i],DTSpecies,SpeciesTree);
 
-	
+
 	//printf("\nfin de la fonction");
 
 	return nbHGT;
@@ -2295,8 +2295,8 @@ int findAllHGT_no_criterion(struct InputTree SpeciesTree, struct InputTree GeneT
 //=
 //================================================================================================================
 int findAllHGT(struct InputTree SpeciesTree, struct InputTree GeneTree,struct Parameters param,struct HGT *tabHGT){
-	
-	int nbHGT=0;	
+
+	int nbHGT=0;
 	struct InputTree tmpTree;
 	int i,j,ktSpecies;
 	int size = SpeciesTree.size;
@@ -2309,7 +2309,7 @@ int findAllHGT(struct InputTree SpeciesTree, struct InputTree GeneTree,struct Pa
 	InitCriteria(&aCrit,size);
 
 	DTGene = (struct DescTree*)malloc((2*GeneTree.size)*sizeof(struct DescTree));
-	RechercherBipartition(GeneTree.ARETE,GeneTree.ADD,GeneTree.Root,GeneTree.Adjacence,DTGene,GeneTree.size,GeneTree.kt);	
+	RechercherBipartition(GeneTree.ARETE,GeneTree.ADD,GeneTree.Root,GeneTree.Adjacence,DTGene,GeneTree.size,GeneTree.kt);
 
 	DTSpecies = (struct DescTree*)malloc((2*SpeciesTree.size)*sizeof(struct DescTree));
 	RechercherBipartition(SpeciesTree.ARETE,SpeciesTree.ADD,SpeciesTree.Root,SpeciesTree.Adjacence,DTSpecies,SpeciesTree.size,SpeciesTree.kt);
@@ -2318,30 +2318,30 @@ int findAllHGT(struct InputTree SpeciesTree, struct InputTree GeneTree,struct Pa
 	//printf("<br>size = %d<br>",size);
 	//== Test all possible HGT
 	//printEdges(0,SpeciesTree.ARETE,SpeciesTree.LONGUEUR,SpeciesTree.SpeciesName,SpeciesTree.size);
-	
+
 
 	for(i=1;i<2*size-3-SpeciesTree.kt;i++)
 		for(j=1;j<2*size-3-SpeciesTree.kt;j++){
-		
+
 			//== is it a valid hgt ?
 			if(isAValidHGT(SpeciesTree,i,j)==1){
 
 			//	printf(".");
 
 				copyInputTree(&tmpTree,SpeciesTree,0,0);
-				
+
 				//printf("\nTransfert : %d--%d -> %d--%d",tmpTree.ARETE[2*i-1],tmpTree.ARETE[2*i-2],tmpTree.ARETE[2*j-1],tmpTree.ARETE[2*j-2]);
 				//getchar();
 
 				if(strcmp(param.subtree,"yes") == 0)
 					if(TestSubTreeConstraint(SpeciesTree,i,j,DTSpecies,DTGene) == 0) continue;
-				
+
 				//printf("\n\n");
 				//printEdges(0,tmpTree.ARETE,tmpTree.LONGUEUR,SpeciesTree.SpeciesName,tmpTree.size);
-				
+
 				applyHGT(GeneTree.ADD,&tmpTree,i,j);
 				//printf("\nTransfert : %d--%d -> %d--%d",tmpTree.ARETE[2*i-1],tmpTree.ARETE[2*i-2],tmpTree.ARETE[2*j-1],tmpTree.ARETE[2*j-2]);
-				
+
 				/*printEdges(0,tmpTree.ARETE,tmpTree.LONGUEUR,SpeciesTree.SpeciesName,tmpTree.size);
 				printEdges(0,GeneTree.ARETE,GeneTree.LONGUEUR,SpeciesTree.SpeciesName,GeneTree.size);
 				printMatrix(SpeciesTree.SpeciesName,tmpTree.ADD,tmpTree.size);
@@ -2349,19 +2349,19 @@ int findAllHGT(struct InputTree SpeciesTree, struct InputTree GeneTree,struct Pa
 				getchar();*/
 				//printf("avant");
 				AdjustBranchLength(&tmpTree,GeneTree,0,1);
-				
+
 				computeCriteria(tmpTree.ADD,GeneTree.ADD,size,&aCrit,tmpTree.LONGUEUR,tmpTree.ARETE,GeneTree.LONGUEUR,GeneTree.ARETE);
 				nbHGT++;
 				loadCriteria(aCrit,&tabHGT[nbHGT]);
 				tabHGT[nbHGT].source = i;
 				tabHGT[nbHGT].destination = j;
-				
+
 				//printf("\nTransfert : %d--%d (%d)-> %d--%d (%d)",SpeciesTree.ARETE[2*i-1],SpeciesTree.ARETE[2*i-2],i,SpeciesTree.ARETE[2*j-1],SpeciesTree.ARETE[2*j-2],j);
 				//printf("=====>RF = %d, LS = %lf",aCrit.RF,aCrit.LS);
-			
+
 			}
 		}
-	
+
 	FreeCriteria(&aCrit,size);
 
 	for(i=1;i<=nbHGT;i++)
@@ -2370,7 +2370,7 @@ int findAllHGT(struct InputTree SpeciesTree, struct InputTree GeneTree,struct Pa
 	return nbHGT;
 }
 //===============================================================================================================
-//== 
+//==
 //===============================================================================================================
 int findBestHGT(int initial,struct InputTree SpeciesTree,struct InputTree GeneTree,struct Parameters param,struct HGT *aHGT){
 
@@ -2392,7 +2392,7 @@ int findBestHGT(int initial,struct InputTree SpeciesTree,struct InputTree GeneTr
 	loadCriteria(aCrit,aHGT);
 
 	DTGene = (struct DescTree*)malloc((2*GeneTree.size-2-GeneTree.kt+1)*sizeof(struct DescTree));
-	RechercherBipartition(GeneTree.ARETE,GeneTree.ADD,GeneTree.Root,GeneTree.Adjacence,DTGene,GeneTree.size,GeneTree.kt);	
+	RechercherBipartition(GeneTree.ARETE,GeneTree.ADD,GeneTree.Root,GeneTree.Adjacence,DTGene,GeneTree.size,GeneTree.kt);
 
 	DTSpecies = (struct DescTree*)malloc((2*SpeciesTree.size-2-SpeciesTree.kt+1)*sizeof(struct DescTree));
 	RechercherBipartition(SpeciesTree.ARETE,SpeciesTree.ADD,SpeciesTree.Root,SpeciesTree.Adjacence,DTSpecies,SpeciesTree.size,SpeciesTree.kt);
@@ -2413,9 +2413,9 @@ int findBestHGT(int initial,struct InputTree SpeciesTree,struct InputTree GeneTr
 				//printf(".");
 
 				copyInputTree(&tmpTree,SpeciesTree,0,0);
-				
+
 				//printf("\nTransfert : %d--%d -> %d--%d",tmpTree.ARETE[2*i-1],tmpTree.ARETE[2*i-2],tmpTree.ARETE[2*j-1],tmpTree.ARETE[2*j-2]);
-				
+
 				//if(tmpTree.ARETE[2*i-1]==6 && tmpTree.ARETE[2*i-2]==15 && tmpTree.ARETE[2*j-1]==7 && tmpTree.ARETE[2*j-2]==14)
 				//	printf("");
 
@@ -2425,9 +2425,9 @@ int findBestHGT(int initial,struct InputTree SpeciesTree,struct InputTree GeneTr
 						//FreeMemory_InputTree(&tmpTree);
 						tmpTree.ADD = NULL;
 						tmpTree.ARETE = NULL;
-						
+
 					}
-				
+
 				//printf("\n\n");
 				//printEdges(0,tmpTree.ARETE,tmpTree.LONGUEUR,SpeciesTree.SpeciesName,tmpTree.size);
 				//printf("\navant apply");
@@ -2445,18 +2445,18 @@ int findBestHGT(int initial,struct InputTree SpeciesTree,struct InputTree GeneTr
 					printf("\n%d-%d -->%lf",tmpTree.ARETE[2*k-1],tmpTree.ARETE[2*k-2],tmpTree.LONGUEUR[k-1]);
 				printf("\n");*/
 				//printMatrix(SpeciesTree.SpeciesName,GeneTree.ADD,GeneTree.size);
-				
+
 				AdjustBranchLength(&tmpTree,GeneTree,0,1);
 				//printMatrix(SpeciesTree.SpeciesName,tmpTree.ADD,tmpTree.size);
-				
-				
+
+
 			//	computeCriteria(tmpTree.ADD,GeneTree.ADD,size,&aCrit);
 			//	printf("<br>Transfert : %d--%d (%d)-> %d--%d (%d)",SpeciesTree.ARETE[2*i-1],SpeciesTree.ARETE[2*i-2],i,SpeciesTree.ARETE[2*j-1],SpeciesTree.ARETE[2*j-2],j);
 			//	printf("=====>RF = %d, LS = %lf",aCrit.RF,aCrit.LS);
-				
+
 			//	if(i==12 && j==7){
 			//		aCrit.RF = 100;
-			//	}	
+			//	}
 				if(initial == 1){
 					computeCriteria(tmpTree.ADD,SpeciesTree.ADD,size,&aCrit,tmpTree.LONGUEUR,tmpTree.ARETE,SpeciesTree.LONGUEUR,SpeciesTree.ARETE);
 					if(aCrit.RF == 1){
@@ -2477,7 +2477,7 @@ int findBestHGT(int initial,struct InputTree SpeciesTree,struct InputTree GeneTr
 					if(aHGT->crit.RF == 0 /*|| aHGT->crit.LS < epsilon */|| aHGT->crit.BD == 0 || aHGT->crit.QD == 0) { i=j=(int)INFINI;}
 				}
 
-				
+
 				//FreeMemory_InputTree(&tmpTree);
 				//tmpTree.ADD = NULL;
 				//tmpTree.ARETE = NULL;
@@ -2489,7 +2489,7 @@ int findBestHGT(int initial,struct InputTree SpeciesTree,struct InputTree GeneTr
 	//printf("icit");
 	if(ret > 0 )
 		findListSpecies(aHGT,DTSpecies,SpeciesTree);
-	
+
 	deleteBipartition(DTSpecies,SpeciesTree);
 	deleteBipartition(DTGene,GeneTree);
 	FreeCriteria(&aCrit,size);
@@ -2501,7 +2501,7 @@ int findBestHGT(int initial,struct InputTree SpeciesTree,struct InputTree GeneTr
 }
 
 //===========================================================================================================================
-//== 
+//==
 //===========================================================================================================================
 int findBestHGT_nombreLimite(struct DescTree *DTSpecies,struct DescTree *DTGene,int * tab_branches,int nb_branches,struct InputTree SpeciesTree,struct InputTree GeneTree,struct Parameters param,struct HGT *aHGT){
 
@@ -2510,7 +2510,7 @@ int findBestHGT_nombreLimite(struct DescTree *DTSpecies,struct DescTree *DTGene,
 	int size = SpeciesTree.size;
 	int ktSpecies;
 	struct CRITERIA aCrit,aCritRef;
-	
+
 	initInputTree(&tmpTree);
 
 	//printf("\ndebut findBestHgt");
@@ -2522,7 +2522,7 @@ int findBestHGT_nombreLimite(struct DescTree *DTSpecies,struct DescTree *DTGene,
 	loadCriteria(aCrit,aHGT);
 
 	/*DTGene = (struct DescTree*)malloc((2*GeneTree.size-2-GeneTree.kt+1)*sizeof(struct DescTree));
-	RechercherBipartition(GeneTree.ARETE,GeneTree.ADD,GeneTree.Root,GeneTree.Adjacence,DTGene,GeneTree.size,GeneTree.kt);	
+	RechercherBipartition(GeneTree.ARETE,GeneTree.ADD,GeneTree.Root,GeneTree.Adjacence,DTGene,GeneTree.size,GeneTree.kt);
 
 	DTSpecies = (struct DescTree*)malloc((2*SpeciesTree.size-2-SpeciesTree.kt+1)*sizeof(struct DescTree));
 	RechercherBipartition(SpeciesTree.ARETE,SpeciesTree.ADD,SpeciesTree.Root,SpeciesTree.Adjacence,DTSpecies,SpeciesTree.size,SpeciesTree.kt);*/
@@ -2548,8 +2548,8 @@ int findBestHGT_nombreLimite(struct DescTree *DTSpecies,struct DescTree *DTGene,
 						continue;
 						//FreeMemory_InputTree(&tmpTree);
 						tmpTree.ADD = NULL;
-						tmpTree.ARETE = NULL;	
-						
+						tmpTree.ARETE = NULL;
+
 					}*/
 				//printf("\nPOS 3");
 				applyHGT(GeneTree.ADD,&tmpTree,tab_branches[i],tab_branches[j]);
@@ -2564,11 +2564,11 @@ int findBestHGT_nombreLimite(struct DescTree *DTSpecies,struct DescTree *DTGene,
 
 			}
 		}
-		
+
 	}
 	/*if(ret > 0 )
 		findListSpecies(aHGT,DTSpecies,SpeciesTree);*/
-	
+
 /*	deleteBipartition(DTSpecies,SpeciesTree);
 	deleteBipartition(DTGene,GeneTree);*/
 	FreeCriteria(&aCrit,size);
@@ -2581,7 +2581,7 @@ int findBestHGT_nombreLimite(struct DescTree *DTSpecies,struct DescTree *DTGene,
 
 
 //===============================================================================================================
-//== 
+//==
 //===============================================================================================================
 int findBestHGTtab(struct InputTree SpeciesTree,struct InputTree GeneTree,struct Parameters param,struct HGT *aHGT, int *nbHgtFound,int *initial, int *listRef,int * listJ){
 
@@ -2593,12 +2593,12 @@ int findBestHGTtab(struct InputTree SpeciesTree,struct InputTree GeneTree,struct
 	struct DescTree *DTSpecies,*DTGene;
   int encore = 0;
   struct HGT *tmpHGT;
-  
+
 	initInputTree(&tmpTree);
 	(*nbHgtFound) = 0;
 
 	printf("\n== NOUVELLE RECHERCHE == [size=%d]\n",SpeciesTree.size);
-  
+
 	//== compute criteria
 	InitCriteria(&aCrit,size);
 	InitCriteria(&aCritRef,size);
@@ -2607,9 +2607,10 @@ int findBestHGTtab(struct InputTree SpeciesTree,struct InputTree GeneTree,struct
 	computeCriteria(SpeciesTree.ADD,GeneTree.ADD,size,&aCritRef,SpeciesTree.LONGUEUR,SpeciesTree.ARETE,GeneTree.LONGUEUR,GeneTree.ARETE);
 	computeCriteria(SpeciesTree.ADD,GeneTree.ADD,size,&aCritRef2,SpeciesTree.LONGUEUR,SpeciesTree.ARETE,GeneTree.LONGUEUR,GeneTree.ARETE);
 	loadCriteria(aCrit,&aHGT[0]);
-  
+
 	DTGene = (struct DescTree*)malloc(3*(2*GeneTree.size-2-GeneTree.kt+1)*sizeof(struct DescTree));
-	RechercherBipartitionSansRacine(GeneTree.ARETE,GeneTree.ADD,GeneTree.Adjacence,DTGene,GeneTree.size,GeneTree.kt);	
+	//RechercherBipartition(GeneTree.ARETE,GeneTree.ADD,GeneTree.Root,GeneTree.Adjacence,DTGene,GeneTree.size,GeneTree.kt);
+	RechercherBipartitionSansRacine(GeneTree.ARETE,GeneTree.ADD,GeneTree.Adjacence,DTGene,GeneTree.size,GeneTree.kt);
 
 	DTSpecies = (struct DescTree*)malloc((2*SpeciesTree.size-2-SpeciesTree.kt+1)*sizeof(struct DescTree));
 	RechercherBipartition(SpeciesTree.ARETE,SpeciesTree.ADD,SpeciesTree.Root,SpeciesTree.Adjacence,DTSpecies,SpeciesTree.size,SpeciesTree.kt);
@@ -2619,7 +2620,7 @@ int findBestHGTtab(struct InputTree SpeciesTree,struct InputTree GeneTree,struct
 		printf("\n%d-%d -->%lf",SpeciesTree.ARETE[2*i-1],SpeciesTree.ARETE[2*i-2],SpeciesTree.LONGUEUR[i-1]);
 	printf("\n");*/
 	//== Test all possible HGT
-/*	
+/*
 	printf("\n\ndebut detection\n");
 	for(i=1;i<=SpeciesTree.size;i++){
 		printf("\n%d ",i);
@@ -2627,7 +2628,7 @@ int findBestHGTtab(struct InputTree SpeciesTree,struct InputTree GeneTree,struct
 			printf("%.2lf ",SpeciesTree.ADD[i][j]);
 		}
 	}
-	
+
   printf("\n\ndebut detection\n");
 	for(i=1;i<=2*SpeciesTree.size-3-SpeciesTree.kt;i++){
 		printf("\n%d ",i);
@@ -2635,19 +2636,14 @@ int findBestHGTtab(struct InputTree SpeciesTree,struct InputTree GeneTree,struct
 			printf("%.2lf ",SpeciesTree.ADD[i][j]);
 		}
 	}*/
-	
+
 	int flag2 = 1;
 	int interdit1,interdit2;
 	listRef[0]=0;
-	/*
-	printf("\nListe des branches a ignorer : ");
-	for(int k=1;k<=listJ[0];k++){
-		printf("%d ",listJ[k]);
-	}
-	*/
+
 	do{
 	for(i=1;i<2*size-3-SpeciesTree.kt;i++)
-		for(j=i+1;j<2*size-3-SpeciesTree.kt;j++){
+		  for(j=i+1;j<2*size-3-SpeciesTree.kt;j++){
 			//== is it a valid hgt ?
 			trouve=0;
 			interdit1 = 0;
@@ -2656,151 +2652,97 @@ int findBestHGTtab(struct InputTree SpeciesTree,struct InputTree GeneTree,struct
 				if(listJ[k] == j) interdit1 = 1;
 				if(listJ[k] == i) interdit2 = 1;
 			}
-			
+
 			if(isAValidHGT(SpeciesTree,i,j)==1 && (i!=j) && (interdit1==0)){
-				
+
 				copyInputTree(&tmpTree,SpeciesTree,0,0);
-				
+
 				if(strcmp(param.subtree,"yes") == 0)
 					if(TestSubTreeConstraint(SpeciesTree,i,j,DTSpecies,DTGene) == 0) {
 						continue;
-						//FreeMemory_InputTree(&tmpTree);
 						tmpTree.ADD = NULL;
 						tmpTree.ARETE = NULL;
 					}
-					
-				//	findListSpecies(tmpHGT,DTSpecies,SpeciesTree);
-				 // printHGTandGroups(tmpHGT,SpeciesTree);
-        //  exit(0);
-			//	printf("\nCAS1 :");
-	//			printf("%d-%d -> %d-%d",SpeciesTree.ARETE[2*i-1],SpeciesTree.ARETE[2*i-2],SpeciesTree.ARETE[2*j-1],SpeciesTree.ARETE[2*j-2]);
-			//	printf("\navant apply");
-				applyHGT(GeneTree.ADD,&tmpTree,i,j);
-			//	printf("\navant adjust");
-			//	printf("\n%d-%d",GeneTree.size,tmpTree.size);
-		//		AdjustBranchLength(&tmpTree,GeneTree,0,1);
-				if(strcmp(param.criterion,"ls") == 0)
-				  AdjustBranchLength(&tmpTree,GeneTree,0,1);
-			/*	else{
-          for(int k=0;k<=2*size-3;k++){
-            tmpTree.LONGUEUR[k] = 1.0;
-          }
-          for(int k=1;k<=2*(tmpTree.size)-3-tmpTree.kt;k++){
-		        tmpTree.Adjacence[tmpTree.ARETE[2*k-1]][tmpTree.ARETE[2*k-2]] = tmpTree.Adjacence[tmpTree.ARETE[2*k-2]][tmpTree.ARETE[2*k-1]] = tmpTree.LONGUEUR[k-1];
-	        }
-        }*/
-			//	printf("\navant compute");
-				computeCriteria(tmpTree.ADD,GeneTree.ADD,size,&aCrit,tmpTree.LONGUEUR,tmpTree.ARETE,GeneTree.LONGUEUR,GeneTree.ARETE);
-				
-        
-        first=1;
-				loadCriteria(aCritRef,&aHGT[(*nbHgtFound)]);
-			//	printf("\n1) %d-%d -> %d-%d",SpeciesTree.ARETE[2*i-1],SpeciesTree.ARETE[2*i-2],SpeciesTree.ARETE[2*j-1],SpeciesTree.ARETE[2*j-2]);
-			// 	printf("\nRF=%d,BD=%lf\n",aHGT[(*nbHgtFound)].crit.RF,aHGT[(*nbHgtFound)].crit.BD);
-			 
-  //      printf("\n0-1)(%d,%d)",aCritRef.RF,aCrit.RF);
-  //      printf("\n3)RF=%d,%lf,%lf",aHGT[0].crit.RF,aCritRef.BD,aCrit.BD);
-        
+				  applyHGT(GeneTree.ADD,&tmpTree,i,j);
+				  if(strcmp(param.criterion,"ls") == 0)
+				    AdjustBranchLength(&tmpTree,GeneTree,0,1);
+				  computeCriteria(tmpTree.ADD,GeneTree.ADD,size,&aCrit,tmpTree.LONGUEUR,tmpTree.ARETE,GeneTree.LONGUEUR,GeneTree.ARETE);
+				  first=1;
+				  loadCriteria(aCritRef,&aHGT[(*nbHgtFound)]);
+
 				if(((aCritRef.RF-aCrit.RF) == 1) && (*initial==1) && (
-				  (SpeciesTree.ARETE[2*i-1] == SpeciesTree.ARETE[2*j-1]) || 
-				  (SpeciesTree.ARETE[2*i-1] == SpeciesTree.ARETE[2*j-2]) || 
-				  (SpeciesTree.ARETE[2*i-2] == SpeciesTree.ARETE[2*j-2]) || 
+				  (SpeciesTree.ARETE[2*i-1] == SpeciesTree.ARETE[2*j-1]) ||
+				  (SpeciesTree.ARETE[2*i-1] == SpeciesTree.ARETE[2*j-2]) ||
+				  (SpeciesTree.ARETE[2*i-2] == SpeciesTree.ARETE[2*j-2]) ||
 				  (SpeciesTree.ARETE[2*i-2] == SpeciesTree.ARETE[2*j-2])
           )) {
-           
+
 				  UpdateCriterion(&first,param.criterion,aCrit,&aHGT[(*nbHgtFound)],i,j);
-				  
+
 					aHGT[(*nbHgtFound)].source_A = SpeciesTree.ARETE[2*i-1];
 					aHGT[(*nbHgtFound)].source_B = SpeciesTree.ARETE[2*i-2];
 					aHGT[(*nbHgtFound)].dest_A = SpeciesTree.ARETE[2*j-1];
 					aHGT[(*nbHgtFound)].dest_B = SpeciesTree.ARETE[2*j-2];
-					
+
 					findListSpecies(&aHGT[(*nbHgtFound)],DTSpecies,SpeciesTree);
 					listRef[listRef[0]+1] = j;
-				//	exit(0);
 					trouve=1;
-				//	printf("\n%d-%d -> %d-%d",SpeciesTree.ARETE[2*i-1],SpeciesTree.ARETE[2*i-2],SpeciesTree.ARETE[2*j-1],SpeciesTree.ARETE[2*j-2]);
-			  //  printf("\n1-1)RF=%d (%d,%d)",aHGT[(*nbHgtFound)].crit.RF,aCritRef.RF,aCrit.RF);
 				}
 				else  if(*initial==0){
-          if(TestCriterionAndUpdate(&first,param.criterion,aCrit,&aHGT[(*nbHgtFound)],i,j,0) == 1){		
+          if(TestCriterionAndUpdate(&first,param.criterion,aCrit,&aHGT[(*nbHgtFound)],i,j,0) == 1){
     					aHGT[(*nbHgtFound)].source_A = SpeciesTree.ARETE[2*i-1];
     					aHGT[(*nbHgtFound)].source_B = SpeciesTree.ARETE[2*i-2];
     					aHGT[(*nbHgtFound)].dest_A = SpeciesTree.ARETE[2*j-1];
     					aHGT[(*nbHgtFound)].dest_B = SpeciesTree.ARETE[2*j-2];
     					findListSpecies(&aHGT[(*nbHgtFound)],DTSpecies,SpeciesTree);
-						listRef[listRef[0]+1] = j;
+						  listRef[listRef[0]+1] = j;
     					trouve=1;
-    				//	printf("\n%d-%d -> %d-%d",SpeciesTree.ARETE[2*i-1],SpeciesTree.ARETE[2*i-2],SpeciesTree.ARETE[2*j-1],SpeciesTree.ARETE[2*j-2]);
-    			//	  printf("\n1-2)RF=%d (%d,%d)",aHGT[(*nbHgtFound)].crit.RF,aCritRef.RF,aCrit.RF);
-				  }
+
+          }
         }
-				//if(aHGT->crit.RF == 0 /*|| aHGT->crit.LS < epsilon */|| aHGT->crit.BD == 0) { i=j=(int)INFINI;}
-	//		printf("\n3)RF=%d",aHGT[0].crit.RF);
       }
 			if(isAValidHGT(SpeciesTree,j,i)==1 && (i!=j) && (interdit2 == 0) ){
 				copyInputTree(&tmpTree,SpeciesTree,0,0);
-				
+
 				if(strcmp(param.subtree,"yes") == 0)
 					if(TestSubTreeConstraint(SpeciesTree,j,i,DTSpecies,DTGene) == 0) {
 						continue;
-						//FreeMemory_InputTree(&tmpTree);
 						tmpTree.ADD = NULL;
 						tmpTree.ARETE = NULL;
 					}
-			//			printf("\nCAS2 :");
-		//		printf("%d-%d -> %d-%d",SpeciesTree.ARETE[2*i-1],SpeciesTree.ARETE[2*i-2],SpeciesTree.ARETE[2*j-1],SpeciesTree.ARETE[2*j-2]);
-	   //    printf("\nRF=%d\n",aHGT[(*nbHgtFound)].crit.RF);
-		//			printf("\navant apply");
-				applyHGT(GeneTree.ADD,&tmpTree,j,i);
-	//			AdjustBranchLength(&tmpTree,GeneTree,0,1);
-	//			printf("\navant adjust");
-				if(strcmp(param.criterion,"ls") == 0)
-				  AdjustBranchLength(&tmpTree,GeneTree,0,1);
-		/*		else{
-          for(int k=0;k<=2*size-3;k++){
-            tmpTree.LONGUEUR[k] = 1.0;
-          }
-           for(int k=1;k<=2*(tmpTree.size)-3-tmpTree.kt;k++){
-		        tmpTree.Adjacence[tmpTree.ARETE[2*k-1]][tmpTree.ARETE[2*k-2]] = tmpTree.Adjacence[tmpTree.ARETE[2*k-2]][tmpTree.ARETE[2*k-1]] = tmpTree.LONGUEUR[k-1];
-	        }
-        }*/
-	//			printf("\navant compute2");
-				computeCriteria(tmpTree.ADD,GeneTree.ADD,size,&aCrit,tmpTree.LONGUEUR,tmpTree.ARETE,GeneTree.LONGUEUR,GeneTree.ARETE);
-			//	printf("\n2) %d-%d -> %d-%d",SpeciesTree.ARETE[2*i-1],SpeciesTree.ARETE[2*i-2],SpeciesTree.ARETE[2*j-1],SpeciesTree.ARETE[2*j-2]);
-			// 	printf("\nRF=%d,BD=%lf\n",aHGT[(*nbHgtFound)].crit.RF,aHGT[(*nbHgtFound)].crit.BD);
-			 	
-			 	int flag=0;
-				first=1;
-				if(trouve==0)
-					loadCriteria(aCritRef,&aHGT[(*nbHgtFound)]);
-				else{
-				  aHGT[(*nbHgtFound)].crit.diff_bd = fabs(aCrit.BD - aHGT[(*nbHgtFound)].crit.BD);
-          if((flag2 == 1) && (fabs(aCrit.BD - aHGT[(*nbHgtFound)].crit.BD) <= 1)){
-            	//printf("\n==> %d-%d -> %d-%d",aHGT[(*nbHgtFound)].source_A,aHGT[(*nbHgtFound)].source_B,aHGT[(*nbHgtFound)].dest_A,aHGT[(*nbHgtFound)].dest_B);
-			       	//printf("\tBD1=%lf,BD2=%lf\n",aHGT[(*nbHgtFound)].crit.BD,aCrit.BD);
-			       	 if( (aHGT[(*nbHgtFound)].crit.RF - aCrit.RF) >= 2 ){
+				  applyHGT(GeneTree.ADD,&tmpTree,j,i);
+				  if(strcmp(param.criterion,"ls") == 0)
+				    AdjustBranchLength(&tmpTree,GeneTree,0,1);
+				  computeCriteria(tmpTree.ADD,GeneTree.ADD,size,&aCrit,tmpTree.LONGUEUR,tmpTree.ARETE,GeneTree.LONGUEUR,GeneTree.ARETE);
+
+			  	int flag=0;
+				  first=1;
+				  if(trouve==0)
+					 loadCriteria(aCritRef,&aHGT[(*nbHgtFound)]);
+				  else{
+				    aHGT[(*nbHgtFound)].crit.diff_bd = fabs(aCrit.BD - aHGT[(*nbHgtFound)].crit.BD);
+            if((flag2 == 1) && (fabs(aCrit.BD - aHGT[(*nbHgtFound)].crit.BD) <= 1)){
+              if( (aHGT[(*nbHgtFound)].crit.RF - aCrit.RF) >= 2 ){
                   trouve = 0;
                   flag = 2;
-               }      
+               }
                else{
                   flag = 1;
                }
-          }
-          else{
-				printf("\n[%2d--%2d -> %2d--%2d]",aHGT[(*nbHgtFound)].source_A,aHGT[(*nbHgtFound)].source_B,aHGT[(*nbHgtFound)].dest_A,aHGT[(*nbHgtFound)].dest_B);
-			    printf("\tRF1=%d | RF2=%d | BD1=%2.1lf | BD2=%2.1lf",aHGT[(*nbHgtFound)].crit.RF,aCrit.RF,aHGT[(*nbHgtFound)].crit.BD,aCrit.BD);
-			      
+            }
+            else{
+				       printf("\n[%2d--%2d -> %2d--%2d]",aHGT[(*nbHgtFound)].source_A,aHGT[(*nbHgtFound)].source_B,aHGT[(*nbHgtFound)].dest_A,aHGT[(*nbHgtFound)].dest_B);
+			         printf("\tRF1=%d | RF2=%d | BD1=%2.1lf | BD2=%2.1lf",aHGT[(*nbHgtFound)].crit.RF,aCrit.RF,aHGT[(*nbHgtFound)].crit.BD,aCrit.BD);
           }
         }
         if(flag != 1){
 				if(((aCritRef.RF-aCrit.RF) == 1) && (*initial==1) && (
-				  (SpeciesTree.ARETE[2*i-1] == SpeciesTree.ARETE[2*j-1]) || 
-				  (SpeciesTree.ARETE[2*i-1] == SpeciesTree.ARETE[2*j-2]) || 
-				  (SpeciesTree.ARETE[2*i-2] == SpeciesTree.ARETE[2*j-2]) || 
+				  (SpeciesTree.ARETE[2*i-1] == SpeciesTree.ARETE[2*j-1]) ||
+				  (SpeciesTree.ARETE[2*i-1] == SpeciesTree.ARETE[2*j-2]) ||
+				  (SpeciesTree.ARETE[2*i-2] == SpeciesTree.ARETE[2*j-2]) ||
 				  (SpeciesTree.ARETE[2*i-2] == SpeciesTree.ARETE[2*j-2])
           )) {
-          
+
 				   UpdateCriterion(&first,param.criterion,aCrit,&aHGT[(*nbHgtFound)],j,i);
 					aHGT[(*nbHgtFound)].source_A = SpeciesTree.ARETE[2*j-1];
 					aHGT[(*nbHgtFound)].source_B = SpeciesTree.ARETE[2*j-2];
@@ -2809,12 +2751,9 @@ int findBestHGTtab(struct InputTree SpeciesTree,struct InputTree GeneTree,struct
 					findListSpecies(&aHGT[(*nbHgtFound)],DTSpecies,SpeciesTree);
 					listRef[listRef[0]+1] = i;
 					trouve=1;
-				//	printf("\n%d-%d -> %d-%d",SpeciesTree.ARETE[2*i-1],SpeciesTree.ARETE[2*i-2],SpeciesTree.ARETE[2*j-1],SpeciesTree.ARETE[2*j-2]);
-			 	//  printf("\n2-1)RF=%d\n",aHGT[(*nbHgtFound)].crit.RF);
-			
 				}
 				else if(*initial==0){
-              if(TestCriterionAndUpdate(&first,param.criterion,aCrit,&aHGT[(*nbHgtFound)],j,i,flag) == 1){		
+              if(TestCriterionAndUpdate(&first,param.criterion,aCrit,&aHGT[(*nbHgtFound)],j,i,flag) == 1){
     					aHGT[(*nbHgtFound)].source_A = SpeciesTree.ARETE[2*j-1];
     					aHGT[(*nbHgtFound)].source_B = SpeciesTree.ARETE[2*j-2];
     					aHGT[(*nbHgtFound)].dest_A = SpeciesTree.ARETE[2*i-1];
@@ -2822,39 +2761,37 @@ int findBestHGTtab(struct InputTree SpeciesTree,struct InputTree GeneTree,struct
     					findListSpecies(&aHGT[(*nbHgtFound)],DTSpecies,SpeciesTree);
 						listRef[listRef[0]+1] = i;
     					trouve=1;
-    			//		printf("\n%d-%d -> %d-%d",SpeciesTree.ARETE[2*i-1],SpeciesTree.ARETE[2*i-2],SpeciesTree.ARETE[2*j-1],SpeciesTree.ARETE[2*j-2]);
-   				//    printf("\n2-2)RF=%d\n",aHGT[(*nbHgtFound)].crit.RF);
 			     }
 				}
-			}	
-				
+			}
+
 			//	if(aHGT->crit.RF == 0 /*|| aHGT->crit.LS < epsilon */|| aHGT->crit.BD == 0) { i=j=(int)INFINI;}
 			}
-	
+
 			if (trouve == 1){
-				
+
 				listRef[0] += 1;
 				(*nbHgtFound)++;
-				printf("\n[%2d--%2d -> %2d--%2d]",aHGT[(*nbHgtFound)-1].source_A,aHGT[(*nbHgtFound)-1].source_B,aHGT[(*nbHgtFound)-1].dest_A,aHGT[(*nbHgtFound)-1].dest_B);			
+				printf("\n[%2d--%2d -> %2d--%2d]",aHGT[(*nbHgtFound)-1].source_A,aHGT[(*nbHgtFound)-1].source_B,aHGT[(*nbHgtFound)-1].dest_A,aHGT[(*nbHgtFound)-1].dest_B);
 			}
 
 		}
 		encore = 0;
-	
+
   	if((*nbHgtFound == 0) && (flag2==1)){
       flag2 = 0;
       encore = 1;
     }
-    
+
     if((*nbHgtFound == 0) && (*initial==1)){
       (*initial) = 0;
       encore = 1;
       flag2=1;
     }
-    
+
  //   printf("On est rendu icit");
 	}while(encore == 1);
-	
+
 	deleteBipartition(DTSpecies,SpeciesTree);
 	//deleteBipartition(DTGene,GeneTree);
 	deleteBipartitionSansRacine(DTGene,GeneTree.size);
@@ -2862,7 +2799,7 @@ int findBestHGTtab(struct InputTree SpeciesTree,struct InputTree GeneTree,struct
 	FreeCriteria(&aCritRef,size);
 	FreeMemory_InputTree(&tmpTree,tmpTree.size);
 
-	//printf("\n3)RF=%d",aHGT[0].crit.RF);	
+	//printf("\n3)RF=%d",aHGT[0].crit.RF);
 	return (*nbHgtFound);
 }
 
@@ -2872,23 +2809,23 @@ int findBestHGTtab(struct InputTree SpeciesTree,struct InputTree GeneTree,struct
 //==
 //=================================================================
 void findBranch(struct InputTree aTree,int *branch, int * elt){
-	
+
 	double max = INFINI; //= distance between root and intersection
 	int j;
 
 	(*branch) = 0;
-	
+
 	if(elt[0]==1){
 		for(j=1;j<=2*aTree.size-3-aTree.kt;j++)
 			if(aTree.ARETE[2*j-1]==elt[1] || aTree.ARETE[2*j-2]==elt[1])
 				(*branch) = j;
 	}
 	else{
-		for(j=2;j<=elt[0];j++){		
+		for(j=2;j<=elt[0];j++){
 			if(max > ( (aTree.ADD[aTree.Root][elt[1]] + aTree.ADD[aTree.Root][elt[j]] - aTree.ADD[elt[1]][elt[j]]) / 2.0 ) )
-				max = (aTree.ADD[aTree.Root][elt[1]] + aTree.ADD[aTree.Root][elt[j]] - aTree.ADD[elt[1]][elt[j]]) / 2.0 ;  
+				max = (aTree.ADD[aTree.Root][elt[1]] + aTree.ADD[aTree.Root][elt[j]] - aTree.ADD[elt[1]][elt[j]]) / 2.0 ;
 		}
-		//printf("\nmax=%lf",max);	
+		//printf("\nmax=%lf",max);
 
 		for(j=1;j<=2*aTree.size-3-aTree.kt;j++){
 			if( (fabs(aTree.ADD[aTree.Root][aTree.ARETE[2*j-1]]- max) < 2*epsilon) && (aTree.ADD[aTree.Root][aTree.ARETE[2*j-2]] < aTree.ADD[aTree.Root][aTree.ARETE[2*j-1]]) && (fabs(aTree.ADD[aTree.Root][aTree.ARETE[2*j-1]]+aTree.ADD[aTree.ARETE[2*j-1]][elt[1]] - aTree.ADD[aTree.Root][elt[1]]) < 2*epsilon)  )
@@ -2902,7 +2839,7 @@ void findBranch(struct InputTree aTree,int *branch, int * elt){
 double calculDifferenceMoyenne(struct HGT aHGT, double ** matrice, int size){
 	double diff = 0;
 	int i,j;
-	
+
 	for(i=1;i<=aHGT.listSource[0];i++){
 		for(j=1;j<=aHGT.listDestination[0];j++){
 			diff += matrice[aHGT.listSource[i]][aHGT.listDestination[j]];
@@ -2915,7 +2852,7 @@ double calculDifferenceMoyenne(struct HGT aHGT, double ** matrice, int size){
 //==
 //======================================================
 void expandBestHGT(struct HGT bestHGTRed,struct HGT *bestHGT,struct ReduceTrace aMap,struct DescTree * DTSpecies,struct InputTree SpeciesTree){
-	
+
 	//bestHGT->source = (int*)malloc(
 
 	int i,j,nbSource=0,nbDest=0,tmp;
@@ -2936,7 +2873,7 @@ void expandBestHGT(struct HGT bestHGTRed,struct HGT *bestHGT,struct ReduceTrace 
 		}
 	}
 	TrierTableau(bestHGT->listSource,tmp-1);
-	
+
 /*	printf("\nSource :");
 	for(i=1;i<=bestHGT->listSource[0];i++)
 		printf(" %d",bestHGT->listSource[i]);
@@ -2958,7 +2895,7 @@ void expandBestHGT(struct HGT bestHGTRed,struct HGT *bestHGT,struct ReduceTrace 
 		}
 	}
 	TrierTableau(bestHGT->listDestination,tmp-1);
-	
+
 /*	printf("\nDest   :");
 	for(i=1;i<=bestHGT->listDestination[0];i++)
 		printf(" %d",bestHGT->listDestination[i]);
@@ -2998,16 +2935,16 @@ int isInside(struct DescTree DT1,struct DescTree DT2){
 }
 
 //=================================================================
-//== 
+//==
 //=================================================================
 void CreateSubStructures(struct InputTree * aTree,int inc,int binaire){
-	
+
 	int n = aTree->size;
 	int i,j;
 	int kt=0;
 	inc = 10;
-	
-	
+
+
 	//printf("n=%d",n);
 	if(aTree->ARETE == NULL){
 		aTree->ARETE    =(long int*)malloc(4*(2*(n+inc))*sizeof(long int));
@@ -3018,7 +2955,7 @@ void CreateSubStructures(struct InputTree * aTree,int inc,int binaire){
 	}
 //	printf("\nbinaire = %d",binaire);
 	kt = aTree->kt = Tree_edges (aTree->ADD,aTree->ARETE,aTree->LONGUEUR,n,binaire);
-	
+
 	//printf("\n\n");
 	//printEdges(0,aTree->ARETE,aTree->LONGUEUR,aTree->SpeciesName,aTree->size);
 	//for(i=1;i<=2*n-3-kt;i++)
@@ -3027,7 +2964,7 @@ void CreateSubStructures(struct InputTree * aTree,int inc,int binaire){
 	loadAdjacenceMatrix(aTree->Adjacence,aTree->ARETE, aTree->LONGUEUR,n,aTree->kt);
 	Floyd(aTree->Adjacence,aTree->ADD,n,aTree->kt); // 4eme fois
 //  global_cpt4++;
-	
+
   //===creation de degre
 	aTree->degre = (int*)malloc(2*(n+inc)*sizeof(int));
 	for(i=1;i<=2*n-2-kt;i++){
@@ -3037,7 +2974,7 @@ void CreateSubStructures(struct InputTree * aTree,int inc,int binaire){
 	}
 	/*for(i=1;i<=2*n-2-kt;i++)
 		printf("%d ",aTree->degre[i]);*/
-	
+
 }
 
 //=================================================================
@@ -3052,7 +2989,7 @@ void ReduceTree(struct InputTree SpeciesTree,struct InputTree GeneTree,struct In
 	InitCriteria(&aCrit,SpeciesTree.size);
 
 	//printf("\nReduceTree");
-	
+
 	aTrace->species  = (int *)malloc((2*SpeciesTree.size+1)*sizeof(int));
 	aTrace->gene     = (int *)malloc(3*(2*GeneTree.size)*sizeof(int));
 	aTrace->map		 = (int *)malloc((2*SpeciesTree.size)*sizeof(int));
@@ -3069,22 +3006,22 @@ void ReduceTree(struct InputTree SpeciesTree,struct InputTree GeneTree,struct In
 	const int gMax = 3*(2*(GeneTree.size)-2);
 	const int sMax = 2*(SpeciesTree.size)-2-SpeciesTree.kt;
 	for(i=1;i<=sMax;i++){
-		
+
 		if(DTSpecies[i].nbSommet == 1 ){
 				aTrace->species[i] = 1;
 				//aTrace->gene[i] =1;
 				//aTrace->speciesToGene[i] = i;
 		}
-			
-		//== modifie le 19 janvier 2009 par Alix 
-		
+
+		//== modifie le 19 janvier 2009 par Alix
+
 		for(j=gInit;(j<=gMax) && (i!=SpeciesTree.size);j++){
-		//for(j=1;j<=2*(GeneTree.size)-2;j++){	
+		//for(j=1;j<=2*(GeneTree.size)-2;j++){
 			//printf("[%d(%d),%d(%d)]",DTSpecies[i].nbSommet,i,DTGene[j].nbSommet,j);
 			if(DTSpecies[i].nbSommet == DTGene[j].nbSommet && DTSpecies[i].nbSommet > 1 && i!= SpeciesTree.size && j!= GeneTree.size){
-				
+
 				//printf("\nOn a le meme nombre de sommets !!");
-				
+
 				if(vecteursEgaux(DTSpecies[i],DTGene[j]) == 1){
 						//printf("\nLes vecteurs sont egaux !!");
 						computeCriteria(DTSpecies[i].Matrice,DTGene[j].Matrice,DTSpecies[i].nbSommet+1,&aCrit,NULL,NULL,NULL,NULL);
@@ -3104,10 +3041,10 @@ void ReduceTree(struct InputTree SpeciesTree,struct InputTree GeneTree,struct In
 			}
 		}
 	}
-	
 
-	
-		//== ici on test les sous-ensembles 2 par 2, si un est le sous-ensemble de l'autre, il n'est pas necessaire de considérer
+
+
+		//== ici on test les sous-ensembles 2 par 2, si un est le sous-ensemble de l'autre, il n'est pas necessaire de considï¿½rer
 		//== ce dernier.
 		for(i=1;i<=2*SpeciesTree.size-2-SpeciesTree.kt;i++){
 			for(j=1;j<=2*SpeciesTree.size-2-SpeciesTree.kt;j++){
@@ -3159,20 +3096,20 @@ void ReduceTree(struct InputTree SpeciesTree,struct InputTree GeneTree,struct In
 					}
 				}
 			}
-		
+
 		aTrace->species[SpeciesTree.Root] = 1;
 		aTrace->map[pos] = SpeciesTree.Root;
 		for(i=1;i<pos;i++){
 			SpeciesTreeRed->ADD[i][pos] = SpeciesTreeRed->ADD[pos][i] = SpeciesTree.ADD[aTrace->map[pos]][DTSpecies[aTrace->map[i]].Tableau[1]];
 			GeneTreeRed->ADD[i][pos] = GeneTreeRed->ADD[pos][i] = epsilon; //= modifie le 19 janvier 2010 , GeneTree.ADD[aTrace->map[pos]][DTSpecies[aTrace->map[i]].Tableau[1]];
 		}
-		
+
 		SpeciesTreeRed->size = GeneTreeRed->size = pos;
 		SpeciesTreeRed->Root = GeneTreeRed->Root = pos;
-		
+
 		//== ajoute le 19 janvier 2010
 		GeneTreeRed->size = pos-1;
-		
+
 		CreateSubStructures(SpeciesTreeRed,0,binaireSpecies);
 		CreateSubStructures(GeneTreeRed,0,binaireGene);
 
@@ -3315,9 +3252,9 @@ void printHGT(FILE * res,struct CRITERIA * multicheckTab,char *mode,int RFref,FI
 	int diffHGT=0;
 	FILE * res1 = res; //fopen ("result2.txt","w+");
 	int nbTrivial=0;
-	
+
 	fprintf(res,"mode=%s\n",mode);
-	
+
   if(strcmp(mode,"monocheck") == 0 || multicheckTab == NULL){
 		for(i=1;i<=nbHGT;i++){
 			if(i==1)
@@ -3351,34 +3288,34 @@ void printHGT(FILE * res,struct CRITERIA * multicheckTab,char *mode,int RFref,FI
 	//			fprintf(out,"\n\nNo more HGT have been detected due to evolutionary constraints ");
 	//			fprintf(res,"\nNo more HGT have been detected due to evolutionary constraints\n");
       }
-    
+
 	}
 	else{
-		
+
 		i=1;
 		int lastRF=0;
 		int trivial;
-		
+
 		for(j=1;j<=multicheckTab[0].m;j++){
-		
+
 		  if(multicheckTab[j].nbHgtFound == 0) continue;
 		//	fprintf(out,"\n\n=======> %d %s been found for this iteration",multicheckTab[j].nbHgtFound,(multicheckTab[j].nbHgtFound==1)?"hgt has":"hgts have");
 			fprintf(res,"%d",multicheckTab[j].nbHgtFound);
-		
+
       for(k=1;k<=multicheckTab[j].nbHgtFound;k++){
 			//	for(i=1;i<=nbHGT;i++){
 					if(j==1)
 						diffHGT = RFref - tabHGT[i].crit.RF;
 					else
 						diffHGT = multicheckTab[j-1].RF - tabHGT[i].crit.RF;
-						
+
 					//	printf("\n%d = %d - %d",multicheckTab[j-1].RF - tabHGT[i].crit.RF,multicheckTab[j-1].RF,tabHGT[i].crit.RF);
 					trivial=0;
           if(
               (tabHGT[i].source_A == tabHGT[i].dest_A ) ||
               (tabHGT[i].source_A == tabHGT[i].dest_B ) ||
               (tabHGT[i].source_B == tabHGT[i].dest_A ) ||
-              (tabHGT[i].source_B == tabHGT[i].dest_B ) 
+              (tabHGT[i].source_B == tabHGT[i].dest_B )
           ){
             trivial=1;
           }
@@ -3398,7 +3335,7 @@ void printHGT(FILE * res,struct CRITERIA * multicheckTab,char *mode,int RFref,FI
 						fprintf(res,"\n");
 						for(int m=1;m<=tabHGT[i].listDestination[0];m++)
 							fprintf(res,"%s ",SpeciesTree.SpeciesName[tabHGT[i].listDestination[m]]);
-						
+
 					}
 
 		//			printTransfer(out,1,SpeciesTree.SpeciesName, SpeciesTree.size,tabHGT[i].source_A,tabHGT[i].source_B,tabHGT[i].dest_A,tabHGT[i].dest_B);
@@ -3414,7 +3351,7 @@ void printHGT(FILE * res,struct CRITERIA * multicheckTab,char *mode,int RFref,FI
 			lastRF = multicheckTab[j].RF;
 		}
 //		fprintf(out,"\n\nTotal number of HGTs : %d",nbHGT);
-		
+
 		if(lastRF != 0){
 		//	fprintf(out,"\n\nNo more HGT have been detected due to evolutionary constraints");
 	//		fprintf(res,"\nNo more HGT have been detected due to evolutionary constraints\n");
@@ -3426,7 +3363,7 @@ void printHGT(FILE * res,struct CRITERIA * multicheckTab,char *mode,int RFref,FI
 //==
 //=================================================================
 void printBestHGT_F(FILE *out,int noHGT,struct InputTree SpeciesTree,struct HGT bestHGT,int *tmp,int nbTree, int boot){
-	
+
 	if(bestHGT.valide == 1){
 
 		/*printf("\n\n======== Transfer %d ==========",noHGT-(*tmp));
@@ -3456,7 +3393,7 @@ void printBestHGT_F(FILE *out,int noHGT,struct InputTree SpeciesTree,struct HGT 
 
 int compareLeaves(int *listLeaves,int *tab,int n){
 	int i,/*val,*/cpt1=0,cpt2=0;
-	
+
 	for(i=1;i<=n;i++){
 		if(listLeaves[i] != tab[i]) cpt1++;
 		tab[i] = (tab[i]+1) % 2;
@@ -3470,10 +3407,10 @@ int compareLeaves(int *listLeaves,int *tab,int n){
 
 }
 //============================================================================
-//== 
+//==
 //============================================================================
 int findApproxRootBranch(int * listLeaves,struct InputTree *aTree, int maxDiff){
-	
+
 	int choix =-1,i,j,/*k,*/val,valmax = maxDiff;
 
 	int * tab = (int *) malloc((aTree->size+1)*sizeof(int));
@@ -3505,8 +3442,8 @@ int findApproxRootBranch(int * listLeaves,struct InputTree *aTree, int maxDiff){
 }
 
 //==========================================================================
-//== selectionne la branche voisine du midpoint qui minimise la distance de 
-//== Robinson and Foulds 
+//== selectionne la branche voisine du midpoint qui minimise la distance de
+//== Robinson and Foulds
 //==========================================================================
 int	bestRFNeighbor(struct InputTree *geneTree,struct InputTree *speciesTree,int position){
 	int choix=position;
@@ -3515,39 +3452,39 @@ int	bestRFNeighbor(struct InputTree *geneTree,struct InputTree *speciesTree,int 
 	struct CRITERIA aCrit;		//== struture of all the criteria
 	int min= (int) INFINI;
 
-	initInputTree(&tmpTree);	
+	initInputTree(&tmpTree);
 
 	//== recherche des voisins
 	for(i=1;i<=2*geneTree->size-3-geneTree->kt;i++){
 
-		if( (geneTree->ARETE[2*i-1] == geneTree->ARETE[2*position-1] || geneTree->ARETE[2*i-2] == geneTree->ARETE[2*position-1] || 
+		if( (geneTree->ARETE[2*i-1] == geneTree->ARETE[2*position-1] || geneTree->ARETE[2*i-2] == geneTree->ARETE[2*position-1] ||
 		     geneTree->ARETE[2*i-1] == geneTree->ARETE[2*position-2] || geneTree->ARETE[2*i-2] == geneTree->ARETE[2*position-2] ) && (i!=position) && (v1==-1)){
-		
+
 			v1 = i; //printf("\n(v1=%d,",i);
 		}
-		else if( (geneTree->ARETE[2*i-1] == geneTree->ARETE[2*position-1] || geneTree->ARETE[2*i-2] == geneTree->ARETE[2*position-1] || 
+		else if( (geneTree->ARETE[2*i-1] == geneTree->ARETE[2*position-1] || geneTree->ARETE[2*i-2] == geneTree->ARETE[2*position-1] ||
 		     geneTree->ARETE[2*i-1] == geneTree->ARETE[2*position-2] || geneTree->ARETE[2*i-2] == geneTree->ARETE[2*position-2] ) && (i!=position) && (v2==-1)){
-		
+
 			v2 = i; //printf("v2=%d,",i);
 		}
-		else if( (geneTree->ARETE[2*i-1] == geneTree->ARETE[2*position-1] || geneTree->ARETE[2*i-2] == geneTree->ARETE[2*position-1] || 
+		else if( (geneTree->ARETE[2*i-1] == geneTree->ARETE[2*position-1] || geneTree->ARETE[2*i-2] == geneTree->ARETE[2*position-1] ||
 		     geneTree->ARETE[2*i-1] == geneTree->ARETE[2*position-2] || geneTree->ARETE[2*i-2] == geneTree->ARETE[2*position-2] ) && (i!=position) && (v3==-1)){
-		
+
 			v3 = i; //printf("v2=%d,",i);
 		}
-		else if( (geneTree->ARETE[2*i-1] == geneTree->ARETE[2*position-1] || geneTree->ARETE[2*i-2] == geneTree->ARETE[2*position-1] || 
+		else if( (geneTree->ARETE[2*i-1] == geneTree->ARETE[2*position-1] || geneTree->ARETE[2*i-2] == geneTree->ARETE[2*position-1] ||
 		     geneTree->ARETE[2*i-1] == geneTree->ARETE[2*position-2] || geneTree->ARETE[2*i-2] == geneTree->ARETE[2*position-2] ) && (i!=position) && (v4==-1)){
-		
+
 			v4 = i; //printf("v3=%d)",i);
 		}
 	}
-	
+
 	//printf("\n Selection de la racine :");
 
 	copyInputTree(&tmpTree,(*geneTree),1,1);
 	addLeafAndUpdate(&tmpTree,position);
 	tmpTree.Root = tmpTree.size;
-		
+
 	InitCriteria(&aCrit,tmpTree.size);
 	computeCriteria(speciesTree->ADD,tmpTree.ADD,tmpTree.size,&aCrit,speciesTree->LONGUEUR,speciesTree->ARETE,tmpTree.LONGUEUR,tmpTree.ARETE);
 
@@ -3556,11 +3493,11 @@ int	bestRFNeighbor(struct InputTree *geneTree,struct InputTree *speciesTree,int 
 		min=aCrit.RF;
 		choix = position;
 	}
-		
+
 	copyInputTree(&tmpTree,(*geneTree),1,0);
 	addLeafAndUpdate(&tmpTree,v1);
 	tmpTree.Root = tmpTree.size;
-		
+
 	FreeCriteria(&aCrit,tmpTree.size);
 	InitCriteria(&aCrit,tmpTree.size);
 
@@ -3571,11 +3508,11 @@ int	bestRFNeighbor(struct InputTree *geneTree,struct InputTree *speciesTree,int 
 		min=aCrit.RF;
 		choix = v1;
 	}
-	
+
 	copyInputTree(&tmpTree,(*geneTree),1,0);
 	addLeafAndUpdate(&tmpTree,v2);
 	tmpTree.Root = tmpTree.size;
-		
+
 	FreeCriteria(&aCrit,tmpTree.size);
 	InitCriteria(&aCrit,tmpTree.size);
 	computeCriteria(speciesTree->ADD,tmpTree.ADD,tmpTree.size,&aCrit,speciesTree->LONGUEUR,speciesTree->ARETE,tmpTree.LONGUEUR,tmpTree.ARETE);
@@ -3585,11 +3522,11 @@ int	bestRFNeighbor(struct InputTree *geneTree,struct InputTree *speciesTree,int 
 		min=aCrit.RF;
 		choix = v2;
 	}
-		
+
 	copyInputTree(&tmpTree,(*geneTree),1,0);
 	addLeafAndUpdate(&tmpTree,v3);
 	tmpTree.Root = tmpTree.size;
-		
+
 	FreeCriteria(&aCrit,tmpTree.size);
 	InitCriteria(&aCrit,tmpTree.size);
 	computeCriteria(speciesTree->ADD,tmpTree.ADD,tmpTree.size,&aCrit,speciesTree->LONGUEUR,speciesTree->ARETE,tmpTree.LONGUEUR,tmpTree.ARETE);
@@ -3598,11 +3535,11 @@ int	bestRFNeighbor(struct InputTree *geneTree,struct InputTree *speciesTree,int 
 		min=aCrit.RF;
 		choix = v3;
 	}
-	
+
 	copyInputTree(&tmpTree,(*geneTree),1,0);
 	addLeafAndUpdate(&tmpTree,v4);
 	tmpTree.Root = tmpTree.size;
-		
+
 	FreeCriteria(&aCrit,tmpTree.size);
 	InitCriteria(&aCrit,tmpTree.size);
 	computeCriteria(speciesTree->ADD,tmpTree.ADD,tmpTree.size,&aCrit,speciesTree->LONGUEUR,speciesTree->ARETE,tmpTree.LONGUEUR,tmpTree.ARETE);
@@ -3611,25 +3548,25 @@ int	bestRFNeighbor(struct InputTree *geneTree,struct InputTree *speciesTree,int 
 		min=aCrit.RF;
 		choix = v4;
 	}
-	
-	
+
+
 	FreeCriteria(&aCrit,tmpTree.size);
 	return choix;
 }
 
 int compareBranches(int * tab1,int * tab2,int size){
 	int score1=0,score2=0,i;
-	
+
 	for(int i=1;i<=size;i++){
 		score1 = (tab1[i] != tab2[i])?1:0;
 		score2 = (tab1[i] == tab2[i])?1:0;
 	}
-	
+
 	return (score1<score2)?score1:score2;
 }
 
 //==========================================================================
-//== selectionne la branche qui minimise la distance de Robinson and Foulds 
+//== selectionne la branche qui minimise la distance de Robinson and Foulds
 //==========================================================================
 /*int bestbipartition(struct InputTree *geneTree, struct InputTree *speciesTree){
 
@@ -3641,21 +3578,21 @@ int compareBranches(int * tab1,int * tab2,int size){
 
 	int * PLACEk1=(int *) malloc((2*geneTree->size-2)*sizeof(int));
 	int * PLACEk2=(int *) malloc((2*geneTree->size-2)*sizeof(int));
-	
+
 	int ** Bk1=(int **) malloc((2*geneTree->size-2)*sizeof(int*));
 	int ** Bk2=(int **) malloc((2*geneTree->size-2)*sizeof(int*));
 
 	for (i=0;i<2*geneTree->size-2;i++)
 	{
 		Bk1[i]=(int *) malloc((geneTree->size)*sizeof(int));
-		Bk2[i]=(int *) malloc((geneTree->size)*sizeof(int));     
+		Bk2[i]=(int *) malloc((geneTree->size)*sizeof(int));
 	}
-	
+
 	Bipartition_Table(speciesTree->ADD,Bk1,PLACEk1,geneTree->size+1);
 	Bipartition_Table(geneTree->ADD.Matrice,Bk2,PLACEk2,geneTree->size+1);
-					
+
 	for(i=1;i<=2*geneTree->size-3-geneTree->kt;i++){
-		for(j=1;j<=2*geneTree->size-3-geneTree->kt;j++){			
+		for(j=1;j<=2*geneTree->size-3-geneTree->kt;j++){
 			currentScore = compareBranches(Bk1[i],Bk2[j],geneTree->size);
 			if(currentScore < bestScore){
 				bestScore = currentScore;
@@ -3666,7 +3603,7 @@ int compareBranches(int * tab1,int * tab2,int size){
 			}
 		}
 	}
-	
+
 	//============
 	int pos_a=-1,pos_b=-1;
 	int nbUn=0;
@@ -3674,18 +3611,18 @@ int compareBranches(int * tab1,int * tab2,int size){
 	for(i=1;i<=2*geneTree->size-3-geneTree->kt;i++){
 		if()
 	}
-	
-	
+
+
 	for(i=1;i<=2*geneTree->size-3-geneTree->kt;i++){
 		if(geneTree->ADD[geneTree->ARETE[2*i-1]][geneTree->ARETE[2*i-1]]){
 		}
 	}
-	
+
 
 	return choix;
 }*/
 //==========================================================================
-//== selectionne la branche qui minimise la distance de Robinson and Foulds 
+//== selectionne la branche qui minimise la distance de Robinson and Foulds
 //==========================================================================
 int bestRFBranch(struct InputTree *geneTree, struct InputTree *speciesTree){
 
@@ -3696,7 +3633,7 @@ int bestRFBranch(struct InputTree *geneTree, struct InputTree *speciesTree){
 	int min= (int) INFINI;
 
 	printf("\nTaille = %d",geneTree->size);
-	initInputTree(&tmpTree);	
+	initInputTree(&tmpTree);
 
 	printf("\nTaille = %d",geneTree->size);
 	for(indiceBranche=1;indiceBranche<=2*geneTree->size-3-geneTree->kt;indiceBranche++){
@@ -3704,7 +3641,7 @@ int bestRFBranch(struct InputTree *geneTree, struct InputTree *speciesTree){
 		copyInputTree(&tmpTree,(*geneTree),0,0);
 		addLeafAndUpdate(&tmpTree,indiceBranche);
 		tmpTree.Root = tmpTree.size;
-		
+
 		InitCriteria(&aCrit,tmpTree.size);
 		computeCriteria(speciesTree->ADD,tmpTree.ADD,tmpTree.size,&aCrit,speciesTree->LONGUEUR,speciesTree->ARETE,tmpTree.LONGUEUR,tmpTree.ARETE);
 
@@ -3719,10 +3656,22 @@ int bestRFBranch(struct InputTree *geneTree, struct InputTree *speciesTree){
 	return choix;
 }
 //==========================================================================================================
-//== 
+//==
 //==========================================================================================================
+int addRootByNoBranch(struct InputTree *aTree,int noBranch){
+	addLeafAndUpdate(aTree,noBranch);
+	aTree->Root = aTree->size;
+	for(int i=1;i<=2*(aTree->size)-2-aTree->kt;i++){
+		aTree->degre[i]=0;
+		for(int j=1;j<=2*aTree->size-2-aTree->kt;j++)
+			if(aTree->Adjacence[i][j] < INFINI) aTree->degre[i]++;
+	}
+	return 0;
+}
+
+
 int addRoot(struct InputTree *aTree,struct InputTree *refTree,const char * message, const char * add,char *fichier,int * listLeaves){
-	
+
 	int choix=-1,choix2=-1;
 	FILE *in;
 	int R1,R2,i,j;
@@ -3731,7 +3680,7 @@ int addRoot(struct InputTree *aTree,struct InputTree *refTree,const char * messa
 	if(strcmp(add,"prompt") == 0 ){
 		printf("\n%s",message);
 		printEdges(NULL,1,aTree->ARETE,aTree->LONGUEUR,aTree->SpeciesName,aTree->size,NULL,0,aTree->kt);
-		
+
 		while(choix<1 || choix > 2*aTree->size-3-aTree->kt){
 			printf("\n\nSelect the root branch :");
 			scanf("%d",&choix2);
@@ -3750,15 +3699,15 @@ int addRoot(struct InputTree *aTree,struct InputTree *refTree,const char * messa
 		fclose(in);
 	}
 	else if(strcmp(add,"bestrfbranch") == 0){
-		printf("bestRfBranch = %d",choix);	
+		printf("bestRfBranch = %d",choix);
 		choix2 = choix = bestRFBranch(aTree,refTree);
-		printf("choix = %d",choix);	
+		printf("choix = %d",choix);
 		//listLeaves = NULL;
 	}
 	/*else if(strcmp(add,"bestbipartition") == 0){
-		printf("choix = %d",choix);	
+		printf("choix = %d",choix);
 		choix2 = choix = bestbipartition(aTree,refTree);
-		printf("choix = %d",choix);	
+		printf("choix = %d",choix);
 		//listLeaves = NULL;
 	}*/
 	else{
@@ -3769,10 +3718,10 @@ int addRoot(struct InputTree *aTree,struct InputTree *refTree,const char * messa
 			choix2 = choix = bestRFNeighbor(aTree,refTree,choix);
 		}
 	}
-	
+
 	//printf("\nchoix = %d",choix);
 	if(listLeaves != NULL){
-		//== sauvegarder la liste des feuilles de chaque coté de l'arete.
+		//== sauvegarder la liste des feuilles de chaque cotï¿½ de l'arete.
 //printf("\nje passe ici");
 		if(listLeaves[0] == -1){
 			for(i=1;i<=aTree->size;i++)
@@ -3783,7 +3732,7 @@ int addRoot(struct InputTree *aTree,struct InputTree *refTree,const char * messa
 			listLeaves[0]=1;
 		}
 		else{
-			
+
 			if(strcmp(add,"bestbipartition") == 0){
 				printf("\nHGT-DETECTION : Recherche de la racine en fonction de la bipartition");
 				choix2 = findApproxRootBranch(listLeaves,aTree,10000);
@@ -3802,7 +3751,7 @@ int addRoot(struct InputTree *aTree,struct InputTree *refTree,const char * messa
 	addLeafAndUpdate(aTree,choix);
 
 	aTree->Root = aTree->size;
-//printf("\nracine = %d",aTree->Root);	
+//printf("\nracine = %d",aTree->Root);
 	//printf("\napres addleafAndupdate");
 	//printEdges(NULL,1,aTree->ARETE,aTree->LONGUEUR,aTree->SpeciesName,aTree->size,NULL,0,aTree->kt);
 	//===mise a jour de degre
@@ -3821,10 +3770,10 @@ int addRoot(struct InputTree *aTree,struct InputTree *refTree,const char * messa
 
 
 //=================================================================
-//== 
+//==
 //=================================================================
 void chargerFichier(struct InputTree *aTree,const char* branchesFile,const char* rootFile){
-	
+
 	FILE *branch = fopen(branchesFile,"r");
 	FILE *root =  fopen(rootFile,"r");
 	int aa,bb,i,noBranch=0;
@@ -3860,7 +3809,7 @@ int readInput(int Type, const char *file,struct InputTree * aTree){
 	char name[50];
 	double val;
 	FILE * in;
-	
+
 	//= ouverture du fichier
 	if((in = fopen(file,"r"))== NULL)
 		return -1;
@@ -3868,7 +3817,7 @@ int readInput(int Type, const char *file,struct InputTree * aTree){
 	//= lecture de la taille des matrices
 	fscanf(in,"%d",&size);
 
-	//= allocation de la mémoire
+	//= allocation de la mï¿½moire
 	//allocMemmory(aTree,1);
 	aTree->size = size;
 	size++; // more space for the root
@@ -3899,7 +3848,7 @@ int readInput(int Type, const char *file,struct InputTree * aTree){
 		{
 			fscanf(in,"%lf",&val);
 			if(Type == SPECIE) aTree->Input[i][j] = val;
-		}	    
+		}
 	}
 
 	//= read gene tree
@@ -3911,11 +3860,11 @@ int readInput(int Type, const char *file,struct InputTree * aTree){
 		{
 			fscanf(in,"%lf",&val);
 			if(Type == GENE) aTree->Input[i][j] = val;
-		}	
+		}
 	}
 
-	strcpy(aTree->SpeciesName[size+1],"root");
-	
+	strcpy(aTree->SpeciesName[size+1],"Root");
+
 	fclose(in);
 
 	return 0;
@@ -3926,7 +3875,7 @@ int readInput(int Type, const char *file,struct InputTree * aTree){
 void printMatrix(char** Name, double **Matrix,int size){
 
 	int i,j;
-	
+
 	for(i=1;i<=size;i++){
 //		printf("\n%s",Name[i]);
 		printf("\n%d",i);
@@ -3944,7 +3893,7 @@ void printMatrix(char** Name, double **Matrix,int size){
 void printMatrix2(char** Name, double **Matrix,int size){
 
 	int i,j;
-	
+
 	for(i=1;i<=size;i++){
 		//printf("\n%s",Name[i]);
 		printf("\n%d",i);
@@ -4034,7 +3983,7 @@ int readParameters(struct Parameters * param, char **argv, int nargc){
 	sprintf((*param).scenario,"unique");
 	sprintf((*param).subtree,"yes");
 	sprintf((*param).bootstrap,"no");
-  (*param).constraints = 0;	//= 0 : pas de contraintes	
+  (*param).constraints = 0;	//= 0 : pas de contraintes
 	(*param).nbhgt = 50;
 	(*param).bootmin = 0;
   (*param).verbose_to_screen=false;
@@ -4042,9 +3991,9 @@ int readParameters(struct Parameters * param, char **argv, int nargc){
 	(*param).avgdiffblock = 0.22;
 	(*param).c1 = 100;
 	(*param).c2 = 0.1;
-  
+
 	sprintf((*param).special,"no");
-	
+
 	for(i=1;i<nargc;i++){
 
 		if(ExtraireDonnees(argv[i],champs,contenu)){
@@ -4179,7 +4128,7 @@ int readParameters(struct Parameters * param, char **argv, int nargc){
 			}
 		}
 	}
-	
+
 	if(strcmp(input,"_")==0)
 		return -1;
 
@@ -4194,14 +4143,14 @@ int readParameters(struct Parameters * param, char **argv, int nargc){
 	sprintf((*param).geneRootfile,"%s/geneRoot.txt",(*param).path);
 	sprintf((*param).speciesTreeWeb,"%s/speciesTreeWeb.txt",(*param).path);
 	sprintf((*param).geneTreeWeb,"%s/geneTreeWeb.txt",(*param).path);
-	sprintf((*param).outputWeb,"%s/outputWeb.txt",(*param).path);	
+	sprintf((*param).outputWeb,"%s/outputWeb.txt",(*param).path);
   sprintf((*param).filteredLanguageTree,"%s/_filteredLangueTree.new",(*param).path);
 
 	return 0;
 }
 
 void saveTree(char * fichier,struct InputTree SpeciesTree,struct HGT *bestHGT, int addHGT,int cpt_hgt,char *subtree,char *SCENARIO,double *bootStrap){
-	
+
 	FILE *out;
 	int i, first=0;
 
@@ -4240,7 +4189,7 @@ void saveTree(char * fichier,struct InputTree SpeciesTree,struct HGT *bestHGT, i
 		{
 			for(i=1;i<=cpt_hgt;i++){
 				if((bestHGT[i].valide ==1) && (bestHGT[i].trivial==0)){
-					if(first==1) fprintf(out,","); 
+					if(first==1) fprintf(out,",");
 					first=1;
 					fprintf(out,"%d,%d,%d,%d",bestHGT[i].source_A,bestHGT[i].source_B,bestHGT[i].dest_A,bestHGT[i].dest_B);
 				}
@@ -4249,7 +4198,7 @@ void saveTree(char * fichier,struct InputTree SpeciesTree,struct HGT *bestHGT, i
 				first=0;
 				fprintf(out,"\nbootHGT = ");
 				for(i=1;i<=cpt_hgt;i++){
-					if(first==1) fprintf(out,","); 
+					if(first==1) fprintf(out,",");
 					first=1;
 					fprintf(out,"%1.0lf",bootStrap[i]);
 				}
@@ -4272,7 +4221,7 @@ void saveTree(char * fichier,struct InputTree SpeciesTree,struct HGT *bestHGT, i
 void deleteSommet(struct DescTree *tab, int t1, int t2){
 
 	int i,j,k=0,toDel=1,tmp;
-	
+
 	// si les elements de tab1 se trouve dans tab2 on les supprimes dans tab2
 	for(i=0;i<tab[t1].nbSommet;i++){
 		tmp=0;
@@ -4294,7 +4243,7 @@ void deleteSommet(struct DescTree *tab, int t1, int t2){
 		}
 		if(tmp==0) toDel=0;
 	}
-	
+
 
 	// suppression des sommets
 	if(toDel == 1){
@@ -4310,7 +4259,7 @@ void deleteSommet(struct DescTree *tab, int t1, int t2){
 				tab[t2].Tableau[j] = tab[t2].Tableau[j+1];
 			}
 			tab[t2].nbSommet--;
-		
+
 		}
 	}
 }
@@ -4320,13 +4269,13 @@ void deleteSommet(struct DescTree *tab, int t1, int t2){
 //
 //===================================================================
 void supprimerSousEnsemble(struct DescTree *tabDetect,int nbTableau){
-	
+
 	int i,j/*,k*/;
-	
+
 	for(i=1;i<=nbTableau;i=i+2){
 		for(j=i+1;j<=nbTableau;j++){
 			deleteSommet(tabDetect,i,j);
-		}	
+		}
 	}
 }
 
@@ -4347,16 +4296,16 @@ int formatResult(struct HGT *tabHGT,int nbHGT, struct HGT *outHGT,struct InputTr
 	//==lecture des transferts
 
 	printf("\nHGT-DETECTION : nombre de HGT avant formatRes %d",nbHGT);
-	
+
 	for(i=1;i<=nbHGT;i++){
-		
+
 		if(tabHGT[i].valide == 1){
 			nbHGTRet++;
 			outHGT[nbHGTRet].valide = 1;
 			copyHGT(tabHGT[i],&outHGT[nbHGTRet]);
 			cpt++;
 			nbSommet = tabDetect[cpt].nbSommet = tabHGT[i].listSource[0];
-			
+
 			//printf("\ni=%d",i);
 			tabDetect[cpt].Tableau = (int*)malloc(nbSommet*sizeof(int));
 			//printf("\n");
@@ -4397,7 +4346,7 @@ int formatResult(struct HGT *tabHGT,int nbHGT, struct HGT *outHGT,struct InputTr
 			}
 		}
 	}while(val!=-1);*/
-	
+
 	nbTrans = cpt;
 
 //	printf("\n");
@@ -4420,26 +4369,26 @@ int formatResult(struct HGT *tabHGT,int nbHGT, struct HGT *outHGT,struct InputTr
 //	if(addRoot) racine = n; else racine = R1;
 
 	racine = aTree.Root;
-	
+
 
 	for(i=0;i<=nbTrans;i++){
 		max=INFINI;
 		sommet=tabDetect[i].Tableau[0];
-//		printf("<br> ARETE :"); 
+//		printf("<br> ARETE :");
 		if(tabDetect[i].nbSommet > 1){
 			// calcul de la distance entre la racine et le point d'intersection de tous les sommets
 			for(j=1;j<tabDetect[i].nbSommet;j++){
-			
+
 				if(max > ( (aTree.ADD[racine][sommet] + aTree.ADD[racine][tabDetect[i].Tableau[j]] - aTree.ADD[sommet][tabDetect[i].Tableau[j]]) / 2.0 ) )
-					max = (aTree.ADD[racine][sommet] + aTree.ADD[racine][tabDetect[i].Tableau[j]] - aTree.ADD[sommet][tabDetect[i].Tableau[j]]) / 2.0 ;  
+					max = (aTree.ADD[racine][sommet] + aTree.ADD[racine][tabDetect[i].Tableau[j]] - aTree.ADD[sommet][tabDetect[i].Tableau[j]]) / 2.0 ;
 			}
-		
+
 			// recherche du sommet
 			for(j=1;j<=nbArete;j++){
 				if( ((fabs(max - aTree.ADD[racine][aTree.ARETE[2*j-1]]) < 0.00001) && (aTree.ADD[racine][aTree.ARETE[2*j-2]] < aTree.ADD[racine][aTree.ARETE[2*j-1]]) && fabs(aTree.ADD[racine][sommet] - aTree.ADD[racine][aTree.ARETE[2*j-1]] - aTree.ADD[sommet][aTree.ARETE[2*j-1]])< 0.00001) ||
 					((fabs(max - aTree.ADD[racine][aTree.ARETE[2*j-2]]) < 0.00001) && (aTree.ADD[racine][aTree.ARETE[2*j-1]] < aTree.ADD[racine][aTree.ARETE[2*j-2]]) && fabs(aTree.ADD[racine][sommet] - aTree.ADD[racine][aTree.ARETE[2*j-2]] - aTree.ADD[sommet][aTree.ARETE[2*j-2]])< 0.00001)  ) {
-				
-					if( fabs(aTree.ADD[racine][sommet] - aTree.ADD[racine][aTree.ARETE[2*j-1]] - aTree.ADD[aTree.ARETE[2*j-1]][sommet]) < 0.00001 ){		
+
+					if( fabs(aTree.ADD[racine][sommet] - aTree.ADD[racine][aTree.ARETE[2*j-1]] - aTree.ADD[aTree.ARETE[2*j-1]][sommet]) < 0.00001 ){
 						if(i % 2 == 0){
 							outHGT[tmp].source_A = aTree.ARETE[2*j-1];
 							outHGT[tmp].source_B = aTree.ARETE[2*j-2];
@@ -4468,7 +4417,7 @@ int formatResult(struct HGT *tabHGT,int nbHGT, struct HGT *outHGT,struct InputTr
 					}
 	//				printf(" %d--%d (%d)",ARETE[2*j-1],ARETE[2*j-2],nbTrans);
 				}
-					
+
 			}
 		}
 	}
@@ -4477,9 +4426,6 @@ int formatResult(struct HGT *tabHGT,int nbHGT, struct HGT *outHGT,struct InputTr
 		free(tabDetect[i].Tableau);
 	}
 	free(tabDetect);
-	
+
 	return nbHGTRet;
 }
-
-
-
