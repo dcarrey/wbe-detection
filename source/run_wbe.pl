@@ -21,121 +21,89 @@ END_HEADER
 #======================================================
 if( scalar @ARGV < 1){
     print "\nErreur\noptions :";
-    print STDOUT "\n-treesfile\t  : see README for details";
-    print STDOUT "\n-groupsfile\t  : see README for details";
-    print STDOUT "\n-translationsfile\t  : see README for details";
+    print STDOUT "\n-inputfile\t  : see README for details";
+    print STDOUT "\n-c1\t  : see README for details";
+    print STDOUT "\n-c2\t  : see README for details";
+    print STDOUT "\n-blk\t  : see README for details";
     print STDOUT "\n-mininternalnodes : minimum internal nodes (see README for details)";
     print STDOUT "\n-minexternalnodes : minimum external nodes (see README for details)";
+    print STDOUT "\n-verbose\t  : see README for details";
+    print STDOUT "\n-blk\t  : see README for details";
     print STDOUT "\n\n";
     exit 0;
 }
 
+my %parameters = (
+  outputfile => {value => "output.txt", description =>"" },
+  mininternalnodes => {value => 3, description =>"" },
+  minexternalnodes => {value => 2, description =>"" },
+  blk => {value => 0.20, description =>"" },
+  c1 => {value => 1505, description =>"" },
+  c2 => {value => 1.5, description =>"" },
+  clean => {value => "yes", description =>"" },
+  verbose => {value => "0", description =>"" },
+  path => {value => "./", description =>"" },
+  inputfile => {value => "", description =>""}
+);
+
+readParameters(\%parameters,@ARGV);
+
+my $results    = $parameters{"path"}{"value"} . "results.txt";
+my $hgtplus    = $parameters{"path"}{"value"} . "hgtplus.txt";
+my $tmp_input  = $parameters{"path"}{"value"} . "_wbe_input.txt";
+my $returnFile = $parameters{"path"}{"value"} . "return.txt";
+my $logFile    = $parameters{"path"}{"value"} . "wbe.log";
+my $filteredTree = $parameters{"path"}{"value"} . "_filteredLangueTree.new";
+my $inputFile = $parameters{"path"}{"value"}.$parameters{"inputfile"}{"value"};
+my $outputFile = $parameters{"path"}{"value"}.$parameters{"outputfile"}{"value"};
+my $translationsFile = $parameters{"path"}{"value"}."_translations.txt";
+my $c1 = $parameters{"c1"}{"value"};
+my $c2 = $parameters{"c2"}{"value"};
+my $blk = $parameters{"blk"}{"value"};
 my $cmd = "./hgt ";
-my $inputFile = "";
-my $bootstrap = "no";
-my $path = "./";
-my $viewtree="no";
-my @tmp_tab;
-my @tmp_tab_init;
-my %hgt;
-my $ligne;
-my $nbLines = 5;
-my %hgt_number_tab;
-my %hgt_description_tab;
-my %hgt_compteur_tab;
-my %hgt_criterion_tab;
-my %hgt_nbHGT_tab;
-my @hgt_pos;
-my @hgt_pos2;
-my $mode;
-my $total_hgt;
-my $total_trivial;
-my $val_retour=0;   #= nombre de hgt trouve
-my @hgt_tab;
-my $nbExec=0;
-my $reset="false";
 
-my $translationsFile="_translations.txt";
-my $outputFile="output.txt";
-my $minInternalNodes=3;
-my $minExternalNodes=2;
-my $blk=0.20;
-my $c1=1505;
-my $c2=1.5;
-
-foreach my $elt (@ARGV){
-  if($elt =~ "inputfile"){
-    @tmp_tab = split("=",$elt);
-    $inputFile = $tmp_tab[1];
-  }
-  if($elt =~ "minexternalnodes"){
-    @tmp_tab = split("=",$elt);
-    $minExternalNodes = $tmp_tab[1];
-  }
-  if($elt =~ "mininternalnodes"){
-    @tmp_tab = split("=",$elt);
-    $minInternalNodes = $tmp_tab[1];
-  }
-  if($elt =~ "blk"){
-    @tmp_tab = split("=",$elt);
-    $blk = $tmp_tab[1];
-  }
-  if($elt =~ "c1"){
-    @tmp_tab = split("=",$elt);
-    $c1 = $tmp_tab[1];
-  }
-  if($elt =~ "c2"){
-    @tmp_tab = split("=",$elt);
-    $c2 = $tmp_tab[1];
-  }
-  if($elt =~ "path"){
-    @tmp_tab = split("=",$elt);
-    $path = $tmp_tab[1];
-  }
-}
-
-my $results    = "$path" . "results.txt";
-my $hgtplus    = "$path" . "hgtplus.txt";
-my $all_hgt    = "$path" . "all_hgt.txt";
-my $tmp_input  = "$path" . "tmp_input.txt";
-my $returnFile = "$path" . "return.txt";
-my $logFile    = "$path" . "wbe.log";
-my $filteredTree = "$path" . "_filteredLangueTree.new";
-
-
-unlink($path.$outputFile);
+unlink($outputFile);
 unlink($hgtplus);
 
-my($initial_langue_tree,$initial_word_tree) = getTrees($path.$inputFile);
+#== read input file
+my $languageTree = getTree($inputFile,"language_tree");
+my $wordTree = getTree($inputFile,"word_tree");
+my %groups = getGroups($inputFile,"group_content");
+my $translations = getTranslations($inputFile,"translations",newickToBioTree($wordTree));
 
-my($filtered_langue_tree,$filtered_word_tree) = filterTrees($initial_langue_tree,$initial_word_tree);
+save_to_file($languageTree . "\n" . $wordTree, $tmp_input);
+save_to_file($translations,$translationsFile);
 
-#print $initial_langue_tree->as_text('newick');
-#print $filtered_langue_tree->as_text('newick');
-#print $filtered_word_tree->as_text('newick');
+#=== ADD ROOT TO TREES ===
+$cmd = "./hgt  -inputfile=$tmp_input -addroot=yes -speciesroot=midpoint -generoot=midpoint > $logFile";
+execute_hgt($cmd);
+$wordTree = getTree("_wbe_word.new","");
 
-#my $content = $filtered_langue_tree->as_text('newick') ."\n".$filtered_word_tree->as_text('newick') ;
-my $content = $initial_langue_tree->as_text('newick') ."\n".$initial_word_tree->as_text('newick') ;
-save_to_file($content, $tmp_input);
-
-my ($translations,%groups) = getTranslations($path.$inputFile,$filtered_word_tree);
-
-save_to_file($translations,$path.$translationsFile);
+save_to_file($languageTree . "\n" . $wordTree, $tmp_input);
 
 #===========================================================================
 #======================== EXECUTION DU PROGRAMME ===========================
 #===========================================================================
-$cmd .= "-inputfile=$tmp_input -translationsfile=$path$translationsFile -constraints=3 -blk=$blk -c1=$c1 -c2=$c2 -speciesroot=midpoint -generoot=midpoint> $logFile";
+$cmd = "./hgt  -inputfile=$tmp_input -outputfile=$outputFile -translationsfile=$translationsFile -constraints=3 -blk=$blk -c1=$c1 -c2=$c2 -speciesroot=midpoint -generoot=midpoint >> $logFile";
 
 #print STDERR "\nPERL : $cmd";
 execute_hgt($cmd);
-my $langueTree = getTree("langues.new");
-my $postTraitement = new PostTraitement($initial_langue_tree,$langueTree,\%groups,$minInternalNodes,$minExternalNodes,$results,$hgtplus);
+my $filteredlanguageTree = getTree("_wbe_languages.new","");
+my $postTraitement = new PostTraitement(newickToBioTree($languageTree),
+                                        newickToBioTree($filteredlanguageTree),
+                                        \%groups,
+                                        $parameters{"mininternalnodes"}{"value"},
+                                        $parameters{"minexternalnodes"}{"value"},
+                                        $results,
+                                        $hgtplus,
+                                        );
 $postTraitement->findAdditionnalsWBE();
 saveResultats($hgtplus, $outputFile);
 
-#deleteTempFiles(qw/speciesRoot.txt input_.txt geneRoot.txt/);
-exit_program($val_retour,$returnFile,"");
+if ($parameters{"clean"} eq "yes"){
+  deleteTempFiles(qw/speciesRoot.txt input_.txt geneRoot.txt _wbe_*/);
+}
+exit_program(0,$returnFile,"");
 
 #===============================================================================
 #=============================== FUNCTIONS =====================================
@@ -164,7 +132,7 @@ sub exit_program{
 sub execute_hgt{
     my ($cmd) = @_;
     my $retour = 0;
-    print STDOUT $cmd;
+    print STDOUT "\n$cmd";
     system($cmd);
 }
 
@@ -202,13 +170,34 @@ sub getTrees{
   return ($tree1,$tree2);
 }
 
-sub getTree{
-  my $file = $_[0];
-  open(my $io,$file) or die("Cannot open $file");
+sub newickToBioTree{
+  my $tree = $_[0];
+  open(my $io,'<',\$tree) or die("Cannot read $tree");
   my $treeio = Bio::TreeIO->new(-format => 'newick', -fh => $io);
   my $tree1 = $treeio->next_tree;
   close($io);
   return $tree1;
+}
+
+sub getTree{
+  my ($file,$key) = @_;
+  my $tree="";
+  open(my $io,$file) or die("Cannot open $file");
+  if ($key eq ""){
+    $tree = <$io>;
+    chomp($tree);
+  }
+  else{
+    while(my $ligne =<$io>){
+      chomp($ligne);
+      if( $ligne eq "$key:"){
+        $tree = <$io>;
+        chomp($tree);
+      }
+    }
+  }
+  close($io);
+  return $tree;
 }
 
 sub filterTrees{
@@ -232,33 +221,23 @@ sub filterTrees{
   return ($tree1,$tree2);
 }
 
-
 sub getTranslations{
-  my ($file,$tree) = @_;
+  my ($file,$key,$tree) = @_;
   my $content  = "";
-  my %groups = ();
   my $nbLeaves = scalar ( $tree->get_leaf_nodes());
   my $cpt=0;
   my @leaves = ();
+  my $start_reading = 0;
   open(IN,$file) or die("Cannot open $file");
   while(my $line =<IN>){
     chomp($line);
-    if($line !~ /^\(/ and $line !~ /^\#/ and $line !~ /^$/){
-      my @tmp = split(":",$line);
-      my $groupId = $tmp[0];
-      chomp($groupId);
-      for my $elt (split(",",$tmp[1])){
-        my ($key,$translate) = ($elt =~ m/([^\[]*)\[([^\]]*)\]/);
-        if(length $translate){
-          $content .= $key . " " . $translate . "\n";
-          $groups{$key} = $groupId;
-          push @leaves, $key;
-        }
-        else{
-          $groups{$elt} = $groupId;
-        }
-      }
+    if($start_reading==1 and $line !~ /^$/){
+      my @tmp = split("=",$line);
+      $content .= $tmp[0] . " " . $tmp[1] . "\n";
+      push @leaves, $tmp[0];
     }
+    $start_reading = 1 if($line eq "$key:");
+    $start_reading = 0 if($line =~ /^$/);
   }
   for my $node ($tree->get_leaf_nodes()){
     my $trouve = 0;
@@ -271,7 +250,28 @@ sub getTranslations{
       die("Error : No translation for word leaf " . $node->id_output . "\n");
     }
   }
-  return ($content,%groups);
+  return $content;
+}
+
+sub getGroups{
+  my ($file,$key) = @_;
+  my %groups = ();
+  my $start_reading = 0;
+  open(IN,$file) or die("Cannot open $file");
+  while(my $line =<IN>){
+    chomp($line);
+    if($start_reading==1 and $line !~ /^$/){
+      my @tmp = split("=",$line);
+      my $groupId = $tmp[0];
+      chomp($groupId);
+      for my $elt (split(",",$tmp[1])){
+        $groups{$elt} = $groupId;
+      }
+    }
+    $start_reading = 1 if($line eq "$key:");
+    $start_reading = 0 if($line =~ /^$/);
+  }
+  return %groups;
 }
 
 sub save_to_file{
@@ -279,4 +279,13 @@ sub save_to_file{
   open(OUT,">$file") or  die ("Cannot open $file");
   print OUT $content;
   close(OUT);
+}
+
+sub readParameters{
+  my ($parameters,@line) = @_;
+  foreach my $elt (@line){
+    my ($key,$value) = ($elt =~ /-([^=]+)=([^\s]+)/);
+    die("\nunknown option : $key\n") if (!exists $$parameters{$key});
+    $$parameters{$key}{"value"} = $value;
+  }
 }

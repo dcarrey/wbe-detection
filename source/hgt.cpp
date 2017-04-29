@@ -141,7 +141,7 @@ int main(int nargc,char **argv){
 //==============================================================================
 //============================= LECTURE DES ARBRES =============================
 //==============================================================================
-	tmp = readInputFile(in, param.input/*,&SpeciesTree,&GeneTree*/);
+	tmp = readInputFile(in, param.input,strcmp(param.addroot,"yes") == 0);
 
 	if(tmp==-1) {
 		printf("\nCannot read input data !!\n");
@@ -160,6 +160,49 @@ int main(int nargc,char **argv){
 	if(readInput(SPECIE,param.input,&SpeciesTree) == -1){ printf("\nError in species tree\n"); exit(-1);}
 	if(readInput(GENE,param.input,&GeneTree) == -1){ printf("\nError in gene tree\n"); exit(-1);}
 
+	if(strcmp(param.addroot,"yes") == 0){
+		printf("\nICIT\n");
+		NJ(SpeciesTree.Input,SpeciesTree.ADD,SpeciesTree.size);
+		NJ(GeneTree.Input,GeneTree.ADD,GeneTree.size);
+
+		CreateSubStructures(&SpeciesTree,1,binaireSpecies);
+		CreateSubStructures(&GeneTree,1,binaireGene);
+
+		SpeciesTree.Root = -1;
+		for(int i=1;i<=SpeciesTree.size;i++){
+			//printf("\n%d : %s", i,SpeciesTree.SpeciesName[i]);
+			if(strcmp(SpeciesTree.SpeciesName[i],"Root") == 0)
+				 SpeciesTree.Root = i;
+		}
+		GeneTree.Root = -1;
+		for(int i=1;i<=GeneTree.size;i++){
+	    //printf("\n%d : %s", i,GeneTree.SpeciesName[i]);
+	    if(strcmp(GeneTree.SpeciesName[i],"Root") == 0)
+	       GeneTree.Root = i;
+	  }
+		if(SpeciesTree.Root == -1) addRoot(&SpeciesTree,NULL,SpeciesBranch,param.speciesroot,param.speciesRootfile,NULL);
+		if(GeneTree.Root == -1) addRoot(&GeneTree,NULL,GeneBranch,param.generoot,param.geneRootfile,NULL);
+
+		SAVEASNewick(SpeciesTree.LONGUEUR, SpeciesTree.ARETE, SpeciesTree.SpeciesName, SpeciesTree.size, SpeciesTree.kt, "_wbe_languages.new") ;
+		SAVEASNewick(GeneTree.LONGUEUR, GeneTree.ARETE, GeneTree.SpeciesName, GeneTree.size, GeneTree.kt, "_wbe_word.new") ;
+		printf("\nFIN addroot\n");
+		exit(0);
+	}
+
+/*
+{
+	NJ(GeneTree.Input,GeneTree.ADD,GeneTree.size);
+	CreateSubStructures(&GeneTree,1,binaireGene);
+	addRoot(&GeneTree,NULL,GeneBranch,param.generoot,param.geneRootfile,NULL);
+
+	filtrerMatrice(SpeciesTree.Input,GeneTree.ADD,SpeciesTree.SpeciesName,GeneTree.SpeciesName,SpeciesTree.size,GeneTree.size);
+	ecrireMatrice(SpeciesTree.Input,param.input,SpeciesTree.size,SpeciesTree.SpeciesName);
+	ajouterMatriceGene(GeneTree.ADD,param.input,GeneTree.size,GeneTree.SpeciesName);
+
+	if(readInput(SPECIE,param.input,&SpeciesTree) == -1){ printf("\nError in species tree\n"); exit(-1);}
+	if(readInput(GENE,param.input,&GeneTree) == -1){ printf("\nError in gene tree\n"); exit(-1);}
+}
+*/
   sortMatrices(GeneTree.Input,GeneTree.SpeciesName,SpeciesTree.SpeciesName,SpeciesTree.size);
 /*
 	for(i=1;i<=SpeciesTree.size;i++){
@@ -271,8 +314,8 @@ int main(int nargc,char **argv){
   }
 	//addRoot(&SpeciesTree,NULL,SpeciesBranch,param.speciesroot,param.speciesRootfile,NULL);
 	//addRoot(&GeneTree,NULL,GeneBranch,param.generoot,param.geneRootfile,NULL);
-	SAVEASNewick(SpeciesTree.LONGUEUR, SpeciesTree.ARETE, SpeciesTree.SpeciesName, SpeciesTree.size, SpeciesTree.kt, "langues.new") ;
-	SAVEASNewick(GeneTree.LONGUEUR, GeneTree.ARETE, GeneTree.SpeciesName, GeneTree.size, GeneTree.kt, "mot.new") ;
+	SAVEASNewick(SpeciesTree.LONGUEUR, SpeciesTree.ARETE, SpeciesTree.SpeciesName, SpeciesTree.size, SpeciesTree.kt, "_wbe_languages.new") ;
+	SAVEASNewick(GeneTree.LONGUEUR, GeneTree.ARETE, GeneTree.SpeciesName, GeneTree.size, GeneTree.kt, "_wbe_word.new") ;
 
 /*
   if(SpeciesTree.Root == -1) {

@@ -9,7 +9,7 @@ use warnings;
 use constant FALSE => 0;
 use constant TRUE  => 1;
 use constant DATE_GREEK  => 2400;
-use constant DEBUG => 2; # 0,1,2
+use constant DEBUG => 0; # 0,1,2
 
 no warnings 'experimental::smartmatch';
 
@@ -27,7 +27,7 @@ sub new {
                 MIN_INTERNAL_NODES => shift,
                 MIN_EXTERNAL_NODES => shift,
                 RESULTS_FILE => shift,
-                wbePlusFile => shift
+                wbePlusFile => shift,
              };
   return bless $self, $class;
 }
@@ -37,7 +37,6 @@ sub findAdditionnalsWBE{
   $tree_langue = $self->{LANGUE_TREE};
   $tree_mot    = $self->{FILTERED_TREE};
   %tabGroup    = %{$self->{TAB_GROUP}};
-
   $tree_langue->reroot(trouverRacine("Root",$tree_langue));
   $tree_mot->reroot(trouverRacine("Root",$tree_mot));
 
@@ -212,18 +211,18 @@ sub rechercheTransfertsSupplementaires{
       my ($fils1,$fils2) = getFils($parent);
       my @ids_fils1 = getFeuilles($fils1);
       my @ids_fils2 = getFeuilles($fils2);
-      #print "\n=========================================";
-      #print  "\nParent  (" . $parent->internal_id . ") : " . join(",",@ids_parent);
-      #print  "\n\tFils 1  (" . $fils1->internal_id . ") : " . join(",",@ids_fils1);
-      #print  "\n\tFils 2  (" . $fils2->internal_id . ") : " . join(",",@ids_fils2);
+      # print STDERR "\n=========================================";
+      # print STDERR "\nParent  (" . $parent->internal_id . ") : " . join(",",@ids_parent);
+      # print STDERR "\n\tFils 1  (" . $fils1->internal_id . ") : " . join(",",@ids_fils1);
+      # print STDERR "\n\tFils 2  (" . $fils2->internal_id . ") : " . join(",",@ids_fils2);
 
       #== Recherche dans l'arbre de langues
       my $langue_parent = trouverNoeudCorrespondant( @ids_parent);
-      #print "\n\nParent (Langue) = " . $langue_parent->internal_id . "->" .  join(",",getFeuilles($langue_parent));
+      # print STDERR "\n\nParent (Langue) = " . $langue_parent->internal_id . "->" .  join(",",getFeuilles($langue_parent));
       my $langue_fils1 = trouverNoeudCorrespondant( @ids_fils1);
-      #print "\nFils (Langue) = " . $langue_fils1->internal_id . "->" .  join(",",getFeuilles($langue_fils1));
+      # print STDERR "\nFils (Langue) = " . $langue_fils1->internal_id . "->" .  join(",",getFeuilles($langue_fils1));
       my $langue_fils2 = trouverNoeudCorrespondant( @ids_fils2);
-      #print "\nFils (Langue) = " . $langue_fils2->internal_id . "->" .  join(",",getFeuilles($langue_fils2));
+      # print STDERR "\nFils (Langue) = " . $langue_fils2->internal_id . "->" .  join(",",getFeuilles($langue_fils2));
 
       my $nbNoeud1 = nbNoeudIntermediaire($langue_parent,$langue_fils1);
       my $nbNoeud2 = nbNoeudIntermediaire($langue_parent,$langue_fils2);
@@ -243,10 +242,14 @@ sub rechercheTransfertsSupplementaires{
 
       my $sontDansLeMemeGroupe = &memeGroupe(\@ids_fils1,\@ids_fils2);
 
+
+      print STDERR "\n" . join(" ",@ids_fils1) . "[" . $nbNoeud1 . "]" . " -> " . join(" ",@ids_fils2) . "[" . $nbNoeud2 . "]" . ":" . $sontDansLeMemeGroupe if (DEBUG > 1);
+
       if (
         ( ( $sontDansLeMemeGroupe == FALSE ) and  (($nbNoeud1 + $nbNoeud2) >= $MIN_EXTERNAL_NODES ) ) or
         ( ( $sontDansLeMemeGroupe == TRUE  ) and  (($nbNoeud1 + $nbNoeud2) >= $MIN_INTERNAL_NODES ) )
       ){
+        print STDERR "\n" . join(" ",@ids_fils1) . " -> " . join(" ",@ids_fils2) if (DEBUG > 1);
         #if(($nbNoeud1 + $nbNoeud2) >= $MIN_EXTERNAL_NODES ){
         if( (scalar(@ids_fils1) > 0) and (scalar(@ids_fils2) > 0 ) ){
 
@@ -260,13 +263,13 @@ sub rechercheTransfertsSupplementaires{
           $isOlder = subtreeIsOlder(join(" ",@ids_fils1),join(" ",@ids_fils2));
 
           if( $isOlder == 1 ){
-            push @results , {source => \@ids_fils1, destination => \@ids_fils2, status=>"plus"};
+            push @results , {source => \@ids_fils1, destination => \@ids_fils2, status=>"plus", fact=>""};
           }
           elsif( $isOlder == -1 ){
-            push @results , {source => \@ids_fils2, destination => \@ids_fils1, status=>"plus"};
+            push @results , {source => \@ids_fils2, destination => \@ids_fils1, status=>"plus", fact=>""};
           }
           else{
-            push @results , {source => \@ids_fils1, destination => \@ids_fils2, status=>"plus"};
+            push @results , {source => \@ids_fils1, destination => \@ids_fils2, status=>"plus", fact=>""};
           }
         }
       }

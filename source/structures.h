@@ -6,7 +6,7 @@ struct Parameters{
 	char printWeb[10];
 	char inputfile[200];
 	char results[200];
-	char outputfile[200];	
+	char outputfile[200];
 	char hgtResultFile[200];
 	char criterion[10];
 	char version[20];
@@ -25,6 +25,7 @@ struct Parameters{
 	char geneTreeWeb[200];
 	char outputWeb[200];
 	char subtree[4];
+	char addroot[4];
 	char scenario[100];
 	int nbhgt;
 	char bootstrap[4];
@@ -62,8 +63,8 @@ struct CRITERIA{
 	double LS;
 	double BD;
 	double diff_bd;
-	int RF;	
-	int QD;	
+	int RF;
+	int QD;
 	int m;
 	int nbHgtFound;
 	int ** B;
@@ -92,9 +93,9 @@ struct DescTree
 	double ** Matrice;
 	int *Tableau;
 };
-                                                                         
+
 struct TNoeud
-{	
+{
 	int NoNoeud;
 	struct TNoeud **fils;
 	int nbfils;
@@ -153,13 +154,13 @@ const char *GeneBranch = "**Rooted gene tree inferred with NJ**\n";
 const char *description = "=================================================================================\n"
 						              "| Program : HGT Detection 3.1 - June, 2009\n"
                           "| Authors   : Alix Boc and Vladimir Makarenkov (Universite du Quebec a Montreal)\n"
-							            "| This program computes a unique scenario of horizontal gene transfers (HGT) for\n" 
+							            "| This program computes a unique scenario of horizontal gene transfers (HGT) for\n"
                           "| the given pair of species and gene phylogenetic trees.\n"
 							            "=================================================================================\n";
 
 const char *startMessage = "HGT-DETECTION V.3.1\n"
-						   "by Alix Boc and Vladimir Makarenkov\n"; 
-						  
+						   "by Alix Boc and Vladimir Makarenkov\n";
+
 const char *fichier_output = "output.txt";
 const char *fichier_hgt    = "result.txt";
 const char *fichier_stat   = "tmp_nbHgtParMots";

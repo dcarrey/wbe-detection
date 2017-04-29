@@ -11,12 +11,12 @@ double BipartitionDistance (int **B, int ** B1,int n)
 	for (i=0;i<2*n-2;i++)
 	{
 		Bi[i]=(int *) malloc((2*n)*sizeof(int));
-		Bi1[i]=(int *) malloc((2*n)*sizeof(int)); 
+		Bi1[i]=(int *) malloc((2*n)*sizeof(int));
 		if ((Bi1[i]==NULL)||(Bi[i]==NULL))
 		{
-			printf(" Data matrix is too large\n "); 
+			printf(" Data matrix is too large\n ");
 			exit(2);
-		}        
+		}
 	}
 	flag = (int*) malloc(2*n*(sizeof(int)));
 	flag1 = (int*) malloc(2*n*(sizeof(int)));
@@ -47,9 +47,9 @@ double BipartitionDistance (int **B, int ** B1,int n)
 				Bi1[k1][j] = B1[i][j];
 			k1++;
 		}
-	
+
 	}
-	
+
 	/*for(i=1;i<=2*n-3;i++)
 		printf("%d ",flag[i]);
 	printf("\n");
@@ -443,9 +443,9 @@ void printEdges(FILE *out,int ShowName, long int * ARETES,double * LONGUEUR,char
 //==
 //=============================================================================================================
 void loadAdjacenceMatrix( double **Adjacence, long int *ARETE, double *LONGUEUR,int size,int kt){
-	
+
 	int i,j;
-	
+
 	for(i=1;i<=2*size-2;i++) /*/(n+1)*/
 		for(j=1;j<=2*size-2;j++){
 			Adjacence[i][j] = Adjacence[j][i] = INFINI;
@@ -503,7 +503,7 @@ void odp1(double **D, int *X, int *i1, int *j1, int n)
 	}
 	}
 	Y1[k]=0;
-	}     
+	}
 	free(Y1);
 }
 
@@ -521,7 +521,7 @@ int Tree_edges (double **DI, long int *ARETE, double *LONGUEUR, int n,int binair
 	int kt=0;
 	int SomToDel,OtherSom;
 
-	X=(int *)malloc((n+1)*sizeof(int));  
+	X=(int *)malloc((n+1)*sizeof(int));
 	L=(double *)malloc((n+1)*sizeof(double));
 	Tree=(struct EDGE *)malloc((2*n-2)*sizeof(struct EDGE));
 	Path=(struct EDGE *)malloc((n+2)*sizeof(struct EDGE));
@@ -531,11 +531,11 @@ int Tree_edges (double **DI, long int *ARETE, double *LONGUEUR, int n,int binair
 
 	for (i=0;i<=n;i++)
 	{
-		D[i]=(double*)malloc((n+1)*sizeof(double)); 
+		D[i]=(double*)malloc((n+1)*sizeof(double));
 
 		if (D[i]==NULL)
 		{
-			printf("Data matrix is too large"); exit(1); 
+			printf("Data matrix is too large"); exit(1);
 		}
 	}
 
@@ -543,10 +543,10 @@ int Tree_edges (double **DI, long int *ARETE, double *LONGUEUR, int n,int binair
 	odp1(DI,X,&i,&j,n);
 
 	for (i=1;i<=n;i++)
-	{ 
-		for (j=1;j<=n;j++) 
+	{
+		for (j=1;j<=n;j++)
 			D[i][j]=DI[i][j];
-	}  
+	}
 
 	/* Verification de l'equivalence des topologies */
 	L[1]=D[X[1]][X[2]];
@@ -578,14 +578,14 @@ int Tree_edges (double **DI, long int *ARETE, double *LONGUEUR, int n,int binair
 		Tree[p+1].U=n+k-1;
 		Tree[p+1].V=Path[i].V;
 		Tree[p+1].LN=S-DIS;
-		if (Tree[p+1].LN<epsilon) Tree[p+1].LN=2*epsilon; 
+		if (Tree[p+1].LN<epsilon) Tree[p+1].LN=2*epsilon;
 
 		for (j=i+1;j<=P;j++)
 		{
 			Tree[p+j-i+1].U=Path[j].U;
 			Tree[p+j-i+1].V=Path[j].V;
 			Tree[p+j-i+1].LN=L[j];
-			if (L[j]<2*epsilon) L[j]=2*epsilon; 
+			if (L[j]<2*epsilon) L[j]=2*epsilon;
 		}
 		p=p+P-i+1;
 
@@ -597,7 +597,7 @@ int Tree_edges (double **DI, long int *ARETE, double *LONGUEUR, int n,int binair
 		P=i+1;
 	}
 
-	for (i=1;i<=P;i++) 
+	for (i=1;i<=P;i++)
 	{
 		Tree[p+i].U=Path[i].U;
 		Tree[p+i].V=Path[i].V;
@@ -610,9 +610,9 @@ int Tree_edges (double **DI, long int *ARETE, double *LONGUEUR, int n,int binair
 			Tree[i].LN=0.0;
 		ARETE[2*i-2]=Tree[i].U;
 		ARETE[2*i-1]=Tree[i].V;
-		LONGUEUR[i-1]=Tree[i].LN;   
+		LONGUEUR[i-1]=Tree[i].LN;
 		if (LONGUEUR[i-1]<2*epsilon) LONGUEUR[i-1] = 2*epsilon;
-	} 
+	}
 	/*/== rajoute le 22 avril 2005*/
 	while((pasfini==1)&&(binaire==0)){
 		//printf("non-binaire");
@@ -661,7 +661,7 @@ int Tree_edges (double **DI, long int *ARETE, double *LONGUEUR, int n,int binair
 				}
 				break;
 			}
-		} 
+		}
 		if(pasfini)
 			kt++;
 	}
@@ -681,7 +681,7 @@ int Tree_edges (double **DI, long int *ARETE, double *LONGUEUR, int n,int binair
 	free(Path);
 
 
-	for (i=0;i<=n;i++)    
+	for (i=0;i<=n;i++)
 		free(D[i]);
 
 	free(D);
@@ -706,17 +706,17 @@ int Bipartition_Table (double **D, int **B, int *PLACE, int n)
 	LengthPath=(double *)malloc((2*n)*sizeof(double));
 	Path=(int *)malloc((2*n)*sizeof(int));
 
-	/* Computation of a circular order X for D */     
+	/* Computation of a circular order X for D */
 
 	i=1; j=n; odp1(D,X,&i,&j,n);
 
-	/* Initialization */ 
+	/* Initialization */
 	for (i=1; i<=2*n-3; i++)
 	{
 		MaxCol[i]=0;
 		PLACE[i]=0;
 		for (j=1;j<=n;j++)
-			B[i][j]=0;  
+			B[i][j]=0;
 	}
 	B[1][X[2]]=1; MaxCol[1]=X[2]; Path[1]=1; PlaceNumber=1;
 	PLACE[1]=1; LengthPath[1]=D[X[1]][X[2]]; EdgeNumberPath=1; m=1;
@@ -724,12 +724,12 @@ int Bipartition_Table (double **D, int **B, int *PLACE, int n)
 	/* The main loop */
 
 	for(k=2;k<=n-1;k++)
-	{  
+	{
 		/* Point 2.1 of the algorithm (see the referenced article by Makarenkov and Leclerc) */
 
-		DIS=(D[X[1]][X[k]]+D[X[k]][X[k+1]]-D[X[1]][X[k+1]])/2; 
+		DIS=(D[X[1]][X[k]]+D[X[k]][X[k+1]]-D[X[1]][X[k+1]])/2;
 		DIS1=(D[X[1]][X[k+1]]+D[X[k]][X[k+1]]-D[X[1]][X[k]])/2;
-		
+
 		//printf("\n\n%d,%d,%d\n\n",X[1],X[k],X[k+1]);
 		if ((DIS<=-EPS1)||(DIS1<=-EPS1)) { printf("\n This is not an additive distance \n");
 		free(MaxCol);free(X);free(LengthPath);free(Path);exit(1);return 0; }
@@ -738,38 +738,38 @@ int Bipartition_Table (double **D, int **B, int *PLACE, int n)
 		S=0.0; i=EdgeNumberPath; if (LengthPath[i]==0.0) i--;
 		while (S<=DIS-EPS)
 		{
-			if (i==0) { S=DIS; break; }  /* checking the limit */  
+			if (i==0) { S=DIS; break; }  /* checking the limit */
 			S=S+LengthPath[i];
 			i--;
 		}
 
 		/* Point 2.2 of the algorithm */
 
-		if (fabs(S-DIS)<=EPS) 
-		{ 
-			M=m+2; DIS=S;      
-			if (i==0) F=1; 
+		if (fabs(S-DIS)<=EPS)
+		{
+			M=m+2; DIS=S;
+			if (i==0) F=1;
 			else if (i==EdgeNumberPath) F=2;
-			else { M--; F=3; }   
-		}    
+			else { M--; F=3; }
+		}
 		else {M=m+2; F=0;}
 
 
 		if (M==m+2)
 		{
-			if (F==0) { uv=Path[i+1]; EdgeNumberPath=i+2; LengthPath[i+1]=S-DIS; LengthPath[i+2]=DIS1; 
+			if (F==0) { uv=Path[i+1]; EdgeNumberPath=i+2; LengthPath[i+1]=S-DIS; LengthPath[i+2]=DIS1;
 			Path[i+1]=m+2; Path[i+2]=m+1;}
-			else if (F==1) { uv=Path[1]; EdgeNumberPath=2; LengthPath[1]=0.0; LengthPath[2]=DIS1; 
+			else if (F==1) { uv=Path[1]; EdgeNumberPath=2; LengthPath[1]=0.0; LengthPath[2]=DIS1;
 			Path[1]=m+2; Path[2]=m+1;}
-			else if (F==2) { uv=Path[EdgeNumberPath]; EdgeNumberPath=EdgeNumberPath+1;LengthPath[EdgeNumberPath]=DIS1; 
-			Path[EdgeNumberPath-1]=m+2; Path[EdgeNumberPath]=m+1; } 
+			else if (F==2) { uv=Path[EdgeNumberPath]; EdgeNumberPath=EdgeNumberPath+1;LengthPath[EdgeNumberPath]=DIS1;
+			Path[EdgeNumberPath-1]=m+2; Path[EdgeNumberPath]=m+1; }
 
 			for (j=1;j<=n;j++)
-				B[m+2][j]=B[uv][j];   
-			MaxCol[m+2]=MaxCol[uv];      
+				B[m+2][j]=B[uv][j];
+			MaxCol[m+2]=MaxCol[uv];
 		}
 
-		else 
+		else
 		{
 			EdgeNumberPath=i+1; LengthPath[i+1]=DIS1; Path[i+1]=m+1;
 		}
@@ -782,41 +782,41 @@ int Bipartition_Table (double **D, int **B, int *PLACE, int n)
 		/* Point 2.4 of the algorithm */
 
 		for (j=1;j<=EdgeNumberPath;j++)
-			if (MaxCol[Path[j]]<X[k+1]) MaxCol[Path[j]]=X[k+1];  
+			if (MaxCol[Path[j]]<X[k+1]) MaxCol[Path[j]]=X[k+1];
 
 		/* Point 2.5 of the algorithm */
 
-		for (j=PlaceNumber;j>=1;j--) 
+		for (j=PlaceNumber;j>=1;j--)
 			PLACE[j+1]=PLACE[j];
 		PLACE[1]=m+1; PlaceNumber++;
 
 		if (M==m+2) {
-			i=2; 
+			i=2;
 			while (PLACE[i]!=uv)
-				i++;          
-			for (j=PlaceNumber;j>=i+1;j--) 
+				i++;
+			for (j=PlaceNumber;j>=i+1;j--)
 				PLACE[j+1]=PLACE[j];
 			PLACE[i+1]=m+2; PlaceNumber++;}
 
 		i=M-1; edge=2;
-		do 
+		do
 		{
-			if (PLACE[i]==Path[edge]) 
+			if (PLACE[i]==Path[edge])
 			{
-				edge++; j=i+1; 
-				while (X[k+1]>MaxCol[PLACE[j]]) 
-					j++; 
-				if (j>i+1) 
-				{            
+				edge++; j=i+1;
+				while (X[k+1]>MaxCol[PLACE[j]])
+					j++;
+				if (j>i+1)
+				{
 					l1=PLACE[i];
-					for (l=i+1;l<=j-1;l++) 
-						PLACE[l-1]=PLACE[l];              
+					for (l=i+1;l<=j-1;l++)
+						PLACE[l-1]=PLACE[l];
 					PLACE[j-1]=l1;
 
-				} 
+				}
 			}
 			i--;
-		} while (i!=0); 
+		} while (i!=0);
 
 		m=M;
 	}
@@ -849,7 +849,7 @@ int Table_Comparaison (int **B, int ** B1, int *PLACE, int *PLACE1, int m, int m
 			i--;
 		if (i==1) { RF=RF+1; p++; p1++; }
 		else if (B[PLACE[p]][i]>B1[PLACE1[p1]][i]) p1++;
-		else p++; 
+		else p++;
 
 	}
 	RF=(m-RF)+(m1-RF);
@@ -863,26 +863,26 @@ void approx_arb(double **DISS,double **TM,double **TMnew,double **W, int *Iternu
 
 	long int  *Level, *Score, *EX1, *EX2, *Succ1, *Succ2, *Succ11, *Succ22, *Neighbour1, *Neighbour2;
 	int i,j,k,k1,j1,i1,i2,*Flag, **Part, **Vertices, *VertexNumber;
-	long int *ARETE1;                                       
-	int *degree=0, a=0, exit_number;    
+	long int *ARETE1;
+	int *degree=0, a=0, exit_number;
 	double *L, **B, *C, Sum, Sum1, *Path, EQ, l;
 	int na1,ns1,na,ns;
 
 	/*/ Variable declaration*/
 	//printf("\n========== %d",(*kt));;
-	Level=(long int *)malloc((2*n-1)*sizeof(long int));  
-	Score=(long int *)malloc((2*n-1)*sizeof(long int));  
-	EX1=(long int *)malloc((2*n-1)*sizeof(long int));  
+	Level=(long int *)malloc((2*n-1)*sizeof(long int));
+	Score=(long int *)malloc((2*n-1)*sizeof(long int));
+	EX1=(long int *)malloc((2*n-1)*sizeof(long int));
 	EX2=(long int *)malloc((2*n-1)*sizeof(long int));
-	Succ1=(long int *)malloc((2*n-1)*sizeof(long int)); 
+	Succ1=(long int *)malloc((2*n-1)*sizeof(long int));
 	Succ2=(long int *)malloc((2*n-1)*sizeof(long int));
-	Succ11=(long int *)malloc((2*n-1)*sizeof(long int)); 
+	Succ11=(long int *)malloc((2*n-1)*sizeof(long int));
 	Succ22=(long int *)malloc((2*n-1)*sizeof(long int));
 	/*/ARETE=(long int *)malloc((4*n-2)*sizeof(long int));*/
 	C=(double *)malloc((2*n-1)*sizeof(double));
 	B=(double **)malloc((2*n-1)*sizeof(double*));
 
-	VertexNumber=(int *)malloc((2*n-1)*sizeof(int));    
+	VertexNumber=(int *)malloc((2*n-1)*sizeof(int));
 	Vertices=(int **)malloc((2*n-1)*sizeof(int*));
 	Part=(int **)malloc((2*n-1)*sizeof(int*));
 
@@ -892,22 +892,22 @@ void approx_arb(double **DISS,double **TM,double **TMnew,double **W, int *Iternu
 
 	L=(double *)malloc((2*n-1)*sizeof(double));
 	/*/LONGUEUR=(double *)malloc((2*n-1)*sizeof(double));*/
-	Path=(double *)malloc((n+1)*sizeof(double));  
+	Path=(double *)malloc((n+1)*sizeof(double));
 
 	for (i=0;i<2*n-1;i++){
-		Score[i]=0;	
+		Score[i]=0;
 	}
 	for (i=0;i<=2*n-2;i++)
 	{
-		Vertices[i]=(int*)malloc((n+1)*sizeof(int));  
+		Vertices[i]=(int*)malloc((n+1)*sizeof(int));
 		B[i]=(double*)malloc((2*n-1)*sizeof(double));
-		Part[i]=(int*)malloc((2*n-1)*sizeof(int));   
+		Part[i]=(int*)malloc((2*n-1)*sizeof(int));
 		if ((B[i]==NULL)||(Part[i]==NULL)||(Vertices[i]==NULL))
 		{
-			printf("Data matrix is too large"); 
+			printf("Data matrix is too large");
 			return;
 		}
-	}   
+	}
 
 	/*/ Variable initialisation*/
 
@@ -915,40 +915,40 @@ void approx_arb(double **DISS,double **TM,double **TMnew,double **W, int *Iternu
 		*kt = Tree_edges (TM,ARETE,LONGUEUR,n,binaire);
 		for(i=0;i<=n;i++)
 			for(j=0;j<=n;j++)
-				TMnew[i][j] = TM[i][j]; 
+				TMnew[i][j] = TM[i][j];
 	}
 	else{
 		for(i=0;i<=2*n-2;i++)
 			for(j=0;j<=2*n-2;j++)
-				TMnew[i][j] = TM[i][j]; 
+				TMnew[i][j] = TM[i][j];
 	}
 
 	/*/return; */
 	na1 = 2*n-3-*kt;
-	ns1 = 2*n-2-*kt; 
+	ns1 = 2*n-2-*kt;
 
 
 	na = 2*n-3;   /*/start of the new block - june 2005*/
-	ns = 2*n-2;                                         
-	for (i=2*n-3-*kt+1; i<=2*n-3; i++)                      
-		LONGUEUR[i-1] = 5*epsilon;  
+	ns = 2*n-2;
+	for (i=2*n-3-*kt+1; i<=2*n-3; i++)
+		LONGUEUR[i-1] = 5*epsilon;
 
-	ARETE1	=(long int*)malloc(2*(2*n-2)*sizeof(long int)); 
-	degree	=(int*)malloc((2*n-1)*sizeof(int)); 
+	ARETE1	=(long int*)malloc(2*(2*n-2)*sizeof(long int));
+	degree	=(int*)malloc((2*n-1)*sizeof(int));
 
-	for (i=1; i<=na1; i++)                                  
-	{        
-		ARETE1[2*i-2] = ARETE[2*i-2];                         
-		ARETE1[2*i-1] = ARETE[2*i-1];                         
+	for (i=1; i<=na1; i++)
+	{
+		ARETE1[2*i-2] = ARETE[2*i-2];
+		ARETE1[2*i-1] = ARETE[2*i-1];
 	}
 
 	i=1;
 	while (i<=*kt)
 	{
-		for (j=1; j<=ns; j++)  //-                               
+		for (j=1; j<=ns; j++)  //-
 			degree[j] = 0;
 
-		for (j=1; j<=na1+i-1; j++)    
+		for (j=1; j<=na1+i-1; j++)
 		{
 			if (degree[ARETE1[2*j-2]]==3) { exit_number = ARETE1[2*j-2]; break; }
 			else ++degree[ARETE1[2*j-2]];
@@ -958,7 +958,7 @@ void approx_arb(double **DISS,double **TM,double **TMnew,double **W, int *Iternu
 		}
 
 		a=0;
-		for (j=1; j<=na1+i-1; j++) 
+		for (j=1; j<=na1+i-1; j++)
 		{
 			if (ARETE1[2*j-2]==exit_number) { ARETE1[2*j-2]=ns1+i; a++; }
 			if (ARETE1[2*j-1]==exit_number) { ARETE1[2*j-1]=ns1+i; a++; }
@@ -968,11 +968,11 @@ void approx_arb(double **DISS,double **TM,double **TMnew,double **W, int *Iternu
 		ARETE1[2*(na1+i)-2] = exit_number;
 		ARETE1[2*(na1+i)-1] = ns1+i;
 		i++;
-	}   /*/end of the new block - june 2005      */                                                        
+	}   /*/end of the new block - june 2005      */
 
 
 	for (i=1;i<=na;i++) //-
-	{        
+	{
 		EX1[i]=ARETE1[2*i-2]; /*/modified line - june 2005*/
 		EX2[i]=ARETE1[2*i-1]; /*/modified line - june 2005*/
 
@@ -986,58 +986,58 @@ void approx_arb(double **DISS,double **TM,double **TMnew,double **W, int *Iternu
 		else if (EX2[i]<=n)
 		{ Score[EX2[i]]=3; Succ1[EX2[i]]=0; Succ2[EX2[i]]=0; Score[EX1[i]]=0; }
 
-		else { Score[EX1[i]]=0; Score[EX2[i]]=0; } 
+		else { Score[EX1[i]]=0; Score[EX2[i]]=0; }
 	}
 
 	for (i=1;i<=na;i++)//-
-	{ 
+	{
 		if (i<=n) { Path[i]=0.0; TMnew[i][i]=0; }
 		if ((EX1[i]<=n)||(EX2[i]<=n))
 		{
 			VertexNumber[i]=1;
 			if (EX1[i]<=n) Vertices[i][1]=EX1[i];
-			else Vertices[i][1]=EX2[i];     
+			else Vertices[i][1]=EX2[i];
 		}
 		else VertexNumber[i]=0;
 
 		for (j=1;j<=na;j++)//-
 		{
 			Part[i][j]=0;
-			Part[j][i]=0;   
-		} 
+			Part[j][i]=0;
+		}
 	}
 
 
 	/*/   Filling in of the vectors Level(2n-3), VertexNumber(2n-3),
-	//   and the matrices Part(2n-3, 2n-3), Vertices(2n-3,n)   */ 
+	//   and the matrices Part(2n-3, 2n-3), Vertices(2n-3,n)   */
 
 	int cpt=0;
-	j=1; 
+	j=1;
 	while (j<ns)
-	{    
+	{
 		cpt++;
 		//printf("%d ",cpt);
 		if(cpt > 10000) {printf("\nProbleme approx_arb"); exit(-1);}
 		for (i=1; i<=na; i++)//-
 		{
-			if (Score[EX1[i]]==5) 
+			if (Score[EX1[i]]==5)
 				Score[EX1[i]]=3;
-			if (Score[EX2[i]]==5) 
+			if (Score[EX2[i]]==5)
 				Score[EX2[i]]=3;
 
-			if (((Score[EX1[i]]==3)&&(Score[EX2[i]]!=4))||((Score[EX2[i]]==3)&&(Score[EX1[i]]!=4))) 
-			{ 
-				if (Score[EX1[i]]==3) 
+			if (((Score[EX1[i]]==3)&&(Score[EX2[i]]!=4))||((Score[EX2[i]]==3)&&(Score[EX1[i]]!=4)))
+			{
+				if (Score[EX1[i]]==3)
 				{ k=EX2[i]; k1=EX1[i]; }
-				else 
+				else
 				{ k=EX1[i]; k1=EX2[i]; }
 
-				if (Score[k]<2) 
+				if (Score[k]<2)
 				{
 					Score[k]=Score[k]+1;
-					if (Score[k]==1) 
+					if (Score[k]==1)
 					{ Succ1[k]=i; Neighbour1[k]=k1; Neighbour2[k]=0;}
-					else  
+					else
 					{ Succ2[k]=i; Neighbour2[k]=k1; }
 				}
 			}
@@ -1049,13 +1049,13 @@ void approx_arb(double **DISS,double **TM,double **TMnew,double **W, int *Iternu
 			if (((Score[EX1[i]]==1)&&(Score[EX2[i]]==3))||((Score[EX1[i]]==2)&&(Score[EX2[i]]==3))||
 				((Score[EX1[i]]==3)&&(Score[EX2[i]]==1))||((Score[EX1[i]]==3)&&(Score[EX2[i]]==2)))
 
-			{ 
+			{
 
 				if ((Score[EX1[i]]==1)||(Score[EX1[i]]==2)) { k=EX1[i]; k1=EX2[i]; }
-				else { k=EX2[i]; k1=EX1[i]; } 
+				else { k=EX2[i]; k1=EX1[i]; }
 
-				if(Flag[i]==0) 
-				{ 
+				if(Flag[i]==0)
+				{
 					Succ11[i]=Succ1[k1];
 					Succ22[i]=Succ2[k1];
 					Level[j]=i; j=j+1; Score[k1]=4;
@@ -1064,7 +1064,7 @@ void approx_arb(double **DISS,double **TM,double **TMnew,double **W, int *Iternu
 					if ((Score[Neighbour1[k]]==4)&&(Score[Neighbour2[k]]==4)) Score[k]=5;
 
 					if (j>n+1)
-					{              
+					{
 						VertexNumber[i]=VertexNumber[Succ11[i]]+VertexNumber[Succ22[i]];
 						for (i1=1; i1<=VertexNumber[Succ11[i]]; i1++)
 							Vertices[i][i1]=Vertices[Succ11[i]][i1];
@@ -1074,32 +1074,32 @@ void approx_arb(double **DISS,double **TM,double **TMnew,double **W, int *Iternu
 
 
 						Part[Succ11[i]][i]=1; Part[Succ22[i]][i]=1;
-						Part[i][Succ11[i]]=1; Part[i][Succ22[i]]=1; 
+						Part[i][Succ11[i]]=1; Part[i][Succ22[i]]=1;
 						for (i1=1; i1<=na; i1++)
-						{          
+						{
 							if ((Part[Succ11[i]][i1]==1)||(Part[Succ22[i]][i1]==1))
 							{
 								Part[i][i1]=1; Part[i1][i]=1;
 							}
 						}
-					}          
+					}
 				}
 
 				/*/ if(j>ns) break;*/
 
 				if(Score[k]==2)
-				{ 
+				{
 					Score[k]=5;
 					Succ11[Succ2[k]]=Succ1[Neighbour2[k]];
 					Succ22[Succ2[k]]=Succ2[Neighbour2[k]];
 					Level[j]=Succ2[k]; j=j+1; Score[Neighbour2[k]]=4;
-					Flag[Succ2[k]]=1;       
+					Flag[Succ2[k]]=1;
 
 					j1=i;
 					i=Succ2[k];
 
 					if (j>n+1)
-					{              
+					{
 						VertexNumber[i]=VertexNumber[Succ11[i]]+VertexNumber[Succ22[i]];
 						for (i1=1; i1<=VertexNumber[Succ11[i]]; i1++)
 							Vertices[i][i1]=Vertices[Succ11[i]][i1];
@@ -1109,34 +1109,34 @@ void approx_arb(double **DISS,double **TM,double **TMnew,double **W, int *Iternu
 
 
 						Part[Succ11[i]][i]=1; Part[Succ22[i]][i]=1;
-						Part[i][Succ11[i]]=1; Part[i][Succ22[i]]=1; 
+						Part[i][Succ11[i]]=1; Part[i][Succ22[i]]=1;
 						for (i1=1; i1<=na; i1++)
-						{          
+						{
 							if ((Part[Succ11[i]][i1]==1)||(Part[Succ22[i]][i1]==1))
 							{
 								Part[i][i1]=1; Part[i1][i]=1;
 							}
 						}
-					} 
-					i=j1;            
+					}
+					i=j1;
 
-				} 
-			} 
-		} 
+				}
+			}
+		}
 
 		/*/if(j>ns) break;*/
 
 		for (i=1; i<=na; i++)//-
-		{ 
+		{
 			/*/  if(j>ns) break;*/
 
 			if (((Score[EX1[i]]==5)&&(Score[EX2[i]]==3))||((Score[EX1[i]]==3)&&(Score[EX2[i]]==5))||
 				((Score[EX1[i]]==5)&&(Score[EX2[i]]==5)))
-			{      
+			{
 				if ((Score[EX1[i]]==3)||((Score[EX1[i]]==5)&&(Score[EX2[i]]==5)))
 				{ k=EX1[i]; k1=EX2[i]; }
-				else { k=EX2[i]; k1=EX1[i]; } 
-				Level[j]=i; j=j+1;    
+				else { k=EX2[i]; k1=EX1[i]; }
+				Level[j]=i; j=j+1;
 				Succ11[i]=Succ1[k];
 				Succ22[i]=Succ2[k];
 
@@ -1144,9 +1144,9 @@ void approx_arb(double **DISS,double **TM,double **TMnew,double **W, int *Iternu
 				Score[k1]=4;
 
 				if (j>n+1)
-				{   
-					//printf("\n============ %d ",i);           
-					//printf("\n============ %d , %d , %d ",i,Succ11[i],Succ22[i]);           
+				{
+					//printf("\n============ %d ",i);
+					//printf("\n============ %d , %d , %d ",i,Succ11[i],Succ22[i]);
 					if(Succ22[i] > INFINI || Succ11[i] > INFINI){
 						printf("\nErreur dans approx_arb (utils_tree.cpp:1111)\n");
 						exit(-1);
@@ -1158,18 +1158,18 @@ void approx_arb(double **DISS,double **TM,double **TMnew,double **W, int *Iternu
 					for (i1=VertexNumber[Succ11[i]]+1; i1<=VertexNumber[i]; i1++)
 						Vertices[i][i1]=Vertices[Succ22[i]][i1-VertexNumber[Succ11[i]]];
 					Part[Succ11[i]][i]=1; Part[Succ22[i]][i]=1;
-					Part[i][Succ11[i]]=1; Part[i][Succ22[i]]=1; 
+					Part[i][Succ11[i]]=1; Part[i][Succ22[i]]=1;
 					for (i1=1; i1<=na; i1++)
-					{          
+					{
 						if ((Part[Succ11[i]][i1]==1)||(Part[Succ22[i]][i1]==1))
 						{
 							Part[i][i1]=1; Part[i1][i]=1;
 						}
 					}
-				}            
-			}       
+				}
+			}
 		}
-	}  
+	}
 
 
 	/*/ Filling in of the matrix B(2n-3,2n-3) and the vector C(2n-3)  */
@@ -1179,79 +1179,79 @@ void approx_arb(double **DISS,double **TM,double **TMnew,double **W, int *Iternu
 		B[i][i]=0;
 		C[i]=0;
 		for (j=1; j<=na; j++)//-
-		{   
+		{
 			if ((EX1[i]<=n)||(EX2[i]<=n))
 			{
 				if (EX1[i]<=n) k=EX1[i];
 				else k=EX2[i];
-				if (((EX1[j]<=n)||(EX2[j]<=n))&&(i!=j))       
-				{           
+				if (((EX1[j]<=n)||(EX2[j]<=n))&&(i!=j))
+				{
 					if (EX1[j]<=n) k1=EX1[j];
 					else k1=EX2[j];
 
 					B[i][j]=1.0; //W[k][k1];
 					B[j][i]=1.0; //W[k][k1];
 					B[i][i]=B[i][i]+B[i][j];
-					C[i]=C[i]+DISS[k][k1]; //*W[k][k1];     
+					C[i]=C[i]+DISS[k][k1]; //*W[k][k1];
 				}
 			}
 		}
 	}
 
 	for (k=n+1; k<=na; k++)//-
-	{   
+	{
 		i=Level[k];
 		Sum=0.0;
 		Sum1=0.0;
-		for (j=1; j<=VertexNumber[Succ11[i]]; j++) 
+		for (j=1; j<=VertexNumber[Succ11[i]]; j++)
 		{
-			for (j1=1; j1<=VertexNumber[Succ22[i]]; j1++)     
+			for (j1=1; j1<=VertexNumber[Succ22[i]]; j1++)
 			{
 				Sum=Sum+2*1.0;//W[Vertices[Succ11[i]][j]][Vertices[Succ22[i]][j1]];
 				Sum1=Sum1+2*DISS[Vertices[Succ11[i]][j]][Vertices[Succ22[i]][j1]]*1.0;
 					//W[Vertices[Succ11[i]][j]][Vertices[Succ22[i]][j1]];
 			}
-		}     
+		}
 		B[i][i]=B[Succ11[i]][Succ11[i]]+B[Succ22[i]][Succ22[i]]-Sum;
-		C[i]=C[Succ11[i]]+C[Succ22[i]]-Sum1;  
+		C[i]=C[Succ11[i]]+C[Succ22[i]]-Sum1;
 	}
 
 
 	for (j1=n+1; j1<=na; j1++)//-
-	{   
+	{
 		i=Level[j1];
 		for (i1=1; i1<j1; i1++)
-		{       
+		{
 			j=Level[i1];
 			if ((j==Succ11[i])||(j==Succ22[i]))
-			{  
+			{
 				if (j==Succ11[i]) k=Succ22[i];
-				else k=Succ11[i]; 
+				else k=Succ11[i];
 				B[i][j]=(B[i][i]+B[j][j]-B[k][k])/2;
-			}  
-
-			else if (Part[i][j]==1)
-			{        
-				if (Part[j][Succ11[i]]==1)
-					B[i][j]=B[j][Succ11[i]]-B[j][Succ22[i]];
-				else 
-					B[i][j]=B[j][Succ22[i]]-B[j][Succ11[i]];    
 			}
 
-			else    
-			{        
-				B[i][j]=B[Succ11[i]][j]+B[Succ22[i]][j];        
+			else if (Part[i][j]==1)
+			{
+				if (Part[j][Succ11[i]]==1)
+					B[i][j]=B[j][Succ11[i]]-B[j][Succ22[i]];
+				else
+					B[i][j]=B[j][Succ22[i]]-B[j][Succ11[i]];
+			}
+
+			else
+			{
+				B[i][j]=B[Succ11[i]][j]+B[Succ22[i]][j];
 			}
 			B[j][i]=B[i][j];
 
 		}
-	}  
+	}
 
 
 	/* Gausse-Seidel iteretive procedure to polish vector of lengths L(2n-3)*/
 
 	for(k=1;k<=*Iternum;k++)
-	{    
+	{
 
 
 		for(i=1;i<=na1;i++) /*/modified line - june 2005*/
@@ -1267,8 +1267,8 @@ void approx_arb(double **DISS,double **TM,double **TMnew,double **W, int *Iternu
 			l=L[i];
 			L[i]=(-Sum-Sum1+C[i])/B[i][i];
 			if (L[i]<5*epsilon) L[i]=5*epsilon;
-			EQ=EQ+sqrt((double)((L[i]-l)*(L[i]-l)));   
-		}    
+			EQ=EQ+sqrt((double)((L[i]-l)*(L[i]-l)));
+		}
 	}
 
 
@@ -1282,25 +1282,25 @@ void approx_arb(double **DISS,double **TM,double **TMnew,double **W, int *Iternu
 	/*/ Computing of new tree distance matrix TM(n,n) from the list of edges*/
 
 	for (j=n+1; j<=na; j++)//-
-	{   
+	{
 		i=Level[j];
 
-		for (i1=1; i1<=VertexNumber[Succ11[i]]; i1++)   
-			Path[Vertices[Succ11[i]][i1]]=Path[Vertices[Succ11[i]][i1]]+L[Succ11[i]];  
+		for (i1=1; i1<=VertexNumber[Succ11[i]]; i1++)
+			Path[Vertices[Succ11[i]][i1]]=Path[Vertices[Succ11[i]][i1]]+L[Succ11[i]];
 
-		for (i1=1; i1<=VertexNumber[Succ22[i]]; i1++)     
-			Path[Vertices[Succ22[i]][i1]]=Path[Vertices[Succ22[i]][i1]]+L[Succ22[i]];   
+		for (i1=1; i1<=VertexNumber[Succ22[i]]; i1++)
+			Path[Vertices[Succ22[i]][i1]]=Path[Vertices[Succ22[i]][i1]]+L[Succ22[i]];
 
-		for (i1=1; i1<=VertexNumber[Succ11[i]]; i1++)   
-		{   
+		for (i1=1; i1<=VertexNumber[Succ11[i]]; i1++)
+		{
 			k=Vertices[Succ11[i]][i1];
-			for (j1=1; j1<=VertexNumber[Succ22[i]]; j1++)     
-			{            
+			for (j1=1; j1<=VertexNumber[Succ22[i]]; j1++)
+			{
 				k1=Vertices[Succ22[i]][j1];
 				TMnew[k][k1]=Path[k]+Path[k1];
 				TMnew[k1][k]=TMnew[k][k1];
 			}
-		}              
+		}
 	}
 
 	i=Level[na];
@@ -1309,74 +1309,74 @@ void approx_arb(double **DISS,double **TM,double **TMnew,double **W, int *Iternu
 
 	j1=1;
 	for (i1=1; i1<=na-1; i1++)//-
-	{    
+	{
 		k1=Level[i1];
 		if ((EX1[k1]==k)||(EX2[k1]==k))
 		{
-			if (j1==1) { i=k1; j1=2; } 
-			else { j=k1; break; }  
+			if (j1==1) { i=k1; j1=2; }
+			else { j=k1; break; }
 		}
 	}
 
-	for (i1=1; i1<=VertexNumber[i]; i1++)   
-	{    
-		for (j1=1; j1<=VertexNumber[j]; j1++)     
-		{   
+	for (i1=1; i1<=VertexNumber[i]; i1++)
+	{
+		for (j1=1; j1<=VertexNumber[j]; j1++)
+		{
 			k=Vertices[i][i1];
 			k1=Vertices[j][j1];
 			//printf("\n%d-%d path=%lf",k,k1,Path[k]);
 			TMnew[k][k1]=Path[k];
-			
+
 			TMnew[k][k1]+=Path[k1];
 			TMnew[k][k1]+=L[i];
 			TMnew[k][k1]+=L[j];
 			TMnew[k1][k]=TMnew[k][k1];
 		}
-	}        
+	}
 
 	i2=Level[na];//-
-	for (i1=1; i1<=VertexNumber[i2]; i1++)   
-	{             
+	for (i1=1; i1<=VertexNumber[i2]; i1++)
+	{
 		k=Vertices[i2][i1];
-		for (j1=1; j1<=VertexNumber[i]; j1++)     
-		{   
+		for (j1=1; j1<=VertexNumber[i]; j1++)
+		{
 			k1=Vertices[i][j1];
 			TMnew[k][k1]=Path[k]+Path[k1]+L[i2]+L[i];
 			TMnew[k1][k]=TMnew[k][k1];
-		}     
-		for (j1=1; j1<=VertexNumber[j]; j1++)     
-		{   
+		}
+		for (j1=1; j1<=VertexNumber[j]; j1++)
+		{
 			k1=Vertices[j][j1];
 			TMnew[k][k1]=Path[k]+Path[k1]+L[i2]+L[j];
 			TMnew[k1][k]=TMnew[k][k1];
-		}          
-	}     
+		}
+	}
 
-	free(Level);  
-	free(Score);  
-	free(EX1);  
+	free(Level);
+	free(Score);
+	free(EX1);
 	free(EX2);
-	free(Succ1); 
+	free(Succ1);
 	free(Succ2);
-	free(Succ11); 
+	free(Succ11);
 	free(Succ22);
-	free(C);  
-	free(VertexNumber);     
+	free(C);
+	free(VertexNumber);
 	free(Neighbour1);
 	free(Neighbour2);
-	free(Flag);  
+	free(Flag);
 	free(L);
 	free(Path);
 
 	for (i=0;i<=ns;i++)
-	{ 
+	{
 		free(B[i]);
 		free(Part[i]);
-		free(Vertices[i]);  	   
-	} 
+		free(Vertices[i]);
+	}
 	free(B);
 	free(Part);
-	free(Vertices); 
+	free(Vertices);
 
 	free(ARETE1); /*/new line june 2005*/
 	free(degree); /*/new line june 2005*/
@@ -1388,7 +1388,7 @@ void approx_arb(double **DISS,double **TM,double **TMnew,double **W, int *Iternu
 int findFils(double ** Adjacence,int sommet,int n){
 
 	int i;
-	
+
 	for(i=1;i<=2*n-2;i++){
 		if(Adjacence[sommet][i]<INFINI){
 			Adjacence[sommet][i] = Adjacence[i][sommet] = INFINI;
@@ -1431,7 +1431,7 @@ struct TNoeud * CreerSousArbre(long int *ARETE,int *indice, double ** Adjacence,
 		}
 	}while(nouveauFils != -1);
 
-	for(i=0;i<nbElt;i++){	
+	for(i=0;i<nbElt;i++){
 		node->fils[node->nbfils] = CreerSousArbre(ARETE,indice,Adjacence,tableau[i],n);
 		node->nbfils = node->nbfils + 1;
 	}
@@ -1443,7 +1443,7 @@ struct TNoeud * CreerSousArbre(long int *ARETE,int *indice, double ** Adjacence,
 //= tri bulle d'un tableau d'entiers
 //=============================================*/
 void sortIntTab(int * tab, int debut, int fin){
-	
+
 	int i,j,tmp;
 
 	for(i=debut;i<=fin;i++){
@@ -1466,7 +1466,7 @@ void ParcoursArbre(struct TNoeud * unNoeud, struct DescTree * SousMatriceTree){
 	int somme=0;
 	int nbSommet=0;
 	int nbfils;
-	
+
 	if(unNoeud != NULL){
 		nbfils = unNoeud->nbfils;
 		/*printf("\n%d",unNoeud->NoNoeud);*/
@@ -1477,17 +1477,17 @@ void ParcoursArbre(struct TNoeud * unNoeud, struct DescTree * SousMatriceTree){
 			for(j=0; j<nbfils;j++){
 				ParcoursArbre(unNoeud->fils[j],SousMatriceTree);
 			}
-		
+
 			for(j=0; j<nbfils;j++){
 				/*toto = unNoeud->fils[j]->NoNoeud;*/
 				somme = somme + SousMatriceTree[unNoeud->fils[j]->NoNoeud].nbSommet;
 			}
 			SousMatriceTree[unNoeud->NoNoeud].nbSommet = somme; /*SousMatriceTree[unNoeud->droit->NoNoeud].nbSommet + SousMatriceTree[unNoeud->gauche->NoNoeud].nbSommet;*/
 			SousMatriceTree[unNoeud->NoNoeud].Tableau = (int*)malloc((somme+1)*sizeof(int));
-			
+
 			for(j=0;j<nbfils;j++){
 				for(k=1;k<=SousMatriceTree[unNoeud->fils[j]->NoNoeud].nbSommet;k++) {
-					nbSommet++;	
+					nbSommet++;
 					SousMatriceTree[unNoeud->NoNoeud].Tableau[nbSommet] = SousMatriceTree[unNoeud->fils[j]->NoNoeud].Tableau[k];
 				}
 			}
@@ -1496,7 +1496,7 @@ void ParcoursArbre(struct TNoeud * unNoeud, struct DescTree * SousMatriceTree){
 
 			/*SousMatriceTree[unNoeud->NoNoeud].nbSommet = listeSommet.size();*/
 			SousMatriceTree[unNoeud->NoNoeud].nbSommet = nbSommet;
-			
+
 		}
 		else{
 
@@ -1506,7 +1506,7 @@ void ParcoursArbre(struct TNoeud * unNoeud, struct DescTree * SousMatriceTree){
 			SousMatriceTree[unNoeud->NoNoeud].nbSommet = 1;
 		}
 	}
-	
+
 }
 
 /*=======================================
@@ -1514,7 +1514,7 @@ void ParcoursArbre(struct TNoeud * unNoeud, struct DescTree * SousMatriceTree){
 //=======================================*/
 void viderArbre(struct TNoeud * A){
 	int i;
-	
+
 	if(A->nbfils != 0){
 		for(i=0; i<A->nbfils;i++){
 			viderArbre(A->fils[i]);
@@ -1533,9 +1533,9 @@ void viderArbre(struct TNoeud * A){
 //
 //=======================================*/
 void AfficherArbre(struct TNoeud * A,int prof){
-	
+
 	int i, taille;
-	
+
 	if(A != NULL){
 		if(A->nbfils== 0){
 			for(i=0;i<prof;i++) printf("  ");
@@ -1565,7 +1565,7 @@ void RechercherBipartition(long int *ARETE,double ** DIST,int P,double ** Adjace
 	int i,j,k,l,taille,plus,ns=2*n-2;
 	double ** Adjacence =(double**)malloc((2*n+1)*sizeof(double*));
 	struct TNoeud * arbre;
-	
+
 	for (i=0;i<=2*n;i++)
 		Adjacence[i]=(double*)malloc((2*n+1)*sizeof(double));
 
@@ -1576,7 +1576,7 @@ void RechercherBipartition(long int *ARETE,double ** DIST,int P,double ** Adjace
 			Adjacence[i][j] = Adjacence2[i][j];
 	i=1;
 
-	Adjacence[P][n] = Adjacence[n][P] = INFINI; 
+	Adjacence[P][n] = Adjacence[n][P] = INFINI;
 
 	arbre = CreerSousArbre(ARETE,&i,Adjacence,P,n);
 
@@ -1598,7 +1598,7 @@ void RechercherBipartition(long int *ARETE,double ** DIST,int P,double ** Adjace
         	/*if(taille == 3) plus=1;
                 else */
 					plus=1;
-			
+
             DT[i].Matrice = (double**)malloc((taille+1+plus)*sizeof(double*));
             for(j=0;j<=taille+plus;j++){
                 DT[i].Matrice[j] = (double*)malloc((taille+1+plus)*sizeof(double));
@@ -1608,7 +1608,7 @@ void RechercherBipartition(long int *ARETE,double ** DIST,int P,double ** Adjace
                     DT[i].Matrice[k][l] = DIST[DT[i].Tableau[k]][DT[i].Tableau[l]] ;
                 }
             }
-			 
+
 			for(l=1;l<=taille;l++){
 				DT[i].Matrice[taille+1][l] = DT[i].Matrice[l][taille+1] = DIST[n][DT[i].Tableau[l]];
             }
@@ -1639,13 +1639,13 @@ void trouver_3_noeuds(double ** Adjacence,int sommet,int n,int tab_noeuds[]){
 }
 
 void trouver_fils(double **Adjacence,int sommet,int parent,int tab_fils[],int n){
-	
+
 	for(int i=1;i<=2*n-2;i++){
 		if(Adjacence[sommet][i] < INFINI){
 			if(i != parent){
 				if(i<=n){
 					tab_fils[0] += 1;
-					tab_fils[tab_fils[0]] = i;	
+					tab_fils[tab_fils[0]] = i;
 				}
 				else{
 					trouver_fils(Adjacence,i,sommet,tab_fils,n);
@@ -1656,7 +1656,7 @@ void trouver_fils(double **Adjacence,int sommet,int parent,int tab_fils[],int n)
 }
 
 void creerNoeudDT(int position,double ** DIST,struct DescTree *DT, int * tab_fils_1, int * tab_fils_2){
-		
+
 		int j;
 		DT[position].Matrice = (double**)malloc((tab_fils_1[0] + tab_fils_2[0] + 1)*sizeof(double*));
 		for(j=0;j<tab_fils_1[0] + tab_fils_2[0] + 1;j++){
@@ -1676,11 +1676,11 @@ void creerNoeudDT(int position,double ** DIST,struct DescTree *DT, int * tab_fil
 }
 
 void deleteBipartitionSansRacine(struct DescTree * DT,int taille){
-	
+
 	int i,j;
-	
+
 	for(i=3*(taille+1);i<=3*(2*taille-2);i++){
-		
+
 		for(j=0;j<DT[i].Tableau[0];j++){
 			free(DT[i].Matrice[j]);
 		}
@@ -1691,7 +1691,7 @@ void deleteBipartitionSansRacine(struct DescTree * DT,int taille){
 }
 
 
-void printNoeudDT(struct DescTree *DT,int position,int n1,int n2){		
+void printNoeudDT(struct DescTree *DT,int position,int n1,int n2){
 		int j,k;
 		printf("\ncouple (%d,%d) position (%d): ",n1,n2,position);
 		for(j=1;j<=DT[position].nbSommet;j++)
@@ -1720,7 +1720,7 @@ void RechercherBipartitionAvecRacine(long int *ARETE,double ** DIST,double ** Ad
 	int tab_fils[4][n];
 	struct TNoeud * arbre;
 	int noeud_interne;
-	
+
 	for (i=0;i<=2*n;i++)
 		Adjacence[i]=(double*)malloc((2*n+1)*sizeof(double));
 
@@ -1738,7 +1738,7 @@ void RechercherBipartitionAvecRacine(long int *ARETE,double ** DIST,double ** Ad
 				// }
 		}
 	}
-	
+
 	for(i=1;i<=n;i++){
 		//= trouver le noeud interne
 		for(j=n+1;j<=2*n-2;j++){
@@ -1747,7 +1747,7 @@ void RechercherBipartitionAvecRacine(long int *ARETE,double ** DIST,double ** Ad
 			}
 		}
 		trouver_fils(Adjacence,tab_noeuds[noeud_interne],i,tab_fils[j],n);
-			
+
 		//== ensemble de feuilles possibles
 		creerNoeudDT(3*i-2,DIST,DT,tab_fils[1],tab_fils[2]);
 		//printNoeudDT(DT,3*i-2,tab_noeuds[1],tab_noeuds[2]);
@@ -1755,11 +1755,11 @@ void RechercherBipartitionAvecRacine(long int *ARETE,double ** DIST,double ** Ad
 		//printNoeudDT(DT,3*i-1,tab_noeuds[1],tab_noeuds[3]);
 		creerNoeudDT(3*i,DIST,DT,tab_fils[2],tab_fils[3]);
 		//printNoeudDT(DT,3*i,tab_noeuds[2],tab_noeuds[3]);
-			
-	}	
-			
-			
-	//== liberation de la mémoire
+
+	}
+
+
+	//== liberation de la mï¿½moire
 	for (i=0;i<=2*n;i++)
 		free(Adjacence[i]);
 	free(Adjacence);
@@ -1780,12 +1780,12 @@ void RechercherBipartitionSansRacine(long int *ARETE,double ** DIST,double ** Ad
 	int tab_fils_3[n];
 	int tab_fils[4][n];
 	struct TNoeud * arbre;
-	
+
 	for (i=0;i<=2*n;i++)
 		Adjacence[i]=(double*)malloc((2*n+1)*sizeof(double));
 
-	
-	
+
+
 	//== copie de la matrice d'adjacence
 	for(i=0;i<=2*n-2;i++){
 		//if(i>0) printf("\n%d\t",i);
@@ -1800,16 +1800,16 @@ void RechercherBipartitionSansRacine(long int *ARETE,double ** DIST,double ** Ad
 				// }
 		}
 	}
-	
+
 	for(i=n+1;i<=ns;i++){
-		//printf("\nNoeud interne %d (nb sommets=%d)",i,ns);	
-		//= trouver les 3 noeuds adjacents		
+		//printf("\nNoeud interne %d (nb sommets=%d)",i,ns);
+		//= trouver les 3 noeuds adjacents
 		trouver_3_noeuds(Adjacence,i,n,tab_noeuds);
-		//printf("\nnoeud %d : %d,%d,%d",i,tab_noeuds[1],tab_noeuds[2],tab_noeuds[3]);	
-		
+		//printf("\nnoeud %d : %d,%d,%d",i,tab_noeuds[1],tab_noeuds[2],tab_noeuds[3]);
+
 		//= trouver les feuilles pour chaque fils
 		tab_fils[1][0] = tab_fils[2][0] = tab_fils[3][0] = 0;
-		
+
 		for(j=1;j<=3;j++){
 			if(tab_noeuds[j] <= n){ tab_fils[j][0] = 1; tab_fils[j][tab_fils[j][0]] = tab_noeuds[j];}
 			trouver_fils(Adjacence,tab_noeuds[j],i,tab_fils[j],n);
@@ -1817,7 +1817,7 @@ void RechercherBipartitionSansRacine(long int *ARETE,double ** DIST,double ** Ad
 			//for(k=1;k<=tab_fils[j][0];k++)
 				//printf("%d ",tab_fils[j][k]);
 		}
-			
+
 		//== ensemble de feuilles possibles
 		creerNoeudDT(3*i-2,DIST,DT,tab_fils[1],tab_fils[2]);
 		//printNoeudDT(DT,3*i-2,tab_noeuds[1],tab_noeuds[2]);
@@ -1825,11 +1825,11 @@ void RechercherBipartitionSansRacine(long int *ARETE,double ** DIST,double ** Ad
 		//printNoeudDT(DT,3*i-1,tab_noeuds[1],tab_noeuds[3]);
 		creerNoeudDT(3*i,DIST,DT,tab_fils[2],tab_fils[3]);
 		//printNoeudDT(DT,3*i,tab_noeuds[2],tab_noeuds[3]);
-			
-	}	
-			
-			
-	//== liberation de la mémoire
+
+	}
+
+
+	//== liberation de la mï¿½moire
 	for (i=0;i<=2*n;i++)
 		free(Adjacence[i]);
 	free(Adjacence);
@@ -1894,19 +1894,19 @@ char * itoa_(int val,char *buf,int radix){
 //===============================================================================================
 int lectureNewick(const char * newick, long int * ARETE, double * LONGUEUR, char ** lesNoms, int *kt)
 {
-	int n;                                     
+	int n;
 	int cpt_x;
 	// Ce sous programme permet de lire un arbre au format newick et de le transcrire dans
-	// des vecteurs arete-longueur commencant à 1
-	// ATTENTION: les noms commencent à 0
+	// des vecteurs arete-longueur commencant ï¿½ 1
+	// ATTENTION: les noms commencent ï¿½ 0
 	// 7 octobre 2004
 	// Elmaestro
 
 	// TODO: Add your command handler code here
 	int i,j,j1,k, a, a1, a2,a3, VertexNumber,numero;
 	char symbol, *string, *string1, *string2/* *string3,c ,**Et*/;
-	int taxaPos; // le nombre de taxas recupéré
-	int aretePos; // le nombre d'aretes recupéré
+	int taxaPos; // le nombre de taxas recupï¿½rï¿½
+	int aretePos; // le nombre d'aretes recupï¿½rï¿½
 	char symbolOld =' ';
 	int zz, xx,jj,ii;
 	double longueur;
@@ -1916,7 +1916,7 @@ int lectureNewick(const char * newick, long int * ARETE, double * LONGUEUR, char
 	int temoin=0;
 	int cpt_parenthese=0;
 	//long int *ARETE;
-	//double *LONGUEUR; 	
+	//double *LONGUEUR;
 
 	//Correctness of the Newick format verification
 	i=0;
@@ -1945,41 +1945,41 @@ int lectureNewick(const char * newick, long int * ARETE, double * LONGUEUR, char
 	}
 
 	j=0;
-	do{ 
-	   symbol=newick[cpt++]; 
-	   if (symbol=='(') j++; 
+	do{
+	   symbol=newick[cpt++];
+	   if (symbol=='(') j++;
 	}while(symbol != '\0');
-	
-	cpt=0;	
+
+	cpt=0;
 	j1=0;
-	
+
 	do{
 		symbol=newick[cpt++];
-		if (symbol==')') j1++; 
-	}while(symbol != '\0');  
-	
+		if (symbol==')') j1++;
+	}while(symbol != '\0');
+
 	cpt=0;
 
-	// verification des arités de l'arbre
+	// verification des aritï¿½s de l'arbre
 	if (j1!=j) { printf("Incorrect Newick file format. Number of right parentheses must be equal to number of left parentheses."); exit(FAIL);}
 	//else if (j!=n-2) { printf("Incorrect Newick file format. Only trees with vertices of degree 1 and 3 are allowed by T-REX."); fclose (data); exit(FAIL);}
 
 	k=0;
 
-	do{ 
+	do{
 		symbol=newick[cpt++];
-		if (symbol==',') k++; 
-	}while(symbol != '\0');   
-	
+		if (symbol==',') k++;
+	}while(symbol != '\0');
+
 	cpt=0;
 	//if (k!=(n-1)) { printf("Incorrect Newick file format. Number of objects must be equal to number of commas plus 1."); fclose (data); exit(FAIL);}
 
 	a=0;
 
-	do{ 
+	do{
 		symbol=newick[cpt++];
-		if (symbol==';') a++; 
-	}while(symbol != '\0');    
+		if (symbol==';') a++;
+	}while(symbol != '\0');
 	cpt=0;
 
 	if (a==0) { printf("Incorrect Newick file format. Newick string must be followed by a ';' character."); exit(FAIL);}
@@ -1988,16 +1988,16 @@ int lectureNewick(const char * newick, long int * ARETE, double * LONGUEUR, char
 	a=0;
 	do{
 		symbol=newick[cpt++];a++;
-	}while(symbol == ' '); 
-	
+	}while(symbol == ' ');
+
 	cpt=0;
 
-	if (symbol!='(') { printf("Incorrect Newick file format. Newick string must begin with a '(' character."); exit(FAIL);}  
+	if (symbol!='(') { printf("Incorrect Newick file format. Newick string must begin with a '(' character."); exit(FAIL);}
 
 	a=0;
-	
+
 	do{ symbol=newick[cpt++];
-		if (symbol=='%') a++; 
+		if (symbol=='%') a++;
 	}while(symbol != '\0');
 
 	cpt=0;
@@ -2007,19 +2007,19 @@ int lectureNewick(const char * newick, long int * ARETE, double * LONGUEUR, char
 	do
 	{
 		symbol=newick[cpt++];
-		if ((symbol=='(')||(symbol==','))		
-		{ 
+		if ((symbol=='(')||(symbol==','))
+		{
 			symbol=newick[cpt++]; a=0;
-			if ((symbol!='(')&&(symbol!=',')&&(symbol!=';')&&(symbol!=':'))		   
-			{ 
-				cpt--; 
+			if ((symbol!='(')&&(symbol!=',')&&(symbol!=';')&&(symbol!=':'))
+			{
+				cpt--;
 				do{
 					symbol=newick[cpt++];a++;
-				}while ((symbol!=':')&&(symbol!='\0'));  
+				}while ((symbol!=':')&&(symbol!='\0'));
 			}
 			else cpt--;
-			if (a>50) { printf("Incorrect Newick file format. Names of objects must not exceed 50 characters.");  exit(FAIL);}   
-		}	
+			if (a>50) { printf("Incorrect Newick file format. Names of objects must not exceed 50 characters.");  exit(FAIL);}
+		}
 	}while(symbol != '\0');
 	cpt=0;
 
@@ -2033,35 +2033,35 @@ int lectureNewick(const char * newick, long int * ARETE, double * LONGUEUR, char
 
 	a=0;
 
-	do{		
+	do{
 		symbol=newick[cpt++];
-		if ((symbol!=' ')&&(symbol!='\n')&&(symbol!='\t')) { string[a++]=symbol; } 
-	}while(symbol !='\0'); 
+		if ((symbol!=' ')&&(symbol!='\n')&&(symbol!='\t')) { string[a++]=symbol; }
+	}while(symbol !='\0');
 
 	int boot_value;
 	int temoin3 = 0;
 	k=0; VertexNumber=n;
 	//a1 = 0;
 	//a2 = 0;
-	taxaPos =1;    // nous allons commencer à mettre les taxas à la position 1
+	taxaPos =1;    // nous allons commencer ï¿½ mettre les taxas ï¿½ la position 1
 	aretePos = 1;
 	boot_value=0;
-	
+
 	while (string[0] == '(')   // traiter toute la chaine
 	{
 		a1 = 0;
 		a2 = 0;
 		while( string[a2] != ')')  // traiter la paire () la plus profonde
 		{
-			if(string[a2] == '(') a1 = a2;  // retrouver ;a parenthèse ouvrante
+			if(string[a2] == '(') a1 = a2;  // retrouver ;a parenthï¿½se ouvrante
 			a2++;
 		}
-		
+
 
 		// a   => contient la longueur de la chaine
-		// a1  => contient le debut d'un noeud à traiter
-		// a2  => contient la fin d'un noeud à traiter
-		// a3  => délimite le noeud et sa longueur
+		// a1  => contient le debut d'un noeud ï¿½ traiter
+		// a2  => contient la fin d'un noeud ï¿½ traiter
+		// a3  => dï¿½limite le noeud et sa longueur
 
 		zz = a1+1;
 		VertexNumber++;  // augmenter le nombre de noeuds
@@ -2081,12 +2081,12 @@ int lectureNewick(const char * newick, long int * ARETE, double * LONGUEUR, char
 					{
 						if(string[jj] == '|')
 							break;
-						string1[xx++] = string[jj]; 
+						string1[xx++] = string[jj];
 					}
 					temoin3=1;
 					string1[xx++] = '\0';
 					numero = atoi(string1);
-					
+
 					if(string[jj] == '|' ){
 						boot_value=1;
 						cpt_x=0;
@@ -2095,11 +2095,11 @@ int lectureNewick(const char * newick, long int * ARETE, double * LONGUEUR, char
 							string4[cpt_x++] = string[jj++];
 						string4[cpt_x] = '\0';
 					}
-					
+
 				}
 				else
 				{
-					// on recupère le nom du taxa
+					// on recupï¿½re le nom du taxa
 
 					for(jj = zz; jj < ii; jj++)
 					{
@@ -2117,7 +2117,7 @@ int lectureNewick(const char * newick, long int * ARETE, double * LONGUEUR, char
 				zz = ii +1;   // faire pointer sur le prochain noeud
 				for ( jj = a3; jj < ii; jj++)
 				{
-					string1[xx++] = string[jj]; 
+					string1[xx++] = string[jj];
 				}
 				string1[xx++] = '\0';
 				longueur = atof(string1);
@@ -2147,26 +2147,26 @@ int lectureNewick(const char * newick, long int * ARETE, double * LONGUEUR, char
 		{string2[xx++] = string1[jj];}
 
 		int temoin=0;
-		
+
 		// transcrire la fin
 		for( jj = a2+1; jj <= a; jj++)  // il faut voir si c'est  <= a ou c < a
 		{
 			if(string[jj] != ':' && temoin==0){
-				string2[xx++] = '|';	
+				string2[xx++] = '|';
 			}
 			temoin = 1;
 			//if(temoin==1)
 				string2[xx++] = string[jj];
-			
+
 		}
 
 		// remplacer string par string2 en remplacant les pointeurs
-		
+
 		tempString = string;
 		string = string2;
 		string2 = tempString;
 		tempString = 0;
-		a = xx;  // mettre la longueur à jour 
+		a = xx;  // mettre la longueur ï¿½ jour
 
 	} // fin du while pour traiter toute la string
 
@@ -2198,20 +2198,20 @@ int lectureNewick(const char * newick, long int * ARETE, double * LONGUEUR, char
 	for(i=1;i<=2*n-3;i++){
 		printf("\n%d-->%d",i,tableau[i]);
 	}*/
-	
+
 	i=n+1;
 	while(tableau[i] > 0){
-		
+
 		if(tableau[i] == 2) deg2 = i;
 		if(tableau[i] == 1) deg1 = i;
 		i++;
 	}
-	
+
 	int pos_racine=-1;
-	
+
 	for(i=1;i<=2*n-3;i++){
-		if(ARETE[2*i-1] == deg1){ ARETE[2*i-1] = deg2; pos_racine=i; break;} 
-		if(ARETE[2*i-2] == deg1){ ARETE[2*i-2] = deg2; pos_racine=i; break;} 
+		if(ARETE[2*i-1] == deg1){ ARETE[2*i-1] = deg2; pos_racine=i; break;}
+		if(ARETE[2*i-2] == deg1){ ARETE[2*i-2] = deg2; pos_racine=i; break;}
 	}
     if(pos_racine != -1){
         LONGUEUR[pos_racine-1] = 1000000;
@@ -2229,8 +2229,8 @@ int lectureNewick(const char * newick, long int * ARETE, double * LONGUEUR, char
 	//free(string3);
 
 	(*kt) = 2*n-3 - (*kt);
-    
-    
+
+
 	return pos_racine;
 
 }
@@ -2240,26 +2240,26 @@ int lectureNewick(const char * newick, long int * ARETE, double * LONGUEUR, char
 //===============================================================================================
 int lectureNewick1(const char * newick, long int * ARETE, double * LONGUEUR, char ** lesNoms)
 {
-	int n;                                     
+	int n;
 
 	// Ce sous programme permet de lire un arbre au format newick et de le transcrire dans
-	// des vecteurs arete-longueur commencant à 1
-	// ATTENTION: les noms commencent à 0
+	// des vecteurs arete-longueur commencant ï¿½ 1
+	// ATTENTION: les noms commencent ï¿½ 0
 	// 7 octobre 2004
 	// Elmaestro
 
 	// TODO: Add your command handler code here
 	int i,j,j1,k, a, a1, a2,a3, VertexNumber,numero;
 	char symbol, *string, *string1, *string2/* *string3,c ,**Et*/;
-	int taxaPos; // le nombre de taxas recupéré
-	int aretePos; // le nombre d'aretes recupéré
+	int taxaPos; // le nombre de taxas recupï¿½rï¿½
+	int aretePos; // le nombre d'aretes recupï¿½rï¿½
 	char symbolOld =' ';
 	int zz, xx,jj,ii;
 	double longueur;
 	char * tempString;
 	int cpt=0;
 	//long int *ARETE;
-	//double *LONGUEUR; 	
+	//double *LONGUEUR;
 
 	//Correctness of the Newick format verification
 	i=0;
@@ -2278,41 +2278,41 @@ int lectureNewick1(const char * newick, long int * ARETE, double * LONGUEUR, cha
 	if (i == 0) { printf("Incorrect Newick file format. Edge lengths must be indicated after a ':' characters."); exit(FAIL);}
 
 	j=0;
-	do{ 
-	   symbol=newick[cpt++]; 
-	   if (symbol=='(') j++; 
+	do{
+	   symbol=newick[cpt++];
+	   if (symbol=='(') j++;
 	}while(symbol != '\0');
-	
-	cpt=0;	
+
+	cpt=0;
 	j1=0;
-	
+
 	do{
 		symbol=newick[cpt++];
-		if (symbol==')') j1++; 
-	}while(symbol != '\0');  
-	
+		if (symbol==')') j1++;
+	}while(symbol != '\0');
+
 	cpt=0;
 
-	// verification des arités de l'arbre
+	// verification des aritï¿½s de l'arbre
 	if (j1!=j) { printf("Incorrect Newick file format. Number of right parentheses must be equal to number of left parentheses."); exit(FAIL);}
 	//else if (j!=n-2) { printf("Incorrect Newick file format. Only trees with vertices of degree 1 and 3 are allowed by T-REX."); fclose (data); exit(FAIL);}
 
 	k=0;
 
-	do{ 
+	do{
 		symbol=newick[cpt++];
-		if (symbol==',') k++; 
-	}while(symbol != '\0');   
-	
+		if (symbol==',') k++;
+	}while(symbol != '\0');
+
 	cpt=0;
 	//if (k!=(n-1)) { printf("Incorrect Newick file format. Number of objects must be equal to number of commas plus 1."); fclose (data); exit(FAIL);}
 
 	a=0;
 
-	do{ 
+	do{
 		symbol=newick[cpt++];
-		if (symbol==';') a++; 
-	}while(symbol != '\0');    
+		if (symbol==';') a++;
+	}while(symbol != '\0');
 	cpt=0;
 
 	if (a==0) { printf("Incorrect Newick file format. Newick string must be followed by a ';' character."); exit(FAIL);}
@@ -2321,16 +2321,16 @@ int lectureNewick1(const char * newick, long int * ARETE, double * LONGUEUR, cha
 	a=0;
 	do{
 		symbol=newick[cpt++];a++;
-	}while(symbol == ' '); 
-	
+	}while(symbol == ' ');
+
 	cpt=0;
 
-	if (symbol!='(') { printf("Incorrect Newick file format. Newick string must begin with a '(' character."); exit(FAIL);}  
+	if (symbol!='(') { printf("Incorrect Newick file format. Newick string must begin with a '(' character."); exit(FAIL);}
 
 	a=0;
-	
+
 	do{ symbol=newick[cpt++];
-		if (symbol=='%') a++; 
+		if (symbol=='%') a++;
 	}while(symbol != '\0');
 
 	cpt=0;
@@ -2340,19 +2340,19 @@ int lectureNewick1(const char * newick, long int * ARETE, double * LONGUEUR, cha
 	do
 	{
 		symbol=newick[cpt++];
-		if ((symbol=='(')||(symbol==','))		
-		{ 
+		if ((symbol=='(')||(symbol==','))
+		{
 			symbol=newick[cpt++]; a=0;
-			if ((symbol!='(')&&(symbol!=',')&&(symbol!=';')&&(symbol!=':'))		   
-			{ 
-				cpt--; 
+			if ((symbol!='(')&&(symbol!=',')&&(symbol!=';')&&(symbol!=':'))
+			{
+				cpt--;
 				do{
 					symbol=newick[cpt++];a++;
-				}while ((symbol!=':')&&(symbol!='\0'));  
+				}while ((symbol!=':')&&(symbol!='\0'));
 			}
 			else cpt--;
-			if (a>50) { printf("Incorrect Newick file format. Names of objects must not exceed 50 characters.");  exit(FAIL);}   
-		}	
+			if (a>50) { printf("Incorrect Newick file format. Names of objects must not exceed 50 characters.");  exit(FAIL);}
+		}
 	}while(symbol != '\0');
 	cpt=0;
 
@@ -2366,15 +2366,15 @@ int lectureNewick1(const char * newick, long int * ARETE, double * LONGUEUR, cha
 
 	a=0;
 
-	do{		
+	do{
 		symbol=newick[cpt++];
-		if ((symbol!=' ')&&(symbol!='\n')&&(symbol!='\t')) { string[a++]=symbol; } 
-	}while(symbol !='\0'); 
+		if ((symbol!=' ')&&(symbol!='\n')&&(symbol!='\t')) { string[a++]=symbol; }
+	}while(symbol !='\0');
 
 	k=0; VertexNumber=n;
 	//a1 = 0;
 	//a2 = 0;
-	taxaPos =1;    // nous allons commencer à mettre les taxas à la position 1
+	taxaPos =1;    // nous allons commencer ï¿½ mettre les taxas ï¿½ la position 1
 	aretePos = 1;
 	while (string[0] == '(')   // traiter toute la chaine
 	{
@@ -2382,15 +2382,15 @@ int lectureNewick1(const char * newick, long int * ARETE, double * LONGUEUR, cha
 		a2 = 0;
 		while( string[a2] != ')')  // traiter la paire () la plus profonde
 		{
-			if(string[a2] == '(') a1 = a2;  // retrouver ;a parenthèse ouvrante
+			if(string[a2] == '(') a1 = a2;  // retrouver ;a parenthï¿½se ouvrante
 			a2++;
 		}
-		
+
 
 		// a   => contient la longueur de la chaine
-		// a1  => contient le debut d'un noeud à traiter
-		// a2  => contient la fin d'un noeud à traiter
-		// a3  => délimite le noeud et sa longueur
+		// a1  => contient le debut d'un noeud ï¿½ traiter
+		// a2  => contient la fin d'un noeud ï¿½ traiter
+		// a3  => dï¿½limite le noeud et sa longueur
 
 		zz = a1+1;
 		VertexNumber++;  // augmenter le nombre de noeuds
@@ -2407,14 +2407,14 @@ int lectureNewick1(const char * newick, long int * ARETE, double * LONGUEUR, cha
 
 					for ( jj = zz+1; jj < ii; jj++)
 					{
-						string1[xx++] = string[jj]; 
+						string1[xx++] = string[jj];
 					}
 					string1[xx++] = '\0';
 					numero = atoi(string1);
 				}
 				else
 				{
-					// on recupère le nom du taxa
+					// on recupï¿½re le nom du taxa
 
 					for(jj = zz; jj < ii; jj++)
 					{
@@ -2432,7 +2432,7 @@ int lectureNewick1(const char * newick, long int * ARETE, double * LONGUEUR, cha
 				zz = ii +1;   // faire pointer sur le prochain noeud
 				for ( jj = a3; jj < ii; jj++)
 				{
-					string1[xx++] = string[jj]; 
+					string1[xx++] = string[jj];
 				}
 				string1[xx++] = '\0';
 				longueur = atof(string1);
@@ -2461,12 +2461,12 @@ int lectureNewick1(const char * newick, long int * ARETE, double * LONGUEUR, cha
 		{string2[xx++] = string[jj];}
 
 		// remplacer string par string2 en remplacant les pointeurs
-		
+
 		tempString = string;
 		string = string2;
 		string2 = tempString;
 		tempString = 0;
-		a = xx;  // mettre la longueur à jour 
+		a = xx;  // mettre la longueur ï¿½ jour
 
 	} // fin du while pour traiter toute la string
 
@@ -2497,13 +2497,13 @@ int lectureNewick1(const char * newick, long int * ARETE, double * LONGUEUR, cha
 void filtrerMatrice(double **dissSpecies, double **dissGene, char **nomsSpecies, char **nomsGene,int nbSpecies, int nbGene){
 
 		int i,j,temoin;
-		
+
 		for(i=1;i<=nbSpecies;i++){
 			//printf("\n%s -",nomsSpecies[i]);
 			temoin = 0;
 			for(j=1;j<=nbGene;j++){
 				//printf(" %s",nomsGene[j]);
-				if(strcmp(nomsSpecies[i],nomsGene[j])==0)
+				if(strcmp(nomsSpecies[i],nomsGene[j])==0 || strcmp(nomsSpecies[i],"Root")==0)
 					temoin=1;
 			}
 			if(temoin == 0){
@@ -2520,8 +2520,8 @@ void filtrerMatrice(double **dissSpecies, double **dissGene, char **nomsSpecies,
 			temoin = 0;
 			for(j=1;j<=nbSpecies;j++){
 			//	printf(" %s",nomsSpecies[j]);
-			//	if(strlen(nomsSpecies[j]) > 1) 
-					if(strcmp(nomsSpecies[j],nomsGene[i])==0)
+			//	if(strlen(nomsSpecies[j]) > 1)
+					if(strcmp(nomsSpecies[j],nomsGene[i])==0 || strcmp(nomsGene[i],"Root")==0)
 						temoin=1;
 			}
 			if(temoin == 0){
@@ -2531,16 +2531,16 @@ void filtrerMatrice(double **dissSpecies, double **dissGene, char **nomsSpecies,
 				}
 				strcpy(nomsGene[i],"");
 			}
-		}	
+		}
 }
 
 //== ecrire la matrice dans le fichier output
 int ecrireMatrice(double **mat,const char *outfile,int taille,char **noms){
 	int i,j,finalTaille;
 	FILE *out;
-	
+
 	finalTaille=0;
-	
+
 	/*for(i=1;i<=taille;i++)
 		if(mat[1][i] != -1)
 			finalTaille = finalTaille+1;*/
@@ -2583,7 +2583,7 @@ void ajouterMatriceGene(double **mat,const char *outfile,int taille,char **noms)
 		exit(-1);
 	}
 	else{
-		fprintf(out,"\n");
+		fprintf(out,"\n%d",taille);
 		for(i=1;i<=taille;i++){
 		if(strcmp(noms[i],"") != 0){  //if(strlen(noms[i]) > 1){
 				fprintf(out,"\n%s",noms[i]);
@@ -2601,7 +2601,7 @@ void ajouterMatriceGene(double **mat,const char *outfile,int taille,char **noms)
 * du nom des especes de la 1ere matrice
 * DISS: matrice du gene
 * NomsDISS: tableau des noms des especes de la matrice de gene
-* NomsADD: tableau contenant le noms des especes de la matrice d'especes 
+* NomsADD: tableau contenant le noms des especes de la matrice d'especes
 *************************************************************************/
 void sortMatrices(double **DISS,char **NomsDISS,char **NomsADD,int n)
 {
@@ -2638,7 +2638,7 @@ void sortMatrices(double **DISS,char **NomsDISS,char **NomsADD,int n)
 		if(trouve==0)
 		{
 			printf("\n%s %s",noms,"is not in the gene matrix.This program must stop");
-			exit (-1);	
+			exit (-1);
 		}
 	}
 
@@ -2712,7 +2712,7 @@ void CalculerBootARETE(int *BSARETE,double **DISTG,double **DISS,int n){
 
 			if(val == n){
 				BSARETE[i] = BSARETE[i] + 1;
-			}	
+			}
 		}
 	}
 
@@ -2720,7 +2720,7 @@ void CalculerBootARETE(int *BSARETE,double **DISTG,double **DISS,int n){
 	for(i=1;i<=2*n-3;i++){
 	printf("\n%d :",i );
 	for(j=1;j<=n;j++){
-	printf("%d",B[i][j]);		
+	printf("%d",B[i][j]);
 	}
 	}*/
 	for(i=0;i<=2*n-2;i++){
@@ -2729,50 +2729,50 @@ void CalculerBootARETE(int *BSARETE,double **DISTG,double **DISS,int n){
 	free(B);free(BI);free(PLACE);free(PLACEI);
 }
 
-void SAVEASNewick(double *LONGUEUR, long int *ARETE, char ** noms, int nn, int kt,const char* t) 
+void SAVEASNewick(double *LONGUEUR, long int *ARETE, char ** noms, int nn, int kt,const char* t)
 {
 	int n,root,a;
 	int Ns;
 	int i, j, sd, sf, *Suc, *Fre, *Tree, *degre, *Mark;
 	double *Long;
-	int *boot; 
-	char *string = (char*)malloc(10000);	
+	int *boot;
+	char *string = (char*)malloc(10000);
 	n = nn;
 	Ns=2*n-3;
-	
+
 	double * bootStrap= NULL;
-	
+
 	Suc =(int*) malloc((4*n) * sizeof(int));
 	Fre =(int*) malloc((4*n) * sizeof(int));
 	degre =(int*) malloc((4*n) * sizeof(int));
-	Long = (double*) malloc((4*n) * sizeof(double));	
+	Long = (double*) malloc((4*n) * sizeof(double));
 	boot = (int*) malloc((4*n) * sizeof(int));
 	Tree = (int*) malloc((4*n) * sizeof(int));
 	Mark =(int*) malloc((4*n) * sizeof(int));
-	
-	if ((degre==NULL)||(Mark==NULL)||(string==NULL)||(Suc==NULL)||(Fre==NULL)||(Long==NULL)||(Tree==NULL)||(ARETE==NULL)||(LONGUEUR==NULL))	
-		{ printf("Tree is too large to be saved"); return;} 
-	
+
+	if ((degre==NULL)||(Mark==NULL)||(string==NULL)||(Suc==NULL)||(Fre==NULL)||(Long==NULL)||(Tree==NULL)||(ARETE==NULL)||(LONGUEUR==NULL))
+		{ printf("Tree is too large to be saved"); return;}
+
   for(i=1;i<=2*n;i++)
    degre[i]=0;
-  
-  printf("\nkt=%d,n=%d",kt,n);
+
+  //printf("\nkt=%d,n=%d",kt,n);
 	for(i=1;i<=2*n-3-kt;i++){
-      printf("\n%d => %ld--%ld : %lf",i,ARETE[2*i-1], ARETE[2*i-2], LONGUEUR[i-1]);
+      //printf("\n%d => %ld--%ld : %lf",i,ARETE[2*i-1], ARETE[2*i-2], LONGUEUR[i-1]);
       degre[ARETE[2*i-1]]++;
       degre[ARETE[2*i-2]]++;
   	//if (i<=n) degre[i]=1;
 		//else degre[i]=3;
-	} 
+	}
   //degre[2*n-2]=3;
-	
-  for(i=1;i<=2*n-2-kt;i++)
-    printf("\n%d-%d",i,degre[i]);
+
+  //for(i=1;i<=2*n-2-kt;i++)
+  //  printf("\n%d-%d",i,degre[i]);
 
 	root=Ns+1;
-	
+
 	int cpt=0;
-	
+
 
 	for (;;)
 	{
@@ -2786,16 +2786,16 @@ void SAVEASNewick(double *LONGUEUR, long int *ARETE, char ** noms, int nn, int k
 		// printf("\n for2 !!");
 
 		for (i=1;i<=2*n-3-kt;i++)
-		{  
+		{
       //printf("\nOn et dans la for !!");
-	  									
+
 			if ((degre[ARETE[2*i-2]]==1)&&(degre[ARETE[2*i-1]]>1)&&(Mark[ARETE[2*i-1]]==0)&&(Mark[ARETE[2*i-2]]==0))
 		{
         //printf("\n1");
 				Tree[ARETE[2*i-2]]=ARETE[2*i-1]; degre[ARETE[2*i-1]]--; degre[ARETE[2*i-2]]--; Mark[ARETE[2*i-1]]=1; Mark[ARETE[2*i-2]]=1;
 				Long[ARETE[2*i-2]]=LONGUEUR[i-1];
 				if(bootStrap != NULL) boot[ARETE[2*i-2]] = (int) bootStrap[i-1];
-				
+
 			}
 			else if ((degre[ARETE[2*i-1]]==1)&&(degre[ARETE[2*i-2]]>1)&&(Mark[ARETE[2*i-1]]==0)&&(Mark[ARETE[2*i-2]]==0))
 			{
@@ -2803,7 +2803,7 @@ void SAVEASNewick(double *LONGUEUR, long int *ARETE, char ** noms, int nn, int k
 				Tree[ARETE[2*i-1]]=ARETE[2*i-2]; degre[ARETE[2*i-1]]--; degre[ARETE[2*i-2]]--; Mark[ARETE[2*i-1]]=1; Mark[ARETE[2*i-2]]=1;
 				Long[ARETE[2*i-1]]=LONGUEUR[i-1];
 				if(bootStrap != NULL) boot[ARETE[2*i-1]] = (int) bootStrap[i-1];
-				
+
 			}
 			else if ((degre[ARETE[2*i-2]]==1)&&(degre[ARETE[2*i-1]]==1)&&(Mark[ARETE[2*i-2]]==0)&&(Mark[ARETE[2*i-1]]==0))
 			{
@@ -2816,35 +2816,35 @@ void SAVEASNewick(double *LONGUEUR, long int *ARETE, char ** noms, int nn, int k
 		}
 		if (a==-1) break;
 	}
-	
-	
+
+
 	/*  On decale et on complete la structure d'arbre avec Successeurs et Freres  */
 	for (i=Ns+1;i>0;i--)
 	{ 	Fre[i]=0; Suc[i]=0;
 		//Tree[i]=Tree[i-1]+1; Long[i]=Long[i-1];
 	}	Tree[root]=0;/*Tree[Ns+1]=0;*/
-	
+
 	for (i=1;i<=Ns+1/*Ns*/;i++)
-	{	
-		if (i!=root) 
+	{
+		if (i!=root)
 		{
 			sd=i; sf=Tree[i];
 			if (Suc[sf]==0) Suc[sf]=sd;
-			else {	
+			else {
 				sf=Suc[sf];
 				while (Fre[sf]>0) sf=Fre[sf];
 				Fre[sf]=sd;
-			}		 
+			}
 		}
 	}
-	
+
 	/* On compose la chaine parenthesee */
 	string[0]=0; i=root;/*i=Ns+1;*/
 	cpt=0;
 	for (;;)
-	{	
+	{
 		if(cpt > 1000000) exit(1);
-		
+
 		if (Suc[i]>0)
 		{	sprintf(string,"%s(",string);
 		Suc[i]=-Suc[i]; i=-Suc[i]; }
@@ -2867,13 +2867,13 @@ void SAVEASNewick(double *LONGUEUR, long int *ARETE, char ** noms, int nn, int k
 			}
 		i=Tree[i]; }
 		else break;
-	}	
+	}
 	strcat(string,";");
-	
+
 	FILE *pt_t = fopen(t,"w+");
 	fprintf(pt_t,"%s",string);
 	fclose(pt_t);
- 
-	
+
+
 	free(Suc); free(Fre); free(Tree); free(Long); free(degre); free(Mark);	free(string);
 }

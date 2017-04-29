@@ -355,7 +355,7 @@ void addLeafAndUpdate(struct InputTree *aTree, int choix){
 
 	aTree->ARETE[2*choix-1] = n+1;
 	aTree->ARETE[2*choix-2] = 2*n-aTree->kt;
-	aTree->LONGUEUR[choix-1]= 5*epsilon;
+	aTree->LONGUEUR[choix-1]= 5*epsilon + 1.0;
 
 	aTree->size = aTree->size+1;
 
@@ -2029,7 +2029,7 @@ void readMatrix(FILE *in,struct InputTree *aTree){
 //===================================================================================================================
 //
 //===================================================================================================================
-int readInputFile(FILE *in, const char *tmpFile){
+int readInputFile(FILE *in, const char *tmpFile,bool addroot){
 
 	char *newick;
 	struct InputTree speciesTree_t;
@@ -2065,18 +2065,12 @@ int readInputFile(FILE *in, const char *tmpFile){
 	}
 	else
 		readMatrix(in,&geneTree_t);
-	//printf("%d--%d",speciesTree_t.size,geneTree_t.size);
-	/*for(int i=1;i<=speciesTree_t.size;i++){
-			printf("\n%s\t",speciesTree_t.SpeciesName[i]);
-			for(int j=1;j<=speciesTree_t.size;j++){
-				printf("%lf ",speciesTree_t.Input[i][j]);
-			}
-		}
-	printf("\n");printf("\n");
 
-	printf("\n");printf("\n");*/
-	filtrerMatrice(speciesTree_t.Input,geneTree_t.Input,speciesTree_t.SpeciesName,geneTree_t.SpeciesName,speciesTree_t.size,geneTree_t.size);
-	//printf("%d--%d",speciesTree_t.size,geneTree_t.size);
+	if (!addroot){
+    printf("not addroot");
+    filtrerMatrice(speciesTree_t.Input,geneTree_t.Input,speciesTree_t.SpeciesName,geneTree_t.SpeciesName,speciesTree_t.size,geneTree_t.size);
+  }
+  //printf("%d--%d",speciesTree_t.size,geneTree_t.size);
 	if(ecrireMatrice(speciesTree_t.Input,tmpFile,speciesTree_t.size,speciesTree_t.SpeciesName) == -1)
 		return -2;
 	ajouterMatriceGene(geneTree_t.Input,tmpFile,geneTree_t.size,geneTree_t.SpeciesName);
@@ -3850,11 +3844,40 @@ int readInput(int Type, const char *file,struct InputTree * aTree){
 			if(Type == SPECIE) aTree->Input[i][j] = val;
 		}
 	}
-
+  if(Type == SPECIE) {
+    strcpy(aTree->SpeciesName[size+1],"Root");
+  	fclose(in);
+    return 0;
+  }
 	//= read gene tree
+  fscanf(in,"%d",&size);
+
+	//= allocation de la m�moire
+	//allocMemmory(aTree,1);
+	aTree->size = size;
+	size++; // more space for the root
+	aTree->SpeciesName = (char **)malloc((size+1)*sizeof(char*));
+	aTree->Input = (double**)malloc((2*size)*sizeof(double*));
+	aTree->ADD = (double**)malloc((2*size)*sizeof(double*));
+	aTree->W = (double**)malloc((size+1)*sizeof(double*));
+	for(i=0;i<2*size;i++){
+		aTree->ADD[i] = (double*)malloc((2*size)*sizeof(double));
+		aTree->Input[i] = (double*)malloc((2*size)*sizeof(double));
+		if(i<=size){
+			aTree->SpeciesName[i] = (char*)malloc(SPECIES_NAME_LENGTH);
+			aTree->W[i] = (double*)malloc((size+1)*sizeof(double));
+		}
+	}
+
+	for(i=0;i<=size;i++)
+		for(j=0;j<=size;j++)
+			aTree->W[i][j] = 1.0;
+
+	size--;
 	for(i=1;i<=size;i++)
 	{
 		fscanf(in,"%s",name);
+    printf("->%s",name);
 		if(Type == GENE) strcpy(aTree->SpeciesName[i],name);
 		for(j=1;j<=size;j++)
 		{
@@ -3983,6 +4006,7 @@ int readParameters(struct Parameters * param, char **argv, int nargc){
 	sprintf((*param).scenario,"unique");
 	sprintf((*param).subtree,"yes");
 	sprintf((*param).bootstrap,"no");
+  sprintf((*param).addroot,"no");
   (*param).constraints = 0;	//= 0 : pas de contraintes
 	(*param).nbhgt = 50;
 	(*param).bootmin = 0;
@@ -4061,6 +4085,10 @@ int readParameters(struct Parameters * param, char **argv, int nargc){
 			//============ subtree ===========
 			else if(strcmp("subtree",champs) == 0){
 				strcpy((*param).subtree,contenu);
+			}
+      //============ addRoot ===========
+			else if(strcmp("addroot",champs) == 0){
+				strcpy((*param).addroot,contenu);
 			}
 			//============ scenario ===========
 			else if(strcmp("scenario",champs) == 0){
