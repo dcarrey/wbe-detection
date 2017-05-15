@@ -757,7 +757,7 @@ int main(int nargc,char **argv){
 					char cmd[1000];
           char buffer[100];
           bool outgroupFound = false;
-          sprintf(cmd,"perl ageWBE.pl langues.new _src_ "); //, param.inputfile);
+          sprintf(cmd,"perl ageWBE.pl _wbe_languages.new _src_ "); //, param.inputfile);
           for(int m=1;m<=bestHGT[cpt_hgt].listSource[0];m++){
 						printf("%s ",SpeciesTree.SpeciesName[bestHGT[cpt_hgt].listSource[m]]);
             if(strcmp(SpeciesTree.SpeciesName[bestHGT[cpt_hgt].listSource[m]],"outgroup") == 0)
