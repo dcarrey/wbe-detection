@@ -20,6 +20,8 @@ struct Parameters{
 	char speciesTree[200];
 	char geneTree[200];
 	char speciesRootfile[200];
+	char speciesRootfileLeaves[200];
+	char geneRootfileLeaves[200];
 	char geneRootfile[200];
 	char speciesTreeWeb[200];
 	char geneTreeWeb[200];

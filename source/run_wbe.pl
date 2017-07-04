@@ -76,7 +76,10 @@ save_to_file($translations,$translationsFile);
 
 #=== ADD ROOT TO TREES ===
 $cmd = "./hgt  -inputfile=$tmp_input -addroot=yes -speciesroot=midpoint -generoot=midpoint > $logFile";
+
 execute_hgt($cmd);
+
+
 $wordTree = getTree("_wbe_word.new","");
 
 save_to_file($languageTree . "\n" . $wordTree, $tmp_input);
@@ -84,7 +87,7 @@ save_to_file($languageTree . "\n" . $wordTree, $tmp_input);
 #===========================================================================
 #======================== EXECUTION DU PROGRAMME ===========================
 #===========================================================================
-$cmd = "./hgt  -inputfile=$tmp_input -outputfile=$outputFile -translationsfile=$translationsFile -constraints=3 -blk=$blk -c1=$c1 -c2=$c2 -speciesroot=midpoint -generoot=midpoint >> $logFile";
+$cmd = "./hgt  -inputfile=$tmp_input -outputfile=$outputFile -translationsfile=$translationsFile -constraints=3 -blk=$blk -c1=$c1 -c2=$c2 -speciesroot=midpoint -generoot=file >> $logFile";
 
 #print STDERR "\nPERL : $cmd";
 execute_hgt($cmd);

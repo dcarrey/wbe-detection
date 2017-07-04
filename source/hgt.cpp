@@ -161,7 +161,6 @@ int main(int nargc,char **argv){
 	if(readInput(GENE,param.input,&GeneTree) == -1){ printf("\nError in gene tree\n"); exit(-1);}
 
 	if(strcmp(param.addroot,"yes") == 0){
-		printf("\nICIT\n");
 		NJ(SpeciesTree.Input,SpeciesTree.ADD,SpeciesTree.size);
 		NJ(GeneTree.Input,GeneTree.ADD,GeneTree.size);
 
@@ -180,8 +179,8 @@ int main(int nargc,char **argv){
 	    if(strcmp(GeneTree.SpeciesName[i],"Root") == 0)
 	       GeneTree.Root = i;
 	  }
-		if(SpeciesTree.Root == -1) addRoot(&SpeciesTree,NULL,SpeciesBranch,param.speciesroot,param.speciesRootfile,NULL);
-		if(GeneTree.Root == -1) addRoot(&GeneTree,NULL,GeneBranch,param.generoot,param.geneRootfile,NULL);
+		if(SpeciesTree.Root == -1) addRoot(&SpeciesTree,NULL,SpeciesBranch,param.speciesroot,param.speciesRootfile,param.speciesRootfileLeaves,NULL);
+		if(GeneTree.Root == -1) addRoot(&GeneTree,NULL,GeneBranch,param.generoot,param.geneRootfile,param.geneRootfileLeaves,NULL);
 
 		SAVEASNewick(SpeciesTree.LONGUEUR, SpeciesTree.ARETE, SpeciesTree.SpeciesName, SpeciesTree.size, SpeciesTree.kt, "_wbe_languages.new") ;
 		SAVEASNewick(GeneTree.LONGUEUR, GeneTree.ARETE, GeneTree.SpeciesName, GeneTree.size, GeneTree.kt, "_wbe_word.new") ;

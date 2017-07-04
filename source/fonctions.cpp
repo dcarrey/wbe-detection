@@ -586,21 +586,21 @@ void SAVEASNewick(double *LONGUEUR, long int *ARETE,int nn,const char* t)
 		{	sprintf(string,"%s(",string);
 		Suc[i]=-Suc[i]; i=-Suc[i]; }
 		else if (Fre[i]!=0)
-		{	if (Suc[i]==0) sprintf(string,"%s%d:%.4f,",string,i,Long[i]);
+		{	if (Suc[i]==0) sprintf(string,"%s%d:%.5f,",string,i,Long[i]);
 			else {
 				if(bootStrap != NULL)
-					sprintf(string,"%s%d:%.4f,",string,boot[i],Long[i]);
+					sprintf(string,"%s%d:%.5f,",string,boot[i],Long[i]);
 				else
-					sprintf(string,"%s:%.4f,",string,Long[i]);
+					sprintf(string,"%s:%.5f,",string,Long[i]);
 			}
 		i=Fre[i]; }
 		else if (Tree[i]!=0)
-		{	if (Suc[i]==0) sprintf(string,"%s%d:%.4f)",string,i,Long[i]);
+		{	if (Suc[i]==0) sprintf(string,"%s%d:%.5f)",string,i,Long[i]);
 		else {
 			if(bootStrap != NULL)
-				sprintf(string,"%s%d:%.4f)",string,boot[i],Long[i]);
+				sprintf(string,"%s%d:%.5f)",string,boot[i],Long[i]);
 			else
-				sprintf(string,"%s:%.4f)",string,Long[i]);
+				sprintf(string,"%s:%.5f)",string,Long[i]);
 			}
 		i=Tree[i]; }
 		else break;
@@ -611,7 +611,6 @@ void SAVEASNewick(double *LONGUEUR, long int *ARETE,int nn,const char* t)
 	fprintf(pt_t,"%s",string);
 	fclose(pt_t);
 
-  printf("\nOn et ici a la fin !!");
 	free(Suc); free(Fre); free(Tree); free(Long); free(degre); free(Mark);	free(string);
 }
 
@@ -679,6 +678,30 @@ void printRoot(char *fichier, int R1, int R2){
 	}
 	fprintf(out,"%d %d",R1,R2);
 	fclose(out);
+}
+
+void printRootByLeaves(char *fichier,int choix,struct InputTree *aTree){
+
+	FILE *out;
+	int i;
+  printf("\nprintRootByLeaves (%s)",fichier);
+	if((out=fopen(fichier,"w+"))==NULL){
+		printf("\nCan't open root file (%s)",fichier);
+		exit(-1);
+	}
+
+	for(i=1;i<=aTree->size;i++)
+		if(aTree->ADD[i][aTree->ARETE[2*choix-1]] < aTree->ADD[i][aTree->ARETE[2*choix-2]])
+			fprintf(out,"%s ",aTree->SpeciesName[i]);
+
+	fprintf(out,"\n<>\n");
+
+	for(i=1;i<=aTree->size;i++)
+		if(aTree->ADD[i][aTree->ARETE[2*choix-1]] > aTree->ADD[i][aTree->ARETE[2*choix-2]])
+			fprintf(out,"%s ",aTree->SpeciesName[i]);
+
+	fclose(out);
+
 }
 
 //=====================================================
@@ -3663,8 +3686,21 @@ int addRootByNoBranch(struct InputTree *aTree,int noBranch){
 	return 0;
 }
 
+bool file_exists(const char * filename)
+{
+	FILE *file;
 
-int addRoot(struct InputTree *aTree,struct InputTree *refTree,const char * message, const char * add,char *fichier,int * listLeaves){
+    if ((file=fopen(filename, "r"))==NULL)
+    {
+		return false;
+    }
+	else{
+        fclose(file);
+        return true;
+	}
+}
+
+int addRoot(struct InputTree *aTree,struct InputTree *refTree,const char * message, const char * add,char *fichier,char *fichier_leaves,int * listLeaves){
 
 	int choix=-1,choix2=-1;
 	FILE *in;
@@ -3681,16 +3717,58 @@ int addRoot(struct InputTree *aTree,struct InputTree *refTree,const char * messa
 		}
 	}
 	else if(strcmp(add,"file") == 0 ){
-		if((in=fopen(fichier,"r"))==NULL){
-			printf("\nCan't open root file (%s)",fichier);
-			exit(-1);
-		}
-		fscanf(in,"%d %d",&R1,&R2);
-		for(i=1;i<=2*aTree->size-3-aTree->kt;i++){
-			if((aTree->ARETE[2*i-1] == R1 && aTree->ARETE[2*i-2] == R2) || (aTree->ARETE[2*i-1] == R2 && aTree->ARETE[2*i-2] == R1))
-				choix2 = choix = i;
-		}
-		fclose(in);
+    if(file_exists(fichier_leaves)){
+			int * listLeaves2 = (int*) malloc((aTree->size+1)*sizeof(int));
+			for(i=1;i<=aTree->size;i++)
+				listLeaves2[i] = 2;
+
+			if((in=fopen(fichier_leaves,"r"))==NULL){
+				printf("\nHGT-DETECTION : Can't open root file (%s)",fichier_leaves);
+				exit(-1);
+			}
+
+			char * tmp;
+			tmp = (char*)malloc(100);
+
+			do{
+				fscanf(in,"%s",tmp);
+				if(strcmp(tmp,"<>") != 0){
+					for(i=1;i<=aTree->size;i++){
+						if(strcmp(aTree->SpeciesName[i],tmp) == 0){
+							listLeaves2[i] = 0;
+						}
+					}
+				}
+			}while(strcmp(tmp,"<>") != 0);
+
+			while(fscanf(in,"%s",tmp) != -1){
+				//printf("\n%s ",tmp);
+				if(strcmp(tmp,"<>") != 0){
+					for(i=1;i<=aTree->size;i++){
+						if(strcmp(aTree->SpeciesName[i],tmp) == 0){
+							listLeaves2[i] = 1;
+							//printf(" (1) ");
+						}
+					}
+				}
+			}
+
+			fclose(in);
+
+			choix = choix2 = findApproxRootBranch(listLeaves2,aTree,10000);
+
+		}else{
+  		if((in=fopen(fichier,"r"))==NULL){
+  			printf("\nCan't open root file (%s)",fichier);
+  			exit(-1);
+  		}
+  		fscanf(in,"%d %d",&R1,&R2);
+  		for(i=1;i<=2*aTree->size-3-aTree->kt;i++){
+  			if((aTree->ARETE[2*i-1] == R1 && aTree->ARETE[2*i-2] == R2) || (aTree->ARETE[2*i-1] == R2 && aTree->ARETE[2*i-2] == R1))
+  				choix2 = choix = i;
+  		}
+  		fclose(in);
+    }
 	}
 	else if(strcmp(add,"bestrfbranch") == 0){
 		printf("bestRfBranch = %d",choix);
@@ -3741,6 +3819,7 @@ int addRoot(struct InputTree *aTree,struct InputTree *refTree,const char * messa
 	}
 
 	printRoot(fichier,aTree->ARETE[2*choix-1],aTree->ARETE[2*choix-2]);
+  printRootByLeaves(fichier_leaves,choix,aTree);
 
 	addLeafAndUpdate(aTree,choix);
 
@@ -4168,7 +4247,9 @@ int readParameters(struct Parameters * param, char **argv, int nargc){
 	sprintf((*param).speciesTree,"%s/speciesTree.txt",(*param).path);
 	sprintf((*param).geneTree,"%s/geneTree.txt",(*param).path);
 	sprintf((*param).speciesRootfile,"%s/speciesRoot.txt",(*param).path);
+	sprintf((*param).geneRootfileLeaves,"%s/speciesRootLeaves.txt",(*param).path);
 	sprintf((*param).geneRootfile,"%s/geneRoot.txt",(*param).path);
+	sprintf((*param).geneRootfileLeaves,"%s/geneRootLeaves.txt",(*param).path);
 	sprintf((*param).speciesTreeWeb,"%s/speciesTreeWeb.txt",(*param).path);
 	sprintf((*param).geneTreeWeb,"%s/geneTreeWeb.txt",(*param).path);
 	sprintf((*param).outputWeb,"%s/outputWeb.txt",(*param).path);
