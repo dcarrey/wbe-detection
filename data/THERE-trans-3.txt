@@ -1,0 +1,17 @@
+08-0 toto ACOLO
+09-0 toto AKLO
+10-0 toto LA
+10-1 toto COLA
+11-0 toto ALLO
+12-0 toto LA
+12-1 toto CAI
+13-0 toto LA
+14-0 toto LA
+15-0 toto LA
+16-0 toto LA
+20-0 toto ALLA
+21-0 toto ALLI
+21-1 toto ACOLA
+22-0 toto AI
+22-1 toto ALI
+22-2 toto LA

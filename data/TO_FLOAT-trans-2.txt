@@ -1,0 +1,7 @@
+03-0 toto NOFIO
+04-0 toto NOFIO
+05-0 toto NEUI
+05-1 toto BEZA-WAR-NEUN
+06-0 toto NEANNEIN
+07-0 toto NEUIN
+07-1 toto NEUNVIAL

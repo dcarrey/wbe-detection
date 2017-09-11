@@ -1,0 +1,9 @@
+42-0 toto MOZ
+42-1 toto MASKI
+45-0 toto MUZ
+46-0 toto MUZ
+47-0 toto MUSKI
+49-0 toto MUZCYNA
+50-0 toto MEZCZYZNA
+51-0 toto MUZCINA
+53-0 toto MEZ

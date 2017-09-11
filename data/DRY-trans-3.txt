@@ -1,0 +1,9 @@
+24-0 toto TROCKEN
+25-0 toto DRUUCKE
+26-0 toto DROOG
+27-0 toto DROOG
+27-1 toto DROR
+28-0 toto DROOG
+29-0 toto DROECH
+37-0 toto DRY
+38-0 toto DRE

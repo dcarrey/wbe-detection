@@ -1,0 +1,17 @@
+37-0 toto SMALL
+42-0 toto MAJKEN
+42-1 toto MICKN
+43-0 toto MALKI
+44-0 toto MALY
+45-0 toto MALY
+46-0 toto MALY
+47-0 toto MALE
+48-0 toto MALYJ
+48-1 toto MALEN*KYJ
+49-0 toto MALY
+50-0 toto MALY
+51-0 toto MALEN-KIJ
+52-0 toto MAL
+52-1 toto MALECOK
+53-0 toto MALKO
+54-0 toto MALI

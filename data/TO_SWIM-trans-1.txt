@@ -1,0 +1,14 @@
+24-0 toto SCHWIMMEN
+25-0 toto SCHWIMM
+26-0 toto ZWEMMEN
+27-0 toto SWEM
+28-0 toto ZWEMMEN
+29-0 toto SWIMME
+30-0 toto SIMMA
+31-0 toto SAM-SEM
+32-0 toto SIMMA
+33-0 toto SVOMME
+34-0 toto SVOMME
+36-0 toto SVIMJA
+37-0 toto SWIM
+38-0 toto SWEM

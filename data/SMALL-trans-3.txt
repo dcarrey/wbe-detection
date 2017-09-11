@@ -1,0 +1,15 @@
+13-0 toto PETIT
+14-0 toto PTIT
+15-0 toto PITI
+16-0 toto PITI
+23-0 toto PETIT
+10-0 toto PICCOLO
+11-0 toto PITSCHEN
+12-0 toto PICHOT
+12-1 toto PICHOUN
+18-0 toto PICOCCU
+19-0 toto PITTIKKU
+20-0 toto PEQUENO
+21-0 toto PEQUENO
+22-0 toto PEQUENO
+38-0 toto PIKIN

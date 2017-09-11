@@ -1,0 +1,4 @@
+48-1 toto TOMU-SCO
+49-0 toto TAMU
+49-1 toto TAGO-STO
+51-0 toto POTOMU-CTO

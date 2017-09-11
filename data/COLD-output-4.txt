@@ -1,0 +1,3 @@
+4,8.755494,2.500000
+mode=multicheck
+Stat= 0 0

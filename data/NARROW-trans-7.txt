@@ -1,0 +1,5 @@
+37-0 toto NARROW
+26-0 toto NAUW
+27-0 toto NOU
+28-0 toto NAAUW
+29-0 toto NAU

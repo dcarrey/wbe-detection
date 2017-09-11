@@ -1,0 +1,6 @@
+75-0 toto GHOSHA
+75-1 toto GHESHA
+76-0 toto GUSHT
+77-0 toto GUST
+78-0 toto GOZHD
+79-0 toto GOST

@@ -1,0 +1,16 @@
+08-0 toto DORMI
+09-0 toto DORMU
+10-0 toto DORMIRE
+11-0 toto DORMIR
+12-0 toto DOURMI
+13-0 toto DORMIR
+14-0 toto DWERMI
+15-0 toto DOMI
+16-0 toto DOMI
+17-0 toto DURMIRE
+18-0 toto DORMIRE
+19-0 toto DORMIRI
+20-0 toto DORMIR
+21-0 toto DORMIR
+22-0 toto DORMIR
+23-0 toto ADORMIRSE

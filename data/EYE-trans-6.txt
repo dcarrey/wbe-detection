@@ -1,0 +1,10 @@
+12-0 toto UEI
+13-0 toto OEIL
+14-0 toto OUY
+15-0 toto ZYE
+16-0 toto ZJE
+18-0 toto OJU
+33-0 toto OJE
+34-0 toto OYE
+37-0 toto EYE
+38-0 toto HAI

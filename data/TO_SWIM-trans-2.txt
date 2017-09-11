@@ -1,0 +1,14 @@
+39-0 toto PLAUKTI
+40-0 toto PLAUKTI
+43-0 toto PLUWAS
+44-0 toto PLUWAC
+45-0 toto PLAVATI
+46-0 toto PLAVAT
+47-0 toto PLOVAT
+48-0 toto PLYVTY
+48-1 toto PLAVATY
+49-0 toto PLAVAC*
+50-0 toto PLYNAC
+51-0 toto PLYT
+52-0 toto PLIVA
+54-0 toto PLIVATI

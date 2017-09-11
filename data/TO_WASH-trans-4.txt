@@ -1,0 +1,10 @@
+24-0 toto WASCHEN
+25-0 toto WESCH
+26-0 toto WASSCHEN
+27-0 toto WAS
+28-0 toto WASSCHEN
+29-0 toto WAECHSE
+33-0 toto VASKE
+34-0 toto VASKE
+37-0 toto WASH
+38-0 toto WASI

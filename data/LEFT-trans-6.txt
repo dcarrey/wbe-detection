@@ -1,0 +1,6 @@
+12-0 toto GAUCHE
+12-1 toto AUCHO
+13-0 toto GAUCHE
+14-0 toto GOCHE
+15-0 toto GOS
+16-0 toto GOS

@@ -1,0 +1,5 @@
+03-0 toto GOLCHI
+04-0 toto GOLCHI
+05-0 toto GWALC*HI
+06-0 toto GOLHEIN
+07-0 toto GWALC*HIN

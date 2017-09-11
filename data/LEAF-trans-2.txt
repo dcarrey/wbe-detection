@@ -1,0 +1,4 @@
+39-0 toto LAPAS
+39-1 toto LAKSTAS
+40-0 toto LAPAS
+41-0 toto LAPA

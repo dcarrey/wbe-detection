@@ -1,0 +1,8 @@
+30-0 toto HUR
+31-0 toto HORA
+32-0 toto HUR-U
+33-0 toto HOORLEDES
+34-0 toto HVORLEDES
+35-0 toto HVERNIG
+35-1 toto HVERSU
+36-0 toto HVUSSUR

@@ -1,0 +1,13 @@
+10-0 toto PERCHE
+11-0 toto PERVI-CHA
+12-0 toto PER-CO-QUE
+13-0 toto PARCE-QUE
+14-0 toto PACE-QUI
+15-0 toto PIS
+16-0 toto PAS
+16-1 toto PIS
+17-0 toto PROKE
+20-0 toto PORQUE
+21-0 toto PORQUE
+22-0 toto PORQUE
+23-0 toto PEOQUE

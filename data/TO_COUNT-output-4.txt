@@ -1,0 +1,20 @@
+24,39.045711,26.500000
+mode=multicheck
+3
+HGT 1 / 3 
+37-0 
+12-0 
+From branch 37-0--35 to branch 12-0--34
+RF = 16 , LS = 9.066994 , BD = 16.500000
+HGT 2 / 3 
+07-0 
+19-0 
+From branch 20--07-0 to branch 19-0--22
+RF = 16 , LS = 3.869520 , BD = 16.500000
+HGT 3 / 3 
+18-0 
+10-0 
+From branch 18-0--23 to branch 10-0--25
+RF = 16 , LS = 3.526737 , BD = 17.000000
+RF = 12 , LS = 2.671142 , BD = 9.000000
+Stat= 3 0

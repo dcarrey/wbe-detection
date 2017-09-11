@@ -1,0 +1,15 @@
+24-0 toto MENSCH
+25-0 toto MENSCH
+26-0 toto MENSCH
+28-0 toto MENSCH
+29-0 toto MINSKE
+31-0 toto MANIS
+34-0 toto MENNESKE
+35-0 toto MAOR
+36-0 toto MADUR
+55-0 toto MANUS
+56-0 toto MINIHA
+58-0 toto MANUS
+59-0 toto MANES
+64-0 toto MANIS
+64-1 toto MANCHE

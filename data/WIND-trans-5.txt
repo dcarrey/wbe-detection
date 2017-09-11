@@ -1,0 +1,8 @@
+58-0 toto HEVA
+61-0 toto HEWA
+62-1 toto HEVA
+63-1 toto HAOA
+57-0 toto WAV
+60-0 toto VA
+62-0 toto VAYU
+63-0 toto BAIU

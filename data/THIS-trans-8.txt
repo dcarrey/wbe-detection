@@ -1,0 +1,16 @@
+48-0 toto CEJ
+48-1 toto CJA
+48-2 toto CE
+42-0 toto TU
+43-0 toto TEN
+44-0 toto TON
+45-0 toto TO-TENTO
+46-0 toto TEN
+46-1 toto TA
+46-2 toto TO
+47-0 toto TOTO
+49-0 toto HETA
+50-0 toto TEN
+51-0 toto ETOT
+53-0 toto TOVA
+63-0 toto ETA

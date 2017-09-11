@@ -1,0 +1,9 @@
+80-0 toto KUSH
+81-0 toto KUS
+82-0 toto KUSH
+83-0 toto KUS
+84-0 toto KUS
+39-0 toto KAS
+40-0 toto KAS
+41-0 toto KAS
+41-1 toto KURS

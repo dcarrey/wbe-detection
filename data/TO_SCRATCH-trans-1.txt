@@ -1,0 +1,6 @@
+30-0 toto KLOSA
+31-0 toto KLA
+32-0 toto KLOSA
+34-0 toto KLO
+35-0 toto KLORA
+36-0 toto KLORA

@@ -1,0 +1,9 @@
+30-0 toto KVINNA
+31-0 toto KVINA
+31-1 toto KVINFOLK
+31-2 toto KVINFALK
+32-0 toto KVINNA
+33-0 toto KVINDE
+35-0 toto KONA
+35-1 toto KVENNMAOR
+36-0 toto KONA

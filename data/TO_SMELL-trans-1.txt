@@ -1,0 +1,7 @@
+30-0 toto LUKTA
+30-1 toto KANNA-LUKT
+31-0 toto LUKT
+31-1 toto TZAN-LUKTA
+32-0 toto LUKTA
+33-0 toto LUGTE
+34-0 toto LUKTE

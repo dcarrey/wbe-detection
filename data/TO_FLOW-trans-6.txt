@@ -1,0 +1,8 @@
+08-0 toto CURGE
+10-0 toto SCORRERE
+17-0 toto ISKURRERE
+18-0 toto ISCURRERE
+19-0 toto KURRI
+21-0 toto CORRER
+22-0 toto ESCORRER
+23-0 toto CORRER

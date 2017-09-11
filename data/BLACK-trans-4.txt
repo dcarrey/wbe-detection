@@ -1,0 +1,16 @@
+08-0 toto NEGRU
+10-0 toto NERO
+11-0 toto NAIR
+12-0 toto NEGRE
+12-1 toto EGRO
+13-0 toto NOIR
+14-0 toto NEUR
+15-0 toto NWE
+16-0 toto NWE
+17-0 toto NIEDDU
+18-0 toto NIEDDU
+19-0 toto NIEDDU
+20-0 toto NEGRO
+21-0 toto NEGRO
+22-0 toto NEGRO
+23-0 toto NEGRE

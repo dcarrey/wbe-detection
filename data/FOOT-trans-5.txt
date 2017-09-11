@@ -1,0 +1,14 @@
+24-0 toto FUSS
+25-0 toto FUUSZ
+26-0 toto VOET
+27-0 toto VOET
+28-0 toto VOET
+29-0 toto FOET
+30-0 toto FOT
+31-0 toto FOT
+32-0 toto FOT
+33-0 toto FOD
+35-0 toto FOTR
+36-0 toto FOTUR
+37-0 toto FOOT
+38-0 toto FOETOE

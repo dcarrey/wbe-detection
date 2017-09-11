@@ -1,0 +1,5 @@
+80-0 toto I-LAGUR
+81-0 toto LHAGUR-I
+82-0 toto LAKT
+83-1 toto I-LAGURE
+84-0 toto LAGET

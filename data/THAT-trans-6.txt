@@ -1,0 +1,10 @@
+08-0 toto ACELA
+09-0 toto ACEL
+10-0 toto QUEL
+11-0 toto QUEL
+13-0 toto CELA
+14-0 toto COULA
+20-0 toto AQUEL
+21-0 toto AQUELLE
+21-1 toto AQUILLO
+22-0 toto AQUELE

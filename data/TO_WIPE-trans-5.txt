@@ -1,0 +1,6 @@
+03-0 toto SYCHU
+04-0 toto SYCHU
+05-0 toto SEC*HA
+06-0 toto SEHEIN
+07-0 toto SEC*HAN
+13-0 toto SECHER

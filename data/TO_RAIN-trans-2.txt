@@ -1,0 +1,7 @@
+42-0 toto DEZ
+42-1 toto DES-PADA
+43-0 toto DESC
+44-0 toto DESC
+48-0 toto PADE-DOSC
+50-0 toto DESZCZ-PADA
+51-0 toto DOZD-IDET

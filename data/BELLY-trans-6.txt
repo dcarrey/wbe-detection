@@ -1,0 +1,5 @@
+30-0 toto MAGE
+31-0 toto MAGA
+32-0 toto MAGE
+34-0 toto MAVE
+35-0 toto MAGI

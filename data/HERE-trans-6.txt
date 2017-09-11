@@ -1,0 +1,13 @@
+42-0 toto TUKAJ
+43-0 toto TU
+44-0 toto TU
+46-0 toto TU
+47-0 toto TU
+48-0 toto TUT
+48-1 toto OS*TUT
+49-0 toto TUT
+49-1 toto TUTAKA
+50-0 toto TU
+52-0 toto TUKA
+52-1 toto TYKA
+53-0 toto TUK

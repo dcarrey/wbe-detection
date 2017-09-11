@@ -1,0 +1,6 @@
+45-0 toto ZVRACETI
+47-0 toto VRACAT
+48-0 toto VERTATY
+49-0 toto VYRACAC*
+53-0 toto DA-POVERNE
+54-0 toto POVRACATI

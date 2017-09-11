@@ -1,0 +1,11 @@
+10-0 toto COLLO
+11-0 toto CULOZ
+12-0 toto COU
+12-1 toto COUI
+13-0 toto COU
+14-0 toto CO
+15-0 toto KU
+16-0 toto KU
+20-0 toto CUELLO
+23-0 toto COLL
+23-1 toto CUA

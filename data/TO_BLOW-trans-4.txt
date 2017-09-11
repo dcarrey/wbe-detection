@@ -1,0 +1,5 @@
+39-0 toto PUSTI
+40-0 toto PUSTI
+41-0 toto PUST
+71-0 toto P*C*EL
+72-0 toto PUCHEL

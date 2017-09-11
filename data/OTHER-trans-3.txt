@@ -1,0 +1,9 @@
+42-0 toto DRUGI
+43-0 toto DRUGI
+44-0 toto DRUHI
+45-0 toto DRUHY
+47-0 toto DRUHE
+51-0 toto DRUGOJ
+52-0 toto DRUG
+53-0 toto DRUGO
+54-0 toto DRUGI

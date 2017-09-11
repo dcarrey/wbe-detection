@@ -1,0 +1,9 @@
+01-0 toto TIRIM
+30-0 toto TORR
+31-0 toto TOR
+32-0 toto TORR
+33-0 toto TOR
+34-0 toto TORR
+35-0 toto THURR
+36-0 toto TURRUR
+84-0 toto I-TERM

@@ -1,0 +1,12 @@
+43-0 toto ZESE
+44-0 toto DZECO
+45-0 toto DITE
+46-0 toto DIETA
+47-0 toto DYITYE
+48-0 toto DYTYNA
+48-1 toto DYTJA
+49-0 toto DZICE
+50-0 toto DZIECKO
+52-0 toto DETE
+53-0 toto DETE
+54-0 toto DETE

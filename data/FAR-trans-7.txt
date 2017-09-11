@@ -1,0 +1,14 @@
+42-0 toto DALEC
+43-0 toto DALOKI
+44-0 toto DALOKI
+45-0 toto DALEKO
+46-0 toto ALEKY
+47-0 toto DALEKO
+48-0 toto DALEKO
+49-0 toto DALEKI
+49-1 toto DALEKA
+50-0 toto DALEKO
+51-0 toto DALEKO
+52-0 toto DALEKU
+53-0 toto DALEC
+54-0 toto DALEK

@@ -1,0 +1,11 @@
+24-0 toto STOSSEN
+31-0 toto STYR
+32-0 toto STOTA
+33-0 toto STODE
+39-0 toto STUMDYTI
+40-0 toto STUMTI
+80-0 toto ME-SHTYRE
+81-0 toto STYN
+81-1 toto AOR.-STYVA
+83-0 toto STIIN
+84-0 toto STIN

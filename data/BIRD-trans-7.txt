@@ -1,0 +1,14 @@
+24-0 toto VOGEL
+25-0 toto FUGGEL
+26-0 toto VOGEL
+27-0 toto VOEL
+28-0 toto VOGEL
+29-0 toto FUGEL
+30-0 toto FAGEL
+31-0 toto FOGAL
+32-0 toto FAGEL
+33-0 toto FUGL
+34-0 toto FUGL
+35-0 toto FUGL
+36-0 toto FUGLUR
+38-0 toto FOUWLOE

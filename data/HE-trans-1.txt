@@ -1,0 +1,12 @@
+08-0 toto EL
+10-0 toto EGLI
+11-0 toto EL
+12-0 toto EU
+13-0 toto IL
+14-0 toto I
+15-0 toto I
+16-0 toto I
+20-0 toto EL
+21-0 toto ELLE
+22-0 toto ELE
+78-0 toto I

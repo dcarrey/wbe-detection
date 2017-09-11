@@ -1,0 +1,6 @@
+10-0 toto SENTIRE
+12-0 toto SENTI
+13-0 toto SENTIR
+14-0 toto SINTI
+15-0 toto SATI
+16-0 toto SATI

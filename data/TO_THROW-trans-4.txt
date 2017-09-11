@@ -1,0 +1,4 @@
+63-0 toto PHELA
+64-0 toto APHALNU
+64-1 toto HALNU
+65-0 toto PHALNU

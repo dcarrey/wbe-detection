@@ -1,0 +1,14 @@
+43-0 toto JAJO
+44-0 toto JEJO
+54-0 toto JAJE
+29-0 toto EIKE
+42-0 toto JAJCE
+45-0 toto VEJCE
+46-0 toto VAJCE
+47-0 toto VAYCO
+48-0 toto JAJCE
+49-0 toto JAJKO
+50-0 toto JAJKO
+51-0 toto JAJCO
+52-0 toto JAJCE
+53-0 toto JAJCE

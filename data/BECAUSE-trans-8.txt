@@ -1,0 +1,6 @@
+11-0 toto CAUSA-CHA
+15-0 toto A-KOZ
+15-1 toto BIKOZ
+37-0 toto BECAUSE
+38-0 toto BIKASI
+38-1 toto BIKA

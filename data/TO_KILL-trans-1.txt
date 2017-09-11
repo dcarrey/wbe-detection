@@ -1,0 +1,13 @@
+42-0 toto UBIJAT
+43-0 toto ZABIS
+44-0 toto ZABIC
+45-0 toto ZABITI
+46-0 toto ZABIT
+47-0 toto ZABIT
+48-0 toto UBYVATY
+49-0 toto ZABIVAC*
+50-0 toto ZABIJAC
+51-0 toto UBIVAT
+52-0 toto UBIVA
+53-0 toto DA-UBIVA
+54-0 toto UBITI

@@ -1,0 +1,13 @@
+08-0 toto SUFLA
+10-0 toto SOFFIARE
+11-0 toto SOFFLER
+13-0 toto SOUFFLER
+14-0 toto SOFLER
+14-1 toto ELER
+15-0 toto SUFLE
+17-0 toto SURVARE
+18-0 toto SULARE
+19-0 toto SULAI
+20-0 toto SOPLAR
+21-0 toto ASSOPRAR
+22-0 toto SOPRAR

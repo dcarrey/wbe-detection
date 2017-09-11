@@ -1,0 +1,10 @@
+42-0 toto VELIKA
+43-0 toto WELIKI
+44-0 toto WULKI
+45-0 toto VELKY
+46-0 toto VEL-KY
+47-0 toto VELIKE
+48-0 toto VELYKYJ
+49-0 toto VJALIKI
+50-0 toto WIELKI
+54-0 toto VELIK

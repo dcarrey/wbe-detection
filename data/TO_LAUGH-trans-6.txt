@@ -1,0 +1,13 @@
+24-0 toto LACHEN
+25-0 toto LAUCH
+26-0 toto LACHEN
+27-0 toto LAG
+28-0 toto LACHEN
+29-0 toto LAEITSJE
+29-1 toto LAITSJE
+33-0 toto LE
+34-0 toto LE
+35-0 toto HLAEJA
+36-0 toto LAEA
+37-0 toto LAUGH
+38-0 toto LAFOE

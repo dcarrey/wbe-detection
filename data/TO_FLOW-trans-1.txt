@@ -1,0 +1,12 @@
+39-0 toto TEKETI
+40-0 toto TEKETI
+43-0 toto SAC
+44-0 toto CEC
+45-0 toto TECI
+47-0 toto TECIT
+48-0 toto TEKTY
+50-0 toto CIEC
+51-0 toto TEC
+52-0 toto TECE
+53-0 toto DA-TECE
+54-0 toto TECI

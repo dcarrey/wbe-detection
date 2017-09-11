@@ -1,0 +1,10 @@
+08-0 toto GROS
+09-0 toto GROS
+10-0 toto GROSSO
+17-0 toto GRUSSU
+18-0 toto RUSSU
+19-0 toto GRUSSU
+21-0 toto GROSSO
+22-0 toto GROSSO
+23-0 toto GROS
+23-1 toto GRUIXUT

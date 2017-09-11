@@ -1,0 +1,13 @@
+42-0 toto PESK
+43-0 toto PESK
+44-0 toto PESK
+45-0 toto PISEK
+46-0 toto PIESOK
+47-0 toto PISEK
+48-0 toto PISOK
+49-0 toto PJASOK
+50-0 toto PIASEK
+51-0 toto PESOK
+52-0 toto PESOK
+53-0 toto PJASEK
+54-0 toto PESAK

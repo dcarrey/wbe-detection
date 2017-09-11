@@ -1,0 +1,5 @@
+03-0 toto GWNIO
+04-0 toto GWNIO
+05-0 toto GWRAIT
+06-0 toto GROUIEIN
+07-0 toto GWRIAT

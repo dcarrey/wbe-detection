@@ -1,0 +1,5 @@
+80-0 toto ME-PESHTYRE
+81-0 toto PSTYT
+81-1 toto AOR.-PSTYTA
+83-0 toto PESTIIN
+84-0 toto PUSTIN

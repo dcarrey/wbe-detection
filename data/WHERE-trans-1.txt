@@ -1,0 +1,12 @@
+42-0 toto KJE
+44-0 toto HDZE
+45-0 toto KDE
+46-0 toto KDE
+47-0 toto GDE
+48-0 toto DE-KUDY
+49-0 toto DZE
+50-0 toto GDZIE
+51-0 toto GDE
+52-0 toto KADE
+53-0 toto KEDE
+54-0 toto GDE

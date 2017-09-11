@@ -1,0 +1,8 @@
+30-0 toto STOR
+31-0 toto STOR
+33-0 toto STOR
+34-0 toto STOR
+35-0 toto STOR
+36-0 toto STORUR
+73-0 toto YSTYR
+75-0 toto STER

@@ -1,0 +1,15 @@
+08-0 toto RIDE
+09-0 toto ARYTU
+10-0 toto RIDERE
+11-0 toto RIR
+12-0 toto RIRE
+13-0 toto RIRE
+14-0 toto RIRE
+17-0 toto RIDERE
+18-0 toto RIERE
+19-0 toto ARRIRI
+20-0 toto REIR
+21-0 toto RIR
+22-0 toto RIR
+23-0 toto RIURER
+23-1 toto RIURERSEN

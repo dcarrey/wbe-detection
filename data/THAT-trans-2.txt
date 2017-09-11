@@ -1,0 +1,14 @@
+54-0 toto DA
+42-0 toto TISTO
+45-0 toto TO
+46-0 toto TA
+46-1 toto TO
+47-0 toto TO
+48-0 toto TOJ
+48-1 toto TA
+48-2 toto TE
+51-0 toto TOT
+52-0 toto TOJ
+58-0 toto TO
+64-0 toto TYO
+65-0 toto TIO

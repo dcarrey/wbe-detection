@@ -1,0 +1,13 @@
+38-0 toto EKSI
+30-0 toto AGG
+31-0 toto AG
+32-0 toto AGG
+33-0 toto AEG
+34-0 toto EGG
+35-0 toto EGG
+36-0 toto EGG
+37-0 toto EGG
+66-0 toto AUGO
+67-0 toto AUGO
+68-0 toto AVGHO
+69-0 toto AUGO

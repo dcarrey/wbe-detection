@@ -1,0 +1,8 @@
+11-0 toto CUR
+11-1 toto CURA
+57-0 toto KAR
+80-0 toto KUR
+81-0 toto KUR
+82-0 toto KUR
+83-0 toto KUUR
+84-0 toto KUR

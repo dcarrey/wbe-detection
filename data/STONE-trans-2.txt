@@ -1,0 +1,16 @@
+24-0 toto STEIN
+25-0 toto SCHTAY
+26-0 toto STEEN
+27-0 toto STEEN
+28-0 toto STEEN
+29-0 toto STIEN
+30-0 toto STEN
+31-0 toto STEN
+32-0 toto STEN
+33-0 toto STEN
+34-0 toto STEN
+35-0 toto STEINN
+36-0 toto STEINUR
+37-0 toto STONE
+38-0 toto STOON
+38-1 toto STON

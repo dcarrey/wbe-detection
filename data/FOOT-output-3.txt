@@ -1,0 +1,59 @@
+61,118.360827,101.000000
+mode=multicheck
+8
+HGT 1 / 8 
+17-0 
+10-1 
+From branch 17-0--59 to branch 10-1--62
+RF = 57 , LS = 14.656533 , BD = 93.500000
+HGT 2 / 8 
+20-0 
+10-0 
+From branch 20-0--66 to branch 10-0--62
+RF = 57 , LS = 15.077502 , BD = 93.500000
+HGT 3 / 8 
+21-0 22-0 
+11-0 
+From branch 67--66 to branch 11-0--64
+RF = 57 , LS = 28.077702 , BD = 92.500000
+HGT 4 / 8 
+13-0 
+79-0 
+From branch 13-0--71 to branch 79-0--47
+RF = 57 , LS = 9.371131 , BD = 91.500000
+HGT 5 / 8 
+57-1 
+73-0 
+From branch 57-1--49 to branch 73-0--47
+RF = 57 , LS = 11.998902 , BD = 96.000000
+HGT 6 / 8 
+56-0 
+58-1 
+From branch 56-0--51 to branch 58-1--57
+RF = 57 , LS = 32.084629 , BD = 96.000000
+HGT 7 / 8 
+62-0 
+60-0 
+From branch 62-0--54 to branch 60-0--55
+RF = 57 , LS = 28.269571 , BD = 98.000000
+HGT 8 / 8 
+76-0 
+63-0 
+From branch 76-0--44 to branch 63-0--53
+RF = 57 , LS = 13.154774 , BD = 91.500000
+RF = 43 , LS = 6.364706 , BD = 66.500000
+1
+HGT 1 / 1 
+11-0 21-0 22-0 
+18-0 
+From branch 67--66 to branch 18-0--60
+RF = 41 , LS = 18.545660 , BD = 51.500000
+RF = 41 , LS = 6.008644 , BD = 63.000000
+1
+HGT 1 / 1 
+61-0 
+57-0 
+From branch 61-0--55 to branch 57-0--49
+RF = 38 , LS = 14.711442 , BD = 49.000000
+RF = 38 , LS = 5.640207 , BD = 60.500000
+Stat= 10 0

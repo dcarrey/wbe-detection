@@ -13,6 +13,7 @@ scripts:
 	cp run_wbe.pl $(EXECDIR)
 	cp PostTraitement.pm $(EXECDIR)
 	cp ../examples/* $(EXECDIR)
+	cp simulation.py $(EXECDIR)
 
 clean:
 	@echo  "\n=> Cleaning executable and object files"

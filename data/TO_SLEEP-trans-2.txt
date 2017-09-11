@@ -1,0 +1,8 @@
+24-0 toto SCHLAFEN
+25-0 toto SCHLOEF
+26-0 toto SLAAP
+27-0 toto SLAAP
+28-0 toto SLAPEN
+29-0 toto SLIEPE
+37-0 toto SLEEP
+38-0 toto SLIBI

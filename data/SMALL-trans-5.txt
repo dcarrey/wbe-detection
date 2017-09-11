@@ -1,0 +1,5 @@
+80-0 toto I-VOGEL
+81-0 toto I-VOGELH-I
+82-0 toto VOGEL
+83-0 toto VOGELE
+84-0 toto I-VOGEL

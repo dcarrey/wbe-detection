@@ -1,0 +1,11 @@
+01-0 toto DOGHADH
+02-0 toto DOIGHIM
+39-0 toto DEGINTI
+40-0 toto DEGTI
+41-0 toto DEDZINAT
+57-0 toto DAZUN
+81-0 toto DIGEM
+81-1 toto AOR.-UDOGA
+82-0 toto DIGJEM
+83-0 toto DIGEM
+84-0 toto DJEK

@@ -1,0 +1,13 @@
+56-0 toto PASSA
+57-0 toto PYUTHU
+58-0 toto PATH
+59-0 toto PITH
+60-0 toto PITTH
+61-0 toto PICCHE
+62-0 toto PITH
+63-0 toto PIT
+64-0 toto PITH
+76-0 toto POSHT
+77-0 toto PUST
+77-1 toto TAXTAPUST
+78-0 toto PHUSHT

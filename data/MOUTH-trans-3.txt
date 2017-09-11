@@ -1,0 +1,12 @@
+10-0 toto BOCCA
+11-0 toto BUOCHA
+12-0 toto BOUCO
+13-0 toto BOUCHE
+14-0 toto BOKE
+17-0 toto BUKKA
+18-0 toto BUCCA
+19-0 toto BUKKA
+20-0 toto BOCA
+21-0 toto BOCCA
+22-0 toto BOCA
+23-0 toto BOCA

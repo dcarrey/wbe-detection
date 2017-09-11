@@ -1,0 +1,16 @@
+08-0 toto FOC
+09-0 toto FOKU
+10-0 toto FUOCO
+11-0 toto FO
+12-0 toto FIO
+13-0 toto FEU
+14-0 toto FEU
+15-0 toto DIFE
+16-0 toto DIFE
+17-0 toto OKU
+18-0 toto FOGU
+19-0 toto FOGU
+20-0 toto FUEGO
+21-0 toto FOGO
+22-0 toto FOGO
+23-0 toto FOCH

@@ -1,0 +1,17 @@
+08-0 toto BEA
+09-0 toto BEAU
+10-0 toto BERE
+10-1 toto BEVERE
+11-0 toto BAIVER
+12-0 toto BEURE
+13-0 toto BOIRE
+14-0 toto BEURE
+15-0 toto BWE
+16-0 toto BWE
+17-0 toto BIERE
+18-0 toto BIERE
+19-0 toto BUFFAI
+20-0 toto BEBER
+21-0 toto BEBER
+22-0 toto BEBER
+23-0 toto BEURER

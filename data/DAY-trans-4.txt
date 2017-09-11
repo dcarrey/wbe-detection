@@ -1,0 +1,16 @@
+05-0 toto DEIZ
+05-1 toto DE
+06-0 toto DE
+07-0 toto DEIZ
+11-0 toto DI
+17-0 toto DIE
+18-0 toto DIE
+19-0 toto DI
+20-0 toto DIA
+21-0 toto DIA
+22-0 toto DIA
+23-0 toto DIA
+29-0 toto DEI
+37-0 toto DAY
+38-0 toto DEI
+61-0 toto DI

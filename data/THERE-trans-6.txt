@@ -1,0 +1,11 @@
+80-0 toto ATJE
+81-0 toto ATJE
+82-0 toto ATJE
+82-1 toto ATY
+83-0 toto ATJE
+84-0 toto ATJE
+60-0 toto OTTHE
+61-0 toto UTTHA
+64-0 toto UTA
+65-0 toto UTHA
+78-0 toto ODHA

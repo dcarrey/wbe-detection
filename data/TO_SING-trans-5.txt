@@ -1,0 +1,13 @@
+42-0 toto PETI
+43-0 toto SPIWAS
+44-0 toto SPEWAC
+45-0 toto ZPIVATI
+46-0 toto SPIEVAT
+47-0 toto SPIVAT
+48-0 toto SPIVATY
+49-0 toto PJAJAC*
+50-0 toto SPIEWAC
+51-0 toto PET
+52-0 toto PEE
+53-0 toto DA-PEE
+54-0 toto PEVATI

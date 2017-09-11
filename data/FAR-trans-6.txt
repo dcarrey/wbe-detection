@@ -1,0 +1,17 @@
+10-0 toto LONTANO
+12-0 toto LUEN
+12-1 toto LIUEN
+13-0 toto LOIN
+14-0 toto LON
+15-0 toto LWE
+16-0 toto LWE
+18-0 toto LONTANU
+20-0 toto LEJOS
+21-0 toto LONGE
+22-0 toto LONGE
+23-0 toto LLUNY
+30-0 toto LANGT-BORD
+31-0 toto LANGT
+34-0 toto LANGT-BORTE
+35-0 toto LANGT-BURTU
+36-0 toto LANGT-BURTUR

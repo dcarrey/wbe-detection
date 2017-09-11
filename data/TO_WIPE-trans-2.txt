@@ -1,0 +1,10 @@
+44-0 toto WUTREC
+45-0 toto UTIRATI
+46-0 toto UTRET
+47-0 toto UTRIT
+48-0 toto ZYRATY
+48-1 toto VYTYRATY
+49-0 toto VYCIRAC*
+50-0 toto WYCIERAC
+51-0 toto VYTIRAT
+53-0 toto IZTRIVANE

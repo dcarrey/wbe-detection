@@ -1,0 +1,14 @@
+08-0 toto ACEST
+09-0 toto AESTU
+10-0 toto QUESTO
+11-0 toto QUAIST
+11-1 toto QUIST
+17-0 toto KUSTU
+18-0 toto CUSTU
+19-0 toto KUSTU
+20-0 toto ESTE
+21-0 toto ESTE
+21-1 toto ISTO
+22-0 toto ESTE
+23-0 toto AQUEST
+23-1 toto EST

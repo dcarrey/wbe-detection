@@ -1,0 +1,10 @@
+66-0 toto AUTOI
+67-0 toto AUTOI
+69-0 toto AUTOI
+70-0 toto AUTOI
+80-0 toto ATA
+81-0 toto ATA
+81-1 toto ATO
+82-0 toto ATA
+83-0 toto ATA
+84-0 toto ATA

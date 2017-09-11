@@ -1,0 +1,5 @@
+66-0 toto STACHTE
+67-0 toto STACHTE
+68-0 toto STAKHTI
+69-0 toto STACHTE
+69-1 toto STACHTES

@@ -1,0 +1,6 @@
+30-0 toto TRANG
+31-0 toto TRANG
+31-1 toto TRONG
+32-0 toto TRANG
+35-0 toto THRONGUR
+36-0 toto TRONGUR

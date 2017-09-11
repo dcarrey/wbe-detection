@@ -1,0 +1,12 @@
+24-0 toto SCHWARZ
+25-0 toto SCHWOTZ
+26-0 toto ZWART
+27-0 toto SWART
+28-0 toto ZWART
+30-0 toto SVART
+31-0 toto SVART
+32-0 toto SVART
+33-0 toto SORT
+34-0 toto SORT
+35-0 toto SVARTR
+36-0 toto SVARTUR

@@ -1,0 +1,12 @@
+08-0 toto CAP
+12-0 toto CABESSO
+12-1 toto CAP
+20-0 toto CABEZA
+21-0 toto CABECA
+22-0 toto CABECA
+23-0 toto CAP
+09-0 toto KAPU
+24-0 toto KOPF
+25-0 toto KUP
+27-0 toto KOP
+29-0 toto KOP

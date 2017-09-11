@@ -1,0 +1,15 @@
+24-0 toto GEBEN
+25-0 toto GEP
+26-0 toto GEVEN
+27-0 toto GEE
+28-0 toto GEVEN
+30-0 toto GE
+30-1 toto GIVA
+31-0 toto JE
+32-0 toto GIVA
+33-0 toto GIVE
+34-0 toto GI
+35-0 toto GEFA
+36-0 toto GEVA
+37-0 toto GIVE
+38-0 toto GI

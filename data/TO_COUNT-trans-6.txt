@@ -1,0 +1,7 @@
+42-0 toto STET
+45-0 toto POCITATI
+46-0 toto POCITAT
+47-0 toto CITAT
+48-0 toto CYSLYTY
+51-0 toto SCITAT
+54-0 toto RACUNATI

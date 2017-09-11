@@ -1,0 +1,16 @@
+39-0 toto JEI
+39-1 toto JEIGU
+40-0 toto JEI
+40-1 toto JEIGU
+41-0 toto JA
+57-0 toto YED
+57-1 toto AY
+58-0 toto JER
+59-0 toto JO
+60-0 toto EGER
+60-1 toto JE
+61-0 toto JE
+62-0 toto EGER
+62-1 toto YEDI
+63-0 toto JODI
+64-0 toto JADI

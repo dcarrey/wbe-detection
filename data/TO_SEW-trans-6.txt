@@ -1,0 +1,16 @@
+08-0 toto COASE
+09-0 toto KOSU
+10-0 toto CUCIRE
+11-0 toto CUSIR
+12-0 toto COURDURA
+13-0 toto COUDRE
+14-0 toto KEUSE
+15-0 toto KUD
+16-0 toto KUD
+17-0 toto KOSIRE
+18-0 toto COSIRE
+19-0 toto KUSIRI
+20-0 toto COSER
+21-0 toto COSER
+22-0 toto COSER
+23-0 toto CUSIR

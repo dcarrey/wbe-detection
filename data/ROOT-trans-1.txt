@@ -1,0 +1,17 @@
+80-0 toto RENJE
+81-0 toto RENE
+83-0 toto RENE
+84-0 toto REN
+42-0 toto KORERUKA
+43-0 toto KOREN
+44-0 toto KORJEN
+45-0 toto KOREN
+46-0 toto KOREN
+47-0 toto KORENY
+48-0 toto KORIN*
+48-1 toto KORINNJA
+49-0 toto KARIN*
+50-0 toto KORZEN
+51-0 toto KOREN
+53-0 toto KOREN
+54-0 toto KOREN

@@ -1,0 +1,11 @@
+80-0 toto FARE
+81-0 toto FARE
+83-0 toto FARE
+84-0 toto FAR
+05-0 toto SPER
+09-0 toto SPOR
+66-0 toto SPOROS
+67-0 toto SPOROS
+68-0 toto SPOROS
+69-0 toto SPOROS
+70-0 toto SPOROS

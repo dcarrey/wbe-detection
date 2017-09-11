@@ -1,0 +1,7 @@
+24-0 toto STUMPF
+25-0 toto SCHTUUMP
+26-0 toto STOMP
+27-0 toto STOMP
+29-0 toto STOMP
+38-0 toto STOMPOE
+38-1 toto TOMPOE

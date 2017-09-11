@@ -1,0 +1,7 @@
+56-0 toto ISTRIYAK
+57-0 toto TRIY
+59-0 toto STRI
+61-0 toto TRIMMET
+62-0 toto STRI
+64-0 toto TIRIYA
+64-1 toto STRI

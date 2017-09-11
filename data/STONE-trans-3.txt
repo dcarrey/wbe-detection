@@ -1,0 +1,16 @@
+39-0 toto AKMUO
+40-0 toto AKMUO
+41-0 toto AKMENS
+42-0 toto KAMEN
+43-0 toto KAMEN
+44-0 toto KAMJEN
+45-0 toto KAMEN
+46-0 toto KAMEN
+47-0 toto KAMENY
+48-0 toto KAMIN*
+49-0 toto KAMEN*
+50-0 toto KAMIEN
+51-0 toto KAMEN
+52-0 toto KAMEN
+53-0 toto KAMEK
+54-0 toto KAMEN

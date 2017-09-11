@@ -1,0 +1,13 @@
+10-0 toto BIANCO
+12-0 toto BLANC
+13-0 toto BLANC
+14-0 toto BLANC
+15-0 toto BLA
+16-0 toto BLA
+17-0 toto BIANKU
+18-0 toto BIANCU
+19-0 toto BIANKU
+20-0 toto BLANCO
+21-0 toto BRANCO
+22-0 toto BRANCO
+23-0 toto BLANCH

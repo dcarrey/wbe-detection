@@ -1,0 +1,7 @@
+30-0 toto KASTA
+31-0 toto KAST
+32-0 toto KASTA
+33-0 toto KASTE
+34-0 toto KASTE
+35-0 toto KASTA
+36-0 toto KASTA

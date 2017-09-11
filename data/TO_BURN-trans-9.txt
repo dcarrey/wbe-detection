@@ -1,0 +1,11 @@
+59-0 toto BELWU
+64-1 toto BALNU
+65-1 toto BALNU
+75-0 toto BALEDEL
+78-0 toto BALAGH
+58-0 toto JELNE
+60-0 toto JELNA
+62-0 toto JELNA
+63-0 toto JOLA
+64-0 toto JALNU
+65-0 toto JALNU

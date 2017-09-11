@@ -1,0 +1,30 @@
+44,226.170227,63.500000
+mode=multicheck
+5
+HGT 1 / 5 
+46-0 
+42-0 
+From branch 46-0--36 to branch 42-0--30
+RF = 42 , LS = 192.499110 , BD = 59.000000
+HGT 2 / 5 
+43-0 44-0 
+50-0 
+From branch 34--35 to branch 50-0--39
+RF = 42 , LS = 189.627477 , BD = 60.500000
+HGT 3 / 5 
+45-0 
+48-0 
+From branch 45-0--37 to branch 48-0--41
+RF = 42 , LS = 181.336336 , BD = 59.000000
+HGT 4 / 5 
+41-0 
+51-0 
+From branch 42--41-0 to branch 51-0--40
+RF = 42 , LS = 201.648211 , BD = 57.500000
+HGT 5 / 5 
+29-0 
+01-0 02-0 
+From branch 29-0--48 to branch 43--44
+RF = 42 , LS = 193.244972 , BD = 61.500000
+RF = 34 , LS = 180.579346 , BD = 43.000000
+Stat= 5 0

@@ -1,0 +1,9 @@
+24-0 toto RUCKEN
+26-0 toto RUG
+27-0 toto RUG
+28-0 toto RUG
+29-0 toto RUG
+30-0 toto RYGG
+31-0 toto ROG
+32-0 toto RYGG
+34-0 toto RYGG

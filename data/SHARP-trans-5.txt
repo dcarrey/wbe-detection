@@ -1,0 +1,15 @@
+39-0 toto ASTRUS
+40-0 toto ASTRUS
+42-0 toto OSTER
+43-0 toto WOTSY
+44-0 toto WOTRY
+45-0 toto OSTRY
+46-0 toto OSTRY
+47-0 toto OSTRE
+48-0 toto HOCTRYJ
+49-0 toto VOSTRY
+50-0 toto OSTRY
+51-0 toto OSTRYJ
+52-0 toto OSTAR
+53-0 toto OSTRO
+54-0 toto OSTAR

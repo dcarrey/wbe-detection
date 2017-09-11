@@ -1,0 +1,14 @@
+42-0 toto TEZKO
+42-1 toto TESKO
+43-0 toto SEZKI
+44-0 toto CEZKI
+45-0 toto TEZKY
+46-0 toto TAZKY
+47-0 toto TYASKE
+48-0 toto TJAZKYJ
+49-0 toto CJAZKI
+50-0 toto CIEZKI
+51-0 toto TJAZELYJ
+52-0 toto TEZOK
+53-0 toto TEZKO
+54-0 toto TEZAK

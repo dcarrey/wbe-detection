@@ -1,0 +1,10 @@
+08-0 toto PASARE
+20-0 toto PAJARO
+57-0 toto PANKHI
+58-0 toto PEKSI
+59-0 toto PENKHI
+59-1 toto PEKSI
+60-0 toto PENCHI
+62-0 toto PEKSI
+63-0 toto PAKHI
+65-0 toto PANCHHI

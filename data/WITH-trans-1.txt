@@ -1,0 +1,17 @@
+43-0 toto Z
+44-0 toto Z
+45-0 toto S
+46-0 toto S
+46-1 toto SO
+47-0 toto S
+47-1 toto SE
+48-0 toto Z
+48-1 toto IZ
+48-2 toto ZI
+49-0 toto Z
+50-0 toto Z
+51-0 toto S
+52-0 toto SO
+53-0 toto S
+53-1 toto SES
+54-0 toto SA

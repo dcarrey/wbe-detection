@@ -1,0 +1,7 @@
+24-0 toto SCHWER
+25-0 toto SCHWAIIR
+26-0 toto ZWAAR
+27-0 toto SWAAR
+28-0 toto ZWAAR
+32-0 toto SVAR
+32-1 toto STOR

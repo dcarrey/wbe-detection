@@ -1,0 +1,17 @@
+08-0 toto FLOARE
+10-0 toto FIORE
+11-0 toto FLUR
+12-0 toto FLOUR
+12-1 toto FLOUS
+13-0 toto FLEUR
+14-0 toto FLEUR
+15-0 toto FLE
+16-0 toto FLE
+17-0 toto FRORE
+18-0 toto FIORE
+19-0 toto FRORI
+20-0 toto FLOR
+21-0 toto FLOR
+22-0 toto FLORA
+23-0 toto FLORS
+37-0 toto FLOWER

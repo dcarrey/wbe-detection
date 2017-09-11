@@ -1,0 +1,14 @@
+42-0 toto PADE
+43-0 toto PADAS
+44-0 toto PADAC
+45-0 toto UPADNOUTI
+46-0 toto PADAT
+47-0 toto PADNUT
+48-0 toto PADATY
+49-0 toto PADAC*
+50-0 toto PADAC
+51-0 toto PADAT
+52-0 toto PAGA
+52-1 toto PAGNE
+53-0 toto DA-PADA
+54-0 toto PASTI

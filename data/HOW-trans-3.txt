@@ -1,0 +1,17 @@
+08-0 toto CUM
+09-0 toto KU
+10-0 toto COME
+12-0 toto COUME
+13-0 toto COMMENT
+14-0 toto KIMINT
+15-0 toto KUMA
+16-0 toto KUMA
+17-0 toto KOMENTE
+18-0 toto COMENTE
+19-0 toto KOMMENT
+20-0 toto COMO
+21-0 toto COMO
+22-0 toto COMO
+23-0 toto COM
+59-0 toto KEM
+63-0 toto KEMON

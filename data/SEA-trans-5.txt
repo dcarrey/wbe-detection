@@ -1,0 +1,5 @@
+80-0 toto DET
+81-0 toto DET
+82-0 toto DET
+83-0 toto DEET
+84-0 toto DEJT

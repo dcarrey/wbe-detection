@@ -1,0 +1,12 @@
+24-0 toto TAG
+25-0 toto DAWG
+26-0 toto DAG
+27-0 toto DAG
+28-0 toto DAG
+30-0 toto DAG
+31-0 toto DAG
+32-0 toto DAG
+33-0 toto DAG
+34-0 toto DAG
+35-0 toto DAGR
+36-0 toto DAGUR

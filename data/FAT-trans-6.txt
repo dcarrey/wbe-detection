@@ -1,0 +1,7 @@
+46-0 toto TLSTY
+47-0 toto TLUSTI
+48-0 toto TOVSC
+50-0 toto TLUSZCZ
+53-0 toto TLESTO
+55-0 toto THULO
+56-0 toto TELA

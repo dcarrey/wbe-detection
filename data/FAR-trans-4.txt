@@ -1,0 +1,14 @@
+55-0 toto DUR
+56-0 toto DURA
+57-0 toto DUR
+57-1 toto DURU
+58-0 toto DUR
+59-0 toto DUR
+61-0 toto DUR
+62-0 toto DUR
+63-0 toto DUR
+64-0 toto DUR
+76-0 toto DUR
+77-0 toto DUR
+78-0 toto DIR
+79-0 toto DIR

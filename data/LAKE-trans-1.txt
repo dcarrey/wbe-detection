@@ -1,0 +1,16 @@
+39-0 toto AZERAS
+40-0 toto EZERAS
+41-0 toto EZERS
+42-0 toto JEZERO
+43-0 toto JAZOR
+44-0 toto JEZOR
+45-0 toto JEZERO
+46-0 toto JAZERO
+47-0 toto YAZERO
+48-0 toto OZERO
+49-0 toto VOZERA
+50-0 toto JEZIORO
+51-0 toto OZERO
+52-0 toto EZERO
+53-0 toto EZERO
+54-0 toto JEZERO

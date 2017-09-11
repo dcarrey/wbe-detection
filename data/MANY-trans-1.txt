@@ -1,0 +1,8 @@
+08-0 toto MULTI
+08-1 toto MULTE
+09-0 toto MULTI
+10-0 toto MOLTI
+20-0 toto MUCHOS
+21-0 toto MUITOS
+22-0 toto MUITOS
+23-0 toto MOLT

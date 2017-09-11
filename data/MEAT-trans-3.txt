@@ -1,0 +1,9 @@
+24-0 toto FLEISCH
+25-0 toto FLAYSCH
+26-0 toto VLEESCH
+27-0 toto VLEES
+27-1 toto VLEIS
+28-0 toto VLEESCH
+29-0 toto FLEIS
+29-1 toto FLESK
+29-2 toto FLESK

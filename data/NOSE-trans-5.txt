@@ -1,0 +1,10 @@
+55-0 toto NAK
+56-0 toto NAHAYA
+58-0 toto NAK
+59-0 toto NAK
+60-0 toto NEKK
+61-0 toto NEK
+62-0 toto NAK
+63-0 toto NAK
+64-0 toto NAK
+65-0 toto NAK

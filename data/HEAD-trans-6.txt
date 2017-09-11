@@ -1,0 +1,13 @@
+26-0 toto HOOFD
+27-0 toto HOOF
+28-0 toto HOOFD
+29-0 toto HAED
+30-0 toto HUVUD
+31-0 toto HUVA
+32-0 toto HUVUD
+33-0 toto HOVED
+34-0 toto HODE
+35-0 toto HOFUO
+36-0 toto HOVD
+37-0 toto HEAD
+38-0 toto HEDE

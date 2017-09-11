@@ -1,0 +1,14 @@
+42-0 toto JEZIK
+43-0 toto JEZYK
+44-0 toto JAZYK
+45-0 toto JAZYK
+46-0 toto JAZYK
+47-0 toto JAZIK
+48-0 toto JAZYK
+49-0 toto JAZYK
+50-0 toto JEZYK
+51-0 toto JAZYK
+52-0 toto JAZIK
+53-0 toto EZIK
+54-0 toto JEZIK
+79-0 toto ZIK

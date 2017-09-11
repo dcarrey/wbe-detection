@@ -1,0 +1,12 @@
+11-0 toto QUALCHE
+12-0 toto QUAUQUIS-UN
+13-0 toto QUELQUE
+14-0 toto KEKE
+14-1 toto QUEQUE
+17-0 toto KARKI
+18-0 toto CALCHI
+23-0 toto COLCOM
+44-0 toto NEKELKO
+47-0 toto NEKOLIK
+52-0 toto NEKOLKU
+53-0 toto NJAKOLKO

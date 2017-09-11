@@ -1,0 +1,12 @@
+08-0 toto ARBORE
+09-0 toto ARBURI
+10-0 toto ALBERO
+12-0 toto AUBRE
+13-0 toto ARBRE
+14-0 toto ABE
+18-0 toto ARBURE
+20-0 toto ARBOL
+21-0 toto ARVORE
+22-0 toto ARVORE
+23-0 toto ARBRE
+23-1 toto ABRE

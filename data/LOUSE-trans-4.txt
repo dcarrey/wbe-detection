@@ -1,0 +1,16 @@
+24-0 toto LAUS
+25-0 toto LOUSE
+26-0 toto LUIS
+27-0 toto LUIS
+28-0 toto LUIS
+29-0 toto LUS
+29-1 toto LUS
+30-0 toto LUS
+31-0 toto LUS
+32-0 toto LUS
+33-0 toto LUS
+34-0 toto LUS
+35-0 toto LUS
+36-0 toto LUS
+37-0 toto LOUSE
+38-0 toto LOSO

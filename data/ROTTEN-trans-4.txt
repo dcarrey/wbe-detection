@@ -1,0 +1,12 @@
+26-0 toto VERROT
+27-0 toto ROT
+27-1 toto VERROT
+28-0 toto VERROTTEN
+29-0 toto ROTSJE
+30-0 toto RUTTEN
+31-0 toto ROTAN
+32-0 toto RUTTEN
+33-0 toto RAADDEN
+34-0 toto ROTTEN
+36-0 toto ROTIN
+37-0 toto ROTTEN

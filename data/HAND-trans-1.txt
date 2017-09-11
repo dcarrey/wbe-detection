@@ -1,0 +1,16 @@
+15-0 toto LAME
+16-0 toto LAME
+08-0 toto MINA
+09-0 toto MYNE
+10-0 toto MANO
+11-0 toto MAUN
+12-0 toto MAIN
+13-0 toto MAIN
+14-0 toto MIN
+17-0 toto MANU
+18-0 toto MANU
+19-0 toto MANU
+20-0 toto MANO
+21-0 toto MAO
+22-0 toto MAO
+23-0 toto MA

@@ -1,0 +1,5 @@
+30-0 toto KASTA-OPP
+32-0 toto KASTA
+33-0 toto KASTE-OP
+34-0 toto KASTE-OPP
+35-0 toto KASTA-UPP

@@ -1,0 +1,10 @@
+24-0 toto FEUER
+25-0 toto FEIER
+26-0 toto VUUR
+27-0 toto VUUR
+28-0 toto VUER
+29-0 toto FJUR
+37-0 toto FIRE
+38-0 toto FAJA
+71-0 toto HUR
+70-0 toto PUR

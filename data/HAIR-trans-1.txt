@@ -1,0 +1,17 @@
+24-0 toto HAAR
+25-0 toto HORR
+26-0 toto HAAR
+27-0 toto HAAR
+27-1 toto HARE
+28-0 toto HAIR
+28-1 toto HAER
+29-0 toto HIER
+30-0 toto HAR
+31-0 toto HAR
+32-0 toto HAR
+33-0 toto HAAR
+34-0 toto HAR
+35-0 toto HAR
+36-0 toto HAR
+37-0 toto HAIR
+71-0 toto HER

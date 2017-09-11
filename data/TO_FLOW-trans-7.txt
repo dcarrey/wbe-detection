@@ -1,0 +1,14 @@
+57-0 toto WAHUN
+58-0 toto VAHNE.
+59-0 toto WEHEWU
+60-0 toto VEGNA
+61-0 toto WAWEN
+62-0 toto BEHNA
+64-0 toto BAGNU
+64-1 toto BAHANU
+65-0 toto BAHANU
+65-1 toto BAGNU
+74-0 toto BAHEDEL
+75-0 toto BAIYEDEL
+78-0 toto BAHAGH
+78-1 toto BAHITHA

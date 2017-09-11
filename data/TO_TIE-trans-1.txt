@@ -1,0 +1,15 @@
+42-0 toto ZVEZI
+43-0 toto WEZAS
+44-0 toto WJAZAC
+45-0 toto VAZATI
+45-1 toto SVAZOVATI
+46-0 toto VIAZAT
+47-0 toto ZVAZAT
+48-0 toto ZV*JAZUVATY
+49-0 toto VJAZAC*
+50-0 toto WIAZAC
+51-0 toto VJAZAT
+52-0 toto VRZE
+52-1 toto POVIE
+53-0 toto DA-VREZVA
+54-0 toto VEZATI

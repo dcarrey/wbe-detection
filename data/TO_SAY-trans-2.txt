@@ -1,0 +1,17 @@
+24-0 toto SAGEN
+25-0 toto SAWG
+26-0 toto ZEGGEN
+27-0 toto SE
+28-0 toto ZEGGEN
+29-0 toto SIZZE
+30-0 toto SAJA
+30-1 toto SAGA
+31-0 toto SAGA
+32-0 toto SAGA
+33-0 toto SIGE
+34-0 toto SI
+35-0 toto SEGJA
+37-0 toto SAY
+39-0 toto SAKYTI
+40-0 toto SAKYTI
+41-0 toto SACIT

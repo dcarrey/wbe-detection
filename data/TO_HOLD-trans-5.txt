@@ -1,0 +1,15 @@
+24-0 toto HALTEN
+26-0 toto HOUDEN
+27-0 toto HOU
+28-0 toto VASTHOUDEN
+29-0 toto FESTHALDE
+29-1 toto HALDE
+30-0 toto HALLA
+31-0 toto HAL-HOL
+32-0 toto FAST-HALLA
+33-0 toto HOLDE
+34-0 toto HOLDE
+35-0 toto HALDA
+36-0 toto HALDA
+37-0 toto HOLD
+38-0 toto HOLI

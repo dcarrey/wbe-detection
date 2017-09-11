@@ -1,0 +1,5 @@
+24-0 toto TOTEN
+26-0 toto DOODEN
+27-0 toto DOODMAAK
+28-0 toto DOODEN
+32-0 toto DODA

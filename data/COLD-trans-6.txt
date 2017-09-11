@@ -1,0 +1,5 @@
+45-0 toto STUDENY
+46-0 toto STUDENY
+49-0 toto S*CJUDZENA
+52-0 toto STRUD
+53-0 toto STUDENO

@@ -1,0 +1,10 @@
+03-0 toto MWG
+04-0 toto MWG
+05-0 toto MOGED
+05-1 toto MOGEDENN
+06-0 toto MOGED
+07-0 toto MOGED
+72-0 toto MOOGH
+25-0 toto SCHMOECK
+38-0 toto SMOKO
+37-0 toto SMOKE

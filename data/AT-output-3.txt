@@ -1,0 +1,10 @@
+6,2.364802,5.000000
+mode=multicheck
+1
+HGT 1 / 1 
+33-0 
+34-0 
+From branch 10--33-0 to branch 34-0--9
+RF = 2 , LS = 1.195137 , BD = 1.000000
+RF = 2 , LS = 0.234045 , BD = 1.500000
+Stat= 1 0

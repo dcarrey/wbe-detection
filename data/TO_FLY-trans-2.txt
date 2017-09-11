@@ -1,0 +1,13 @@
+10-0 toto VOLARE
+11-0 toto SVOLER
+12-0 toto VOULA
+13-0 toto VOLER
+14-0 toto VOLER
+15-0 toto VOLE
+16-0 toto VOLE
+17-0 toto VOLARE
+18-0 toto BOLARE
+19-0 toto BOLAI
+20-0 toto VOLAR
+21-0 toto VOAR
+22-0 toto VOAR

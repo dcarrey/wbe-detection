@@ -1,0 +1,15 @@
+37-0 toto LEFT
+42-0 toto LEVIC
+42-1 toto LEVA-RAKA
+43-0 toto LEWY
+44-0 toto LEWY
+45-0 toto LEVY
+46-0 toto AVY
+47-0 toto LEVO
+48-0 toto LIVYJ
+49-0 toto LEVY
+50-0 toto LEWY
+51-0 toto LEVYJ
+52-0 toto LEV
+53-0 toto LJAVO
+54-0 toto LJEVICA

@@ -1,0 +1,11 @@
+08-0 toto GREU
+09-0 toto GREU
+10-0 toto GREVE
+12-0 toto GREU
+18-0 toto GRAVE
+19-0 toto GRAI
+20-0 toto GRAVE
+64-0 toto GARAU
+65-0 toto GARUNGO
+78-0 toto GIRAN
+79-0 toto GHURUNG

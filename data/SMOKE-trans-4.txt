@@ -1,0 +1,17 @@
+08-0 toto FUM
+09-0 toto FUMU
+10-0 toto FUMO
+11-0 toto FUM
+12-0 toto FUM
+12-1 toto FUMADO
+13-0 toto FUMEE
+14-0 toto FOUMIRE
+15-0 toto LAFIME
+16-0 toto LAFIME
+17-0 toto UMU
+18-0 toto FUMU
+19-0 toto FUMU
+20-0 toto HUMO
+21-0 toto FUMO
+22-0 toto FUMO
+23-0 toto FUM

@@ -1,0 +1,16 @@
+24-0 toto ANDER
+25-0 toto ONNER
+26-0 toto ANDER
+27-0 toto ANDER
+28-0 toto ANDERE
+30-0 toto ANNAN
+30-1 toto ANNAT
+31-0 toto AN
+31-1 toto ANA
+32-0 toto ANDRA
+32-1 toto ANNAN
+32-2 toto ANNAT
+33-0 toto ANDEN
+34-0 toto ANNEN
+35-0 toto ANNAR
+36-0 toto ANNAR

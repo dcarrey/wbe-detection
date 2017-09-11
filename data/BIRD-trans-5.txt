@@ -1,0 +1,11 @@
+10-0 toto UCCELLO
+11-0 toto UTSCHE
+12-0 toto AUCEU
+13-0 toto OISEAU
+14-0 toto OUHE
+15-0 toto ZWEZO
+16-0 toto ZWEZO
+20-0 toto AVE
+21-0 toto AVE
+22-0 toto AVE
+23-0 toto AUCELL

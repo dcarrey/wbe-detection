@@ -1,0 +1,5 @@
+05-0 toto KRANCHAT
+11-0 toto SCRACHER
+13-0 toto CRACHER
+15-0 toto KHWASE
+16-0 toto KWASE

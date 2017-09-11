@@ -1,0 +1,5 @@
+20-0 toto NINO
+21-0 toto MENINO
+23-0 toto NEN
+23-1 toto NOY
+23-2 toto NIN

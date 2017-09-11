@@ -1,0 +1,11 @@
+05-0 toto SKEJA
+17-0 toto SEKARE
+18-0 toto SEGARE
+19-0 toto SEGAI
+30-0 toto SKARA
+31-0 toto SARA
+32-0 toto SKARA
+33-0 toto SKAERE
+34-0 toto SKJAERE
+35-0 toto SKERA
+36-0 toto SKERA

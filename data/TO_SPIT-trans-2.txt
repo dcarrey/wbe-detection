@@ -1,0 +1,10 @@
+05-0 toto SKOPA
+06-0 toto SKOPEIN
+07-0 toto SKOPAN
+08-0 toto SCUIPA
+09-0 toto ASKUKU
+12-0 toto ESCUPI
+19-0 toto SKUPPI
+20-0 toto ESCUPIR
+21-0 toto CUSPIR
+22-0 toto CUSPIR

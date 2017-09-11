@@ -1,0 +1,5 @@
+30-0 toto INTE
+31-0 toto INTA
+31-1 toto INT
+31-2 toto IT
+32-0 toto INTE

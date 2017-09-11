@@ -1,0 +1,13 @@
+08-0 toto COADA
+09-0 toto KWADE
+10-0 toto CODA
+11-0 toto CUA
+12-0 toto CO
+13-0 toto QUEUE
+14-0 toto COWE
+17-0 toto KOA
+18-0 toto COA
+19-0 toto KOA
+20-0 toto COLA
+22-0 toto CAUDA
+23-0 toto CUA

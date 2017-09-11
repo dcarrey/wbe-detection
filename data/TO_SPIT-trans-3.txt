@@ -1,0 +1,16 @@
+73-0 toto TU-KAENYN
+76-0 toto TOF-KARDAN
+77-0 toto TUF-KARDAN
+57-0 toto THOKUN
+58-0 toto THUNKNE.
+60-0 toto THUKKENA
+61-0 toto THUKKEN
+64-0 toto THUKNU
+65-0 toto THUKNU
+71-0 toto T*UK*
+72-0 toto TUKNEL
+74-0 toto TUKEL
+74-1 toto TUKAVEL
+75-0 toto TIKAWEL
+78-0 toto THUK
+62-0 toto KHUKNA

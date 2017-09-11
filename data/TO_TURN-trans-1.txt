@@ -1,0 +1,16 @@
+05-0 toto TURGNA
+13-0 toto TOURNER
+14-0 toto TOURNER
+15-0 toto TUNE
+23-0 toto TORNAR
+37-0 toto TURN
+03-0 toto TROI
+04-0 toto TROI
+06-0 toto TROEIN
+07-0 toto TREIN
+25-0 toto DRAY
+27-0 toto OMDRAAI
+27-1 toto DRAAI
+28-0 toto DRAAIJEN
+29-0 toto DRAEIJE
+38-0 toto DRAI

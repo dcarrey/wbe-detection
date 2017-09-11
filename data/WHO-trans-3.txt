@@ -1,0 +1,15 @@
+30-1 toto HOCKEN
+31-1 toto HOKAN
+37-0 toto WHO
+38-0 toto HOESOEMA
+24-0 toto WER
+25-0 toto WAIIR
+29-0 toto HWA
+29-1 toto HWA*T
+30-0 toto VEM
+31-0 toto VAM
+32-0 toto VEM
+33-0 toto HVEM
+34-0 toto HVEM
+35-0 toto HVER
+36-0 toto HVOR

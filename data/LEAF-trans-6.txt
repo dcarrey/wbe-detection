@@ -1,0 +1,12 @@
+24-0 toto BLATT
+25-0 toto BLOT
+26-0 toto BLAD
+27-0 toto BLAD
+27-1 toto BLAAR
+28-0 toto BLAD
+29-0 toto BLED
+30-0 toto BLAD
+31-0 toto BLA
+32-0 toto BLAD
+34-0 toto BLAD
+36-0 toto BLAD

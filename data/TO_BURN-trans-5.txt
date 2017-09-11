@@ -1,0 +1,9 @@
+42-0 toto ZGORET
+45-0 toto HORETI
+46-0 toto ZHORET
+47-0 toto HORIT
+48-0 toto GORITY
+51-0 toto GORET
+52-0 toto GORI
+52-1 toto ZEGA
+53-0 toto DA-GORI

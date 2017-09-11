@@ -1,0 +1,13 @@
+39-0 toto KASTI
+40-0 toto KASTI
+41-0 toto KOST
+43-0 toto KUSAS
+44-0 toto KUSAC
+45-0 toto KOUSATI
+46-0 toto KUSNUT
+47-0 toto KUSAT
+48-0 toto KUSATY
+49-0 toto KUSAC*
+51-0 toto KUSAT
+52-0 toto KASA
+52-1 toto KASNE

@@ -1,0 +1,14 @@
+40-0 toto LEKTI
+42-0 toto LETETI
+43-0 toto LESES
+44-0 toto LECEC
+45-0 toto LETATI
+46-0 toto LETET
+47-0 toto LETAT
+48-0 toto LITATY
+49-0 toto LETAC*
+50-0 toto LECIEC
+51-0 toto LETET
+52-0 toto LETNE
+53-0 toto DALETI
+54-0 toto LETETI

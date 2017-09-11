@@ -1,0 +1,9 @@
+32-0 toto ICKE
+33-0 toto IKKE
+34-0 toto IKKE
+35-0 toto EKKI
+36-0 toto IKKI
+67-0 toto OCHI
+68-0 toto OCHI
+71-0 toto OC*
+72-0 toto VOCH

@@ -1,0 +1,16 @@
+39-0 toto KVIETKA
+42-0 toto CVET
+43-0 toto KWET
+44-0 toto KWET
+45-0 toto KVETINA
+46-0 toto KVET
+47-0 toto KVITKO
+48-0 toto KVITKA
+48-1 toto CICKA
+49-0 toto KVETKA
+50-0 toto KWIAT
+51-0 toto CVET
+52-0 toto CVET
+53-0 toto CVETE
+54-0 toto CVET
+71-0 toto CATIK

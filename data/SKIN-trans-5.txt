@@ -1,0 +1,10 @@
+08-0 toto PIELE
+10-0 toto PELLE
+11-0 toto PEL
+12-0 toto PEAU
+13-0 toto PEAU
+14-0 toto PE
+20-0 toto PIEL
+21-0 toto PELLE
+22-0 toto PELE
+23-0 toto PELL

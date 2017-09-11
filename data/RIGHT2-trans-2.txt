@@ -1,0 +1,8 @@
+45-0 toto PRAVY
+46-0 toto PRAVY
+47-0 toto PRAVO
+48-0 toto PRAVORUC
+48-1 toto PRAVYJ
+49-0 toto PRAVY
+50-0 toto PRAWY
+51-0 toto PRAVYJ

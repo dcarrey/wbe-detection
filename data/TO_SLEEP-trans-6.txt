@@ -1,0 +1,14 @@
+42-0 toto SPATI
+43-0 toto SPAS
+44-0 toto SPAC
+45-0 toto SPATI
+46-0 toto SPAT
+47-0 toto SPAT
+48-0 toto SPATY
+48-1 toto ZASYPLJATY
+49-0 toto SPAC*
+50-0 toto SPAC
+51-0 toto SPAT
+52-0 toto SPIE
+53-0 toto DA-SPI
+54-0 toto SPAVATI

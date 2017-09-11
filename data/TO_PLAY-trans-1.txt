@@ -1,0 +1,12 @@
+08-0 toto JUCA
+10-0 toto GIUOCARE
+11-0 toto GIOVER
+12-0 toto JOUGA
+13-0 toto JOUER
+14-0 toto DJOUWER
+17-0 toto JOKARE
+18-0 toto GIOGARE
+19-0 toto GOGAI
+20-0 toto JUGAR
+21-0 toto JOGAR
+22-0 toto JOGAR

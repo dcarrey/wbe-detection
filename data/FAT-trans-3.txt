@@ -1,0 +1,15 @@
+24-0 toto FETT
+25-0 toto FETT
+26-0 toto VET
+27-0 toto VET
+28-0 toto VET
+29-0 toto VET
+30-0 toto FETT
+31-0 toto FET
+32-0 toto FET
+33-0 toto FEDT
+34-0 toto FETT
+35-0 toto FITA
+36-0 toto FITI
+37-0 toto FAT
+38-0 toto FATOE

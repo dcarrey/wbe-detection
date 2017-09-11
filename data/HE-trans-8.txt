@@ -1,0 +1,11 @@
+17-0 toto ISSE
+18-0 toto IPSE
+19-0 toto ISSU
+39-0 toto JIS
+40-0 toto JIS
+01-0 toto SE
+02-0 toto E
+02-1 toto SEISEAN
+02-2 toto SE
+57-0 toto SUH
+63-0 toto SE

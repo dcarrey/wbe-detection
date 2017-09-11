@@ -1,0 +1,13 @@
+42-0 toto CRNU
+43-0 toto CARNY
+44-0 toto CORNY
+45-0 toto CERNY
+46-0 toto CIERNY
+47-0 toto CERNE
+48-0 toto CORNYJ
+49-0 toto CORNY
+50-0 toto CZARNY
+51-0 toto CERNYJ
+52-0 toto CRN
+53-0 toto CERNO
+54-0 toto CRN

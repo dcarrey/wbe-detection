@@ -1,0 +1,8 @@
+57-0 toto KHANUN
+58-0 toto KHENNE.
+64-0 toto KHANNU
+65-0 toto KHANNU
+74-0 toto KINEL
+74-1 toto KINDEL
+75-0 toto KANDEL
+77-0 toto KANDAN

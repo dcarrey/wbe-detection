@@ -1,0 +1,17 @@
+30-0 toto TRA
+31-0 toto TRE
+31-1 toto TRA
+32-0 toto TRAD
+33-0 toto TRAE
+34-0 toto TRE
+35-0 toto TRE
+36-0 toto TRAE
+37-0 toto TREE
+42-0 toto DREV
+48-0 toto DEREVO
+49-0 toto DREVA
+50-0 toto DRZEWO
+51-0 toto DEREVO
+52-0 toto DRVO
+53-0 toto DERVO
+54-0 toto DRVO

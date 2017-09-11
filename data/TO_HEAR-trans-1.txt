@@ -1,0 +1,14 @@
+24-0 toto HOREN
+25-0 toto HAIIR
+26-0 toto HOOREN
+27-0 toto HOOR
+28-0 toto HOOREN
+29-0 toto HEARE
+30-0 toto HORA
+31-0 toto HOR
+32-0 toto HORA
+33-0 toto HORE
+34-0 toto HORE
+35-0 toto HEYRA
+36-0 toto HOYRA
+37-0 toto HEAR

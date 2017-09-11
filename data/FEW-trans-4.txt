@@ -1,0 +1,6 @@
+39-0 toto KELI
+46-0 toto NIEKOLKO
+48-0 toto KIL*KA
+52-0 toto NEKOLKU
+54-0 toto NEKOLIKO
+42-0 toto NEKAJ

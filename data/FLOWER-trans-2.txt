@@ -1,0 +1,15 @@
+58-0 toto PHUL
+59-0 toto FUL
+60-0 toto PHULL
+61-0 toto PHUL
+62-0 toto PHUL
+63-0 toto PHUL
+64-0 toto PHUL
+65-0 toto PHUL
+78-0 toto PHUL
+57-0 toto GUL
+74-0 toto GUL
+75-0 toto GUL
+76-0 toto GOL
+77-0 toto GUL
+79-0 toto GUL

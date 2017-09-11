@@ -1,0 +1,7 @@
+10-0 toto COLPIRE
+11-0 toto COLPIR
+17-0 toto KURPIRE
+18-0 toto COLPIRE
+20-0 toto GOLPEAR
+22-0 toto GOLPEAR
+23-0 toto COPEJAR

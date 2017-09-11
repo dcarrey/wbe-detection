@@ -1,0 +1,17 @@
+55-0 toto XAV
+56-0 toto KANAWA
+57-0 toto KHYONU
+58-0 toto KHANE.
+59-0 toto KHAWU
+60-0 toto KHANA
+61-0 toto KHAWEN
+62-0 toto KHANA
+63-0 toto KHAOA
+64-0 toto KHANU
+65-0 toto KHANU
+80-0 toto ME-NGRENE
+81-0 toto HA
+81-1 toto AOR.-HENGERA
+82-0 toto HA
+83-0 toto XAA
+84-0 toto XA

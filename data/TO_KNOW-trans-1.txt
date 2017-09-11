@@ -1,0 +1,17 @@
+17-0 toto ISKIRE
+18-0 toto ISCHIRE
+19-0 toto SIRI
+10-0 toto SAPERE
+11-0 toto SAVAIR
+12-0 toto SABE
+12-1 toto SAUPRE
+13-0 toto SAVOIR
+14-0 toto SAVEUR
+14-1 toto SAVU
+14-2 toto SEPI
+15-0 toto SAV-SE
+16-0 toto SAV
+20-0 toto SABER
+21-0 toto SABER
+22-0 toto SABER
+38-0 toto SABI

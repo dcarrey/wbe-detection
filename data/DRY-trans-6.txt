@@ -1,0 +1,5 @@
+08-0 toto USCAT
+09-0 toto USKATE
+10-0 toto ASCIUTTO
+11-0 toto SUT
+23-0 toto AIXUT

@@ -1,0 +1,13 @@
+11-0 toto MEL
+12-0 toto MARRIT
+13-0 toto MAUVAIS
+14-0 toto MAL
+15-0 toto MOVE
+16-0 toto MOVE
+17-0 toto MALU
+18-0 toto MALU
+19-0 toto MALU
+20-0 toto MAL
+21-0 toto MAO
+22-0 toto MAU
+23-0 toto MAL

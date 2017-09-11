@@ -1,0 +1,17 @@
+24-0 toto WAS
+25-0 toto WAAS
+26-0 toto WAT
+27-0 toto WAT
+27-1 toto WATTER
+28-0 toto WAT
+29-0 toto HWAT
+30-0 toto VAD
+30-1 toto VA
+31-0 toto VA
+31-1 toto VA
+32-0 toto VAD
+33-0 toto HVAD
+34-0 toto HVAD
+35-0 toto HVAO
+36-0 toto HVAT
+37-0 toto WHAT

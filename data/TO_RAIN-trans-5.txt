@@ -1,0 +1,16 @@
+55-0 toto BRWSUNT
+61-0 toto BARES-THIWEN
+62-0 toto BERESNA
+62-1 toto BARIS-HONA
+64-0 toto BARSANU
+65-0 toto BARSANU
+81-0 toto BIE-SI
+81-1 toto RA-SI
+82-0 toto BI-SHI
+83-0 toto BIE-SII
+84-0 toto SI
+66-0 toto BRECHEI
+67-0 toto BRECHEI
+68-0 toto VRECHI
+69-0 toto BRECHEI
+70-0 toto BRECHEI

@@ -1,0 +1,16 @@
+08-0 toto SINGE
+09-0 toto SYNZE
+10-0 toto SANGUE
+11-0 toto SAUNG
+12-0 toto SANG
+13-0 toto SANG
+14-0 toto SONG*
+15-0 toto SA
+16-0 toto SA
+17-0 toto SAMBEBE
+18-0 toto SAMBENE
+19-0 toto SANGUINI
+20-0 toto SANGRE
+21-0 toto SANGUE
+22-0 toto SANGUE
+23-0 toto SANCH

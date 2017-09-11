@@ -1,0 +1,5 @@
+60-0 toto KYOKE
+61-0 toto KYUKE
+62-0 toto KYOKE
+64-0 toto KINAKI
+65-0 toto KINAKI

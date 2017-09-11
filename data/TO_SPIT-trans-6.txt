@@ -1,0 +1,7 @@
+05-0 toto TUFA
+07-0 toto TUFAN
+66-0 toto FTUNO
+67-0 toto FTUNO
+68-0 toto FTYO
+69-0 toto FTUNO
+70-0 toto PTUO

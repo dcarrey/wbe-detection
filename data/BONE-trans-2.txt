@@ -1,0 +1,14 @@
+26-0 toto BEEN
+26-1 toto BOT
+27-0 toto BEEN
+28-0 toto BEEN
+29-0 toto BIEN
+30-0 toto BEN
+31-0 toto BEN
+32-0 toto BEN
+33-0 toto BEN
+34-0 toto BEN
+35-0 toto BEIN
+36-0 toto BEIN
+37-0 toto BONE
+38-0 toto BOON

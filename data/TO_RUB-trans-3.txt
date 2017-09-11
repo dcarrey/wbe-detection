@@ -1,0 +1,9 @@
+30-0 toto GNIDA
+30-1 toto GNUGGA
+31-0 toto GNI
+31-1 toto GNOG
+32-0 toto GNUGGA
+32-1 toto GNIDA
+33-0 toto GNIDE
+34-0 toto GNI
+36-0 toto GNIGGJA

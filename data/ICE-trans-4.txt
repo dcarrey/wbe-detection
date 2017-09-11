@@ -1,0 +1,16 @@
+08-0 toto GHEATA
+09-0 toto GLECU
+10-0 toto GHIACCIO
+11-0 toto GLATSCH
+12-0 toto GLACO
+12-1 toto GEU
+13-0 toto GLACE
+14-0 toto GLECE
+15-0 toto LAGLAS
+16-0 toto LAGLAS
+19-0 toto GIACCU
+20-0 toto HIELO
+21-0 toto GELO
+22-0 toto GELO
+23-0 toto GEL
+23-1 toto GLAS

@@ -1,0 +1,12 @@
+09-0 toto NEAWE
+10-0 toto NEVE
+11-0 toto NAIV
+12-0 toto NEU
+13-0 toto NEIGE
+14-0 toto NIVAYE
+18-0 toto NIE
+19-0 toto NI
+20-0 toto NIEVE
+21-0 toto NEVE
+22-0 toto NEVE
+23-0 toto NEU

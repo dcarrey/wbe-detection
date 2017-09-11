@@ -1,0 +1,10 @@
+24-0 toto SCHLAGEN
+25-0 toto SCHLOCK
+27-0 toto SLAAN
+28-0 toto SLAEN
+29-0 toto SLAEN
+31-0 toto SLA-SLA
+32-0 toto SLA
+34-0 toto SLA
+35-0 toto SLA
+36-0 toto SLAA

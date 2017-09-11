@@ -1,0 +1,12 @@
+10-0 toto LINGUA
+11-0 toto LAUNGIA
+12-0 toto LENGO
+13-0 toto LANGUE
+14-0 toto LINWE
+15-0 toto LAN
+16-0 toto LAN
+19-0 toto LINGUA
+20-0 toto LENGUA
+21-0 toto LINGUA
+22-0 toto LINGUA
+23-0 toto LLENGUA

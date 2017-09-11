@@ -1,0 +1,15 @@
+24-0 toto GRUN
+25-0 toto GRIE
+26-0 toto GROEN
+27-0 toto GROEN
+28-0 toto GROEN
+29-0 toto GRIEM
+30-0 toto GRON
+31-0 toto GRON
+32-0 toto GRON
+33-0 toto GRON
+34-0 toto GRONN
+35-0 toto GRAENN
+36-0 toto GRONUR
+37-0 toto GREEN
+38-0 toto GROEN

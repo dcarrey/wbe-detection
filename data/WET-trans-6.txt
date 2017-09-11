@@ -1,0 +1,13 @@
+12-0 toto MUIA
+12-1 toto IME
+12-2 toto IMO
+12-3 toto MOUISSE
+13-0 toto MOUILLE
+14-0 toto MOUYI
+15-0 toto MUYE-MWIYE
+16-0 toto MUYE
+20-0 toto MOJADO
+21-0 toto MOLHADO
+22-0 toto MOLHADO
+23-0 toto MULLADA
+23-1 toto MULLADURA

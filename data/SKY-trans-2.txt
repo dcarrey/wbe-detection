@@ -1,0 +1,17 @@
+17-0 toto KELU
+80-0 toto GIELL
+81-0 toto KIEL
+82-0 toto KJULLI
+84-0 toto KIEGHJA
+10-0 toto CIELO
+11-0 toto TSCHEL
+12-0 toto CEU
+13-0 toto CIEL
+15-0 toto SYEL
+16-0 toto SYEL
+18-0 toto CHELU
+19-0 toto CELU
+20-0 toto CIELO
+21-0 toto CEO
+22-0 toto CEU
+23-0 toto CEL

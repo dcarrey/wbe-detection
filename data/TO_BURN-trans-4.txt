@@ -1,0 +1,5 @@
+03-0 toto LLOSGI
+04-0 toto LLOSGI
+05-0 toto LESKI
+05-1 toto LISKI
+06-0 toto LOSKEIN

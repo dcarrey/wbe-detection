@@ -1,0 +1,17 @@
+05-0 toto KORDENN
+06-0 toto KORDENN
+07-0 toto KORDENN
+10-0 toto CORDA
+11-0 toto CORDA
+12-0 toto CORDO
+13-0 toto CORDE
+14-0 toto CWEDE
+15-0 toto KOD
+16-0 toto KOD
+20-0 toto CUERDA
+21-0 toto CORDA
+22-0 toto CORDA
+23-0 toto CORDA
+23-1 toto CORDILL
+26-0 toto KOORD
+70-0 toto CHONDRON

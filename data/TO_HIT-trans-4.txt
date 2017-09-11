@@ -1,0 +1,10 @@
+42-0 toto UDARIT
+43-0 toto DERIS
+44-0 toto DYRIC
+46-0 toto UDERIT
+46-1 toto UDIERAT
+47-0 toto UDERIT
+48-0 toto UDARJATY
+49-0 toto UDARAC*
+53-0 toto DA-UDARI
+54-0 toto UDARITI

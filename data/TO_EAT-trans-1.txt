@@ -1,0 +1,12 @@
+08-0 toto MINCA
+09-0 toto MYKU
+10-0 toto MANGIARE
+11-0 toto MANGER
+12-0 toto MANJA
+13-0 toto MANGER
+14-0 toto MAGNI
+15-0 toto MAZE
+16-0 toto MAZE
+17-0 toto MANNIKARE
+18-0 toto MANDIGARE
+23-0 toto MENJAR

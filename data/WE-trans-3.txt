@@ -1,0 +1,7 @@
+73-0 toto MAX
+74-0 toto MUZ
+75-0 toto MIZH
+76-0 toto MA
+77-0 toto MO
+77-1 toto MOEN
+78-0 toto MA

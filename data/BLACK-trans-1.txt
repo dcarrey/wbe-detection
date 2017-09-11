@@ -1,0 +1,11 @@
+55-0 toto KALO
+56-0 toto KALU
+57-0 toto KALA
+58-0 toto KALA
+59-0 toto KALU
+60-0 toto KALA
+61-0 toto KALA
+62-0 toto KALA
+63-0 toto KALO
+64-0 toto KALO
+65-0 toto KALO

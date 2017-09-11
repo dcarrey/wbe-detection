@@ -1,0 +1,9 @@
+29-0 toto WIET
+30-0 toto VAT
+31-0 toto VOT-VAT
+32-0 toto VAT
+33-0 toto VAAD
+34-0 toto VAT
+35-0 toto VOTUR
+36-0 toto VATUR
+37-0 toto WET

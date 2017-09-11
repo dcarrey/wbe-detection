@@ -1,0 +1,6 @@
+45-0 toto OVOCE
+46-0 toto OVOCIE
+47-0 toto OVOCE
+48-0 toto OVOC
+50-0 toto OWOC
+54-0 toto VOCE

@@ -1,0 +1,14 @@
+24-0 toto TRINKEN
+25-0 toto NEMM-EN-DRINK
+26-0 toto DRINKEN
+27-0 toto DRINK
+28-0 toto DRINKEN
+30-0 toto DRICKA
+31-0 toto DREK
+32-0 toto DRICKA
+33-0 toto DRIKKE
+34-0 toto DRIKKE
+35-0 toto DREKKA
+36-0 toto DREKKA
+37-0 toto DRINK
+38-0 toto DRINGI

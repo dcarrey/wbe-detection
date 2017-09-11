@@ -1,0 +1,12 @@
+08-0 toto PLOUA
+10-0 toto PIOVERE
+11-0 toto PLOUVER
+11-1 toto PLOVER
+12-0 toto PLOURE
+13-0 toto PLEUVOIR
+14-0 toto PLOURE
+17-0 toto PROERE
+18-0 toto PIOERE
+19-0 toto PROI
+20-0 toto LLOVER
+23-0 toto PLOURER

@@ -1,0 +1,14 @@
+10-0 toto TERRA
+11-0 toto TERRA
+12-0 toto TERRO
+13-0 toto TERRE
+14-0 toto TERE
+14-1 toto TERE
+15-0 toto TE
+16-0 toto TE
+17-0 toto TERRA
+18-0 toto TERRINU
+19-0 toto TERRA
+20-0 toto TIERRA
+21-0 toto TERRA
+23-0 toto TERRA

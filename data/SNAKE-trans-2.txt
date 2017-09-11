@@ -1,0 +1,9 @@
+24-0 toto SCHLANGE
+25-0 toto SCHLUNG
+26-0 toto SLANG
+27-0 toto SLANG
+28-0 toto SLANG
+29-0 toto SLANG
+29-1 toto SLANGE
+33-0 toto SLANGE
+36-0 toto ALANGA

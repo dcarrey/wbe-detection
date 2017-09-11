@@ -1,0 +1,8 @@
+08-0 toto ZI
+09-0 toto ZUE
+10-0 toto GIORNO
+12-0 toto JOUR
+13-0 toto JOUR
+14-0 toto DJOU
+15-0 toto ZU
+16-0 toto ZU

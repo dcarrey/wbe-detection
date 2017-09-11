@@ -1,0 +1,12 @@
+72-0 toto PEDUR
+08-0 toto PANA
+09-0 toto PEANE
+11-0 toto PENNA
+17-0 toto PIA
+19-0 toto PINNA
+21-0 toto PENNA
+80-0 toto PENDE
+81-0 toto PENDE
+82-0 toto PENDA
+83-0 toto PENDE
+84-0 toto PEND

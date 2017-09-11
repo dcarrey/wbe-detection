@@ -1,0 +1,15 @@
+24-0 toto FLIEGEN
+25-0 toto FLIEK
+26-0 toto VLIEGEN
+27-0 toto VLIE
+27-1 toto VLIEG
+28-0 toto VLIEGEN
+30-0 toto FLYGA
+31-0 toto FLYG
+32-0 toto FLYGA
+33-0 toto FLYVE
+34-0 toto FLY
+35-0 toto FLJUGA
+36-0 toto FLUGVA
+37-0 toto FLY
+38-0 toto FLEI

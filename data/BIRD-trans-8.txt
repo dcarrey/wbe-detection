@@ -1,0 +1,17 @@
+39-0 toto PAUKSTIS
+40-0 toto PAUKSTIS
+41-0 toto PUTNS
+42-0 toto TICK
+43-0 toto PTAK
+44-0 toto PTAK
+45-0 toto PTAK
+46-0 toto VTAK
+47-0 toto FTAK
+48-0 toto PTAX
+49-0 toto PTUSKA
+50-0 toto PTAK
+51-0 toto PTICA
+52-0 toto PTICA
+53-0 toto PTICA
+54-0 toto PTICA
+70-0 toto PTENON

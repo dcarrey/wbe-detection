@@ -1,0 +1,6 @@
+08-0 toto TAIA
+09-0 toto TALU
+10-0 toto TAGLIARE
+11-0 toto TAGLIER
+14-0 toto TEYI
+23-0 toto TALLAR

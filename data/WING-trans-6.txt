@@ -1,0 +1,5 @@
+60-0 toto PER
+61-0 toto PER
+75-0 toto PAR
+76-0 toto PAR
+78-0 toto PHAR

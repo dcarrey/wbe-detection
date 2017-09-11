@@ -1,0 +1,17 @@
+30-0 toto MANGA
+31-0 toto MANG
+31-1 toto MONG
+32-0 toto MANGA
+33-0 toto MANGE
+34-0 toto MANGE
+36-0 toto MANGUR
+37-0 toto MANY
+43-0 toto MLOGI
+44-0 toto MNOHO
+45-0 toto MNOHO
+45-1 toto MNOHY
+46-0 toto MNOHY
+51-0 toto MNOGO
+52-1 toto MNOGU
+53-0 toto MNOGO
+54-0 toto MNOGI

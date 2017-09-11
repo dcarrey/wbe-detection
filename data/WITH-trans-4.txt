@@ -1,0 +1,10 @@
+08-0 toto CU
+09-0 toto KU
+10-0 toto CON
+11-0 toto CUN
+17-0 toto KIN
+18-0 toto CUM
+19-0 toto KUN
+20-0 toto CON
+21-0 toto COM
+22-0 toto COM

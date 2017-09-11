@@ -1,0 +1,9 @@
+80-0 toto I-KUG
+81-0 toto I-KUK
+82-0 toto KUKJ
+83-0 toto KUK
+84-0 toto I-KUK
+66-0 toto KOKKINOS
+67-0 toto KOKKINOS
+68-0 toto KOKINOS
+69-0 toto KOKKINO

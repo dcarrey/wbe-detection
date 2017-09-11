@@ -1,0 +1,13 @@
+42-0 toto ADEN
+43-0 toto JADEN
+44-0 toto JEDYN
+45-0 toto JEDEN
+46-0 toto JEDEN
+47-0 toto YEDEN
+48-0 toto ODYN
+49-0 toto ADZIN
+50-0 toto JEDEN
+51-0 toto ODIN
+52-0 toto EDEN
+53-0 toto EDNO
+54-0 toto JEDAN

@@ -1,0 +1,7 @@
+01-0 toto DUILLEOG
+02-0 toto DUILLE
+03-0 toto DEILEN
+04-0 toto DALEN
+05-0 toto DEIL
+06-0 toto DELEN
+07-0 toto DELIENN

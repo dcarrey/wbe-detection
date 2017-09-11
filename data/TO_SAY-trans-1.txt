@@ -1,0 +1,13 @@
+02-0 toto DEIRIM
+10-0 toto DIRE
+11-0 toto DIR
+12-0 toto DIRE
+13-0 toto DIRE
+14-0 toto DIRE
+15-0 toto DI
+16-0 toto DI
+20-0 toto DECIR
+21-0 toto DIZER
+22-0 toto DIZER
+23-0 toto DIR
+73-0 toto DZURYN

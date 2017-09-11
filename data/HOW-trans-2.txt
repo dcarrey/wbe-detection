@@ -1,0 +1,15 @@
+42-0 toto KAKO
+43-0 toto KAK
+44-0 toto KAK
+45-0 toto JAK
+46-0 toto AKO
+46-1 toto JAKO
+47-0 toto YAK
+48-0 toto JAK
+48-1 toto JAKYM-ROBOM
+49-0 toto JAK
+50-0 toto JAK
+51-0 toto KAK
+52-0 toto KAKO
+53-0 toto KAK
+54-0 toto KAKO

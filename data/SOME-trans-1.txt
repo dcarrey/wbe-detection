@@ -1,0 +1,8 @@
+30-0 toto NAGRA
+31-0 toto NAGRA
+32-0 toto NAGON
+32-1 toto NAGRA
+33-0 toto NOGEN
+34-0 toto NOEN
+35-0 toto NOKKRIR
+36-0 toto NAKRIR

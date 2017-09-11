@@ -1,0 +1,4 @@
+38-0 toto TRIPA
+15-0 toto THWIP
+21-0 toto TRIPAS
+13-0 toto TRIPES

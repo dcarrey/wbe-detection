@@ -1,0 +1,12 @@
+42-0 toto HODIT
+43-0 toto HIS
+44-0 toto HIC
+45-1 toto CHODITI
+46-0 toto CHODIT
+47-0 toto XODYIT
+48-0 toto XODYTY
+48-1 toto ITY
+49-0 toto ISCI
+50-0 toto CHODZIC
+51-0 toto XODIT
+52-0 toto ODI

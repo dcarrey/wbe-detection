@@ -1,0 +1,15 @@
+42-0 toto KUST
+43-0 toto KOSC
+44-0 toto KOSC
+45-0 toto KOST
+46-0 toto KOST
+47-0 toto KOSTY
+48-0 toto KIST*
+49-0 toto KOSTKA
+50-0 toto KOSC
+51-0 toto KOST
+52-0 toto KOSKA
+53-0 toto KOST
+54-0 toto KOST
+80-0 toto KOSKE
+81-0 toto KOCKE

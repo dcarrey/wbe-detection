@@ -1,0 +1,15 @@
+24-0 toto FALLEN
+25-0 toto FOLL
+26-0 toto VALLEN
+27-0 toto VAL
+28-0 toto VALLEN
+29-0 toto FALLE
+30-0 toto FALLA
+31-0 toto FAL
+32-0 toto FALLA
+33-0 toto FALDE
+34-0 toto FALLE
+35-0 toto FALLA
+36-0 toto FALLA
+37-0 toto FALL
+38-0 toto FADOM

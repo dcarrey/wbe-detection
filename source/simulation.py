@@ -1,4 +1,36 @@
+from Bio import Phylo
+from io import StringIO
 import os, re
+
+groups = {"01":'1',"02":'1',"03":'1',"04":'1',"05":'1',"06":'1',"07":'1',
+		"08":'2',"09":'2',"10":'2',"11":'2',"17":'2',"18":'2',"19":'2',
+		"12":'3',"13":'3',"14":'3',"15":'3',"16":'3',"20":'3',"21":'3',"22":'3',"23":'3',
+		"24":'4',"25":'4',"26":'4',"27":'4',"28":'4',"29":'4',"37":'4',"38":'4',
+		"30":'5',"31":'5',"32":'5',"33":'5',"34":'5',"35":'5',"36":'5',
+		"39":'6',"40":'6',"41":'6',
+		"42":'7',"43":'7',"44":'7',"45":'7',"46":'7',"47":'7',"48":'7',"49":'7',"50":'7',"51":'7',"52":'7',"53":'7',"54":'7',
+		"55":'8',"56":'8',"57":'8',"58":'8',"59":'8',"60":'8',"61":'8',"62":'8',"63":'8',"64":'8',"65":'8',
+		"73":'9',"74":'9',"75":'9',"76":'9',"77":'9',"78":'9',"79":'9',
+		"80":'10',"81":'10',"82":'10',"83":'10',"84":'10',
+		"66":'11',"67":'11',"68":'11',"69":'11',"70":'11',
+		"71":'12',"72":'12'}
+
+def getGroupsFromWordTree(word_tree):
+    tree = Phylo.read(StringIO(word_tree), "newick")
+    dict_groups = {}
+    groups_to_return = ""
+    for leaf in tree.get_terminals():
+        tmp = re.sub(r"-[0-9]*", "", leaf.name)
+        if tmp in groups:
+	        key = groups[tmp]
+	        if key in dict_groups:
+	            dict_groups[key] += "," + leaf.name
+	        else:
+	            dict_groups[key] = leaf.name
+	        print( leaf, groups[tmp])
+    for key,value in dict_groups.items():
+        groups_to_return += key + "=" + value + "\n"
+    return groups_to_return
 
 def getWordNewickString(path,word,index):
     filename = path + word + "-input-" + index + ".txt"
@@ -22,24 +54,37 @@ def getLangueNewickString(filename):
         langue_newick = f.read()
     return langue_newick
 
-def traitementFichier(path,file):
-    tab = re.split('[-.]', file)
-    word = tab[0]
-    index = tab[2]
-    word_tree = getWordNewickString(path,word,index)
-    langue_tree = getLangueNewickString("/Users/boc_a/wbe-detection/examples/langue.new")
-    tranlations = getWordTranslations(path,word,index)
-    print(word,index)
-    print("language_tree:",langue_tree, sep="\n")
-    print("word_tree:",word_tree, sep="\n")
-    print("translations:",tranlations, sep="\n")
+def createFichier(path,file):
+	tab = re.split('[-.]', file)
+	word = tab[0]
+	index = tab[2]
+	word_tree = getWordNewickString(path,word,index)
+	langue_tree = getLangueNewickString("/Users/boc_a/wbe-detection/examples/langue.new")
+	tranlations = getWordTranslations(path,word,index)
+	groupes = getGroupsFromWordTree(langue_tree)
+	fh = open("input.txt", "w")
+	print(word,index)
+	print("language_tree:", langue_tree, sep="\n", file=fh)
+	print("word_tree:", word_tree, sep="\n", file=fh)
+	print("group_content:", groupes, sep="\n", file=fh)
+	print("translations:", tranlations, sep="\n", file=fh)
+	fh.close()
 
-def parcourir(path):
-    dirs = os.listdir(path)
-    prog = re.compile(".*-input-[0-9]+")
-    for file in dirs:
-        result = prog.match(file)
-        if result:
-            traitementFichier(path,file)
+def parcourir(path, c1=1505, c2=1.5, blk=20):
+	cmd = "perl run_wbe.pl -inputfile=input.txt -c1=" + str(c1) + " -c2=" + str(c2) + " -blk=" + str(blk)
+	dirs = os.listdir(path)
+	prog = re.compile(".*FRUIT-input-[2]+")
+	for file in dirs:
+		result = prog.match(file)
+		if result:
+			createFichier(path,file)
+			os.system(cmd)
 
-parcourir("/Users/boc_a/biolinguistique/data/")
+for c2 in range( 15, 16, 5):
+    c2 = float(c2) / 10.0
+    for c1 in range(1505, 1600, 500):
+        for blk in range(20, 21, 1):
+            blk = float(blk) / 100.0
+            parcourir("../data/",c1,c2,blk)
+
+print("Fin normale du script")

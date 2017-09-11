@@ -1,0 +1,8 @@
+39-0 toto AS
+40-0 toto AS
+41-0 toto ES
+42-0 toto JEST
+52-0 toto JAS
+53-0 toto AZ
+71-0 toto ES
+72-0 toto YES

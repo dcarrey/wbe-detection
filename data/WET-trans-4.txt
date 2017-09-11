@@ -1,0 +1,14 @@
+42-0 toto MAKRO
+43-0 toto MOKSY
+44-0 toto MOKRY
+45-0 toto MOKRY
+46-0 toto MOKRY
+47-0 toto MOKRE
+48-0 toto MOKRYJ
+48-1 toto VOHKYJ
+49-0 toto MOKRY
+49-1 toto MOKRA
+50-0 toto MOKRY
+51-0 toto MOKRYJ
+53-0 toto MOKRO
+54-0 toto MOKAR

@@ -1,0 +1,13 @@
+55-0 toto MACHO
+56-0 toto MALU
+58-0 toto MASA
+59-0 toto MACHELI
+60-0 toto MECCHI
+61-0 toto MECHLI
+62-0 toto MECHLI
+63-0 toto MAC
+64-0 toto MACHO
+65-0 toto MACHHA
+76-0 toto MAHI
+77-0 toto MOXI
+78-0 toto MAHI

@@ -1,0 +1,13 @@
+42-0 toto KRELUTA
+43-0 toto KSIDLO
+44-0 toto KRIDLO
+45-0 toto KRIDLO
+46-0 toto KRIDLO
+47-0 toto KRIDLO
+48-0 toto KRYLO
+49-0 toto KRYLO
+50-0 toto SKRYDLO
+51-0 toto KRYLO
+52-0 toto KRILO
+53-0 toto KRILO
+54-0 toto KRILO

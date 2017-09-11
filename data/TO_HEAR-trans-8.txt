@@ -1,0 +1,4 @@
+80-0 toto ME-DEGJUAR
+81-0 toto DEGON
+81-1 toto AOR.-DEGOVA
+82-0 toto NDEGJOJ

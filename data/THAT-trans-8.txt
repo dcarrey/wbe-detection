@@ -1,0 +1,4 @@
+05-0 toto AN-DRA-ZE
+05-1 toto KEMENT-SE
+06-0 toto EN-SE
+07-0 toto AN-SE

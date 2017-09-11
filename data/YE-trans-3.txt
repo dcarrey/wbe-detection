@@ -1,0 +1,6 @@
+57-0 toto TOHI
+60-0 toto TUSI
+61-0 toto TUSSA
+74-0 toto TASI
+75-0 toto TUS
+75-1 toto TOSE

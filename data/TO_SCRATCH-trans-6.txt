@@ -1,0 +1,4 @@
+76-0 toto KHARIDAN
+77-0 toto XORIDAN
+78-0 toto KHARAGH
+78-1 toto KHARITH

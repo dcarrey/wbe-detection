@@ -1,0 +1,12 @@
+08-0 toto SE-TEME-DE
+10-0 toto TEMERE
+11-0 toto TMAIR
+12-0 toto TEME
+17-0 toto TIMERE
+18-0 toto TIMERE
+19-0 toto TIMMI
+20-0 toto TEMER
+21-0 toto TEMER
+22-0 toto TEMER
+23-0 toto TEMOREJAR
+23-1 toto TEMER

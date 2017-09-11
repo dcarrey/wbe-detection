@@ -1,0 +1,7 @@
+10-0 toto PESANTE
+11-0 toto PESANT
+17-0 toto PESANTE
+20-0 toto PESADO
+21-0 toto PESADO
+22-0 toto PESADO
+23-0 toto PESANT

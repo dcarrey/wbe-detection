@@ -1,0 +1,9 @@
+03-0 toto BUDR
+17-0 toto BRUTTU
+18-0 toto BRUTTU
+19-0 toto BRUTTU
+23-0 toto BRUT
+46-0 toto BRUDNY
+48-0 toto BRUDNYJ
+49-0 toto BRUDNY
+50-0 toto BRUDNY

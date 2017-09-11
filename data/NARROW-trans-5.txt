@@ -1,0 +1,11 @@
+43-0 toto HUZKI
+44-0 toto WUZKY
+45-0 toto UZKY
+46-0 toto UZKY
+47-0 toto USKO
+48-0 toto VUZ*KYJ
+49-0 toto VUZKI
+49-1 toto VUZKA
+50-0 toto WAZKI
+51-0 toto UZKIJ
+54-0 toto UZAK

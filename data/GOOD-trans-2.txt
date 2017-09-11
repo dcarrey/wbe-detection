@@ -1,0 +1,13 @@
+24-0 toto GUT
+25-0 toto GUUT
+26-0 toto GOED
+27-0 toto GOED
+28-0 toto GOED
+30-0 toto GOD
+31-0 toto GO
+32-0 toto GOD
+33-0 toto GOD
+34-0 toto GOD
+35-0 toto GOOR
+36-0 toto GODUR
+37-0 toto GOOD

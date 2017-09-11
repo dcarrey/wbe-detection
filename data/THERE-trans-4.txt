@@ -1,0 +1,17 @@
+24-0 toto DORT
+26-0 toto DAAR
+26-1 toto ALDAAR
+27-0 toto DAAR
+28-0 toto DAER
+29-0 toto DER
+29-1 toto DERRE
+30-0 toto DAR
+31-0 toto DAR
+32-0 toto DAR
+32-1 toto DARI
+32-2 toto DARVIDLAG
+33-0 toto DER
+34-0 toto DER
+35-0 toto THAR
+37-0 toto THERE
+41-0 toto TUR

@@ -1,0 +1,7 @@
+25-0 toto FECHT
+26-0 toto VECHTEN
+27-0 toto VEG
+28-0 toto VECHTEN
+30-0 toto FAKTA
+37-0 toto FIGHT
+38-0 toto FETI

@@ -1,0 +1,15 @@
+39-0 toto ZALIAS
+40-0 toto ZALIAS
+41-0 toto ZALS
+42-0 toto ZELENO
+43-0 toto ZELENY
+44-0 toto ZELENY
+45-0 toto ZELENY
+47-0 toto ZELENE
+48-0 toto ZELENYJ
+49-0 toto ZJALENY
+50-0 toto ZIELONY
+51-0 toto ZELENYJ
+52-0 toto ZELEN
+53-0 toto ZELENO
+54-0 toto ZELEN

@@ -1,0 +1,13 @@
+08-0 toto UMFLA
+10-0 toto GONFIARE
+11-0 toto IFFLER
+12-0 toto ENFLA
+12-1 toto GOUNFLA
+13-0 toto ENFLER
+14-0 toto INFLER
+15-0 toto AFLE
+16-0 toto AFLE
+17-0 toto UFFRARE
+18-0 toto UNFIARE
+19-0 toto UNFRAI
+23-0 toto INFLAR

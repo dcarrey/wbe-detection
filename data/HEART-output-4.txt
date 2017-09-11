@@ -1,0 +1,35 @@
+66,150.380227,70.000000
+mode=multicheck
+6
+HGT 1 / 6 
+41-0 39-0 40-0 
+71-0 72-0 
+From branch 68--70 to branch 61--56
+RF = 58 , LS = 23.300364 , BD = 51.000000
+HGT 2 / 6 
+54-0 
+52-0 
+From branch 54-0--72 to branch 52-0--73
+RF = 58 , LS = 18.670273 , BD = 52.500000
+HGT 3 / 6 
+14-0 
+11-0 
+From branch 14-0--91 to branch 11-0--86
+RF = 56 , LS = 12.737218 , BD = 50.500000
+HGT 4 / 6 
+23-0 
+12-0 
+From branch 23-0--87 to branch 12-0--92
+RF = 58 , LS = 19.095354 , BD = 51.500000
+HGT 5 / 6 
+33-0 
+34-0 
+From branch 33-0--102 to branch 34-0--104
+RF = 58 , LS = 11.377138 , BD = 51.500000
+HGT 6 / 6 
+37-0 
+29-0 28-0 27-0 26-0 
+From branch 37-0--94 to branch 98--97
+RF = 56 , LS = 42.877191 , BD = 51.000000
+RF = 46 , LS = 6.738533 , BD = 47.000000
+Stat= 6 0

@@ -1,0 +1,14 @@
+24-0 toto WO
+25-0 toto WUU
+26-0 toto WAAR
+27-0 toto WAAR
+27-1 toto WAARHEEN
+28-0 toto WAER
+30-0 toto VAR
+31-0 toto VAS
+32-0 toto VAR
+33-0 toto HVOR
+34-0 toto HVOR
+35-0 toto HVAR
+36-0 toto HVAR
+37-0 toto WHERE

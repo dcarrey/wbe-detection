@@ -1,0 +1,8 @@
+08-0 toto CADEA
+09-0 toto KADU
+10-0 toto CADERE
+11-0 toto CRUDER
+20-0 toto CAER
+21-0 toto CAHIR
+22-0 toto CAIR
+23-0 toto CAURER

@@ -1,0 +1,8 @@
+30-0 toto KARL
+31-0 toto KAR
+32-0 toto KARL
+35-0 toto KARL
+35-1 toto KARLMADR
+35-2 toto MADR
+36-0 toto MADUR
+36-1 toto KALLMADUR

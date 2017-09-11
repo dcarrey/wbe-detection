@@ -1,0 +1,13 @@
+24-0 toto RAUCH
+26-0 toto ROOK
+27-0 toto ROOK
+28-0 toto ROOK
+29-0 toto REEK
+29-1 toto RIIK
+30-0 toto ROK
+31-0 toto ROK
+32-0 toto ROK
+33-0 toto ROG
+34-0 toto ROK
+35-0 toto REYKR
+36-0 toto ROYKUR

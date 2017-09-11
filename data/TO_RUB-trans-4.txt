@@ -1,0 +1,11 @@
+57-0 toto MALUN
+57-1 toto MATHUN
+64-0 toto MALNU
+64-1 toto MARNU
+65-0 toto MICHNU
+65-1 toto MALNU
+76-0 toto MALIDAN
+77-0 toto MOLIDAN
+78-0 toto MALAGH
+78-1 toto MALITHA
+78-2 toto MALTHA

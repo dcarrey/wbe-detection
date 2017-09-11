@@ -1,0 +1,4 @@
+10-0 toto PREMERE
+17-0 toto ISPREMERE
+18-0 toto PREMERE
+19-0 toto SPREMI

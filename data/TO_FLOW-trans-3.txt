@@ -1,0 +1,13 @@
+10-0 toto FLUIRE
+11-0 toto FLUIR
+20-0 toto FLUIR
+24-0 toto FLIESSEN
+30-0 toto FLYTA
+31-0 toto FLYT
+32-0 toto FLYTA
+33-0 toto FLYDE
+37-0 toto FLOW
+41-0 toto PLUST
+42-0 toto PLAVATI
+46-0 toto PLYNUT
+49-0 toto PLYC*

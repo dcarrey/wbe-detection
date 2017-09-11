@@ -1,0 +1,8 @@
+08-0 toto FLUVIU
+10-0 toto FIUME
+11-0 toto FLUM
+18-0 toto FLUMEN
+19-0 toto FLUMINI
+24-0 toto FLUSS
+32-0 toto FLOD
+33-0 toto FLOD

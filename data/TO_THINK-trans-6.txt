@@ -1,0 +1,12 @@
+39-0 toto MISLYTI
+42-0 toto ZAMISLIT
+43-0 toto MYSLIS
+44-0 toto MYSLIC
+45-0 toto MYSLETI
+46-0 toto MYSLET
+47-0 toto MISLET
+48-0 toto MYSLYTY
+50-0 toto MYSLEC
+52-0 toto MISLI
+53-0 toto DA-MISLI
+54-0 toto MISLITI

@@ -1,0 +1,4 @@
+24-0 toto WEIB
+25-0 toto WEIBSMENSCH
+37-0 toto WOMAN
+38-0 toto OEMAN

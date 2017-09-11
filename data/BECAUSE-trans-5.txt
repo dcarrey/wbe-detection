@@ -1,0 +1,5 @@
+39-0 toto TODEL-KAD
+39-1 toto UZTAI-KAD
+40-0 toto TODEL-KAD
+40-1 toto UZ-TAI-KAD
+41-0 toto TAPEC-KA

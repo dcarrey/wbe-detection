@@ -1,0 +1,8 @@
+03-0 toto YMA
+04-0 toto YMA
+05-0 toto AMAN
+05-1 toto DU-MAN
+06-0 toto AMEN
+07-0 toto AMAN
+73-0 toto AM
+79-0 toto YEM

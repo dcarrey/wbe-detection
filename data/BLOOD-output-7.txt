@@ -1,0 +1,22 @@
+8,9.792356,8.500000
+mode=multicheck
+2
+HGT 1 / 2 
+76-0 
+64-0 
+From branch 76-0--9 to branch 64-0--13
+RF = 6 , LS = 7.235280 , BD = 5.000000
+HGT 2 / 2 
+77-0 
+61-0 
+From branch 77-0--9 to branch 61-0--13
+RF = 6 , LS = 11.911062 , BD = 4.000000
+RF = 4 , LS = 3.900837 , BD = 3.000000
+1
+HGT 1 / 1 
+79-1 
+77-0 61-0 
+From branch 79-1--11 to branch 77-0--9
+RF = 0 , LS = 3.093103 , BD = 0.000000
+RF = 0 , LS = 1.851114 , BD = 0.000000
+Stat= 3 0

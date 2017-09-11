@@ -1,0 +1,17 @@
+48-1 toto PRYXODYTY
+49-0 toto PRYXODZIC*
+50-0 toto PRZYCHODZIC
+51-0 toto PRIXODIT
+39-0 toto ATEITI
+40-0 toto ATEITI
+42-0 toto PRTDI
+43-0 toto PSIS
+44-0 toto PRINC
+45-0 toto PRIJITI
+46-0 toto PRIST
+47-0 toto PRIYIT
+48-0 toto PRYJTY
+52-0 toto DOJDE
+52-1 toto PRIJDE
+53-0 toto DA-IDVA
+54-0 toto DOCI

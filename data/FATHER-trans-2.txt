@@ -1,0 +1,14 @@
+03-0 toto TAD
+04-0 toto TAD
+05-0 toto TAD
+06-0 toto TAD
+07-0 toto TAD
+08-0 toto TATA
+09-0 toto TATE
+38-0 toto TATA
+47-0 toto TATA
+52-0 toto TATKO
+56-0 toto TATTA
+83-0 toto TATE
+84-0 toto TATA
+55-0 toto DADE

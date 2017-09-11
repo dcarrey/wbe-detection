@@ -1,0 +1,11 @@
+24-0 toto SCHARF
+25-0 toto SCHARIF
+26-0 toto SCHERP
+27-0 toto SKERP
+28-0 toto SCHERP
+29-0 toto SKERP
+32-0 toto SKARP
+33-0 toto SKARP
+34-0 toto SKARP
+37-0 toto SHARP
+38-0 toto SRAPOE

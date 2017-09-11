@@ -1,0 +1,14 @@
+24-0 toto HUND
+25-0 toto HUUNDT
+26-0 toto HOND
+27-0 toto HOND
+28-0 toto HOND
+29-0 toto HOUN
+30-0 toto HUND
+31-0 toto HUN
+32-0 toto HUND
+33-0 toto HUND
+34-0 toto HUND
+35-0 toto HUNDR
+36-0 toto HUNDUR
+57-0 toto HUNU

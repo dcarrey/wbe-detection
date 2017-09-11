@@ -1,0 +1,5 @@
+10-0 toto ALCUNI
+20-0 toto ALGUNO
+21-0 toto ALGUM
+21-1 toto UM
+22-0 toto ALGUM

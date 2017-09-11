@@ -1,0 +1,8 @@
+65-0 toto NAJIK
+74-0 toto NEZDE
+75-0 toto NEZDE
+76-0 toto NAZDIK
+77-0 toto NAZDIK
+78-0 toto NAZI
+78-1 toto NAZIKH
+79-0 toto NEZD

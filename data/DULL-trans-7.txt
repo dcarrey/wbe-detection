@@ -1,0 +1,4 @@
+30-0 toto SLO
+31-0 toto SLOG
+33-0 toto SLOV
+34-0 toto SLOV

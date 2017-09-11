@@ -1,0 +1,7 @@
+56-0 toto POTTA
+74-0 toto POST
+75-0 toto PATIKAI
+76-0 toto PUST
+77-0 toto PUST
+77-1 toto TAXTAPUST
+79-0 toto DERUXTE-PIST

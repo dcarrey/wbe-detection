@@ -1,0 +1,16 @@
+08-0 toto APA
+09-0 toto APE
+17-0 toto ABBA
+18-0 toto ABBA
+74-0 toto OBE
+75-0 toto EBO
+76-0 toto AB
+77-0 toto OB
+78-0 toto AF
+10-0 toto ACQUA
+12-0 toto AIGO
+19-0 toto AKKUA
+20-0 toto AGUA
+21-0 toto AGUA
+22-0 toto AGUA
+23-0 toto AYGUA

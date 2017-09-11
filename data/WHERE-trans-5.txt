@@ -1,0 +1,7 @@
+08-0 toto UNDE
+12-0 toto OUNTE
+12-1 toto MOUNTE
+19-0 toto AUNDI
+20-0 toto DONDE
+21-0 toto ONDE
+22-0 toto ONDE

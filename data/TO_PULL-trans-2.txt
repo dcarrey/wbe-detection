@@ -1,0 +1,8 @@
+71-0 toto K*ASEL
+72-0 toto KASHEL
+74-0 toto KSEL
+75-0 toto WUKSHEL
+75-1 toto KSHEL
+76-0 toto KASHIDAN
+77-0 toto KASIDAN
+77-1 toto KASOLA-KARDAN

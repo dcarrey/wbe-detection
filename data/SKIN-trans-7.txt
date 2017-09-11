@@ -1,0 +1,6 @@
+30-0 toto SKINN
+31-0 toto SIN
+32-0 toto SKINN
+35-0 toto SKINN
+36-0 toto SKINN
+37-0 toto SKIN

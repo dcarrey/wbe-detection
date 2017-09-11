@@ -1,0 +1,6 @@
+66-0 toto CHORTARI
+67-0 toto CHORTARI
+67-1 toto CHORTO
+68-0 toto KHORTARI
+69-0 toto CHORTO
+69-1 toto CHORTARI

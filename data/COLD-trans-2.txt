@@ -1,0 +1,15 @@
+10-0 toto FREDDO
+11-0 toto FRAID
+12-0 toto FRE
+12-1 toto EJO
+13-0 toto FROID
+14-0 toto FREUD
+15-0 toto FWET
+16-0 toto FWET
+17-0 toto FRITTU
+18-0 toto FRITTU
+19-0 toto FRIRU
+20-0 toto FRIO
+21-0 toto FRIO
+22-0 toto FRIO
+23-0 toto FRET

@@ -1,0 +1,16 @@
+56-0 toto SAMAGA
+57-0 toto SUTY
+57-1 toto SAN
+59-0 toto SATHE
+62-0 toto SATH
+63-0 toto SATH
+63-1 toto SONGE
+64-0 toto SANA
+64-1 toto SAMET
+64-2 toto SATH
+65-0 toto SITA
+65-1 toto SANG
+74-0 toto DE-SERA
+75-0 toto SARA
+75-1 toto DE-SARA
+75-2 toto PA-SARA

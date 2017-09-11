@@ -1,0 +1,6 @@
+02-0 toto AIGHE
+19-0 toto AKKUCCU
+20-0 toto AGUDO
+21-0 toto AFIADO
+22-0 toto AFIADO
+22-1 toto AGUCADO

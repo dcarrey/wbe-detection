@@ -1,0 +1,17 @@
+39-0 toto ZEME
+40-0 toto ZEME
+41-0 toto ZEME
+42-0 toto ZEMLA
+43-0 toto ZEMJA
+44-0 toto ZEMJA
+46-0 toto ZEM
+47-0 toto ZEM
+48-0 toto ZEMLJA
+50-0 toto ZIEMIA
+51-0 toto ZEMLJA
+52-0 toto ZEMJA
+54-0 toto ZEMLJA
+57-0 toto ZAMIN
+61-0 toto ZEMIN
+76-0 toto ZAMIN
+77-0 toto ZAMIN

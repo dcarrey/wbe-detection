@@ -1,0 +1,4 @@
+45-0 toto ZPATKY
+45-1 toto NAZPET
+45-2 toto ZPET
+46-0 toto NAZPAT

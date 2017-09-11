@@ -1,0 +1,12 @@
+08-0 toto SOARE
+09-0 toto SWARE
+57-0 toto SURE
+58-0 toto SURYYE
+59-0 toto SURDJ
+60-0 toto SUREJ
+61-0 toto SUREJ
+62-0 toto SUREJ
+63-0 toto SUJJO
+63-1 toto SURJO
+64-0 toto SURJE
+65-0 toto SURJ

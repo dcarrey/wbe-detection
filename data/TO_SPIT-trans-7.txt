@@ -1,0 +1,13 @@
+42-0 toto PLUNI
+43-0 toto PLUWAS
+44-0 toto PLUWAC
+45-0 toto PLIVATI
+46-0 toto PL-UT
+47-0 toto PLUT
+48-0 toto PLJUVATY
+49-0 toto PLERAC*
+50-0 toto PLUC
+51-0 toto PLEVAT
+52-0 toto PLUE
+53-0 toto DA-PLJUE
+54-0 toto PLJUVATI

@@ -1,0 +1,11 @@
+36-0 toto TEIR
+39-0 toto JIE
+40-0 toto JIE
+40-1 toto JOS
+24-0 toto SIE
+25-0 toto SIE
+26-0 toto ZIJ
+28-0 toto ZY
+29-0 toto SE
+35-0 toto THEIR
+37-0 toto THEY

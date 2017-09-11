@@ -1,0 +1,6 @@
+80-0 toto ME-THENE
+81-0 toto THEM
+81-1 toto AOR.-THASE
+82-0 toto THOM
+83-0 toto THOM
+84-0 toto THOM

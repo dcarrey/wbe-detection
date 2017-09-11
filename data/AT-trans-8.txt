@@ -1,0 +1,11 @@
+60-0 toto PER
+62-0 toto PER
+75-0 toto PERI
+40-0 toto PRIE
+41-0 toto PIE
+44-0 toto PRI
+45-0 toto PRI
+46-0 toto PRI
+47-0 toto PRI
+48-0 toto PRY
+49-0 toto PRY

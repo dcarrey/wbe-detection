@@ -1,0 +1,6 @@
+26-0 toto STAART
+27-0 toto STERT
+28-0 toto STEERT
+29-0 toto STIRT
+30-0 toto STJART
+32-0 toto STJART

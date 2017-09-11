@@ -1,0 +1,4 @@
+43-0 toto PSETO
+44-0 toto PRETOZ
+45-0 toto PROTOZE
+47-0 toto PROTO

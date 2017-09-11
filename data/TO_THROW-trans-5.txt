@@ -1,0 +1,13 @@
+11-0 toto BUTTER
+11-1 toto PATTER
+18-0 toto BETTARE
+21-0 toto BOTAR
+22-0 toto BOTAR
+10-0 toto GETTARE
+12-0 toto JITA
+13-0 toto JETER
+14-0 toto DJETER
+15-0 toto ZETE
+17-0 toto GETTARE
+19-0 toto GETTAI
+20-0 toto ECHAR

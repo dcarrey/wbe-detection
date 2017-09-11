@@ -1,0 +1,5 @@
+24-0 toto GATTIN
+27-0 toto EGGENOTE
+27-1 toto GADE
+28-0 toto ECHTGENOOTE
+30-0 toto GUMMA

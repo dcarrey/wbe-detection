@@ -1,0 +1,6 @@
+66-0 toto FTEROUGA
+67-0 toto FTERO
+67-1 toto FTEROUGA
+68-0 toto FTERUGHA
+69-0 toto FTERO
+70-0 toto PTERON

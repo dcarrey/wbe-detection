@@ -1,0 +1,10 @@
+08-0 toto FEMEIE
+11-0 toto FEMNA
+12-0 toto FEMO
+13-0 toto FEMME
+14-0 toto FEUME
+15-0 toto FAM
+16-0 toto FAM
+17-0 toto EMINA
+18-0 toto FEMINA
+19-0 toto FEMMINA

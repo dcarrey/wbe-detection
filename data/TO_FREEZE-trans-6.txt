@@ -1,0 +1,13 @@
+24-0 toto FRIEREN
+26-0 toto VRIEZEN
+27-0 toto VRIES
+28-0 toto BEVRIEZEN
+29-0 toto FRIEZE
+30-0 toto FRYSA
+31-0 toto FRYS
+32-0 toto FRYSA
+33-0 toto FRYSE
+34-0 toto FRYSE
+35-0 toto FRJOSA
+36-0 toto FRYSTA
+37-0 toto FREEZE

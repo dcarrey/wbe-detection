@@ -1,0 +1,4 @@
+24-0 toto FURCHTEN
+31-0 toto FRUKT
+32-0 toto FARHAGA
+33-0 toto FRYGTE

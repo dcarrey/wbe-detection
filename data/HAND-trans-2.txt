@@ -1,0 +1,16 @@
+24-0 toto HAND
+25-0 toto HONNDT
+26-0 toto HAND
+27-0 toto HAND
+28-0 toto HAND
+29-0 toto HAN
+30-0 toto HAND
+31-0 toto HAN
+32-0 toto HAND
+33-0 toto HAAND
+34-0 toto HAND
+35-0 toto HOND
+36-0 toto HOND
+37-0 toto HAND
+38-0 toto HAN
+38-1 toto HANOE

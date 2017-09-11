@@ -1,0 +1,9 @@
+24-0 toto FRAU
+25-0 toto FRAW
+26-0 toto HUISVROUW
+26-1 toto VROUW
+27-0 toto VROU
+28-0 toto VROUW
+29-0 toto FROU
+30-0 toto HUSTRU
+32-0 toto HUSTRU

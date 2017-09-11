@@ -1,0 +1,10 @@
+42-0 toto PAS
+43-0 toto PJAS
+44-0 toto POS
+45-0 toto PES
+46-0 toto PES
+47-0 toto PES
+48-0 toto PES
+50-0 toto PIES
+52-0 toto PCISTE
+54-0 toto PAS

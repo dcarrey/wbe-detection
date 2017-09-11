@@ -1,0 +1,14 @@
+09-0 toto SOSTO
+66-0 toto SOSTOS
+67-0 toto SOSTOS
+68-0 toto SOSTOS
+69-0 toto SOSTO
+10-0 toto GIUSTO
+12-0 toto JUST
+12-1 toto USTO
+13-0 toto JUSTE
+14-0 toto DJUSSE
+17-0 toto JUSTU
+18-0 toto JUSTU
+19-0 toto GUSTU
+23-0 toto JUST

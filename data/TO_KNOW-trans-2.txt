@@ -1,0 +1,15 @@
+26-0 toto WETEN
+27-0 toto WEET
+28-0 toto WETEN
+29-0 toto WITTEN
+30-0 toto VETA
+31-0 toto VETA
+32-0 toto VETA
+33-0 toto VIDE
+34-0 toto VITE
+35-0 toto VITA
+36-0 toto VITA
+45-0 toto VEDETI
+46-0 toto VEDIET
+47-0 toto VEDET
+49-0 toto VEDAC*

@@ -1,0 +1,6 @@
+58-0 toto KESA
+60-0 toto KIS-TERA
+62-0 toto KESA
+64-0 toto KASO
+65-0 toto KASTO
+65-1 toto KASTARI

@@ -1,0 +1,9 @@
+01-0 toto RITH
+05-0 toto REDEK
+06-0 toto RIDEK
+07-0 toto REDEK
+80-0 toto ME-RJEDHUR
+81-0 toto RIETH
+81-1 toto AOR.-RODHA
+82-0 toto RRJEDH
+83-0 toto RETH

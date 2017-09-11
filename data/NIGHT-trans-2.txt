@@ -1,0 +1,14 @@
+55-0 toto RAKI
+55-1 toto RAT
+56-0 toto RA
+57-0 toto RATH
+58-0 toto RATRE
+59-0 toto RAT
+59-1 toto RATU
+60-0 toto RAT
+60-1 toto RAT
+61-0 toto RAT
+62-0 toto RAT
+63-0 toto RAT
+64-0 toto RAT
+65-0 toto RAT

@@ -1,0 +1,7 @@
+39-0 toto TAUKAI
+40-0 toto TAUKAI
+41-0 toto TAUKS
+41-1 toto TREKNS
+43-0 toto TUK
+44-0 toto TUK
+49-0 toto TUK

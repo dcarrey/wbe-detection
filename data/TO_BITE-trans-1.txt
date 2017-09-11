@@ -1,0 +1,16 @@
+24-0 toto BEISSEN
+25-0 toto BEISZ
+26-0 toto BIJTEN
+27-0 toto BYT
+28-0 toto BYTEN
+29-0 toto BITE
+30-0 toto BITA
+31-0 toto BIT
+32-0 toto BITA
+32-1 toto BITA-I
+33-0 toto BIDE
+34-0 toto BITE
+35-0 toto BITA
+36-0 toto BITA
+37-0 toto BITE
+38-0 toto BETI

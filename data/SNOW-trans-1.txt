@@ -1,0 +1,16 @@
+63-0 toto BOROP
+80-0 toto DHBORE
+81-0 toto TEBORE
+82-0 toto BORA
+83-0 toto BORE
+84-0 toto ZBOR
+59-0 toto BEREF
+60-0 toto BEREPH
+61-0 toto BERF
+61-1 toto BERREF
+62-0 toto BERPH
+74-0 toto VAVRA
+75-0 toto WOVRA
+76-0 toto BARF
+77-0 toto BARF
+78-0 toto BAWAR

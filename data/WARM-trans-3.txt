@@ -1,0 +1,13 @@
+43-0 toto SOPLY
+44-0 toto COPLY
+45-0 toto TEPLY
+46-0 toto TEPLY
+47-0 toto TEPLE
+48-0 toto TEPLYJ
+49-0 toto CEPLY
+50-0 toto CIEPLY
+51-0 toto TEPLYJ
+52-0 toto TOPLI
+52-1 toto TOPUL
+53-0 toto TOPLO
+54-0 toto TOPLO

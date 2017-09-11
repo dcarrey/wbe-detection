@@ -1,0 +1,15 @@
+10-0 toto LISCIO
+11-0 toto GLISCH
+13-0 toto LISSE
+14-0 toto LISSE
+15-0 toto LIS
+16-0 toto LIS
+18-0 toto LISU
+19-0 toto LISU
+20-0 toto LISO
+21-0 toto LISO
+22-0 toto LISO
+23-0 toto LLIS
+70-0 toto LEIOS
+73-0 toto LAEG*Z
+84-0 toto LISU

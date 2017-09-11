@@ -1,0 +1,15 @@
+60-0 toto PERE
+71-0 toto HERU
+72-0 toto HERU
+83-0 toto PARE
+26-0 toto VER
+27-0 toto VER
+28-0 toto VER
+29-0 toto FIER
+30-0 toto FJARRAN
+32-0 toto FJARRAN
+33-0 toto FJERN
+37-0 toto FAR
+38-0 toto FARAWEI
+38-1 toto FARA
+70-0 toto PORRO

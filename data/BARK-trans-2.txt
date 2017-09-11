@@ -1,0 +1,11 @@
+30-0 toto BARK
+31-0 toto BARK
+32-0 toto BARK
+32-1 toto GARVARBARK
+33-0 toto BARK
+34-0 toto BARK
+35-0 toto BORKUR
+36-0 toto BORKUR
+37-0 toto BARK
+64-0 toto BOKRO
+65-0 toto BOKRA

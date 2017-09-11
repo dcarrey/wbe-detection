@@ -1,0 +1,11 @@
+73-0 toto DUR
+03-0 toto CARREG
+04-0 toto CARREG
+71-0 toto K*AR
+72-0 toto KAR
+79-0 toto GHAR
+80-0 toto GUR
+81-0 toto GUR
+82-0 toto GURI
+83-0 toto GUUR
+84-0 toto GUR

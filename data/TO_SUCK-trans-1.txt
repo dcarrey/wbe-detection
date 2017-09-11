@@ -1,0 +1,7 @@
+59-0 toto CUSWU
+60-0 toto CUSNA
+61-0 toto CHUSEN
+62-0 toto CUSNA
+63-0 toto CHOSA
+64-0 toto CUSNU
+65-0 toto CHUSNU

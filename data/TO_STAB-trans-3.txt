@@ -1,0 +1,5 @@
+43-0 toto KLOJS
+44-0 toto KLOC
+48-0 toto KOLOTY
+50-0 toto KLUC
+51-0 toto ZAKALYVAT

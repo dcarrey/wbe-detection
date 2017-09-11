@@ -1,0 +1,13 @@
+10-1 toto PELO
+12-1 toto PEU
+17-0 toto PILU
+18-0 toto PILU
+19-0 toto PILU
+20-1 toto PELO
+23-1 toto PEL
+10-0 toto CAPELLO
+12-0 toto CABEU
+20-0 toto CABELLO
+21-0 toto CABELLO
+22-0 toto CABELO
+23-0 toto CABELLO

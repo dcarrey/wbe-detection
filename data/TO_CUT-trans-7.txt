@@ -1,0 +1,15 @@
+40-0 toto RIEKTI
+41-0 toto GRIEZT
+42-0 toto REZAT
+43-0 toto REZAS
+44-0 toto REZAC
+45-0 toto REZATI
+46-0 toto REZAT
+47-0 toto REZAT
+48-0 toto RIZATY
+49-0 toto REZAC*
+51-0 toto REZAT
+52-0 toto PO-REZE
+52-1 toto REZE
+53-0 toto DA-REZE
+79-0 toto RESED

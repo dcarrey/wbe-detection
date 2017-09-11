@@ -1,0 +1,6 @@
+08-0 toto STA-CULCAT
+12-0 toto COUCHA
+13-0 toto SE-COUCHER
+14-0 toto SI-COUKI
+15-0 toto KUSE
+16-0 toto KUSE

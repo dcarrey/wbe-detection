@@ -1,0 +1,14 @@
+10-0 toto GELARE
+11-0 toto DSCHLER
+12-0 toto GELA
+12-1 toto JALA
+13-0 toto GELER
+14-0 toto DJALER
+15-0 toto ZELE
+16-0 toto ZELE
+18-0 toto GHELARE
+19-0 toto GELAI
+20-0 toto HELAR
+21-0 toto GELAR
+22-0 toto GELAR
+23-0 toto GELAR

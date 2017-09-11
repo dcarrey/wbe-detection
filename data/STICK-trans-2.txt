@@ -1,0 +1,14 @@
+03-0 toto PASTWN
+02-0 toto BATA
+05-0 toto BAZ
+06-0 toto BAH
+07-0 toto BAZH
+08-0 toto BAT
+10-0 toto BASTONE
+11-0 toto BASTUN
+12-0 toto BASTOUN
+13-0 toto BATON
+14-0 toto BASTON
+15-0 toto BATO
+18-0 toto BASTONE
+19-0 toto BASTONI

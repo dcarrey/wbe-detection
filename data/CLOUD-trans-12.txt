@@ -1,0 +1,7 @@
+42-0 toto OBLAK
+45-0 toto OBLAK
+46-0 toto OBLAK
+47-0 toto OBLOHA
+52-0 toto OBLAK
+53-0 toto OBLAK
+54-0 toto OBLAK

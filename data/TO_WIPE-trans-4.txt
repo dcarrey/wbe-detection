@@ -1,0 +1,8 @@
+05-0 toto TORCHA
+30-0 toto TORKA
+31-0 toto TORK
+32-0 toto TORKA
+33-0 toto TORRE
+34-0 toto TORKE
+35-0 toto THURRKA
+36-0 toto TURKA

@@ -1,0 +1,5 @@
+58-0 toto PUSNE.
+60-0 toto PUJNA
+63-0 toto POCHA
+64-0 toto PUCHNU
+65-0 toto POCHHNU

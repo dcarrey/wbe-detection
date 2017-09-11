@@ -1,0 +1,4 @@
+74-0 toto TORA-URIADZ
+74-1 toto XERA-URIADZ
+75-0 toto WERYEZ
+79-0 toto WETIS

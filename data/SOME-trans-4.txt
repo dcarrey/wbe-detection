@@ -1,0 +1,13 @@
+58-0 toto KAHI
+60-0 toto KUS
+61-0 toto KUJH
+62-0 toto KUCH
+62-1 toto KOI
+62-2 toto KEI
+63-0 toto KICU
+64-0 toto KOI
+65-0 toto KOI
+74-0 toto CO
+81-0 toto CA
+83-0 toto CA
+84-0 toto CA

@@ -1,0 +1,10 @@
+08-0 toto FICAT
+10-0 toto FEGATO
+12-0 toto FEGE
+14-0 toto FEUTE
+19-0 toto FIGAU
+20-0 toto HIGADO
+21-0 toto FIGADO
+22-0 toto FIGADO
+23-0 toto FETGE
+84-0 toto U-FIGHATU

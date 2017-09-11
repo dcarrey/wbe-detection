@@ -1,0 +1,17 @@
+08-0 toto VIRA
+12-0 toto VIRA
+12-1 toto VIROUIA
+15-0 toto VUHWE
+16-0 toto VIWE
+21-0 toto VIRAR
+22-0 toto VIRAR
+11-0 toto VERDSCHER
+41-0 toto PAVERST
+43-0 toto WERSES
+44-0 toto WJERCEC
+49-0 toto PAVORACYVAC*
+50-0 toto ZAWRACAC
+51-0 toto POVORACIVAT
+52-0 toto VRTI
+52-1 toto ZAVRTI
+53-0 toto DA-SE-VERTI

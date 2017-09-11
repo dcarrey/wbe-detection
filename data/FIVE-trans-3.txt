@@ -1,0 +1,14 @@
+08-0 toto CINCI
+09-0 toto CINJE
+10-0 toto CINQUE
+11-0 toto TSCHINCH
+12-0 toto CINQ
+13-0 toto CINQ
+14-0 toto CINQ*
+15-0 toto SEK
+16-0 toto SEK
+19-0 toto CINKU
+20-0 toto CINCO
+21-0 toto CINCO
+22-0 toto CINCO
+23-0 toto CINCH

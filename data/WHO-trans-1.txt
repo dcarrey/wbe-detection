@@ -1,0 +1,13 @@
+42-0 toto KEDU
+43-0 toto CHTO
+45-0 toto KDO
+46-0 toto KTO
+47-0 toto GDO
+48-0 toto XTO
+49-0 toto XTO
+50-0 toto KTO
+51-0 toto KTO
+52-0 toto KOJ
+52-1 toto KOJSTO
+53-0 toto KOJ
+54-0 toto TKO

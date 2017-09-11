@@ -1,0 +1,16 @@
+01-0 toto AGUS
+02-0 toto AGUS
+03-0 toto A
+04-0 toto A
+05-0 toto HA
+05-1 toto HAG
+06-0 toto HA
+06-1 toto HAG
+07-0 toto HA
+07-1 toto HAG
+30-0 toto OCH
+32-0 toto OCH
+33-0 toto OG
+34-0 toto OG
+35-0 toto OG
+36-0 toto OG

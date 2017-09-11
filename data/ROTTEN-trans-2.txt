@@ -1,0 +1,13 @@
+43-0 toto GNILY
+44-0 toto HNILY
+45-0 toto SHNILY
+46-0 toto ZHNITY
+47-0 toto HNYILE
+48-0 toto HNYLYJ
+49-0 toto HNILY
+50-0 toto ZGNILY
+51-0 toto GNILOJ
+52-0 toto IZGNIEN
+52-1 toto GNILI
+53-0 toto GNILO
+54-0 toto GNJIO

@@ -1,0 +1,13 @@
+08-0 toto PUTRED
+09-0 toto PRUDITU
+11-0 toto PUTIRD
+12-0 toto POURRI
+13-0 toto POURRI
+14-0 toto POURI
+15-0 toto PUHWI
+16-0 toto PUWI
+20-0 toto PODRIDO
+21-0 toto PODRE
+22-0 toto PODRE
+23-0 toto PUDRIT
+38-0 toto PORI

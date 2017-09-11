@@ -1,0 +1,15 @@
+39-0 toto KRAUJAS
+40-0 toto KRAUJAS
+42-0 toto KRI
+43-0 toto KSEJ
+44-0 toto KREJ
+45-0 toto KREV
+46-0 toto KRV
+47-0 toto KREF
+48-0 toto KROV
+49-0 toto KROW
+50-0 toto KREW
+51-0 toto KROV
+52-0 toto KRV
+53-0 toto KREV
+54-0 toto KRV

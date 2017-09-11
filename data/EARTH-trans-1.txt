@@ -1,0 +1,12 @@
+24-0 toto ERDE
+25-0 toto AIIRD
+26-0 toto AARDE
+27-0 toto AARDE
+28-0 toto AERDE
+29-0 toto IERDE
+30-0 toto JORD
+31-0 toto JOL
+32-0 toto JORD
+33-0 toto JORD
+34-0 toto JORD
+37-0 toto EARTH

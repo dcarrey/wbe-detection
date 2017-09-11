@@ -1,0 +1,14 @@
+42-0 toto DOBRO
+43-0 toto DOBRY
+44-0 toto DOBRY
+45-0 toto DOBRY
+46-0 toto DOBRY
+47-0 toto DOBRE
+48-0 toto DOBRYJ
+49-0 toto DOBRY
+49-1 toto DOBRA
+50-0 toto DOBRY
+52-0 toto DOBAR
+52-1 toto DOBRO
+53-0 toto DOBRO
+54-0 toto DOBAR

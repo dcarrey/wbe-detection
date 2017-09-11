@@ -1,0 +1,7 @@
+66-0 toto AUTOS
+67-0 toto AUTOS
+67-1 toto TOU
+68-0 toto AFTOS
+68-1 toto TOS
+69-0 toto AUTOS
+70-0 toto OUTOS

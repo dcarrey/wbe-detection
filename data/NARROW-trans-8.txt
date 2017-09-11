@@ -1,0 +1,10 @@
+55-0 toto TANK
+57-0 toto TANG
+60-0 toto TENG
+61-0 toto TEG
+62-0 toto TENG
+74-0 toto TANG
+75-0 toto TANG
+77-0 toto TANG
+78-0 toto TANKH
+79-0 toto TUNG

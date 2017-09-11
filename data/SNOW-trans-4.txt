@@ -1,0 +1,12 @@
+66-0 toto CHIONI
+67-0 toto CHIONI
+68-0 toto CHYONI
+69-0 toto CHIONI
+70-0 toto CHION
+56-0 toto HIMA
+57-0 toto SHIN
+58-0 toto HIME
+64-0 toto HIU
+65-0 toto HIUN
+71-0 toto JYUN
+72-0 toto SZUN

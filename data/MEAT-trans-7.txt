@@ -1,0 +1,10 @@
+08-0 toto CARNE
+09-0 toto KARNE
+10-0 toto CARNE
+11-0 toto CHARN
+12-0 toto CAR
+14-0 toto TCHAR
+20-0 toto CARNE
+21-0 toto CARNE
+22-0 toto CARNE
+23-0 toto CARN

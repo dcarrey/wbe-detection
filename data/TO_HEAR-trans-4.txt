@@ -1,0 +1,6 @@
+03-0 toto CLYWED
+04-0 toto CLYWED
+05-0 toto KLEVOUT
+05-1 toto KLEVET
+06-0 toto KLEUEIN
+07-0 toto KLEVOUT

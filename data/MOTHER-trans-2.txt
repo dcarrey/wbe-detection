@@ -1,0 +1,13 @@
+12-0 toto MAIRE
+13-0 toto MERE
+14-0 toto MERE
+23-0 toto MARE
+30-0 toto MOR
+31-0 toto MOR
+34-0 toto MOR
+35-0 toto MOOIR
+71-0 toto MAYR
+72-0 toto MIRE
+74-0 toto MOR
+75-0 toto MOR
+75-1 toto MER
