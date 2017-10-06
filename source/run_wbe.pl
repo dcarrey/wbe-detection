@@ -135,7 +135,7 @@ sub exit_program{
 sub execute_hgt{
     my ($cmd) = @_;
     my $retour = 0;
-    print STDOUT "\n$cmd";
+    #print STDOUT "\n$cmd";
     system($cmd);
 }
 
