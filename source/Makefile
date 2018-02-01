@@ -14,6 +14,8 @@ scripts:
 	cp PostTraitement.pm $(EXECDIR)
 	cp ../examples/* $(EXECDIR)
 	cp simulation.py $(EXECDIR)
+	cp heatmap.gp $(EXECDIR)
+
 
 clean:
 	@echo  "\n=> Cleaning executable and object files"

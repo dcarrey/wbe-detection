@@ -116,6 +116,7 @@ def parcourir(path, c1=1505, c2=1.5, blk=20):
                 os.system("echo \"=> "+ current_word +"\" >> all_hgt.txt")
             print (file)
             createFichier(path,file)
+            shutil.copy('input.txt', file.replace("txt"))
             os.system(cmd)
             if os.path.isfile("output.txt"):
                 os.system("echo \"1 cognat\" >> all_hgt.txt")
