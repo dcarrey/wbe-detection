@@ -106,7 +106,8 @@ def parcourir(path, c1=1505, c2=1.5, blk=20):
     cmd = "perl run_wbe.pl -inputfile=input.txt -c1=" + str(c1) + " -c2=" + str(c2) + " -blk=" + str(blk)
     dirs = os.listdir(path)
     prog = re.compile(".*-input-[0-9]+.txt$")
-    os.remove("all_hgt.txt")
+    if os.path.isfile("all_hgt.txt"):
+        os.remove("all_hgt.txt")
 
     for file in sorted(dirs):
     	result = prog.match(file)
@@ -126,7 +127,7 @@ for c2 in range( 15, 16, 5):
     for c1 in range(1505, 1600, 500):
         for blk in range(20, 21, 1):
             blk = float(blk) / 100.0
-            #parcourir("../data/",c1,c2,blk)
+            parcourir("../data/",c1,c2,blk)
             CompileAndSave(c1,c2,blk)
 
 
