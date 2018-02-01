@@ -11,7 +11,8 @@ Word Borrowing Events detection
 
 
 ###Command example
-run_wbe.pl -languesfile=langues.new -wordsfile=words.new -translationsfile=translations.txt
+Add words.new and translations.txt on the folder
+run_wbe.pl -languesfile=../examples/langues.new -wordsfile=words.new -translationsfile=translations.txt
 
 ###Description
 
